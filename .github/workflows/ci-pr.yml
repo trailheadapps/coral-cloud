@@ -11,7 +11,7 @@ on:
 jobs:
     # Formatting and linting
     format-lint-lwc-tests:
-        runs-on: salesforce-developers-emu-Ubuntu
+        runs-on: trailheadapps-Ubuntu
         steps:
             # Checkout the source code
             - name: 'Checkout source code'
