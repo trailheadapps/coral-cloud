@@ -1,6 +1,6 @@
 # Coral Cloud Resorts
 
-[![CI](https://github.com/salesforce-developers-emu/coral-cloud/actions/workflows/ci.yml/badge.svg)](https://github.com/salesforce-developers-emu/coral-cloud/actions/workflows/ci.yml)
+[![CI](https://github.com/trailheadapps/coral-cloud/actions/workflows/ci.yml/badge.svg)](https://github.com/trailheadapps/coral-cloud/actions/workflows/ci.yml)
 
 ![App logo](docs/gfx/app-logo.png)
 
