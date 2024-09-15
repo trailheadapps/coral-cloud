@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Advertising</fullName>
+        <default>false</default>
+        <label>Advertising</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Website</fullName>
+        <default>false</default>
+        <label>Website</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Word of Mouth</fullName>
+        <default>false</default>
+        <label>Word of Mouth</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Social Media</fullName>
+        <default>false</default>
+        <label>Social Media</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Referral</fullName>
+        <default>false</default>
+        <label>Referral</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Travel Agency</fullName>
+        <default>false</default>
+        <label>Travel Agency</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Online Travel Agent</fullName>
+        <default>false</default>
+        <label>Online Travel Agent</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Event and Trade Show</fullName>
+        <default>false</default>
+        <label>Event and Trade Show</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Walk-in</fullName>
+        <default>false</default>
+        <label>Walk-in</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Direct Mail</fullName>
+        <default>false</default>
+        <label>Direct Mail</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Partnerships</fullName>
+        <default>false</default>
+        <label>Partnerships</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Corporate Booking</fullName>
+        <default>false</default>
+        <label>Corporate Booking</label>
+    </standardValue>
+</StandardValueSet>

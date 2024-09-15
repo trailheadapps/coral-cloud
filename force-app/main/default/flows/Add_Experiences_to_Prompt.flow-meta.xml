@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <assignments>
+        <description
+        >Add each experience matching guest&apos;s interests to the prompt</description>
+        <name>Add_Experience_to_Prompt</name>
+        <elementSubtype>AddPromptInstructions</elementSubtype>
+        <label>Add Experience to Prompt</label>
+        <locationX>264</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>$Output.Prompt</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>{!Experiences_Loop.Name}
+</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Experiences_Loop</targetReference>
+        </connector>
+    </assignments>
+    <description
+    >Add experiences that match the guest&apos;s interests to the prompt</description>
+    <environments>Default</environments>
+    <interviewLabel
+    >Add Experiences to Prompt {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Add Experiences to Prompt</label>
+    <loops>
+        <description>Loop through experiences</description>
+        <name>Experiences_Loop</name>
+        <label>Experiences Loop</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <collectionReference>Get_Experiences</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Add_Experience_to_Prompt</targetReference>
+        </nextValueConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>PromptFlow</processType>
+    <recordLookups>
+        <description
+        >Get a list of resort experiences that match the guest&apos;s interests</description>
+        <name>Get_Experiences</name>
+        <label>Get Experiences</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound
+        >false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Experiences_Loop</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference
+                >$Input.Recipient.Interest1__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference
+                >$Input.Recipient.Interest2__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference
+                >$Input.Recipient.Interest3__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Experience__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <capabilityTypes>
+            <name>PromptTemplateType://einstein_gpt__salesEmail</name>
+            <capabilityName
+            >PromptTemplateType://einstein_gpt__salesEmail</capabilityName>
+            <inputs>
+                <name>Sender</name>
+                <capabilityInputName>Sender</capabilityInputName>
+                <dataType>SOBJECT://User</dataType>
+                <isCollection>false</isCollection>
+            </inputs>
+            <inputs>
+                <name>Recipient</name>
+                <capabilityInputName>Recipient</capabilityInputName>
+                <dataType>SOBJECT://Contact</dataType>
+                <isCollection>false</isCollection>
+            </inputs>
+        </capabilityTypes>
+        <connector>
+            <targetReference>Get_Experiences</targetReference>
+        </connector>
+        <triggerType>Capability</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

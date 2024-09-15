@@ -1,0 +1,868 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef1"
+            },
+            "Name": "Historical Landmarks Tour",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 25,
+            "Default_Start_Time__c": "09:00:00.000Z",
+            "Description__c": "Journey through time as you visit historical landmarks and learn about the local heritage.",
+            "Duration_Hours__c": 1,
+            "Location__c": "Historical Sites",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sgxvz18thlsctwwqafec.jpg",
+            "Price__c": 55,
+            "Type__c": "Cultural Tours & Workshops"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef2"
+            },
+            "Name": "Artisan Workshop Series",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 45,
+            "Default_Start_Time__c": "16:30:00.000Z",
+            "Description__c": "Create your own masterpiece in workshops led by local artisans, from pottery to painting.",
+            "Duration_Hours__c": 1,
+            "Location__c": "Local Artisan Shops",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 75,
+            "Type__c": "Cultural Tours & Workshops"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef3"
+            },
+            "Name": "Culinary Heritage Experience",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 30,
+            "Default_Start_Time__c": "17:30:00.000Z",
+            "Description__c": "Savor the flavors of the region with a culinary tour highlighting traditional dishes and ingredients.",
+            "Duration_Hours__c": 1,
+            "Location__c": "Local Eateries",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 199,
+            "Type__c": "Cultural Tours & Workshops"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef4"
+            },
+            "Name": "Local Music and Dance",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 20,
+            "Default_Start_Time__c": "19:00:00.000Z",
+            "Description__c": "Immerse yourself in the local culture with a night of traditional music and dance performances.",
+            "Duration_Hours__c": 1,
+            "Location__c": "Cultural Venues",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 150,
+            "Type__c": "Cultural Tours & Workshops"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef5"
+            },
+            "Name": "Crafting Traditional Garments",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 55,
+            "Default_Start_Time__c": "16:00:00.000Z",
+            "Description__c": "Learn the art of crafting traditional garments with the guidance of skilled tailors.",
+            "Duration_Hours__c": 1,
+            "Location__c": "Workshop Locations",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 199,
+            "Type__c": "Cultural Tours & Workshops"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef6"
+            },
+            "Name": "Seaside Gourmet Dinner",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 25,
+            "Default_Start_Time__c": "23:00:00.000Z",
+            "Description__c": "An exclusive dinner featuring a multi-course menu prepared by our renowned chef, served on our private beach.",
+            "Duration_Hours__c": 3,
+            "Location__c": "Private Beach",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 55,
+            "Type__c": "Dining Experiences"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef7"
+            },
+            "Name": "Chef's Table Culinary Journey",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 45,
+            "Default_Start_Time__c": "18:00:00.000Z",
+            "Description__c": "Join our head chef for a culinary adventure as you taste innovative dishes made from locally-sourced ingredients.",
+            "Duration_Hours__c": 2.5,
+            "Location__c": "Resort Kitchen",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 250,
+            "Type__c": "Dining Experiences"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef8"
+            },
+            "Name": "Vineyard Wine Tasting Tour",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 30,
+            "Default_Start_Time__c": "17:00:00.000Z",
+            "Description__c": "Sample a selection of our finest wines paired with artisan cheeses as you tour our scenic vineyard.",
+            "Duration_Hours__c": 1,
+            "Location__c": "Resort Vineyard",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 150,
+            "Type__c": "Dining Experiences"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef9"
+            },
+            "Name": "Sunset Cocktail Workshop",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 20,
+            "Default_Start_Time__c": "20:30:00.000Z",
+            "Description__c": "Learn how to mix the perfect cocktail with our expert mixologists as the sun dips below the horizon.",
+            "Duration_Hours__c": 2,
+            "Location__c": "Beachside Bar",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 45,
+            "Type__c": "Dining Experiences"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef10"
+            },
+            "Name": "Farm-to-Table Cooking Class",
+            "Activity_Level__c": "Medium",
+            "Capacity__c": 55,
+            "Default_Start_Time__c": "15:00:00.000Z",
+            "Description__c": "Take part in a cooking class where you&#39;ll harvest fresh ingredients from our organic garden and learn to cook a delicious meal.",
+            "Duration_Hours__c": 3,
+            "Location__c": "Organic Garden",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 25,
+            "Type__c": "Dining Experiences"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef11"
+            },
+            "Name": "Family Adventure Quest",
+            "Activity_Level__c": "Medium",
+            "Capacity__c": 25,
+            "Default_Start_Time__c": "16:00:00.000Z",
+            "Description__c": "Embark on a fun-filled scavenger hunt around the resort, solving puzzles and challenges as a family.",
+            "Duration_Hours__c": 1,
+            "Location__c": "Resort Grounds",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 149,
+            "Type__c": "Family & Kids' Activities"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef12"
+            },
+            "Name": "Kids' Marine Discovery",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 45,
+            "Default_Start_Time__c": "14:00:00.000Z",
+            "Description__c": "Children can explore marine life with hands-on activities at our interactive oceanography center.",
+            "Duration_Hours__c": 4,
+            "Location__c": "Oceanography Center",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 50,
+            "Type__c": "Family & Kids' Activities"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef13"
+            },
+            "Name": "Teens' Wilderness Camp",
+            "Activity_Level__c": "High",
+            "Capacity__c": 30,
+            "Default_Start_Time__c": "13:30:00.000Z",
+            "Description__c": "Teenagers will love our wilderness camp, where they can learn survival skills and enjoy outdoor adventures.",
+            "Duration_Hours__c": 2,
+            "Location__c": "Wilderness Area",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 55,
+            "Type__c": "Family & Kids' Activities"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef14"
+            },
+            "Name": "Little Chefs' Baking Workshop",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 20,
+            "Default_Start_Time__c": "15:30:00.000Z",
+            "Description__c": "A baking class for kids where they&#39;ll learn to make and decorate cupcakes and cookies.",
+            "Duration_Hours__c": 1,
+            "Location__c": "Resort Kitchen",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 75,
+            "Type__c": "Family & Kids' Activities"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef15"
+            },
+            "Name": "Family Movie Night Under the Stars",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 55,
+            "Default_Start_Time__c": "21:00:00.000Z",
+            "Description__c": "Enjoy a family movie night outdoors with our pop-up cinema on the lawn, complete with popcorn and blankets.",
+            "Duration_Hours__c": 1,
+            "Location__c": "Outdoor Cinema",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/ugpauqyr6k4ykemyumuu.png",
+            "Price__c": 199,
+            "Type__c": "Family & Kids' Activities"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef16"
+            },
+            "Name": "Beach Bootcamp Challenge",
+            "Activity_Level__c": "High",
+            "Capacity__c": 25,
+            "Default_Start_Time__c": "12:00:00.000Z",
+            "Description__c": "Kickstart your day with a high-intensity bootcamp workout on the beach, led by our certified fitness trainers.",
+            "Duration_Hours__c": 4,
+            "Location__c": "Beachfront",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 150,
+            "Type__c": "Fitness & Exercise"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef17"
+            },
+            "Name": "Sunrise Mountain Yoga",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 45,
+            "Default_Start_Time__c": "10:30:00.000Z",
+            "Description__c": "Experience yoga at sunrise atop our scenic overlook, with panoramic views to inspire tranquility and balance.",
+            "Duration_Hours__c": 6,
+            "Location__c": "Mountain Overlook",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 199,
+            "Type__c": "Fitness & Exercise"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef18"
+            },
+            "Name": "Aqua Fitness in Paradise",
+            "Activity_Level__c": "Medium",
+            "Capacity__c": 30,
+            "Default_Start_Time__c": "14:00:00.000Z",
+            "Description__c": "Join our aqua fitness class in the pool, a refreshing way to improve strength and flexibility in a tropical setting.",
+            "Duration_Hours__c": 3,
+            "Location__c": "Resort Pool",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 55,
+            "Type__c": "Fitness & Exercise"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef19"
+            },
+            "Name": "Trail Running Adventure",
+            "Activity_Level__c": "High",
+            "Capacity__c": 20,
+            "Default_Start_Time__c": "13:00:00.000Z",
+            "Description__c": "Hit the trails with our guided running sessions, exploring the natural beauty of the surrounding landscape.",
+            "Duration_Hours__c": 1,
+            "Location__c": "Nature Trails",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 250,
+            "Type__c": "Fitness & Exercise"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef20"
+            },
+            "Name": "Ocean Kayak Fitness Expedition",
+            "Activity_Level__c": "Medium",
+            "Capacity__c": 55,
+            "Default_Start_Time__c": "15:30:00.000Z",
+            "Description__c": "Paddle out for a kayak excursion that doubles as a workout, exploring the coastline and hidden coves.",
+            "Duration_Hours__c": 6,
+            "Location__c": "Coastal Waters",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 150,
+            "Type__c": "Fitness & Exercise"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef21"
+            },
+            "Name": "Sunset Golf Challenge",
+            "Activity_Level__c": "Medium",
+            "Capacity__c": 35,
+            "Default_Start_Time__c": "20:00:00.000Z",
+            "Description__c": "Enjoy an evening round of golf on our signature course, designed to challenge players of all levels as the sun sets.",
+            "Duration_Hours__c": 2,
+            "Location__c": "Signature Golf Course",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 45,
+            "Type__c": "Golf"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef22"
+            },
+            "Name": "Golf Pro Masterclass",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 55,
+            "Default_Start_Time__c": "14:00:00.000Z",
+            "Description__c": "Learn from a PGA-certified golf pro in a personalized session focused on improving your swing and strategy.",
+            "Duration_Hours__c": 1,
+            "Location__c": "Golf Academy",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 25,
+            "Type__c": "Golf"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef23"
+            },
+            "Name": "Family Fun Putt-Putt",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 80,
+            "Default_Start_Time__c": "16:00:00.000Z",
+            "Description__c": "A fun and engaging mini-golf experience for the whole family, featuring unique obstacles and themes.",
+            "Duration_Hours__c": 6,
+            "Location__c": "Mini-Golf Course",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 149,
+            "Type__c": "Golf"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef24"
+            },
+            "Name": "Rainforest Discovery Hike",
+            "Activity_Level__c": "High",
+            "Capacity__c": 50,
+            "Default_Start_Time__c": "15:00:00.000Z",
+            "Description__c": "Explore the lush rainforest on a guided hike, learning about the local flora and fauna from our expert guides.",
+            "Duration_Hours__c": 2,
+            "Location__c": "Rainforest Reserve",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 50,
+            "Type__c": "Nature & Eco Tours"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef25"
+            },
+            "Name": "Coastal Kayak Excursion",
+            "Activity_Level__c": "Medium",
+            "Capacity__c": 25,
+            "Default_Start_Time__c": "14:30:00.000Z",
+            "Description__c": "Paddle along the pristine coastline, exploring hidden coves and spotting marine wildlife with our kayak guides.",
+            "Duration_Hours__c": 1,
+            "Location__c": "Coastal Waters",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 55,
+            "Type__c": "Nature & Eco Tours"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef26"
+            },
+            "Name": "Starlight Wildlife Tour",
+            "Activity_Level__c": "Medium",
+            "Capacity__c": 80,
+            "Default_Start_Time__c": "22:30:00.000Z",
+            "Description__c": "Discover the nocturnal creatures of our nature reserve on a guided night tour under the stars.",
+            "Duration_Hours__c": 2,
+            "Location__c": "Nature Reserve",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 75,
+            "Type__c": "Nature & Eco Tours"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef27"
+            },
+            "Name": "Live Music Beach Party",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 200,
+            "Default_Start_Time__c": "19:00:00.000Z",
+            "Description__c": "Dance the night away at our beach party, featuring live music from popular local bands and DJs.",
+            "Duration_Hours__c": 2,
+            "Location__c": "Resort Beach",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 199,
+            "Type__c": "Nightlife & Entertainment"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef28"
+            },
+            "Name": "Sunset Cocktail Cruise",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 55,
+            "Default_Start_Time__c": "20:00:00.000Z",
+            "Description__c": "Sip on tropical cocktails during a scenic sunset cruise, offering stunning ocean views and a relaxing atmosphere.",
+            "Duration_Hours__c": 1,
+            "Location__c": "Ocean Cruise",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 150,
+            "Type__c": "Nightlife & Entertainment"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef29"
+            },
+            "Name": "Tropical Snorkel Adventure",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 25,
+            "Default_Start_Time__c": "16:00:00.000Z",
+            "Description__c": "Discover vibrant coral reefs, encounter exotic marine life and enjoy crystal-clear waters on our snorkelling tours.",
+            "Duration_Hours__c": 4,
+            "Location__c": "Coral Reef",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/mukt3fxxtxz6fgzltiv9.png",
+            "Price__c": 199,
+            "Type__c": "Beaches & Snorkeling"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef30"
+            },
+            "Name": "Canyon Zip Line Excursion",
+            "Activity_Level__c": "High",
+            "Capacity__c": 45,
+            "Default_Start_Time__c": "13:00:00.000Z",
+            "Description__c": "Soar over deep canyons and lush forest canopies on our thrilling zip line tour.",
+            "Duration_Hours__c": 3.5,
+            "Location__c": "Canyons & Forests",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/gzzr2klphfxmfoomupzp.jpg",
+            "Price__c": 150,
+            "Type__c": "Adventure Activities"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef31"
+            },
+            "Name": "Serenity Garden Meditation",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 30,
+            "Default_Start_Time__c": "10:00:00.000Z",
+            "Description__c": "Join our guided meditation sessions in the tranquil serenity garden, designed to promote peace and mindfulness.",
+            "Duration_Hours__c": 2,
+            "Location__c": "Serenity Garden",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 55,
+            "Type__c": "Relaxation & Quiet Zones"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef32"
+            },
+            "Name": "Outdoor Movie Night",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 100,
+            "Default_Start_Time__c": "21:00:00.000Z",
+            "Description__c": "Enjoy classic films and latest blockbusters at our outdoor cinema, complete with gourmet popcorn and cozy seating.",
+            "Duration_Hours__c": 6,
+            "Location__c": "Outdoor Cinema Area",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 199,
+            "Type__c": "Nightlife & Entertainment"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef33"
+            },
+            "Name": "Oceanview Reading Nook",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 20,
+            "Default_Start_Time__c": "16:00:00.000Z",
+            "Description__c": "Escape with a book in our oceanview reading nooks, offering a quiet space to relax with stunning views.",
+            "Duration_Hours__c": 3,
+            "Location__c": "Library Overlooking the Ocean",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 250,
+            "Type__c": "Relaxation & Quiet Zones"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef34"
+            },
+            "Name": "Sunrise Tai Chi",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 55,
+            "Default_Start_Time__c": "10:30:00.000Z",
+            "Description__c": "Greet the day with Tai Chi, a gentle exercise focusing on relaxation, held on our peaceful beachfront at sunrise.",
+            "Duration_Hours__c": 1,
+            "Location__c": "Beachfront",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 150,
+            "Type__c": "Relaxation & Quiet Zones"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef35"
+            },
+            "Name": "Thermal Spring Rejuvenation",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 35,
+            "Default_Start_Time__c": "17:00:00.000Z",
+            "Description__c": "Soak in our natural thermal springs, known for their healing properties and a perfect way to rejuvenate body and mind.",
+            "Duration_Hours__c": 5,
+            "Location__c": "Thermal Springs Area",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 45,
+            "Type__c": "Spa & Wellness"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef36"
+            },
+            "Name": "Holistic Spa Retreat",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 55,
+            "Default_Start_Time__c": "16:30:00.000Z",
+            "Description__c": "Experience a day of pampering with treatments that blend modern techniques with traditional holistic practices.",
+            "Duration_Hours__c": 1,
+            "Location__c": "Resort Spa",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 25,
+            "Type__c": "Spa & Wellness"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef37"
+            },
+            "Name": "Wellness Workshops",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 80,
+            "Default_Start_Time__c": "14:00:00.000Z",
+            "Description__c": "Participate in workshops focusing on wellness topics, from nutrition to stress management, led by expert practitioners.",
+            "Duration_Hours__c": 3,
+            "Location__c": "Wellness Center",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 149,
+            "Type__c": "Spa & Wellness"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef38"
+            },
+            "Name": "Infinity Pool Lounge",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 50,
+            "Default_Start_Time__c": "12:00:00.000Z",
+            "Description__c": "Relax in our infinity pool that merges seamlessly with the horizon, featuring underwater music and poolside service.",
+            "Duration_Hours__c": 1,
+            "Location__c": "Infinity Pool",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 50,
+            "Type__c": "Swimming Pools"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef39"
+            },
+            "Name": "Aquatic Aerobics",
+            "Activity_Level__c": "Medium",
+            "Capacity__c": 25,
+            "Default_Start_Time__c": "15:00:00.000Z",
+            "Description__c": "Join our high-energy aquatic aerobics class, a great way to stay fit and have fun in the water.",
+            "Duration_Hours__c": 5,
+            "Location__c": "Main Pool",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 55,
+            "Type__c": "Swimming Pools"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef40"
+            },
+            "Name": "Night Swim & Light Show",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 80,
+            "Default_Start_Time__c": "21:00:00.000Z",
+            "Description__c": "Enjoy an enchanting night swim experience illuminated by a spectacular underwater light show.",
+            "Duration_Hours__c": 1,
+            "Location__c": "Resort Pool",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 75,
+            "Type__c": "Swimming Pools"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef41"
+            },
+            "Name": "Championship Tennis Tournament",
+            "Activity_Level__c": "Medium",
+            "Capacity__c": 200,
+            "Default_Start_Time__c": "13:00:00.000Z",
+            "Description__c": "Compete in our tennis tournament, open to all skill levels, held on our championship courts.",
+            "Duration_Hours__c": 1,
+            "Location__c": "Tennis Center",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 99,
+            "Type__c": "Tennis & Pickleball"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef42"
+            },
+            "Name": "Pickleball Social Mixer",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 55,
+            "Default_Start_Time__c": "16:30:00.000Z",
+            "Description__c": "Meet fellow guests and enjoy friendly rounds of pickleball at our social mixer event, complete with refreshments.",
+            "Duration_Hours__c": 3,
+            "Location__c": "Pickleball Courts",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 55,
+            "Type__c": "Tennis & Pickleball"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef43"
+            },
+            "Name": "Sunrise Doubles Challenge",
+            "Activity_Level__c": "Medium",
+            "Capacity__c": 100,
+            "Default_Start_Time__c": "10:00:00.000Z",
+            "Description__c": "Start your day with a doubles tennis match at sunrise, offering cool temperatures and a fresh start to the morning.",
+            "Duration_Hours__c": 2,
+            "Location__c": "Outdoor Tennis Courts",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 55,
+            "Type__c": "Tennis & Pickleball"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef44"
+            },
+            "Name": "Windsurfing Adventure",
+            "Activity_Level__c": "Medium",
+            "Capacity__c": 50,
+            "Default_Start_Time__c": "14:30:00.000Z",
+            "Description__c": "Catch the wind and waves with our windsurfing classes, perfect for beginners and advanced surfers alike.",
+            "Duration_Hours__c": 3,
+            "Location__c": "Beach Water Sports Center",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 155,
+            "Type__c": "Water Sports"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef45"
+            },
+            "Name": "Stand-Up Paddleboard Tour",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 25,
+            "Default_Start_Time__c": "15:00:00.000Z",
+            "Description__c": "Explore the coastline on a stand-up paddleboard, guided by our instructors who will lead you to hidden coves and beaches.",
+            "Duration_Hours__c": 2,
+            "Location__c": "Coastal Waters",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 99,
+            "Type__c": "Water Sports"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef46"
+            },
+            "Name": "Deep-Sea Fishing Expedition",
+            "Activity_Level__c": "Medium",
+            "Capacity__c": 30,
+            "Default_Start_Time__c": "10:00:00.000Z",
+            "Description__c": "Venture into the deep sea on our fishing expedition, seeking out the biggest catches and enjoying the thrill of the hunt.",
+            "Duration_Hours__c": 3,
+            "Location__c": "Open Ocean",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 55,
+            "Type__c": "Water Sports"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef47"
+            },
+            "Name": "Off-Road Jungle Safari",
+            "Activity_Level__c": "Medium",
+            "Capacity__c": 30,
+            "Default_Start_Time__c": "16:00:00.000Z",
+            "Description__c": "Board our 4x4 vehicles for an adventurous off-road journey through the jungle&#39;s heart.",
+            "Duration_Hours__c": 4,
+            "Location__c": "Jungle Trails",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/gzzr2klphfxmfoomupzp.jpg",
+            "Price__c": 199,
+            "Type__c": "Adventure Activities"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef48"
+            },
+            "Name": "Mountain Climbing Challenge",
+            "Activity_Level__c": "High",
+            "Capacity__c": 20,
+            "Default_Start_Time__c": "13:00:00.000Z",
+            "Description__c": "Conquer the peaks with our mountain climbing adventure, guided by expert climbers.",
+            "Duration_Hours__c": 6,
+            "Location__c": "Mountain Peaks",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 55,
+            "Type__c": "Adventure Activities"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef49"
+            },
+            "Name": "White Water Rafting Rush",
+            "Activity_Level__c": "High",
+            "Capacity__c": 55,
+            "Default_Start_Time__c": "15:30:00.000Z",
+            "Description__c": "Experience the rush of navigating through raging rapids in this white water rafting adventure.",
+            "Duration_Hours__c": 1,
+            "Location__c": "Rivers",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 250,
+            "Type__c": "Adventure Activities"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef50"
+            },
+            "Name": "Underground Cave Exploration",
+            "Activity_Level__c": "Medium",
+            "Capacity__c": 25,
+            "Default_Start_Time__c": "17:00:00.000Z",
+            "Description__c": "Discover the mysteries of subterranean caves with our expert speleologists.",
+            "Duration_Hours__c": 5,
+            "Location__c": "Subterranean Caves",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 150,
+            "Type__c": "Adventure Activities"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef51"
+            },
+            "Name": "Sunset Beach Walk",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 45,
+            "Default_Start_Time__c": "20:00:00.000Z",
+            "Description__c": "Stroll along the shoreline as the sun sets, painting the sky in hues of orange and pink.",
+            "Duration_Hours__c": 5,
+            "Location__c": "Beach Shoreline",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/ugpauqyr6k4ykemyumuu.png",
+            "Price__c": 45,
+            "Type__c": "Beaches & Snorkeling"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef52"
+            },
+            "Name": "Full Moon Beach Party",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 30,
+            "Default_Start_Time__c": "22:00:00.000Z",
+            "Description__c": "Join us for a night of music, dance, and bonfires on the beach under the full moon.",
+            "Duration_Hours__c": 2,
+            "Location__c": "Beach",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/ugpauqyr6k4ykemyumuu.png",
+            "Price__c": 25,
+            "Type__c": "Beaches & Snorkeling"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef53"
+            },
+            "Name": "Surf's Up Lesson",
+            "Activity_Level__c": "Medium",
+            "Capacity__c": 20,
+            "Default_Start_Time__c": "14:30:00.000Z",
+            "Description__c": "Catch your first wave with confidence in our beginner-friendly surf lessons.",
+            "Duration_Hours__c": 1,
+            "Location__c": "Surfing Areas",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/sjahfb9mmbzzyogf87fk.jpg",
+            "Price__c": 149,
+            "Type__c": "Beaches & Snorkeling"
+        },
+        {
+            "attributes": {
+                "type": "Experience__c",
+                "referenceId": "Experience__cRef54"
+            },
+            "Name": "Beach Yoga Retreat",
+            "Activity_Level__c": "Low",
+            "Capacity__c": 55,
+            "Default_Start_Time__c": "10:00:00.000Z",
+            "Description__c": "Find your zen with morning yoga sessions on our pristine sandy beach.",
+            "Duration_Hours__c": 2,
+            "Location__c": "Beach",
+            "Picture_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/b1tituywkemxfgon7r8h.jpg",
+            "Price__c": 50,
+            "Type__c": "Beaches & Snorkeling"
+        }
+    ]
+}

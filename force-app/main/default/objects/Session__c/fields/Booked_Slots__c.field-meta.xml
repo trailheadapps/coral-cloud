@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Booked_Slots__c</fullName>
+    <description
+    >Tracks the number of slots already booked by guests for the experience, aiding in reservation management.</description>
+    <label>Booked Slots</label>
+    <summarizedField>Booking__c.Number_of_Guests__c</summarizedField>
+    <summaryFilterItems>
+        <field>Booking__c.Is_Canceled__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Booking__c.Session__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,20 @@
+[
+    {
+        "Id": "0031700000pJRRSAA4",
+        "Booked_Slots__c": "0",
+        "Capacity__c": "10",
+        "End_Time__c": "",
+        "Percentage_Booked__c": "0",
+        "Start_Time__c": "",
+        "Status__c": "Cancelled"
+    },
+    {
+        "Id": "0031700000pJRRTAA4",
+        "Booked_Slots__c": "10",
+        "Capacity__c": "20",
+        "End_Time__c": "",
+        "Percentage_Booked__c": "50",
+        "Start_Time__c": "",
+        "Status__c": "Completed"
+    }
+]

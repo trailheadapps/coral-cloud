@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Interest3__c</fullName>
+    <label>Interest 3</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Adventure Activities</fullName>
+                <default>false</default>
+                <label>Adventure Activities</label>
+            </value>
+            <value>
+                <fullName>Beaches &amp; Snorkeling</fullName>
+                <default>false</default>
+                <label>Beaches &amp; Snorkeling</label>
+            </value>
+            <value>
+                <fullName>Cultural Tours &amp; Workshops</fullName>
+                <default>false</default>
+                <label>Cultural Tours &amp; Workshops</label>
+            </value>
+            <value>
+                <fullName>Dining Experiences</fullName>
+                <default>false</default>
+                <label>Dining Experiences</label>
+            </value>
+            <value>
+                <fullName>Family &amp; Kids&apos; Activities</fullName>
+                <default>false</default>
+                <label>Family &amp; Kids&apos; Activities</label>
+            </value>
+            <value>
+                <fullName>Fitness &amp; Exercise</fullName>
+                <default>false</default>
+                <label>Fitness &amp; Exercise</label>
+            </value>
+            <value>
+                <fullName>Golf</fullName>
+                <default>false</default>
+                <label>Golf</label>
+            </value>
+            <value>
+                <fullName>Nature &amp; Eco Tours</fullName>
+                <default>false</default>
+                <label>Nature &amp; Eco Tours</label>
+            </value>
+            <value>
+                <fullName>Nightlife &amp; Entertainment</fullName>
+                <default>false</default>
+                <label>Nightlife &amp; Entertainment</label>
+            </value>
+            <value>
+                <fullName>Relaxation &amp; Quiet Zones</fullName>
+                <default>false</default>
+                <label>Relaxation &amp; Quiet Zones</label>
+            </value>
+            <value>
+                <fullName>Spa &amp; Wellness</fullName>
+                <default>false</default>
+                <label>Spa &amp; Wellness</label>
+            </value>
+            <value>
+                <fullName>Swimming Pools</fullName>
+                <default>false</default>
+                <label>Swimming Pools</label>
+            </value>
+            <value>
+                <fullName>Tennis &amp; Pickleball</fullName>
+                <default>false</default>
+                <label>Tennis &amp; Pickleball</label>
+            </value>
+            <value>
+                <fullName>Water Sports</fullName>
+                <default>false</default>
+                <label>Water Sports</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

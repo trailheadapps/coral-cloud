@@ -1,0 +1,7 @@
+.experience-image {
+    border-radius: 14px;
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    object-position: middle;
+}

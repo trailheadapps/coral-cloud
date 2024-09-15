@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Session__c</fullName>
+    <description
+    >Connects the booking to a specific session of an activity, detailing when and where it occurs.</description>
+    <label>Session</label>
+    <referenceTo>Session__c</referenceTo>
+    <relationshipLabel>Bookings</relationshipLabel>
+    <relationshipName>Bookings</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

@@ -1,0 +1,50 @@
+<template>
+    <lightning-card title="Social Media Posts" icon-name="utility:socialshare">
+        <div slot="actions">
+            <lightning-button
+                onclick={handleGenerateClick}
+                label="Generate"
+                icon-name="utility:edit_gpt"
+            >
+            </lightning-button>
+        </div>
+        <div class="slds-var-p-horizontal_small">
+            <c-error-panel
+                lwc:if={error}
+                errors={error}
+                friendly-message="Failed to generate social media posts"
+            ></c-error-panel>
+            <template lwc:else>
+                <div class="slds-var-p-bottom_small">
+                    <lightning-textarea
+                        readonly
+                        value={twitterPost}
+                        label="X (Twitter) Post"
+                    >
+                    </lightning-textarea>
+                </div>
+                <div class="slds-var-p-bottom_small">
+                    <lightning-textarea
+                        readonly
+                        value={linkedinPost}
+                        label="LinkedIn Post"
+                    >
+                    </lightning-textarea>
+                </div>
+                <div>
+                    <lightning-textarea
+                        readonly
+                        value={slackPost}
+                        label="Slack Post"
+                    >
+                    </lightning-textarea>
+                </div>
+            </template>
+            <lightning-spinner
+                lwc:if={showSpinner}
+                alternative-text="Loading..."
+                size="small"
+            ></lightning-spinner>
+        </div>
+    </lightning-card>
+</template>

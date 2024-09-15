@@ -1,0 +1,27 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-size_1-of-1">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-size_10-of-12">
+                    <p class="slds-text-color_weak">{step}</p>
+                    <h2 class="slds-text-heading_small">
+                        <strong>{label}</strong>
+                    </h2>
+                </div>
+                <div class="slds-size_2-of-12 slds-text-align_right">
+                    <lightning-button
+                        label="Copy"
+                        icon-name="utility:copy"
+                        onclick={handleCopy}
+                    ></lightning-button>
+                </div>
+            </div>
+        </div>
+        <div class="slds-size_1-of-1">
+            <c-code-block
+                code-block-content={prompt}
+                language={language}
+            ></c-code-block>
+        </div>
+    </div>
+</template>

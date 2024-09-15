@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <description
+    >The Status field tracks the current state of an experience booking, indicating whether it is Confirmed, Canceled, or Completed. This field is essential for managing reservations effectively, allowing both resort staff and guests to understand the booking&apos;s progression from confirmation through completion or cancellation, facilitating clear communication and operational planning.</description>
+    <externalId>false</externalId>
+    <formula
+    >IF(Is_Canceled__c , &quot;Canceled&quot;, IF( Date__c &gt;= Today(), &quot;Confirmed&quot;, &quot;Completed&quot;))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

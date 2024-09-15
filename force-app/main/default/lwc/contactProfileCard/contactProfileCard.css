@@ -1,0 +1,25 @@
+:host {
+    /* Custom CSS variables for reusing style in this component and child components */
+    --primary-color: #00373e;
+
+    /* Text styling hooks */
+    --slds-g-color-neutral-base-10: var(--primary-color);
+    --slds-g-color-neutral-base-30: var(--primary-color);
+
+    /* Border styling hooks */
+    --slds-g-color-border-base-1: var(--primary-color);
+
+    /* Icon styling hooks */
+    --sds-c-icon-color-foreground: var(--primary-color);
+}
+
+.profile-card {
+    background-color: #bddad7;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.profile-photo {
+    border-radius: 50%;
+    width: 70px;
+}

@@ -1,0 +1,25 @@
+{
+    "required": ["amount", "contactId"],
+    "unevaluatedProperties": false,
+    "properties": {
+        "amount": {
+            "title": "amount",
+            "description": "The amount of the resort credit.",
+            "$ref": "sfdc:propertyType/lightning__numberType",
+            "lightning:type": "lightning__numberType",
+            "lightning:isPII": false,
+            "copilotAction:isUserInput": true
+        },
+        "contactId": {
+            "title": "contactId",
+            "description": "The Id of the Contact the credit will be issued to.",
+            "$ref": "sfdc:propertyType/lightning__textType",
+            "lightning:type": "lightning__textType",
+            "lightning:isPII": false,
+            "copilotAction:isUserInput": true
+        }
+    },
+    "$ref": "sfdc:propertyType/lightning__objectType",
+    "lightning:type": "lightning__objectType",
+    "$schema": "https://cms.salesforce.com/types/lightning__copilotActionInput"
+}

@@ -1,0 +1,33 @@
+<template>
+    <div class="slds-page-header">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container" title="icon">
+                            <lightning-icon
+                                icon-name={iconName}
+                                alternative-text="Home Icon"
+                                size="large"
+                            ></lightning-icon>
+                        </span>
+                    </div>
+                    <div class="slds-media__body slds-align-middle">
+                        <p class="slds-page-header__name-meta">{subtitle}</p>
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <span
+                                        class="slds-page-header__title slds-truncate"
+                                        title={title}
+                                        >{title}</span
+                                    >
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

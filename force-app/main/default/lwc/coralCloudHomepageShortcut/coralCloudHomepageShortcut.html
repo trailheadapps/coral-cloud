@@ -1,0 +1,17 @@
+<template>
+    <div class="slds-box slds-box_small slds-text-align_center box">
+        <div class="slds-p-bottom_small">
+            <lightning-icon size="large" icon-name={iconName}></lightning-icon>
+        </div>
+        <p class="slds-p-bottom_small"><strong>{label}</strong></p>
+        <lightning-button
+            label="View"
+            icon-name="utility:chevronright"
+            icon-position="right"
+            onclick={view}
+            name="guide"
+            data-url={link}
+            variant="brand"
+        ></lightning-button>
+    </div>
+</template>

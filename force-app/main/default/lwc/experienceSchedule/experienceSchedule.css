@@ -1,0 +1,9 @@
+.record-open-container {
+    display: flex;
+    justify-content: end;
+}
+
+.spinner-container {
+    position: relative;
+    min-height: 7rem;
+}

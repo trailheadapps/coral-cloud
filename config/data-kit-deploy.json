@@ -1,0 +1,27 @@
+{
+    "inputs": [
+        {
+            "dataKitDataSpaceInput": "default",
+            "dataKitNameInput": "Coral_Cloud_Data_Kit_Sample_App",
+            "dataKitComponentsInput": [
+                {
+                    "componentType": "DataConnection",
+                    "dataConnectionConfig": {
+                        "name": "Coral_Cloud_S3_Connection"
+                    }
+                },
+                {
+                    "componentType": "DataStreamBundle",
+                    "bundleConfig": {
+                        "connectorType": "MoreConnectors",
+                        "bundleName": "Amazon_S3",
+                        "forceNoRefresh": true,
+                        "bundleConnectorFrameworkConfig": {
+                            "connectionName": "Coral_Cloud_S3_Connection"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

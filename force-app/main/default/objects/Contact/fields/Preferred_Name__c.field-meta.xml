@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Preferred_Name__c</fullName>
+    <description
+    >The PreferredName__c field captures the name a guest prefers to be addressed by, ensuring all interactions are personalized and respectful of the guest&apos;s identity and preferences. This can differ from their legal name or the name on their booking, providing a more tailored and comfortable guest experience.</description>
+    <externalId>false</externalId>
+    <label>Preferred Name</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

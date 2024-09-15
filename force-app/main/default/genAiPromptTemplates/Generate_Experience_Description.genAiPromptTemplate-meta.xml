@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersion>1</activeVersion>
+    <description
+    >This template is used to generate a description for a resort experience.</description>
+    <developerName>Generate_Experience_Description</developerName>
+    <masterLabel>Generate Experience Description</masterLabel>
+    <relatedEntity>Experience__c</relatedEntity>
+    <relatedField>Experience__c.Description__c</relatedField>
+    <templateVersions>
+        <content>You are a marketer at {!$Organization.Name}.
+The resort provides experiences guests can book throughout the day.
+Write a marketing description for the experience below.
+Make it sound unique and exciting.
+Highlight the benefits of the experience.
+The description should be between 80 and 100 words.
+
+Experience name: {!$Input:Experience__c.Name}
+Type: {!$Input:Experience__c.Type__c}
+Location: {!$Input:Experience__c.Location__c}
+Duration: {!$Input:Experience__c.Duration_Hours__c}
+Level: {!$Input:Experience__c.Activity_Level__c}
+Capacity: {!$Input:Experience__c.Capacity__c}
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Experience__c</definition>
+            <referenceName>Input:Experience__c</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <versionNumber>1</versionNumber>
+    </templateVersions>
+    <type>einstein_gpt__fieldCompletion</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+    >This action is used to generate a personalized schedule for a contact. The personalized schedule includes a list of resort experiences the contact may be interested in and a suggested schedule for the day. You must use the QueryRecords action to fetch the contact before executing the action.</description>
+    <invocationTarget>Generate_Personalized_Schedule</invocationTarget>
+    <invocationTargetType>generatePromptResponse</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <masterLabel>Generate Personalized Schedule</masterLabel>
+</GenAiFunction>

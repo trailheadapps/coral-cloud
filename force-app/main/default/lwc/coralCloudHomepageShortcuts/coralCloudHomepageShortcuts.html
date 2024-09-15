@@ -1,0 +1,226 @@
+<template>
+    <article class="slds-card">
+        <div class="slds-p-around_medium slds-border_bottom">
+            <h2 class="slds-text-heading_medium">Workshop Resources</h2>
+        </div>
+        <div>
+            <div class="slds-grid slds-wrap slds-grid--vertical-stretch">
+                <div class="slds-col slds-size_1-of-4">
+                    <c-coral-cloud-homepage-navigation
+                        navigation-items={navigationItems}
+                        selected-item={selectedItem}
+                        onnavselect={handleNavSelect}
+                    ></c-coral-cloud-homepage-navigation>
+                </div>
+                <div
+                    class="slds-col slds-size_3-of-4 slds-border_left slds-p-around_medium"
+                >
+                    <!-- BEGIN HOME SECTION -->
+                    <template lwc:if={showHome}>
+                        <!-- INTRO -->
+                        <div class="slds-p-bottom_medium">
+                            <h2
+                                class="slds-text-heading_large slds-p-bottom_small"
+                            >
+                                <strong>Welcome to the AI NOW Tour</strong>
+                            </h2>
+                            <div
+                                class="slds-text-body_regular slds-p-bottom_small"
+                            >
+                                Thank you for joining The AI NOW Tour! Through
+                                today's workshop, we're going to explore how
+                                Data Cloud can bring third party data directly
+                                into your Salesforce environment. We'll dive
+                                into how we can bring Generative AI into every
+                                app you build with Prompt Builder, and see how
+                                Copilot can automate tasks and streamline
+                                workflows like never before. It's all about
+                                making your apps smarter, your work easier, and
+                                diving hands-on into the potential of AI and
+                                Data.
+                            </div>
+                            <div
+                                class="slds-text-heading_medium slds-p-bottom_small"
+                            >
+                                Introducing Coral Cloud
+                            </div>
+                            <div
+                                class="slds-text-body_regular slds-p-bottom_small"
+                            >
+                                Coral Cloud Resorts is a premium, beachside
+                                resort chain known for blending natural beauty
+                                with cutting-edge technology to offer an
+                                unparalleled guest experience. Situated on the
+                                sea, the resorts provides luxurious
+                                accommodations, gourmet dining, rejuvenating
+                                spas, and a wide array of activities, all set
+                                against the backdrop of stunning ocean views and
+                                lush landscapes. Coral Cloud Resorts are
+                                committed to personalizing the guest experience,
+                                ensuring every moment spent at the resort is
+                                unique, memorable, and tailored to individual
+                                preferences.
+                            </div>
+                        </div>
+                        <!-- CARDS -->
+                        <div
+                            class="slds-grid slds-grid_vertical-stretch slds-gutters"
+                        >
+                            <!-- CARD: GUIDE -->
+                            <!-- <div class="slds-col slds-size_1-of-3 slds-grid slds-grid_vertical-stretch">
+                <div class="slds-col slds-box slds-box_small slds-text-align_center box-shadow">
+                  <div class="slds-p-bottom_small">
+                    <lightning-icon size="large" icon-name="standard:knowledge"></lightning-icon>
+                  </div>
+                  <p><strong>View the Exercise Guide</strong></p>
+                  <p class="slds-p-bottom_small">Following along with today's workshop and reference the documentation</p>
+                  <lightning-button
+                    label="View"
+                    icon-name="utility:chevronright"
+                    icon-position="right"
+                    onclick={view}
+                    data-type="url"
+                    data-url="https://ai-data-workshop-74a31f4084a9.herokuapp.com/"
+                    name="guide"
+                    variant="brand"
+                  ></lightning-button>
+                </div>
+              </div> -->
+                            <!-- CARD: ARCHITECTURE -->
+                            <div
+                                class="slds-col slds-size_1-of-2 slds-grid slds-grid_vertical-stretch"
+                            >
+                                <div
+                                    class="slds-col slds-box slds-box_small slds-text-align_center box-shadow"
+                                >
+                                    <div class="slds-p-bottom_small">
+                                        <lightning-icon
+                                            size="large"
+                                            icon-name="standard:strategy"
+                                        ></lightning-icon>
+                                    </div>
+                                    <p>
+                                        <strong
+                                            >View the Reference
+                                            Architecture</strong
+                                        >
+                                    </p>
+                                    <p class="slds-p-bottom_small">
+                                        Check out the design of the Coral Cloud
+                                        App
+                                    </p>
+                                    <lightning-button
+                                        label="Coming Soon"
+                                        icon-name="utility:chevronright"
+                                        icon-position="right"
+                                        onclick={view}
+                                        name="guide"
+                                        variant="brand"
+                                        disabled="true"
+                                    ></lightning-button>
+                                </div>
+                            </div>
+                            <!-- CARD: CODE -->
+                            <div
+                                class="slds-col slds-size_1-of-2 slds-grid slds-grid_vertical-stretch"
+                            >
+                                <div
+                                    class="slds-col slds-box slds-box_small slds-text-align_center box-shadow"
+                                >
+                                    <div class="slds-p-bottom_small">
+                                        <lightning-icon
+                                            size="large"
+                                            icon-name="standard:apex"
+                                        ></lightning-icon>
+                                    </div>
+                                    <p><strong>View the Source Code</strong></p>
+                                    <p class="slds-p-bottom_small">
+                                        View the source code on the Salesforce
+                                        Developers Sample Gallery
+                                    </p>
+                                    <lightning-button
+                                        label="Coming Soon"
+                                        icon-name="utility:chevronright"
+                                        icon-position="right"
+                                        onclick={view}
+                                        name="guide"
+                                        variant="brand"
+                                        disabled="true"
+                                    ></lightning-button>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                    <!-- END HOME SECTION -->
+                    <!-- BEGIN OTHER SECTION -->
+                    <template lwc:else>
+                        <div>
+                            <h2
+                                class="slds-text-heading_large slds-p-bottom_small"
+                            >
+                                <strong>{selectedWorkshop.label}</strong>
+                            </h2>
+                            <p
+                                class="slds-text-body_regular slds-p-bottom_small"
+                            >
+                                {selectedWorkshop.description}
+                            </p>
+                            <template lwc:if={selectedWorkshop.link}>
+                                <div class="slds-p-bottom_small">
+                                    <lightning-button
+                                        label="View Guide"
+                                        variant="brand"
+                                        data-id={selectedWorkshop.name}
+                                        data-type="url"
+                                        data-url={selectedWorkshop.link}
+                                        onclick={view}
+                                    ></lightning-button>
+                                </div>
+                            </template>
+                            <!-- SHORTCUTS -->
+                            <h2
+                                class="slds-border_bottom slds-text-heading_medium slds-p-bottom_x-small slds-m-bottom_x-small"
+                            >
+                                Shortcuts
+                            </h2>
+                            <!-- LINKS -->
+                            <template lwc:if={selectedWorkshop.shortcuts}>
+                                <div class="slds-grid slds-gutters slds-wrap">
+                                    <template
+                                        for:each={selectedWorkshop.shortcuts}
+                                        for:item="shortcut"
+                                        for:index="i"
+                                    >
+                                        <c-coral-cloud-homepage-shortcut
+                                            key={shortcut.i}
+                                            class="slds-col slds-size_1-of-3 slds-grid slds-grid_vertical-stretch slds-p-bottom_small"
+                                            icon-name={shortcut.iconName}
+                                            label={shortcut.label}
+                                            name={shortcut.name}
+                                            link={shortcut.link}
+                                        ></c-coral-cloud-homepage-shortcut>
+                                    </template>
+                                </div>
+                            </template>
+                            <!-- CODE BLOCKS -->
+                            <template
+                                for:each={selectedWorkshop.steps}
+                                for:item="step"
+                                for:index="i"
+                            >
+                                <c-coral-cloud-homepage-prompt
+                                    key={step.i}
+                                    prompt={step.prompt.body}
+                                    label={step.label}
+                                    language={step.language}
+                                    step={step.step}
+                                ></c-coral-cloud-homepage-prompt>
+                            </template>
+                        </div>
+                    </template>
+                    <!-- END OTHER SECTION -->
+                </div>
+            </div>
+        </div>
+    </article>
+</template>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersion>1</activeVersion>
+    <description
+    >This template is used to generate a welcome email for a guest&apos;s upcoming trip.</description>
+    <developerName>Welcome_Email_for_Upcoming_Trip</developerName>
+    <masterLabel>Welcome Email for Upcoming Trip</masterLabel>
+    <relatedEntity>Contact</relatedEntity>
+    <templateVersions>
+        <content
+        >Your name is {!$Input:Sender.Name}. You work in the guest success team at {!$Organization.Name}, a luxury beachfront resort.
+Generate an email welcoming the guest for their upcoming stay.
+Guest name: {!$Input:Recipient.Name}.
+Check-in date: {!$Input:Recipient.Next_Check_in_Date__c}.
+Write a story that paints the picture of infinite possibilities at the resort and that weaves in some of the resort experiences that match the guest&apos;s interests.
+List of resort experiences matching the guest&apos;s interests: {!$Flow:Add_Experiences_to_Prompt.Prompt}.
+</content>
+        <inputs>
+            <apiName>Sender</apiName>
+            <definition>SOBJECT://User</definition>
+            <referenceName>Input:Sender</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Recipient</apiName>
+            <definition>SOBJECT://Contact</definition>
+            <referenceName>Input:Recipient</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>flow://Add_Experiences_to_Prompt</definition>
+            <parameters>
+                <definition>SOBJECT://User</definition>
+                <isRequired>true</isRequired>
+                <parameterName>Sender</parameterName>
+                <valueExpression>{!$Input:Sender}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>SOBJECT://Contact</definition>
+                <isRequired>true</isRequired>
+                <parameterName>Recipient</parameterName>
+                <valueExpression>{!$Input:Recipient}</valueExpression>
+            </parameters>
+            <referenceName>Flow:Add_Experiences_to_Prompt</referenceName>
+        </templateDataProviders>
+        <versionNumber>1</versionNumber>
+    </templateVersions>
+    <type>einstein_gpt__salesEmail</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

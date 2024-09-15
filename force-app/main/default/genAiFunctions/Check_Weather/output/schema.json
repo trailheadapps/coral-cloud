@@ -1,0 +1,35 @@
+{
+    "unevaluatedProperties": false,
+    "properties": {
+        "maxTemperature": {
+            "title": "maxTemperature",
+            "description": "Maximum temperature in Celsius at Coral Cloud Resorts location for the provided date",
+            "$ref": "sfdc:propertyType/lightning__numberType",
+            "lightning:type": "lightning__numberType",
+            "lightning:isPII": false,
+            "copilotAction:isDisplayable": false,
+            "copilotAction:isUsedByPlanner": true
+        },
+        "minTemperature": {
+            "title": "minTemperature",
+            "description": "Minimum temperature in Celsius at Coral Cloud Resorts location for the provided date",
+            "$ref": "sfdc:propertyType/lightning__numberType",
+            "lightning:type": "lightning__numberType",
+            "lightning:isPII": false,
+            "copilotAction:isDisplayable": false,
+            "copilotAction:isUsedByPlanner": true
+        },
+        "temperatureDescription": {
+            "title": "temperatureDescription",
+            "description": "Description of temperatures at Coral Cloud Resorts location for the provided date",
+            "$ref": "sfdc:propertyType/lightning__textType",
+            "lightning:type": "lightning__textType",
+            "lightning:isPII": false,
+            "copilotAction:isDisplayable": false,
+            "copilotAction:isUsedByPlanner": true
+        }
+    },
+    "$ref": "sfdc:propertyType/lightning__objectType",
+    "lightning:type": "lightning__objectType",
+    "$schema": "https://cms.salesforce.com/types/lightning__copilotActionOutput"
+}

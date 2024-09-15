@@ -1,0 +1,88 @@
+<template>
+    <article class="slds-card profile-card">
+        <div class="slds-card__body slds-card__body_inner">
+            <c-error-panel
+                lwc:if={error}
+                errors={error}
+                friendly-message="Failed to retrieve contact profile"
+            ></c-error-panel>
+            <template lwc:elseif={hasData}>
+                <!-- Avatar, name and location -->
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-align-middle">
+                        <img
+                            class="profile-photo"
+                            src={photoURL}
+                            alt="Profile picture"
+                        />
+                    </div>
+                    <div class="slds-align-middle slds-p-left_medium">
+                        <h1 class="slds-text-heading_medium">
+                            <strong>{name}</strong>
+                        </h1>
+                        <h2>{mailingCity}, {mailingState}</h2>
+                    </div>
+                </div>
+
+                <lightning-record-view-form
+                    record-id={recordId}
+                    object-api-name="Contact"
+                >
+                    <!-- 2 column layout -->
+                    <div
+                        class="slds-grid slds-border_bottom slds-p-vertical_medium"
+                    >
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-output-field field-name="External_Id__c">
+                            </lightning-output-field>
+                            <lightning-output-field field-name="MobilePhone">
+                            </lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-output-field
+                                field-name="Preferred_Name__c"
+                            >
+                            </lightning-output-field>
+                            <lightning-output-field field-name="Email">
+                            </lightning-output-field>
+                        </div>
+                    </div>
+
+                    <!-- Single column layout with icons -->
+                    <div class="slds-grid slds-wrap slds-p-top_medium">
+                        <div
+                            class="slds-size_1-of-12 slds-align_absolute-center"
+                        >
+                            <lightning-icon
+                                icon-name="utility:einstein"
+                                size="x-small"
+                                variant="inverse"
+                                alternative-text="Einstein icon"
+                            ></lightning-icon>
+                        </div>
+                        <div class="slds-size_11-of-12">
+                            <lightning-output-field field-name="Guest_Type__c">
+                            </lightning-output-field>
+                        </div>
+                        <div
+                            class="slds-size_1-of-12 slds-align_absolute-center"
+                        >
+                            <lightning-icon
+                                icon-name="utility:cart"
+                                size="x-small"
+                                variant="inverse"
+                                alternative-text="Cart icon"
+                            ></lightning-icon>
+                        </div>
+                        <div class="slds-size_11-of-12">
+                            <lightning-output-field
+                                field-name="Lifetime_Value__c"
+                            >
+                            </lightning-output-field>
+                        </div>
+                    </div>
+                </lightning-record-view-form>
+            </template>
+        </div>
+    </article>
+</template>

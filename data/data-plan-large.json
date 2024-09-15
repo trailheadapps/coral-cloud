@@ -1,0 +1,26 @@
+[
+    {
+        "sobject": "Experience__c",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": ["data-Experience__c-large.json"]
+    },
+    {
+        "sobject": "Contact",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": ["data-Contact-large.json"]
+    },
+    {
+        "sobject": "Guest_Review__c",
+        "saveRefs": false,
+        "resolveRefs": true,
+        "files": ["data-Guest_Review__c.json"]
+    },
+    {
+        "sobject": "Case",
+        "saveRefs": false,
+        "resolveRefs": true,
+        "files": ["data-Case.json"]
+    }
+]

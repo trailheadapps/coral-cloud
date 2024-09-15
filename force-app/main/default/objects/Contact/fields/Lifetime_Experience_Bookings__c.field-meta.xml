@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lifetime_Experience_Bookings__c</fullName>
+    <description
+    >The &quot;Lifetime Experience Bookings&quot; field counts the total bookings a contact has made, offering insights into guest engagement and loyalty.</description>
+    <label>Lifetime Experience Bookings</label>
+    <summaryForeignKey>Booking__c.Contact__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <type>Summary</type>
+</CustomField>

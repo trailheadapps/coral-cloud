@@ -1,0 +1,31 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Case",
+                "referenceId": "CaseRef1"
+            },
+            "ContactId": "@ContactRef155",
+            "Type": "Problem",
+            "Status": "New",
+            "Reason": "New problem",
+            "Origin": "Phone",
+            "Subject": "Urgent: Cancellation of White Water Rafting Rush Experience for the Rodriguez Family",
+            "Priority": "High",
+            "Description": "Today, Sofia Rodriguez and her family were scheduled to participate in the much-anticipated White Water Rafting Rush Experience. Unfortunately, the event was unexpectedly canceled, leading to significant disappointment for the Rodriguez family, who expressed that this experience was the highlight they were most looking forward to during their stay at Coral Cloud Resorts.\r\n\r\nSofia reached out to express her frustration and disappointment, emphasizing the importance of this activity to her family's overall trip experience. The family had planned their schedule around this event, and its cancellation has impacted their vacation plans adversely."
+        },
+        {
+            "attributes": {
+                "type": "Case",
+                "referenceId": "CaseRef2"
+            },
+            "ContactId": "@ContactRef155",
+            "Type": "Upgrade Request",
+            "Status": "New",
+            "Origin": "Phone",
+            "Subject": "Upcoming Reservation Upgrade Request",
+            "Priority": "High",
+            "Description": "Sofia Rodriguez called this morning to request an upgrade, she is a high priority customer and we would really like to provide one but can not at the moment. She will need to request an upgrade upon check-in."
+        }
+    ]
+}

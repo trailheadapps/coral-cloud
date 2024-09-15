@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sum_of_Guest_Reviews__c</fullName>
+    <description>The Total Sum of the Guest Review Ratings</description>
+    <label>Sum of Guest Reviews</label>
+    <summarizedField>Guest_Review__c.Rating_Value__c</summarizedField>
+    <summaryForeignKey>Guest_Review__c.Experience__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

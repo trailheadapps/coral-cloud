@@ -1,0 +1,41 @@
+# .forceignore v2
+
+# List files or directories below to ignore them when running force:source:push, force:source:pull, and force:source:status
+# More information: https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_exclude_source.htm
+#
+
+# Standard metadata
+package.xml
+**/appMenus/**
+**/appSwitcher/**
+**/flowDefinitions/**
+**/objectTranslations/**
+**/profiles/**
+**/settings/**
+
+# Data Cloud metadata
+**/activationPlatforms/**
+**/authproviders/**
+**/dataSourceTenants/**
+**/fieldSrcTrgtRelationships/**
+**/internalDataConnectors/**
+**/mktDataSources/**
+**/objectSourceTargetMaps/**
+**/objects/IndividualGDPRState__dll/**
+**/objects/IndividualGDPRState__dlm/**
+**/permissionsets/sfdc_c360a_sfdctrust_permSet.permissionset-meta.xml
+**/standardValueSets/DataModelSupplierType.standardValueSet-meta.xml
+
+# LWC configuration files
+**/jsconfig.json
+**/.eslintrc.json
+
+# LWC Jest
+**/__tests__/**
+
+# TS configuration files
+**/tsconfig.json
+**/*.ts
+
+# Exceptions to excluded metadata
+!LightningExperience.settings-meta.xml

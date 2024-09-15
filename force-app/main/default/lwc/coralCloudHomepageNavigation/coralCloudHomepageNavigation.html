@@ -1,0 +1,13 @@
+<template>
+    <lightning-vertical-navigation selected-item={selectedItem}>
+        <template for:each={navigationItems} for:item="item">
+            <lightning-vertical-navigation-item
+                key={item.value}
+                label={item.label}
+                name={item.value}
+                onclick={selectItem}
+            >
+            </lightning-vertical-navigation-item>
+        </template>
+    </lightning-vertical-navigation>
+</template>

@@ -1,0 +1,104 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Guest_Review__c",
+                "referenceId": "Guest_Review__cRef1"
+            },
+            "Experience__c": "@Experience__cRef29",
+            "Contact__c": "@ContactRef74",
+            "Rating__c": "8",
+            "Comments__c": "A solid snorkeling experience with a great crew and amazing sights. They could improve the organization at the start, but once we got going, it was incredible."
+        },
+        {
+            "attributes": {
+                "type": "Guest_Review__c",
+                "referenceId": "Guest_Review__cRef2"
+            },
+            "Experience__c": "@Experience__cRef29",
+            "Contact__c": "@ContactRef114",
+            "Rating__c": "10",
+            "Comments__c": "Absolutely phenomenal experience! The variety of fish and coral we saw was amazing. The guides made sure we felt safe and comfortable throughout the adventure."
+        },
+        {
+            "attributes": {
+                "type": "Guest_Review__c",
+                "referenceId": "Guest_Review__cRef3"
+            },
+            "Experience__c": "@Experience__cRef29",
+            "Contact__c": "@ContactRef68",
+            "Rating__c": "9",
+            "Comments__c": "Loved every minute of our snorkel adventure! The team was professional, and the sites chosen were full of life. A must-do for anyone visiting the area."
+        },
+        {
+            "attributes": {
+                "type": "Guest_Review__c",
+                "referenceId": "Guest_Review__cRef4"
+            },
+            "Experience__c": "@Experience__cRef29",
+            "Contact__c": "@ContactRef91",
+            "Rating__c": "7",
+            "Comments__c": "Good snorkel trip with lots to see. The gear was decent, though could use an update. Staff was helpful and made the trip enjoyable."
+        },
+        {
+            "attributes": {
+                "type": "Guest_Review__c",
+                "referenceId": "Guest_Review__cRef5"
+            },
+            "Experience__c": "@Experience__cRef29",
+            "Contact__c": "@ContactRef63",
+            "Rating__c": "5",
+            "Comments__c": "The location was stunning, but the experience felt a bit overpriced for what was offered. The guides were nice, though, and we saw plenty of fish."
+        },
+        {
+            "attributes": {
+                "type": "Guest_Review__c",
+                "referenceId": "Guest_Review__cRef6"
+            },
+            "Experience__c": "@Experience__cRef29",
+            "Contact__c": "@ContactRef99",
+            "Rating__c": "4",
+            "Comments__c": "Unfortunately, our trip was marred by bad weather, leading to poor visibility underwater. Not the company's fault, but it was disappointing."
+        },
+        {
+            "attributes": {
+                "type": "Guest_Review__c",
+                "referenceId": "Guest_Review__cRef7"
+            },
+            "Experience__c": "@Experience__cRef29",
+            "Contact__c": "@ContactRef26",
+            "Rating__c": "6",
+            "Comments__c": "The adventure was nice, but a bit crowded. It felt a little rushed and not as personalized as I hoped. Still, the marine life was beautiful."
+        },
+        {
+            "attributes": {
+                "type": "Guest_Review__c",
+                "referenceId": "Guest_Review__cRef8"
+            },
+            "Experience__c": "@Experience__cRef29",
+            "Contact__c": "@ContactRef24",
+            "Rating__c": "9",
+            "Comments__c": "The Tropical Snorkel Adventure was breathtaking! The guides were knowledgeable and friendly, and the underwater scenery was unlike anything I've ever seen. Highly recommend."
+        },
+        {
+            "attributes": {
+                "type": "Guest_Review__c",
+                "referenceId": "Guest_Review__cRef9"
+            },
+            "Experience__c": "@Experience__cRef29",
+            "Contact__c": "@ContactRef58",
+            "Rating__c": "8",
+            "Comments__c": "Great experience overall! The water was clear, and we saw a lot of marine life. Only wish it was a bit longer, but would definitely go again."
+        },
+        {
+            "attributes": {
+                "type": "Guest_Review__c",
+                "referenceId": "Guest_Review__cRef10"
+            },
+            "Experience__c": "@Experience__cRef29",
+            "Contact__c": "@ContactRef83",
+            "Rating__c": "10",
+            "Comments__c": "An unforgettable snorkeling adventure! The guides were incredibly passionate about marine conservation, which added so much value to our experience."
+        }
+    ]
+}

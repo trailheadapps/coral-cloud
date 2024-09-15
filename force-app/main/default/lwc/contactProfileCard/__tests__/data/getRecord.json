@@ -1,0 +1,28 @@
+{
+    "apiName": "Contact",
+    "childRelationships": {},
+    "eTag": "846fdcd21a53214d447e578adbe263c6",
+    "fields": {
+        "Name": {
+            "displayValue": null,
+            "value": "Amy Taylor"
+        },
+        "MailingCity": {
+            "displayValue": null,
+            "value": "Boulder"
+        },
+        "MailingState": {
+            "displayValue": null,
+            "value": "Colorado"
+        },
+        "Photo_URL__c": {
+            "displayValue": null,
+            "value": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/people/amy_taylor.jpg"
+        }
+    },
+    "id": "0031700000pHcf8AAC",
+    "lastModifiedById": "00517000002fESIAA2",
+    "lastModifiedDate": "2019-02-15T10:33:07.000Z",
+    "recordTypeInfo": null,
+    "systemModstamp": "2019-02-15T10:33:07.000Z"
+}

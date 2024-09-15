@@ -1,0 +1,33 @@
+{
+    "required": ["amount", "contactRecords"],
+    "unevaluatedProperties": false,
+    "properties": {
+        "amount": {
+            "title": "amount",
+            "description": "The resort credit amount",
+            "$ref": "sfdc:propertyType/lightning__numberType",
+            "lightning:type": "lightning__numberType",
+            "lightning:isPII": false,
+            "copilotAction:isUserInput": true
+        },
+        "contactRecords": {
+            "title": "contactRecords",
+            "description": "The list of contacts",
+            "maxItems": 2000,
+            "items": {
+                "$ref": "sfdc:propertyType/lightning__recordInfoType",
+                "lightning:type": "lightning__recordInfoType",
+                "lightning:sObjectInfo": {
+                    "apiName": "Contact"
+                }
+            },
+            "$ref": "sfdc:propertyType/lightning__listType",
+            "lightning:type": "lightning__listType",
+            "lightning:isPII": false,
+            "copilotAction:isUserInput": true
+        }
+    },
+    "$ref": "sfdc:propertyType/lightning__objectType",
+    "lightning:type": "lightning__objectType",
+    "$schema": "https://cms.salesforce.com/types/lightning__copilotActionInput"
+}

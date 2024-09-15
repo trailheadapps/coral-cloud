@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Activity_Level__c</fullName>
+    <description
+    >Describes the physical or engagement level required for the experience, such as &quot;Low&quot;, &quot;Medium&quot;, or &quot;High&quot;.</description>
+    <externalId>false</externalId>
+    <formula>TEXT(Session__r.Experience__r.Activity_Level__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Activity Level</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

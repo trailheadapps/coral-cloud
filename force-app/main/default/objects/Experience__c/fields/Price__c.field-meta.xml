@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Price__c</fullName>
+    <description
+    >The Price__c field indicates the cost associated with participating in an experience, allowing guests to understand the financial commitment for each activity and enabling the resort to manage and display pricing information for its offerings.</description>
+    <label>Price</label>
+    <precision>6</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

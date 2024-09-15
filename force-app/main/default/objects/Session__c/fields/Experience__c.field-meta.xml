@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Experience__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description
+    >The parent experience that this object is scheduled based on.</description>
+    <label>Experience</label>
+    <referenceTo>Experience__c</referenceTo>
+    <relationshipName>Sessions</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

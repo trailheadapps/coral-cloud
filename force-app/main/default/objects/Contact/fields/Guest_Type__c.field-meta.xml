@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Guest_Type__c</fullName>
+    <description
+    >Defines the category of the guest based on their preferences, purpose of visit, and characteristics. This field helps the resort in tailoring services, offers, and communications to enhance the guest experience. It includes values such as Eco-Luxury Travelers, Tech-Savvy Explorers, Wellness Seekers, etc., reflecting the diverse clientele the resort serves.</description>
+    <label>Guest Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Adventure Enthusiasts</fullName>
+                <default>false</default>
+                <label>Adventure Enthusiasts</label>
+            </value>
+            <value>
+                <fullName>Business and Pleasure Travelers</fullName>
+                <default>false</default>
+                <label>Business and Pleasure Travelers</label>
+            </value>
+            <value>
+                <fullName>Celebration Groups</fullName>
+                <default>false</default>
+                <label>Celebration Groups</label>
+            </value>
+            <value>
+                <fullName>Cultural Connoisseurs</fullName>
+                <default>false</default>
+                <label>Cultural Connoisseurs</label>
+            </value>
+            <value>
+                <fullName>Digital Detoxers</fullName>
+                <default>false</default>
+                <label>Digital Detoxers</label>
+            </value>
+            <value>
+                <fullName>Eco-Luxury Travelers</fullName>
+                <default>false</default>
+                <label>Eco-Luxury Travelers</label>
+            </value>
+            <value>
+                <fullName>Family Fun Seekers</fullName>
+                <default>false</default>
+                <label>Family Fun Seekers</label>
+            </value>
+            <value>
+                <fullName>Gourmet Globetrotters</fullName>
+                <default>false</default>
+                <label>Gourmet Globetrotters</label>
+            </value>
+            <value>
+                <fullName>Romance Retreaters</fullName>
+                <default>false</default>
+                <label>Romance Retreaters</label>
+            </value>
+            <value>
+                <fullName>Solitude Seekers</fullName>
+                <default>false</default>
+                <label>Solitude Seekers</label>
+            </value>
+            <value>
+                <fullName>Tech-Savvy Explorers</fullName>
+                <default>false</default>
+                <label>Tech-Savvy Explorers</label>
+            </value>
+            <value>
+                <fullName>Wellness Seekers</fullName>
+                <default>false</default>
+                <label>Wellness Seekers</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
