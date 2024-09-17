@@ -6,7 +6,7 @@
 
 Welcome to Coral Cloud Resorts, a sample hospitality application. Coral Cloud Resorts is a fictional resort that uses data and AI to deliver highly personalized guest experiences. It presents different ways and benefits of bringing generative AI into business workflows, including new smart automation capabilities, content generation, and summarization.
 
-The Coral Cloud Resorts app showcases **Data Cloud**, **Agents** and **Prompt Builder**.
+The Coral Cloud Resorts app showcases **Data Cloud**, **Agents** and **Prompts**.
 
 ## Table of contents
 
