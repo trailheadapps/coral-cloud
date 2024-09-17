@@ -20,6 +20,8 @@ The Coral Cloud Resorts app showcases **Data Cloud**, **Agents** and **Prompt Bu
 
 ### Requirements
 
+#### Environment
+
 The Coral Cloud Resorts app requires licenses for the following features:
 
 -   Data Cloud
@@ -36,6 +38,12 @@ The Coral Cloud Resorts app requires licenses for the following features:
 
 > [!IMPORTANT]
 > Start from a brand-new environment to avoid conflicts with previous work you may have done.
+
+#### Salesforce CLI
+
+[Install the Salesforce CLI](https://developer.salesforce.com/tools/salesforcecli) or check that your installed CLI version is greater than `2.56.7` by running `sf -v` in a terminal.
+
+If you need to [update the Salesforce CLI](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_update_cli.htm), either run `sf update` or `npm install --global @salesforce/cli` depending on how you installed the CLI.
 
 ### Step 1. Feature activation
 
