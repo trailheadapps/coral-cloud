@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Booking Overview" icon-name="standard:groups">
+        <div class="slds-var-m-horizontal_medium">
+            <c-session-booking-progress
+                if:true={capacity}
+                booked={booked}
+                capacity={capacity}
+            ></c-session-booking-progress>
+        </div>
+    </lightning-card>
+</template>

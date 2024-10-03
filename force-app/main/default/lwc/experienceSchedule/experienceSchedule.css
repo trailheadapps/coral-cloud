@@ -7,3 +7,7 @@
     position: relative;
     min-height: 7rem;
 }
+
+c-session-booking-progress {
+    width: 100%;
+}
