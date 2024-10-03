@@ -37,6 +37,22 @@ private class SampleDataTest {
     }
 
     @isTest
+    static void generateData_fails_when_base_data_is_missing() {
+        Test.startTest();
+        try {
+            SampleDataGenerator.generateData();
+            Assert.fail('Expected SampleDataGeneratorException');
+        } catch (Exception e) {
+            Assert.isInstanceOfType(
+                e,
+                SampleDataGenerator.SampleDataGeneratorException.class
+            );
+            Assert.isTrue(e.getMessage().contains('Failed to find contact'));
+        }
+        Test.stopTest();
+    }
+
+    @isTest
     static void sampleBookingBatch_works() {
         List<Contact> contacts = getMockContacts(20);
         insert contacts;

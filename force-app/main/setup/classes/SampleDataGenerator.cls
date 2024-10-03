@@ -21,6 +21,12 @@ public with sharing class SampleDataGenerator {
             SELECT Id, Capacity__c
             FROM Experience__c
         ];
+        // Check for exisisting data
+        if (contacts.size() == 0 || experiences.size() == 0) {
+            throw new SampleDataGeneratorException(
+                'Failed to find contact and/org experience records. Did you load the sample data plan first?'
+            );
+        }
 
         // Generate new sessions
         List<Session__c> sessions = generateSessions(experiences);
@@ -69,5 +75,8 @@ public with sharing class SampleDataGenerator {
             }
         }
         return sessions;
+    }
+
+    public class SampleDataGeneratorException extends Exception {
     }
 }
