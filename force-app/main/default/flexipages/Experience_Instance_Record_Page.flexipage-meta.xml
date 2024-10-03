@@ -120,6 +120,12 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <componentName>sessionBookingOverview</componentName>
+                <identifier>c_sessionBookingOverview</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
                 <componentName>generateSocialMediaPosts</componentName>
                 <identifier>c_generateSocialMediaPosts</identifier>
             </componentInstance>
