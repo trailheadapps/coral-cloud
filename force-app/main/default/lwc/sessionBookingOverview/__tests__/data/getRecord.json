@@ -1,0 +1,15 @@
+{
+    "apiName": "Session__c",
+    "childRelationships": {},
+    "fields": {
+        "Booked_Slot__c": {
+            "displayValue": null,
+            "value": 19
+        },
+        "Capacity__c": {
+            "displayValue": null,
+            "value": 25
+        }
+    },
+    "id": "a04Wx000000FJ2KIAW"
+}

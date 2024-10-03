@@ -148,43 +148,10 @@
                                         class="slds-form__item"
                                         role="listitem"
                                     >
-                                        <div
-                                            class="slds-form-element slds-form-element_stacked"
-                                        >
-                                            <label
-                                                class="slds-form-element__label"
-                                                for={session.labelBookings}
-                                                >Bookings:
-                                                {session.Booked_Slots__c}/{session.Capacity__c}</label
-                                            >
-                                            <div
-                                                class="slds-form-element__control"
-                                            >
-                                                <div
-                                                    class="slds-grid slds-wrap"
-                                                >
-                                                    <div
-                                                        class="slds-size_10-of-12 slds-align-middle"
-                                                    >
-                                                        <lightning-progress-bar
-                                                            value={session.Percentage_Booked__c}
-                                                            size="large"
-                                                            variant="circular"
-                                                            id={session.labelBookings}
-                                                        ></lightning-progress-bar>
-                                                    </div>
-                                                    <div
-                                                        class="slds-size_2-of-12 slds-align_absolute-center"
-                                                    >
-                                                        <p>
-                                                            <strong
-                                                                >{session.Percentage_Booked__c}%</strong
-                                                            >
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <c-session-booking-progress
+                                            booked={session.Booked_Slots__c}
+                                            capacity={session.Capacity__c}
+                                        ></c-session-booking-progress>
                                     </div>
                                 </div>
                                 <!-- Status -->

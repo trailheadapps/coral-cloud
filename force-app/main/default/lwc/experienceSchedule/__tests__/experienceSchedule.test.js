@@ -49,11 +49,11 @@ describe('c-experience-schedule', () => {
         const cardEls = element.shadowRoot.querySelectorAll('.slds-box');
         expect(cardEls.length).toBe(mockSessions.length);
 
-        const labelEls = cardEls[0].querySelectorAll('label');
-        const bookingsEl = labelEls[labelEls.length - 2];
-        expect(bookingsEl.textContent).toBe(
-            `Bookings: ${mockSessions[0].Booked_Slots__c}/${mockSessions[0].Capacity__c}`
+        const labelEls = cardEls[0].querySelectorAll(
+            '.slds-form-element div.slds-form-element__control'
         );
+        const statusEl = labelEls[labelEls.length - 1];
+        expect(statusEl.textContent).toBe(`${mockSessions[0].Status__c}`);
     });
 
     it('renders when there are no sessions on the day', async () => {

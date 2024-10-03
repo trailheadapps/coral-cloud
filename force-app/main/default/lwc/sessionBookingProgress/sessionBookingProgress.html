@@ -1,0 +1,24 @@
+<template>
+    <div class="slds-form-element slds-form-element_stacked">
+        <label class="slds-form-element__label" for="bookinProgress"
+            >Bookings: {booked}/{capacity}</label
+        >
+        <div class="slds-form-element__control">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-size_10-of-12 slds-align-middle">
+                    <lightning-progress-bar
+                        value={percentageBooked}
+                        size="large"
+                        variant="circular"
+                        id="bookinProgress"
+                    ></lightning-progress-bar>
+                </div>
+                <div class="slds-size_2-of-12 slds-align_absolute-center">
+                    <p>
+                        <strong>{percentageBooked}%</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
