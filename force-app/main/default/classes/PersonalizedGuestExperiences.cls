@@ -6,9 +6,10 @@ public with sharing class PersonalizedGuestExperiences {
         Request input = requests[0];
         Contact contact = input.myContact;
 
+        // Get sessions that are scheduled today for this contact
         List<Session__c> sessions = ExperienceController.getSessions(contact);
 
-        // Create expected response
+        // Create expected response with sessions serialized as JSON
         List<Response> responses = new List<Response>();
         Response res = new Response();
         res.prompt = JSON.serialize(sessions);
