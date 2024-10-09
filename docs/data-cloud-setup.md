@@ -82,11 +82,85 @@
 1. Deploy a calculated insight from the Data Kit:
 
     1. From the **Calculated Insights** tab, click **New**.
-    1. Select the **Create from a Data Kit** and click **Next**.
-    1. Select the **Spend Profile by Guest** and click **Next**.
+    1. Select **Create from a Data Kit** and click **Next**.
+    1. Select **Spend Profile by Guest** and click **Next**.
     1. Click **Save**.
     1. Keep the default name and click **Next**.
     1. Leave the Schedule field value to **Not Scheduled** and click **Enable**.
-    1. Click **Publish Now** from the top actions in the upper right corner. If it's not visible, click the arrow down button to expand the action list.
+    1. Click **Publish Now** from the top actions in the upper right corner. If it's not visible, click the caret down button to expand the action list.
 
-That's it congratulations, you've installed the Coral Cloud Resorts sample app!
+## Optional: Access Unified Data from Salesforce
+
+1. Add a Data Cloud related list to the Contact object
+
+    1. From Salesforce **Setup**, open the **Object Manager**.
+    1. Select the **Contact** object.
+    1. Go to the **Data Cloud Related List** tab.
+    1. Click **New**.
+    1. Under **Data Cloud Object**, select **Reservation** and click **Next**.
+    1. Keep the default values and click **Next**.
+    1. Change the Related list label to `Reservations` (plural).
+    1. Check the **Contact Layout** checkbox.
+    1. Check the Add related list to users’ existing record page customizations checkbox.
+    1. Click **Next**.
+
+1. Add the Related List to the Contact page layout
+
+    1. From the **Object Manager**, click **Page Layouts** in the left sidebar.
+    1. Click **Contact Layout**.
+    1. Scroll to the bottom of the page layout until you see the **Reservations** related list.
+    1. Click the wrench icon.
+    1. Add the following fields to the Selected Fields:
+        - Reservation ID
+        - Check-in Date
+        - Check-out Date
+        - Total Price
+    1. Click **OK** to save your field selection.
+    1. Click **Save** to save your changes to the Contact layout.
+    1. In the **Coral Cloud Resorts** app, navigate to the Contact record page for Sofia Rodriguez.
+    1. Refresh the page.
+    1. Click the **Related** tab.
+    1. Make sure that you can see the Reservations related list.
+
+## Optional: Access Calculated Insights in Salesforce
+
+1. Modify the "Data Cloud Admin" permission set
+
+    1. Open Salesforce Setup.
+    1. Search for and open **Permission Sets**.
+    1. Click the **Data Cloud Admin** permission set.
+    1. In the Apps section, click **Data Cloud Data Space Management**.
+    1. In the Data Spaces panel, click **Edit**.
+    1. Check the **Enabled** checkbox for the **default** data space and click **Save**.
+    1. Click **OK** in the confirmation dialog.
+
+1. Modify the "Customer 360 Data Platform Integration" permission set
+
+    1. From **Permission Sets**, select the **Customer 360 Data Platform Integration** permission set.
+    1. In the Apps section, click **Object Settings**.
+    1. Click **Contacts**.
+    1. Click the **Edit** button.
+    1. Check the **Modify All** checkbox. This automatically checks the Delete checkbox as well.
+    1. Scroll down the page into the **Field Permissions** section and check the **Edit Access** checkbox for the **Lifetime Reservations** and **Lifetime Value** fields.
+    1. Scroll back up to the top and click **Save**.
+
+1. Create a Data Cloud Copy Field Enrichment in Salesforce
+
+    1. From the **Object Manager**, select the **Contact** object.
+    1. Go to the **Data Cloud Copy Field** tab.
+    1. Click **New**.
+    1. In the **Data Cloud Object** field, select the **Spend Profile By Guest** calculated insight, and click **Next**.
+    1. Select the **Lifetime Reservations** and **Lifetime Value** fields, and click **Next**.
+    1. Change the Label to `Spend Profile By Guest` (remove `default`), and click **Next**.
+    1. In the Field Mapping tab, apply the following mapping:
+
+        | **Data Cloud: Spend Profile By Guest** | →   | **Contact**           |
+        | -------------------------------------- | --- | --------------------- |
+        | Lifetime Reservations                  | →   | Lifetime Reservations |
+        | Lifetime Value                         | →   | Lifetime Value        |
+
+    1. Click **Save and Start Sync**.
+    1. In the dialog box, click **Save and Start Sync**.
+
+    > [!TIP]
+    > This process can take up to 15 minutes to complete. You won't see data before.
