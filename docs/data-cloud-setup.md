@@ -28,14 +28,17 @@
     1. Select **Refresh Only New Files** from the row actions.
     1. Click **Refresh Now**.
 
-1. Refresh and map the Reservation data stream:
+1. Refresh Reservation data stream:
 
     1. From the **Data Streams** tab, click the **Reservation** data stream with the timestamp suffix.
     1. Select **Refresh Now** from the row actions.
     1. Select **Refresh Only New Files** from the row actions.
     1. Click **Refresh Now**.
-    1. Click **Start** in the **Data Mapping** panel.
-    1. In the Data Model entities panel, click **Select Objects**.
+
+1. Map the Reservation data stream:
+
+    1. From the **Reservation** data stream view, click **Review** in the **Data Mapping** panel.
+    1. Click the pencil icon next to the "Data Model entities" panel header.
     1. Click the **Custom Data Model** tab.
     1. Click **New Custom Object**.
     1. Clear the timestamps suffix from the Object Label and Object API Name so that both are named `Reservation`.
@@ -66,7 +69,7 @@
     1. Under **Custom Data Bundles**, select **Salesforce_Contacts**, and click **Next**.
     1. Keep the default selection and click **Next**.
     1. Click **Deploy**.
-    1. After the deployment, click the arrow down icon to the right of the **Contact_Home** Data Stream row, and select **Refresh Now**.
+    1. After the deployment, click the down caret icon to the right of the **Contact_Home** Data Stream row, and select **Refresh Now**.
 
 1. Deploy and run an identity resolution ruleset from the Data Kit:
 
