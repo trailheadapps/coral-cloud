@@ -22,7 +22,7 @@ public with sharing class ExperienceController {
                 Status__c
             FROM Session__c
             WHERE Experience__c = :experienceId AND Date__c = :dateFilter
-            WITH SECURITY_ENFORCED
+            WITH USER_MODE
             ORDER BY Start_Time__c ASC
             LIMIT 10
         ];
@@ -58,7 +58,7 @@ public with sharing class ExperienceController {
                 Experience__r.Type__c IN :contactInterests
                 AND Date__c = TODAY
                 AND Is_Canceled__c = FALSE
-            WITH SECURITY_ENFORCED
+            WITH USER_MODE
             ORDER BY Start_Time__c ASC
             LIMIT 10
         ];
