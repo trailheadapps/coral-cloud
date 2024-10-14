@@ -1,10 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<GenAiPlugin
-    xmlns="http://soap.sforce.com/2006/04/metadata"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
->
-    <description
-    >Help agents and guests manage Coral Cloud Resorts bookings, experiences, sessions,
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description>Help agents and guests manage Coral Cloud Resorts bookings, experiences, sessions,
         credits and provide weather forecast.</description>
     <developerName>Coral_Cloud</developerName>
     <genAiFunctions>
@@ -32,22 +28,19 @@
         <functionName>EmployeeCopilot__QueryRecords</functionName>
     </genAiFunctions>
     <genAiPluginInstructions>
-        <description
-        >If a customer would like more information on an Experience, you should search for the related Experience__c record and let them know more.</description>
+        <description>If a customer would like more information on an Experience, you should search for the related Experience__c record and let them know more.</description>
         <developerName>Ifacusto0</developerName>
-        <language xsi:nil="true" />
+        <language xsi:nil="true"/>
         <masterLabel>Experience info</masterLabel>
     </genAiPluginInstructions>
     <genAiPluginInstructions>
-        <description
-        >For the "Check Weather" action, only accepts dates that are in the future. If date is today or a past date, ask for a future date.</description>
+        <description>For the &quot;Check Weather&quot; action, only accepts dates that are in the future. If date is today or a past date, ask for a future date.</description>
         <developerName>Onlyaccep1</developerName>
-        <language xsi:nil="true" />
+        <language xsi:nil="true"/>
         <masterLabel>Future dates</masterLabel>
     </genAiPluginInstructions>
     <language>en_US</language>
     <masterLabel>Coral Cloud</masterLabel>
     <pluginType>Topic</pluginType>
-    <scope
-    >Your job is to help manage Coral Cloud Resorts guest bookings, activities credits and to provide weather forecast.</scope>
+    <scope>Your job is to help manage Coral Cloud Resorts guest bookings, activities credits and to provide weather forecast.</scope>
 </GenAiPlugin>

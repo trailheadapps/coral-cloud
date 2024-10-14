@@ -4,14 +4,11 @@
         "creditId": {
             "title": "creditId",
             "description": "The id of the Credit record that was created.",
-            "$ref": "sfdc:propertyType/lightning__textType",
             "lightning:type": "lightning__textType",
             "lightning:isPII": false,
             "copilotAction:isDisplayable": true,
             "copilotAction:isUsedByPlanner": true
         }
     },
-    "$ref": "sfdc:propertyType/lightning__objectType",
-    "lightning:type": "lightning__objectType",
-    "$schema": "https://cms.salesforce.com/types/lightning__copilotActionOutput"
+    "lightning:type": "lightning__objectType"
 }
