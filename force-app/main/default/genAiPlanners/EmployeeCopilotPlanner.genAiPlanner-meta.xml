@@ -9,7 +9,7 @@
         >EmployeeCopilot__OOTBSingleRecordSummary</genAiPluginName>
     </genAiPlugins>
     <genAiPlugins>
-        <genAiPluginName>Coral_Cloud</genAiPluginName>
+        <genAiPluginName>CustomerServiceAssistant</genAiPluginName>
     </genAiPlugins>
     <masterLabel>EmployeeCopilotPlanner</masterLabel>
     <plannerType>AiCopilot__ReAct</plannerType>
