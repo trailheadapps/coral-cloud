@@ -6,9 +6,9 @@ public with sharing class SampleDataGenerator {
 
     private static final Integer SESSION_BATCH_SIZE = 500;
     @TestVisible
-    private static final Integer FUTURE_DAYS_COVERED = 5;
+    private static final Integer FUTURE_DAYS_COVERED = 4;
     @TestVisible
-    private static final Integer PAST_DAYS_COVERED = 0;
+    private static final Integer PAST_DAYS_COVERED = 1;
 
     public static Id generateData() {
         // Remove current sessions and bookings
