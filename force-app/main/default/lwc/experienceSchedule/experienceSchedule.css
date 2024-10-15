@@ -11,3 +11,7 @@
 c-session-booking-progress {
     width: 100%;
 }
+
+.status-field {
+    min-width: revert; /* Fixes UI glitch for narrow form fields */
+}
