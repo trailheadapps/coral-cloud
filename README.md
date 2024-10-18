@@ -110,6 +110,49 @@ If you need to [update the Salesforce CLI](https://developer.salesforce.com/docs
     sf org open
     ```
 
+### Step 3. Agent configuration
+
+> [!NOTE]
+> This step is a temporary workaround due to a metadata API bug introduced in the Winter '25 release.
+
+1. From Salesforce Setup, search for "Agents" and select **Agents**.
+1. Click **Einstein Copilot** from the table.
+1. Click **Open in Builder**.
+1. Remove the two existing topics thanks to the caret down menu.
+1. Click **New** and select **New Topic**.
+1. For the Topic Label enter `Customer Service Assistant`.
+1. Fill the form with the following information.
+   | Field | Value |
+   | --- | --- |
+   | Topic Label | Customer Service Assistant |
+   | Classification Description | Engages and interacts with the user about any request related to the resort. This could be tasks such as identify and summarize records, answer queries, aggregate data, find and query objects, update records, or drafting and refining emails. |
+   | Scope | Your job is to assist a Customer Service Representative support guests with questions about reservations and experiences they can book at the hotel. |
+   | Instruction | Never ask the user for an ID. Instead, ask for a record that's relevant. |
+1. Click **Add Instructions** and set the value of the new instruction to:
+    ```
+    If a customer would like more information on an Experience, you should search for the related Experience__c record and let them know more.
+    ```
+1. Click **Add Instructions** and set the value of the new instruction to:
+    ```
+    For the "Check Weather" action, only accepts dates that are in the future. If date is today or a past date, ask for a future date.
+    ```
+1. Click **Next**.
+1. Select the following actions from the list:
+    - Check Weather
+    - Draft Or Revise Email
+    - Get Activities Timeline
+    - Get Activity Details
+    - Get Record Details
+    - Identify Object By Name
+    - Identify Record By Name
+    - Query Records
+    - Query Records With Aggregate
+    - Summarize Record
+    - Generate Personalized Schedule
+    - Issue Bulk Resort Credits
+    - Issue Resort Credit
+1. Click **Finish**.
+
 ## Troubleshooting
 
 ### Salesforce CLI data plan import fails with STORAGE_LIMIT_EXCEEDED
