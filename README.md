@@ -112,8 +112,8 @@ If you need to [update the Salesforce CLI](https://developer.salesforce.com/docs
 
 ### Step 3. Agent configuration
 
-> [!INFO]
-> This step is a temporary workaround due to a metadata API bug.
+> [!NOTE]
+> This step is a temporary workaround due to a metadata API bug introduced in the Winter '25 release.
 
 1. From Salesforce Setup, search for "Agents" and select **Agents**.
 1. Click **Einstein Copilot** from the table.
