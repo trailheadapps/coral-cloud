@@ -3,7 +3,7 @@
 1. Install automatically some of the components (Amazon S3 connection and data streams) from the Data Kit thanks to the [Data Kit component deployment flow](https://developer.salesforce.com/docs/platform/data-cloud-dev/guide/dc-deploy_data_kit_components.html):
 
     ```bash
-    sf api request rest actions/custom/flow/sfdatakit__DeployDataKitComponents --method POST --body config/data-kit-deploy.json
+    sf api request rest '/services/data/v62.0/actions/custom/flow/sfdatakit__DeployDataKitComponents' --method POST --body @config/data-kit-deploy.json
     ```
 
 1. Configure the credentials for the Amazon S3 read-only connection that you deployed above:
