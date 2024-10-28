@@ -2,7 +2,7 @@
 <CspTrustedSite xmlns="http://soap.sforce.com/2006/04/metadata">
     <canAccessCamera>false</canAccessCamera>
     <canAccessMicrophone>false</canAccessMicrophone>
-    <context>LEX</context>
+    <context>All</context>
     <description>Amazon S3 hosted sample app media</description>
     <endpointUrl>https://s3-us-west-2.amazonaws.com</endpointUrl>
     <isActive>true</isActive>
