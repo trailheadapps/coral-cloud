@@ -28,12 +28,16 @@ public with sharing class SetupServiceAgentUser {
                 OR DeveloperName = 'GenieDataPlatformStarterPsl'
         ];
 
+        List<PermissionSetLicenseAssign> pslas = new List<PermissionSetLicenseAssign>();
+
         for (PermissionSetLicense psl : psls) {
             PermissionSetLicenseAssign psla = new PermissionSetLicenseAssign();
             psla.AssigneeId = u.Id;
             psla.PermissionSetLicenseId = psl.Id;
-            insert psla;
+            pslas.add(psla);
         }
+
+        insert pslas;
 
         List<PermissionSet> pss = [
             SELECT Id
@@ -44,11 +48,15 @@ public with sharing class SetupServiceAgentUser {
                 OR Name = 'Coral_Cloud_Service_Agent'
         ];
 
+        List<PermissionSetAssignment> psaas = new List<PermissionSetAssignment>();
+
         for (PermissionSet ps : pss) {
             PermissionSetAssignment psa = new PermissionSetAssignment();
             psa.AssigneeId = u.Id;
             psa.PermissionSetId = ps.Id;
-            upsert psa;
+            psaas.add(psa);
         }
+
+        upsert psaas;
     }
 }
