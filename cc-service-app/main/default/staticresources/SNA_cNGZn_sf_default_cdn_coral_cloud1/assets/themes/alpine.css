@@ -1,0 +1,4 @@
+:root {
+    /* This property is here to prevent the file from being empty, which will cause an API error */
+    --dxp-c-header-container-spacing-block-start: 1rem;
+}

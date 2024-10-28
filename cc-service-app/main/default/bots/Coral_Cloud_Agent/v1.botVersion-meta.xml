@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<BotVersion xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>v1</fullName>
+    <articleAnswersGPTEnabled>false</articleAnswersGPTEnabled>
+    <botDialogs>
+        <botSteps>
+            <botMessages>
+                <message
+                >Hi, I&apos;m an AI service assistant. How can I help you?</message>
+                <messageIdentifier
+                >cd0beaf0-a2b3-4134-815a-881355c9cec3</messageIdentifier>
+            </botMessages>
+            <stepIdentifier
+            >b3d74121-4388-4429-9c8c-61a9fa3ac8af</stepIdentifier>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <stepIdentifier
+            >1f3dc5e7-9508-4d3f-ab98-d425c9473997</stepIdentifier>
+            <type>Wait</type>
+        </botSteps>
+        <developerName>Welcome</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
+        <label>Hi! I&apos;m your helpful bot.</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <botDialogs>
+        <botSteps>
+            <botMessages>
+                <message
+                >Sorry, it looks like something has gone wrong.</message>
+                <messageIdentifier
+                >5f84d457-a4eb-46c5-bbf5-d31b025cd058</messageIdentifier>
+            </botMessages>
+            <stepIdentifier
+            >d64dbd46-85f8-4b8f-973f-3e1a1b853e74</stepIdentifier>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <stepIdentifier
+            >5e4b281d-9be7-4ff9-ba4b-936547e1a4c3</stepIdentifier>
+            <type>Wait</type>
+        </botSteps>
+        <developerName>Error_Handling</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
+        <label
+        >Unfortunately, a system error occurred. Let us start again.</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <botDialogs>
+        <botSteps>
+            <botMessages>
+                <message
+                >One moment while I connect you to the next available service representative.</message>
+                <messageIdentifier
+                >29c76570-2f7c-48c9-8e87-3f5e5409ea3d</messageIdentifier>
+            </botMessages>
+            <stepIdentifier
+            >bf397051-27a3-4c5b-b07e-beb58662752b</stepIdentifier>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <conversationSystemMessage>
+                <type>Transfer</type>
+            </conversationSystemMessage>
+            <stepIdentifier
+            >59aee28d-3a93-4354-be71-55ddea5c7e0f</stepIdentifier>
+            <type>SystemMessage</type>
+        </botSteps>
+        <developerName>Transfer_To_Agent</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
+        <label>Transfer To Agent</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <citationsEnabled>false</citationsEnabled>
+    <company
+    >Coral Cloud Resorts is a fictitious seaside resort that manages guests and their reservations. It offers a rich set of experiences.</company>
+    <conversationDefinitionPlanners>
+        <genAiPlannerName>Coral_Cloud_Agent</genAiPlannerName>
+    </conversationDefinitionPlanners>
+    <entryDialog>Welcome</entryDialog>
+    <intentDisambiguationEnabled>false</intentDisambiguationEnabled>
+    <intentV3Enabled>false</intentV3Enabled>
+    <knowledgeActionEnabled>false</knowledgeActionEnabled>
+    <knowledgeFallbackEnabled>false</knowledgeFallbackEnabled>
+    <role
+    >The agent&apos;s job is to assist users in navigating and managing bookings for different experiences offered by Coral Cloud Resorts, ensuring a seamless customer service experience by providing accurate information and resolving issues promptly.</role>
+    <smallTalkEnabled>false</smallTalkEnabled>
+    <toneType>Casual</toneType>
+</BotVersion>

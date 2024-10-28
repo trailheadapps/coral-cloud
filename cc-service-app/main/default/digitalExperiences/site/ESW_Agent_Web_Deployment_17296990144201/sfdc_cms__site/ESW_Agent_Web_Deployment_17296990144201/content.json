@@ -1,0 +1,8 @@
+{
+    "type": "sfdc_cms__site",
+    "title": "ESW_Agent_Web_Deployment_1729699014420",
+    "contentBody": {
+        "authenticationType": "AUTHENTICATED_WITH_PUBLIC_ACCESS_ENABLED"
+    },
+    "urlName": "esw-agent-web-deployment-1729699014420"
+}

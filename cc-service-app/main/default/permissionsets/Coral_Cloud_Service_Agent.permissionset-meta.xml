@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+    >This permission set grants access to messaging and the Available Messaging Status.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Coral Cloud Service Agent</label>
+</PermissionSet>

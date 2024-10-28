@@ -1,0 +1,49 @@
+{
+    "type": "sfdc_cms__mobilePublisherConfig",
+    "title": "Mobile Publisher Content",
+    "contentBody": {
+        "mobilePublisherAppUpdateConfig": {
+            "forceAppUpdate": false,
+            "enableAppUpdate": false,
+            "minVersion": {
+                "ios": {
+                    "version": "10.0",
+                    "url": "https://apps.apple.com/us"
+                },
+                "android": {
+                    "version": "10.1",
+                    "url": "https://play.google.com/store"
+                }
+            }
+        },
+        "nativeMobileNavConfig": {
+            "ios": {
+                "showBackButton": true,
+                "showHamburgerMenuWithBackButton": false
+            },
+            "global": {
+                "showHamburgerMenu": true
+            }
+        },
+        "nativeTabMenu": {
+            "branding": {
+                "iconTintColor": "#02505A",
+                "iconTintColorUnselected": "#C9C9C9",
+                "barTintColor": "#FFFFFF"
+            },
+            "menuItems": [
+                {
+                    "name": "Home",
+                    "targetUrl": "/",
+                    "iconDetails": {
+                        "source": {
+                            "type": "salesforceAsset",
+                            "salesforceAssetName": "slds-icon:home"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "urlName": "mobile-publisher-content"
+}

@@ -1,0 +1,8 @@
+{
+    "type": "sfdc_cms__site",
+    "title": "coral cloud",
+    "contentBody": {
+        "authenticationType": "AUTHENTICATED_WITH_PUBLIC_ACCESS_ENABLED"
+    },
+    "urlName": "coral-cloud"
+}

@@ -1,0 +1,14 @@
+{
+    "type": "sfdc_cms__trustedSites",
+    "title": "trustedSites",
+    "contentBody": {
+        "trustedSites": [
+            {
+                "isActive": true,
+                "source": "https://*.my.salesforce-scrt.com",
+                "sourceName": "Embedded Messaging"
+            }
+        ]
+    },
+    "urlName": "trustedsites"
+}

@@ -1,0 +1,31 @@
+.container {
+    height: 100% !important;
+}
+
+.content {
+    padding: 8px;
+    background-color: #ffffff;
+    border-radius: 0.25rem;
+    text-align: center;
+    height: 100% !important;
+}
+
+a {
+    color: inherit;
+}
+a:hover {
+    text-decoration: none !important;
+}
+
+img.experience {
+    border-radius: 0.25rem;
+    height: 120px;
+    width: 100% !important;
+    pointer-events: none;
+    object-fit: cover;
+}
+
+.title {
+    font-weight: bold;
+    text-transform: uppercase;
+}

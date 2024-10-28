@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="{language}">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script type="text/javascript">
+            function launchModal(_ref){var id=_ref.id,titleLabel=_ref.titleLabel,contentLabel=_ref.contentLabel,buttonLabel=_ref.buttonLabel,callback=_ref.callback;var modalTemplate="<div id=\"".concat(id,"\">\n          <section\n          role=\"alertdialog\"\n          tabindex=\"-1\"\n          aria-labelledby=\"prompt-heading-id\"\n          aria-describedby=\"prompt-message-wrapper\"\n          class=\"slds-modal slds-fade-in-open slds-modal_prompt\"\n          aria-modal=\"true\"\n          style=\"color: rgb(62, 62, 60)\"\n          >\n              <div class=\"slds-modal__container\">\n                  <header class=\"slds-modal__header slds-theme_info slds-theme_alert-texture\">\n                      <h2 class=\"slds-text-heading_medium\">").concat(titleLabel,"</h2>\n                  </header>\n                  <div class=\"slds-modal__content slds-p-around_medium\">\n                      <p id=\"prompt-message-id\">").concat(contentLabel,"</p>\n                  </div>\n                  <footer class=\"slds-modal__footer slds-theme_default\">\n                      <button class=\"slds-button slds-button_neutral js-button\">").concat(buttonLabel,"</button>\n                  </footer>\n              </div>\n          </section>\n          <div class=\"slds-backdrop slds-backdrop_open\"></div>\n      </div>");var div=document.createElement("div");div.innerHTML=modalTemplate;div.querySelector(".js-button").addEventListener("click",callback);if(!document.body){document.createElement("body")}document.body.appendChild(div.querySelector("#".concat(id)))}window.onload=function(){if(!window.isBrowserSupportedByWebruntime){var WEBRUNTIME_UNSUPPORTED_BROWSER_MODAL_ID="webruntime-browser-not-supported-message";launchModal({id:WEBRUNTIME_UNSUPPORTED_BROWSER_MODAL_ID,titleLabel:"Your browser isn't supported",contentLabel:"Your browser doesn\u2019t support some features on this site. For the best experience, update your browser to the latest version, or switch to another browser.",buttonLabel:"Got It",callback:function callback(){var modal=document.querySelector("#".concat(WEBRUNTIME_UNSUPPORTED_BROWSER_MODAL_ID));document.body.removeChild(modal)}})}};window.document.addEventListener("client-error",function(error){if(error.detail.type==="FAILED_TO_LOAD_RESOURCE"){launchModal({id:"webruntime-client-error-failed-to-load-resource",titleLabel:"Oops!",contentLabel:"Something went wrong. Please try refreshing the app",buttonLabel:"Refresh",callback:function callback(){var url=new URL(window.location);url.searchParams.set("lwr.cachebust",new Date().getTime());window.location=url.href}})}else if(error.detail.type==="TOO_MANY_REQUESTS"){window.document.cookie="TooManyRequests=true;max-age=30;";window.location.reload()}});
+        </script>
+        {webruntimeInit}
+        {headmarkup}
+    </head>
+    <body>
+        <webruntime-app></webruntime-app>
+    </body>
+</html>

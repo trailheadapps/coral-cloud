@@ -1,0 +1,42 @@
+<template>
+    <div class="slds-card slds-var-p-around_x-small">
+        <lightning-combobox
+            value={type}
+            options={types}
+            onchange={handleTypeChange}
+            class="search-bar"
+        >
+        </lightning-combobox>
+        <template lwc:if={experiences.data}>
+            <template lwc:if={experiences.data.records.length}>
+                <div class="content">
+                    <template
+                        for:each={experiences.data.records}
+                        for:item="experience"
+                    >
+                        <c-experiences-tile
+                            key={experience.Id}
+                            experience={experience}
+                            onselected={handleExperienceSelected}
+                            class="slds-var-m-around_x-small"
+                        >
+                        </c-experiences-tile>
+                    </template>
+                </div>
+                <c-paginator
+                    page-number={pageNumber}
+                    page-size={experiences.data.pageSize}
+                    total-item-count={experiences.data.totalItemCount}
+                    onprevious={handlePreviousPage}
+                    onnext={handleNextPage}
+                ></c-paginator>
+            </template>
+            <template lwc:else>
+                There are no experiences matching your current selection
+            </template>
+        </template>
+        <template lwc:if={experiences.error}>
+            <c-error-panel errors={experiences.error}></c-error-panel>
+        </template>
+    </div>
+</template>

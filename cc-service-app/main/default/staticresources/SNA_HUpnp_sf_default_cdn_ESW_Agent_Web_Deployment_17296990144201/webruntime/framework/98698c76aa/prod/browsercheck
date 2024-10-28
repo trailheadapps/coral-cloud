@@ -1,0 +1,1 @@
+!function(){"use strict";window.isBrowserSupportedByWebruntime=function(){const n="performance"in window&&"mark"in window.performance,e="customElements"in window;return n&&e}()}();
