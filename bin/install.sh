@@ -3,7 +3,7 @@ SCRIPT_PATH=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cd $SCRIPT_PATH/..
 
 echo ""
-echo "Installing Coral Cloud"
+echo "Installing Coral Cloud - Base"
 echo ""
 
 # Get default org alias
@@ -52,7 +52,7 @@ then
 fi
 
 echo "Pushing source..." && \
-sf project deploy start && \
+sf project deploy start -d force-app && \
 echo "" && \
 
 echo "Assigning permission sets..." && \
