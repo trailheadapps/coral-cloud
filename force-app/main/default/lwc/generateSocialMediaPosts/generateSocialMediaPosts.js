@@ -1,4 +1,4 @@
-import { LightningElement, api } from 'lwc';
+import { api, LightningElement } from 'lwc';
 import generateSocialMediaPosts from '@salesforce/apex/SocialMediaPostsController.generateSocialMediaPosts';
 
 export default class GenerateSocialMediaPosts extends LightningElement {
@@ -9,12 +9,8 @@ export default class GenerateSocialMediaPosts extends LightningElement {
     showSpinner = false;
     @api recordId;
 
-    async handleGenerateClick() {
+    async generateSocialMediaPosts() {
         this.showSpinner = true;
-        this.twitterPost = undefined;
-        this.linkedinPost = undefined;
-        this.slackPost = undefined;
-        this.error = undefined;
         try {
             const posts = await generateSocialMediaPosts({
                 experienceSessionId: this.recordId
@@ -23,7 +19,10 @@ export default class GenerateSocialMediaPosts extends LightningElement {
             this.twitterPost = parsedPosts.twitter;
             this.linkedinPost = parsedPosts.linkedin;
             this.slackPost = JSON.stringify(parsedPosts.blockkit);
+            this.error = undefined;
         } catch (error) {
+            this.twitterPost = undefined;
+            this.linkedinPost = undefined;
             this.error = error;
         } finally {
             this.showSpinner = false;

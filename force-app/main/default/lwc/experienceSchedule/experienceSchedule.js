@@ -1,16 +1,42 @@
 import { LightningElement, api, wire } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
+import { subscribe, MessageContext } from 'lightning/messageService';
+import EXPERIENCE_SELECTED_MESSAGE from '@salesforce/messageChannel/ExperienceSelected__c';
 import getExperienceSessionsForDate from '@salesforce/apex/ExperienceController.getExperienceSessionsForDate';
+import isCommunity from '@salesforce/apex/ContextService.isCommunity';
 
 export default class ExperienceSchedule extends NavigationMixin(
     LightningElement
 ) {
     @api recordId;
-
+    _recordId;
     sessions = [];
     error;
     loading = true;
     date = new Date();
+    isCommunity;
+
+    connectedCallback() {
+        this.experienceSelectionSubscription = subscribe(
+            this.messageContext,
+            EXPERIENCE_SELECTED_MESSAGE,
+            (message) => this.handleExperienceSelected(message.experienceId)
+        );
+    }
+
+    @wire(MessageContext) messageContext;
+    experienceSelectionSubscription;
+
+    @wire(isCommunity)
+    wiredCommunityInfo({ error, data }) {
+        if (error) {
+            this.error = error;
+            this.isCommunity = undefined;
+        } else if (data) {
+            this.isCommunity = data;
+            this.error = undefined;
+        }
+    }
 
     @wire(getExperienceSessionsForDate, {
         experienceId: '$recordId',
@@ -31,11 +57,17 @@ export default class ExperienceSchedule extends NavigationMixin(
                 session.labelEndTime = `end${session.Id}`;
                 session.labelStatus = `status${session.Id}`;
                 session.labelBookings = `bookings${session.Id}`;
+                session.labelPrice = `price${session.Id}`;
                 return session;
             });
         } else {
             this.sessions = [];
         }
+    }
+
+    handleExperienceSelected(experienceId) {
+        // TODO: Fix re-assignment, was this.recordId before
+        this._recordId = experienceId;
     }
 
     handleNextDayClick() {
@@ -77,5 +109,15 @@ export default class ExperienceSchedule extends NavigationMixin(
             return 'A session is scheduled on this day:';
         }
         return `${count} sessions are scheduled on this day:`;
+    }
+
+    // TODO: Fix this method
+    async handleBookSessionClick() {
+        // const result = await MyModal.open({
+        //     size: 'large',
+        //     description: 'Book session',
+        //     sessionId: this.recordId
+        // });
+        // console.log(result);
     }
 }

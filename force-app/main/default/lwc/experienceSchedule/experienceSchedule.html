@@ -1,3 +1,4 @@
+<!-- sldsValidatorIgnore -->
 <template>
     <lightning-card title="Schedule" icon-name="standard:event">
         <!-- Date selector -->
@@ -65,117 +66,185 @@
                         <!-- Session card -->
                         <div
                             key={session.Id}
-                            class="slds-box slds-box_xx-small slds-m-bottom_x-small"
+                            class="slds-box slds-box_xx-small slds-p-top_small slds-p-bottom_x-small slds-m-bottom_xx-small"
                         >
                             <div class="slds-grid slds-wrap">
-                                <!-- Start time -->
-                                <div class="slds-size_1-of-3">
-                                    <div
-                                        class="slds-form__item"
-                                        role="listitem"
-                                    >
-                                        <div
-                                            class="slds-form-element slds-form-element_stacked"
-                                        >
-                                            <label
-                                                class="slds-form-element__label"
-                                                for={session.labelStartTime}
-                                                >Start</label
-                                            >
+                                <div class="slds-size_11-of-12">
+                                    <div class="slds-grid slds-wrap">
+                                        <!-- Start time -->
+                                        <div class="slds-size_1-of-3">
                                             <div
-                                                class="slds-form-element__control"
+                                                class="slds-form__item"
+                                                role="listitem"
                                             >
-                                                <lightning-formatted-date-time
-                                                    value={session.Start_Time__c}
-                                                    hour="2-digit"
-                                                    hour12="false"
-                                                    minute="2-digit"
-                                                    time-zone="UTC"
-                                                    id={session.labelStartTime}
+                                                <div
+                                                    class="slds-form-element slds-form-element_stacked"
                                                 >
-                                                </lightning-formatted-date-time>
+                                                    <label
+                                                        class="slds-form-element__label"
+                                                        for={session.labelStartTime}
+                                                        >Start</label
+                                                    >
+                                                    <div
+                                                        class="slds-form-element__control"
+                                                    >
+                                                        <lightning-formatted-date-time
+                                                            value={session.Start_Time__c}
+                                                            hour="2-digit"
+                                                            hour12="false"
+                                                            minute="2-digit"
+                                                            time-zone="UTC"
+                                                            id={session.labelStartTime}
+                                                        >
+                                                        </lightning-formatted-date-time>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End time -->
+                                        <div class="slds-size_1-of-3">
+                                            <div
+                                                class="slds-form__item"
+                                                role="listitem"
+                                            >
+                                                <div
+                                                    class="slds-form-element slds-form-element_stacked"
+                                                >
+                                                    <label
+                                                        class="slds-form-element__label"
+                                                        for={session.labelEndTime}
+                                                        >End</label
+                                                    >
+                                                    <div
+                                                        class="slds-form-element__control"
+                                                    >
+                                                        <lightning-formatted-date-time
+                                                            value={session.End_Time__c}
+                                                            hour="2-digit"
+                                                            hour12="false"
+                                                            minute="2-digit"
+                                                            time-zone="UTC"
+                                                            id={session.labelEndTime}
+                                                        >
+                                                        </lightning-formatted-date-time>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Status -->
+                                        <div class="slds-size_1-of-3">
+                                            <div
+                                                class="slds-form__item"
+                                                role="listitem"
+                                            >
+                                                <div
+                                                    class="slds-form-element slds-form-element_stacked"
+                                                >
+                                                    <template
+                                                        lwc:if={isCommunity}
+                                                    >
+                                                        <label
+                                                            class="slds-form-element__label"
+                                                            for={session.labelPrice}
+                                                            >Price</label
+                                                        >
+                                                        <div
+                                                            class="slds-form-element__control"
+                                                            id={session.labelPrice}
+                                                        >
+                                                            {session.Experience__r.Price__c}
+                                                        </div>
+                                                    </template>
+                                                    <template lwc:else>
+                                                        <label
+                                                            class="slds-form-element__label"
+                                                            for={session.labelStatus}
+                                                            >Status</label
+                                                        >
+                                                        <div
+                                                            class="slds-form-element__control"
+                                                            id={session.labelStatus}
+                                                        >
+                                                            {session.Status__c}
+                                                        </div>
+                                                    </template>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Bookings -->
+                                        <div
+                                            class="slds-size_1-of-1 slds-m-top_medium"
+                                        >
+                                            <div
+                                                class="slds-form__item"
+                                                role="listitem"
+                                            >
+                                                <div
+                                                    class="slds-form-element slds-form-element_stacked"
+                                                >
+                                                    <label
+                                                        class="slds-form-element__label"
+                                                        for={session.labelBookings}
+                                                        >Bookings:
+                                                        {session.Booked_Slots__c}/{session.Capacity__c}</label
+                                                    >
+                                                    <div
+                                                        class="slds-form-element__control"
+                                                    >
+                                                        <div
+                                                            class="slds-grid slds-wrap"
+                                                        >
+                                                            <div
+                                                                class="slds-size_10-of-12 slds-align-middle"
+                                                            >
+                                                                <lightning-progress-bar
+                                                                    value={session.Percentage_Booked__c}
+                                                                    size="large"
+                                                                    variant="circular"
+                                                                    id={session.labelBookings}
+                                                                ></lightning-progress-bar>
+                                                            </div>
+                                                            <div
+                                                                class="slds-size_2-of-12 slds-align_absolute-center"
+                                                            >
+                                                                <p>
+                                                                    <strong
+                                                                        >{session.Percentage_Booked__c}%</strong
+                                                                    >
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- End time -->
-                                <div class="slds-size_1-of-3">
-                                    <div
-                                        class="slds-form__item"
-                                        role="listitem"
-                                    >
-                                        <div
-                                            class="slds-form-element slds-form-element_stacked"
-                                        >
-                                            <label
-                                                class="slds-form-element__label"
-                                                for={session.labelEndTime}
-                                                >End</label
-                                            >
-                                            <div
-                                                class="slds-form-element__control"
-                                            >
-                                                <lightning-formatted-date-time
-                                                    value={session.End_Time__c}
-                                                    hour="2-digit"
-                                                    hour12="false"
-                                                    minute="2-digit"
-                                                    time-zone="UTC"
-                                                    id={session.labelEndTime}
-                                                >
-                                                </lightning-formatted-date-time>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Open record -->
                                 <div
-                                    class="slds-size_1-of-3 record-open-container"
+                                    class="slds-size_1-of-12 slds-align_absolute-center"
                                 >
-                                    <lightning-button-icon
-                                        icon-name="utility:record_lookup"
-                                        variant="bare"
-                                        data-id={session.Id}
-                                        size="large"
-                                        onclick={handleViewSessionClick}
-                                        title="Open record"
-                                        alternative-text="Open record"
-                                    ></lightning-button-icon>
-                                </div>
-                                <!-- Bookings -->
-                                <div class="slds-size_2-of-3">
-                                    <div
-                                        class="slds-form__item"
-                                        role="listitem"
-                                    >
-                                        <c-session-booking-progress
-                                            booked={session.Booked_Slots__c}
-                                            capacity={session.Capacity__c}
-                                        ></c-session-booking-progress>
-                                    </div>
-                                </div>
-                                <!-- Status -->
-                                <div class="slds-size_1-of-3">
-                                    <div
-                                        class="slds-form__item status-field"
-                                        role="listitem"
-                                    >
-                                        <div
-                                            class="slds-form-element slds-form-element_stacked"
-                                        >
-                                            <label
-                                                class="slds-form-element__label"
-                                                for={session.labelStatus}
-                                                >Status</label
-                                            >
-                                            <div
-                                                class="slds-form-element__control"
-                                                id={session.labelStatus}
-                                            >
-                                                {session.Status__c}
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <template lwc:if={isCommunity}>
+                                        <lightning-button-icon
+                                            icon-name="utility:cart"
+                                            variant="bare"
+                                            data-id={session.Id}
+                                            size="large"
+                                            onclick={handleBookSessionClick}
+                                            title="Book session"
+                                            alternative-text="Book session"
+                                        ></lightning-button-icon>
+                                    </template>
+                                    <template lwc:else>
+                                        <lightning-button-icon
+                                            icon-name="action:preview"
+                                            variant="brand"
+                                            data-id={session.Id}
+                                            size="large"
+                                            onclick={handleViewSessionClick}
+                                            title="Open record"
+                                            alternative-text="Open record"
+                                        ></lightning-button-icon>
+                                    </template>
                                 </div>
                             </div>
                         </div>

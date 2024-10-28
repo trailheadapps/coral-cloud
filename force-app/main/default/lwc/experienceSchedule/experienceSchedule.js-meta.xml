@@ -4,15 +4,20 @@
     <isExposed>true</isExposed>
     <masterLabel>Experience Schedule</masterLabel>
     <description
-    >Displays sessions' availablity and capacity for an experience.</description>
+    >Displays sessions' availability and capacity for an experience.</description>
     <targets>
         <target>lightning__RecordPage</target>
+        <target>lightningCommunity__Page</target>
     </targets>
     <targetConfigs>
         <targetConfig targets="lightning__RecordPage">
             <objects>
-              <object>Experience__c</object>
+                <object>Experience__c</object>
             </objects>
-          </targetConfig>      
+            <supportedFormFactors>
+                <supportedFormFactor type="Large" />
+                <supportedFormFactor type="Small" />
+            </supportedFormFactors>
+        </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>
