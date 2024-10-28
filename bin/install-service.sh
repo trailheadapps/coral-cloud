@@ -42,7 +42,7 @@ echo "" && \
 echo "Redeploying flow metadata with org specific values..." && \
 export SF_CC_PLACEHOLDER_FLOW_AGENT_ID=$(sf data query --query "SELECT Id from BotDefinition WHERE DeveloperName='Coral_Cloud_Agent'" --json | jq -r '.result | .records[0] | .Id') && \
 echo "Agent ID: $SF_CC_PLACEHOLDER_FLOW_AGENT_ID" && \
-export SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID=$(sf data query --query "SELECT Id from MessagingChannel WHERE DeveloperName='Agent_Channel'" --json | jq -r '.result | .records[0] | .Id') && \
+export SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID=$(sf data query --query "SELECT Id from ServiceChannel WHERE DeveloperName='sfdc_livemessage'" --json | jq -r '.result | .records[0] | .Id') && \
 echo "Channel ID: $SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID" && \
 export SF_CC_PLACEHOLDER_FLOW_QUEUE_ID=$(sf data query --query "SELECT Id FROM Group WHERE Type = 'Queue' AND Name = 'Messaging Queue'" --json | jq -r '.result | .records[0] | .Id') && \
 echo "Queue ID: $SF_CC_PLACEHOLDER_FLOW_QUEUE_ID" && \
@@ -62,6 +62,8 @@ EXIT_CODE="$?"
 echo ""
 if [ "$EXIT_CODE" -eq 0 ]; then
   echo "Installation completed."
+  echo ""
+  echo "Experience Cloud URL: https://${SF_CC_PLACEHOLDER_DOMAIN}.develop.my.site.com/"
   echo ""
 else
     echo "Installation failed."
