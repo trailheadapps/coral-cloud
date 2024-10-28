@@ -14,6 +14,7 @@ The summary should have between 80 and 100 words.
 
 Experience Name: {!$Input:Experience__c.Name}
 List of guest reviews: {!$RelatedList:Experience__c.Guest_Reviews__r.Records}
+
 </content>
         <inputs>
             <apiName>RelatedEntity</apiName>

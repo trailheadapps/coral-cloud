@@ -71,7 +71,8 @@
         </assignmentItems>
     </assignments>
     <description
-    >Issue resort credits for one of multiple contacts identified by an array of Contact Ids.</description>
+    >Issue resort credits for one of multiple contacts identified by an array of Contact
+        Ids.</description>
     <environments>Default</environments>
     <interviewLabel
     >Issue Bulk Resort Credits {!$Flow.CurrentDateTime}</interviewLabel>

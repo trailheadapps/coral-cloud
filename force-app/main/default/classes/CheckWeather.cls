@@ -9,12 +9,10 @@ public with sharing class CheckWeather {
         // Retrieve the date for which we want to check the weather
         Datetime dateToCheck = (Datetime) requests[0].dateToCheck;
 
-        // Call a weather service to retrieve the weather through an API call
         WeatherService.Weather weather = WeatherService.getResortWeather(
             dateToCheck
         );
-
-        // Create the response for Copilot
+        // Create the response for your agent
         WeatherResponse response = new WeatherResponse();
         response.minTemperature = weather.minTemperatureC;
         response.maxTemperature = weather.maxTemperatureC;
