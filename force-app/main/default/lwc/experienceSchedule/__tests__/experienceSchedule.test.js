@@ -52,7 +52,7 @@ describe('c-experience-schedule', () => {
         const labelEls = cardEls[0].querySelectorAll(
             '.slds-form-element div.slds-form-element__control'
         );
-        const statusEl = labelEls[labelEls.length - 1];
+        const statusEl = labelEls[labelEls.length - 2];
         expect(statusEl.textContent).toBe(`${mockSessions[0].Status__c}`);
     });
 

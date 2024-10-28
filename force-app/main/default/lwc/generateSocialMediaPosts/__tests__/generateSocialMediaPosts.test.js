@@ -58,7 +58,7 @@ describe('c-generate-social-media-posts', () => {
         expect(textAreaEls.length).toBe(3);
     });
 
-    it('renders the error panel when the Apex method returns an error', async () => {
+    it('renders the "Try Again!" button when the Apex method returns an error', async () => {
         // Assign mock value for rejected Apex promise
         generateSocialMediaPosts.mockRejectedValue(MOCK_APEX_ERROR);
 
@@ -75,9 +75,9 @@ describe('c-generate-social-media-posts', () => {
         // Wait for any asynchronous DOM updates
         await flushPromises();
 
-        // Check for error panel
-        const errorPanelEl = element.shadowRoot.querySelector('c-error-panel');
-        expect(errorPanelEl).not.toBeNull();
+        const buttonTryAgainEl =
+            element.shadowRoot.querySelector('lightning-button');
+        expect(buttonTryAgainEl.label).toEqual('Try again!');
     });
 
     it('is accessible', async () => {
