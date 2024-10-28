@@ -1,8 +1,14 @@
 public class WeatherService {
     /**
-     * Gets the weather at Coral Cloud Resorts for the provided date
+     * Gets the weather at Coral Cloud Resort for the provided date
      */
     public static Weather getResortWeather(Datetime dateToCheck) {
+        // Copilot was trained in 2023 so it will use 2023 as the default year if
+        // the user does not specify a year in their prompt. This means that we need
+        // to adjust the input date to be on the current year.
+        Integer currentYear = Date.today().year();
+        Integer yearDelta = currentYear - dateToCheck.year();
+        dateToCheck = dateToCheck.addYears(yearDelta);
         String isoDate = dateToCheck.format('yyyy-MM-dd');
         String dateString = dateToCheck.format('MMMM d');
 
