@@ -101,7 +101,7 @@ If you need to [update the Salesforce CLI](https://developer.salesforce.com/docs
 1. Install a Data Kit to add Data Cloud components to your org.
 
     ```bash
-    sf package install -p 04tHr000000ku0X -w 10
+    sf package install -p 04tHr000000ku4k -w 10
     ```
 
 1. If your org isn't already open, open it now:

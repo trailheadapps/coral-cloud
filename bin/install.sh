@@ -68,7 +68,7 @@ sf apex run -f apex-scripts/setup.apex && \
 echo "" && \
 
 echo "Installing Data Kit..." && \
-sf package install -p 04tHr000000ku0X -w 10 && \
+sf package install -p 04tHr000000ku4k -w 10 && \
 echo "" && \
 
 echo "Opening org..." && \

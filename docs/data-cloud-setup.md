@@ -4,22 +4,8 @@
 
     ```bash
     sf api request rest '/services/data/v62.0/actions/custom/flow/sfdatakit__DeployDataKitComponents' --method POST --body @config/data-kit-deploy.json
+    sf api request rest '/services/data/v62.0/ssot/datakit/Coral_Cloud_Data_Kit_Sample_App?asyncMode=true' --method POST --body @config/data-kit-set-s3-credentials.json
     ```
-
-1. Configure the credentials for the Amazon S3 read-only connection that you deployed above:
-
-    1. Open the **Setup Menu** and select **Data Cloud Setup**.
-    1. In the left sidebar, click **Other Connectors**.
-    1. Open the **Coral Cloud S3 Connection** and click **Edit**.
-    1. Update the following values:
-
-        | **Field**             | **Value**                                  |
-        | --------------------- | ------------------------------------------ |
-        | AWS access key        | `AKIA47CRZ7L5P7VBV3LD`                     |
-        | AWS secret access key | `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` |
-
-    1. Click **Test Connection** to validate the connection.
-    1. Click **Save**
 
 1. Refresh the Guest data stream:
 
