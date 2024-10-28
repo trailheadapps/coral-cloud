@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Bot xmlns="http://soap.sforce.com/2006/04/metadata">
+    <agentType>Employee</agentType>
+    <botMlDomain>
+        <label>Einstein Copilot</label>
+        <name>Copilot_for_Salesforce</name>
+    </botMlDomain>
+    <description>An AI assistant for in-org business tasks.</description>
+    <label>Einstein Copilot</label>
+    <logPrivateConversationData>false</logPrivateConversationData>
+    <pageContextVariables>
+        <dataType>Text</dataType>
+        <developerName>Object_Api_Name</developerName>
+        <label>Object API Name</label>
+    </pageContextVariables>
+    <pageContextVariables>
+        <dataType>Id</dataType>
+        <developerName>Record_Id</developerName>
+        <label>Record ID</label>
+    </pageContextVariables>
+    <richContentEnabled>true</richContentEnabled>
+    <sessionTimeout>480</sessionTimeout>
+    <type>InternalCopilot</type>
+</Bot>
