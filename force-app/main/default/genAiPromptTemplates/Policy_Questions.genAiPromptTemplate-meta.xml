@@ -11,7 +11,7 @@
             Cloud Resorts&apos; policies.
 
             Here&apos;s the customer&apos;s question:
-            {!$Input:myQuestiion}
+            {!$Input:myQuestion}
 
             Please use the following information to help you answer the question:
             PLACEHOLDER_RETRIEVER
@@ -23,10 +23,10 @@
             customer.
 </content>
         <inputs>
-            <apiName>myQuestiion</apiName>
+            <apiName>myQuestion</apiName>
             <definition>primitive://String</definition>
             <masterLabel>Question</masterLabel>
-            <referenceName>Input:myQuestiion</referenceName>
+            <referenceName>Input:myQuestion</referenceName>
             <required>true</required>
         </inputs>
         <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
