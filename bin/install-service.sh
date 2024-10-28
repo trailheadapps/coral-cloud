@@ -46,7 +46,7 @@ export SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID=$(sf data query --query "SELECT Id from
 echo "Channel ID: $SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID" && \
 export SF_CC_PLACEHOLDER_FLOW_QUEUE_ID=$(sf data query --query "SELECT Id FROM Group WHERE Type = 'Queue' AND Name = 'Messaging Queue'" --json | jq -r '.result | .records[0] | .Id') && \
 echo "Queue ID: $SF_CC_PLACEHOLDER_FLOW_QUEUE_ID" && \
-sf project deploy start -d cc-service-app/main/default/flows/Route_to_Agent.flow-meta.xml && \
+sf project deploy start -d cc-service-app/main/default/flows/Route_to_Agent.flow-meta.xml cc-service-app/main/default/flows/Route_to_Queue.flow-meta.xml && \
 echo "" && \
 
 echo "Publishing Experience Cloud site..." && \

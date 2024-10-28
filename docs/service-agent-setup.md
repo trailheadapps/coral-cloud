@@ -56,7 +56,7 @@ For the deployment of the Agentforce Service Agent it is necessary that certain 
 1. Redeploy flow metadata with org specific values.
 
     ```bash
-    sf project deploy start -d cc-service-app/main/default/flows/Route_to_Agent.flow-meta.xml
+    sf project deploy start -d cc-service-app/main/default/flows/Route_to_Agent.flow-meta.xml cc-service-app/main/default/flows/Route_to_Agent.flow-meta.xml
     ```
 
 1. Publish Experience Cloud site.

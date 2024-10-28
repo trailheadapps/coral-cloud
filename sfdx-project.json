@@ -47,6 +47,16 @@
             "filename": "cc-service-app/main/default/flows/Route_to_Agent.flow-meta.xml",
             "stringToReplace": "%%SF_CC_PLACEHOLDER_FLOW_QUEUE_ID%%",
             "replaceWithEnv": "SF_CC_PLACEHOLDER_FLOW_QUEUE_ID"
+        },
+        {
+            "filename": "cc-service-app/main/default/flows/Route_to_Queue.flow-meta.xml",
+            "stringToReplace": "%%SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID%%",
+            "replaceWithEnv": "SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID"
+        },
+        {
+            "filename": "cc-service-app/main/default/flows/Route_to_Queue.flow-meta.xml",
+            "stringToReplace": "%%SF_CC_PLACEHOLDER_FLOW_QUEUE_ID%%",
+            "replaceWithEnv": "SF_CC_PLACEHOLDER_FLOW_QUEUE_ID"
         }
     ]
 }

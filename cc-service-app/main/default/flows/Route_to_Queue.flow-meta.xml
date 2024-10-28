@@ -19,7 +19,7 @@
         <inputParameters>
             <name>serviceChannelId</name>
             <value>
-                <stringValue>0N9KB0000004Hso0AE</stringValue>
+                <stringValue>%%SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID%%</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
@@ -49,7 +49,7 @@
         <inputParameters>
             <name>queueId</name>
             <value>
-                <stringValue>00GKB000000WWcs2AG</stringValue>
+                <stringValue>%%SF_CC_PLACEHOLDER_FLOW_QUEUE_ID%%</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
