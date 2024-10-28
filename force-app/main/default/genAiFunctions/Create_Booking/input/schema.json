@@ -1,0 +1,28 @@
+{
+    "required": ["contactId", "numberOfGuests", "sessionId"],
+    "unevaluatedProperties": false,
+    "properties": {
+        "contactId": {
+            "title": "contactId",
+            "description": "The Id of the contact that will be used to create the related booking.",
+            "lightning:type": "lightning__textType",
+            "lightning:isPII": false,
+            "copilotAction:isUserInput": false
+        },
+        "numberOfGuests": {
+            "title": "numberOfGuests",
+            "description": "The number of guests that will be included in the booking.",
+            "lightning:type": "lightning__numberType",
+            "lightning:isPII": false,
+            "copilotAction:isUserInput": false
+        },
+        "sessionId": {
+            "title": "sessionId",
+            "description": "The Id of the session that the contact will be booked for.",
+            "lightning:type": "lightning__textType",
+            "lightning:isPII": false,
+            "copilotAction:isUserInput": false
+        }
+    },
+    "lightning:type": "lightning__objectType"
+}

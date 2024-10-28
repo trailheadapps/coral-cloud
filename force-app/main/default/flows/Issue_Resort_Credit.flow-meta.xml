@@ -42,7 +42,7 @@
         <inputAssignments>
             <field>Contact__c</field>
             <value>
-                <elementReference>contactId</elementReference>
+                <elementReference>contactid</elementReference>
             </value>
         </inputAssignments>
         <object>Credit__c</object>
@@ -67,7 +67,7 @@
     <variables>
         <description
         >The Id of the Contact the credit will be issued to.</description>
-        <name>contactId</name>
+        <name>contactid</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>

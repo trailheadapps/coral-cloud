@@ -14,18 +14,20 @@
         </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
-            <name>Input:myContact</name>
+            <name>Input:Contact</name>
             <value>
                 <elementReference>Get_Contact</elementReference>
             </value>
         </inputParameters>
         <nameSegment>Generate_Personalized_Schedule</nameSegment>
+        <offset>0</offset>
         <storeOutputAutomatically>true</storeOutputAutomatically>
         <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>62.0</apiVersion>
     <description
-    >This flow is used to take a contacts interests and generate a report of the available Experiences that they can enroll in today.</description>
+    >This flow is used to take a contacts interests and generate a report of the
+        available Experiences that they can enroll in today.</description>
     <environments>Default</environments>
     <interviewLabel
     >Personalize Schedule {!$Flow.CurrentDateTime}</interviewLabel>
@@ -82,8 +84,12 @@
         <allowPause>true</allowPause>
         <fields>
             <name>PromptGenerationResult</name>
-            <fieldText
-            >&lt;p&gt;{!Invoke_Prompt.promptResponse}&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;Insert Variable Here&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>PromptGenerationResult1</name>
+            <fieldText>&lt;p&gt;{!Invoke_Prompt}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <showFooter>true</showFooter>

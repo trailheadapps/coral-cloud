@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+    >Provides details about an Experience__c that a user would like more information about.</description>
+    <invocationTarget>Get_Experience_Details</invocationTarget>
+    <invocationTargetType>flow</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <masterLabel>Get Experience Details</masterLabel>
+</GenAiFunction>
