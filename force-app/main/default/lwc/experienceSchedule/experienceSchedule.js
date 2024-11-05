@@ -8,7 +8,14 @@ import isCommunity from '@salesforce/apex/ContextService.isCommunity';
 export default class ExperienceSchedule extends NavigationMixin(
     LightningElement
 ) {
-    @api recordId;
+    @api
+    get recordId() {
+        return this._recordId;
+    }
+    set recordId(value) {
+        this._recordId = value;
+    }
+
     _recordId;
     sessions = [];
     error;
@@ -39,7 +46,7 @@ export default class ExperienceSchedule extends NavigationMixin(
     }
 
     @wire(getExperienceSessionsForDate, {
-        experienceId: '$recordId',
+        experienceId: '$_recordId',
         timestamp: '$timestamp'
     })
     wiredSessions({ error, data }) {
