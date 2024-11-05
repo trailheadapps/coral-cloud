@@ -8,16 +8,17 @@ echo ""
 
 # Get default org alias
 VALUE_REGEX='"value": "([a-zA-Z0-9_\-]+)"'
-ORG_INFO=$(sf config get target-org --json)
-if [[ $ORG_INFO =~ $VALUE_REGEX ]]
+DEFAULT_ORG_INFO=$(sf config get target-org --json)
+if [[ $DEFAULT_ORG_INFO =~ $VALUE_REGEX ]]
 then
     ORG_ALIAS="${BASH_REMATCH[1]}"
     echo "Using current default org: $ORG_ALIAS"
-    echo "Exporting org alias and subdomain for use in scripts."
-    export SF_CC_PLACEHOLDER_USERNAME=$(sf org display --json |  jq -r '.result | .username')
-    echo "Username: $SF_CC_PLACEHOLDER_USERNAME"
-    export SF_CC_PLACEHOLDER_DOMAIN=$(sf org display --json | jq -r '.result | .instanceUrl | sub("https?://"; "") | split(".")[0]')
-    echo "Domain: $SF_CC_PLACEHOLDER_DOMAIN"    
+    echo "Exporting org alias and subdomain for use in scripts:"
+    ORG_INFO=$(sf org display --json)
+    export SF_CC_PLACEHOLDER_USERNAME=$(echo $ORG_INFO | jq -r '.result | .username')
+    echo "- Username: $SF_CC_PLACEHOLDER_USERNAME"
+    export SF_CC_PLACEHOLDER_DOMAIN=$(echo $ORG_INFO | jq -r '.result | .instanceUrl | sub("https?://"; "") | split(".")[0]')
+    echo "- Domain:   $SF_CC_PLACEHOLDER_DOMAIN"    
     echo ""
 else
     echo "Installation failed: could not retrieve default org alias."
@@ -53,8 +54,12 @@ echo "Publishing Experience Cloud site..." && \
 sf community publish --name 'coral cloud' && \
 echo "" && \
 
+echo "Deploying guest profile for Experience Cloud site..." && \
+sf project deploy start --metadata-dir=guest-profile-metadata -w 10 && \
+echo "" && \
+
 echo "Opening org..." && \
-sf org open -p lightning/page/home && \
+sf org open -p /lightning/setup/LiveMessageSetup/home && \
 echo ""
 EXIT_CODE="$?"
 

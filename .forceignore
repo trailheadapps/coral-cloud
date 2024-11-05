@@ -11,7 +11,10 @@ package.xml
 **/flowDefinitions/**
 **/objectTranslations/**
 **/profiles/**
+**/profilePasswordPolicies/**
+**/profileSessionSettings/**
 **/settings/**
+**/sharingRules/**
 
 # Data Cloud metadata
 **/activationPlatforms/**
