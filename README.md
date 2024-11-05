@@ -140,17 +140,17 @@ If you need to [update the Salesforce CLI](https://developer.salesforce.com/docs
 1. Select the following actions from the list:
     - Check Weather
     - Draft Or Revise Email
+    - Generate Personalized Schedule
     - Get Activities Timeline
     - Get Activity Details
     - Get Record Details
     - Identify Object By Name
     - Identify Record By Name
+    - Issue Bulk Resort Credits
+    - Issue Resort Credit
     - Query Records
     - Query Records With Aggregate
     - Summarize Record
-    - Generate Personalized Schedule
-    - Issue Bulk Resort Credits
-    - Issue Resort Credit
 1. Click **Finish**.
 
 ## Troubleshooting
