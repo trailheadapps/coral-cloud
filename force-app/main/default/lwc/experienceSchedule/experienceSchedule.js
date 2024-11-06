@@ -1,4 +1,5 @@
 import { LightningElement, api, wire } from 'lwc';
+import LightningAlert from 'lightning/alert';
 import { NavigationMixin } from 'lightning/navigation';
 import { subscribe, MessageContext } from 'lightning/messageService';
 import EXPERIENCE_SELECTED_MESSAGE from '@salesforce/messageChannel/ExperienceSelected__c';
@@ -118,13 +119,11 @@ export default class ExperienceSchedule extends NavigationMixin(
         return `${count} sessions are scheduled on this day:`;
     }
 
-    // TODO: Fix this method
     async handleBookSessionClick() {
-        // const result = await MyModal.open({
-        //     size: 'large',
-        //     description: 'Book session',
-        //     sessionId: this.recordId
-        // });
-        // console.log(result);
+        await LightningAlert.open({
+            message: `This feature isn't implemented, check again later.`,
+            theme: 'warn',
+            label: 'Not Implemented'
+        });
     }
 }
