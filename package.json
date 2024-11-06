@@ -1,8 +1,8 @@
 {
-    "name": "coral-clouds",
+    "name": "coral-cloud",
     "private": true,
     "version": "1.0.0",
-    "description": "Coral Clouds sample app",
+    "description": "Coral Cloud sample app",
     "scripts": {
         "lint": "eslint **/lwc/**/*.js",
         "test": "npm run test:unit",
@@ -30,7 +30,7 @@
     "license": "CC0-1.0",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/trailheadapps/coral-clouds"
+        "url": "git+https://github.com/trailheadapps/coral-cloud"
     },
     "devDependencies": {
         "@lwc/eslint-plugin-lwc": "^1.8.2",
