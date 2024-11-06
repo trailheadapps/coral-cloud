@@ -6,6 +6,13 @@ echo ""
 echo "Installing Coral Cloud - Service"
 echo ""
 
+# Ensure that jq is installed
+if ! command -v jq 2>&1 >/dev/null
+then
+    echo "jq could not be found. Please install it from https://jqlang.github.io/jq/"
+    exit 1
+fi
+
 # Get default org alias
 VALUE_REGEX='"value": "([a-zA-Z0-9_\-]+)"'
 ORG_INFO=$(sf config get target-org --json)
