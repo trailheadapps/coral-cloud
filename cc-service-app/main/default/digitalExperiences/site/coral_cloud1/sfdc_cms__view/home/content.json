@@ -74,7 +74,7 @@
                                                 "deploymentName": "Agent_Web_Deployment",
                                                 "hideChatButtonOnLoad": "Default",
                                                 "scrtUrl": "https://%%SF_CC_PLACEHOLDER_DOMAIN%%.develop.my.salesforce-scrt.com",
-                                                "siteEndpoint": "https://coralcloudresorts-3a-dev-ed.develop.my.site.com/ESWAgentWebDeployment1729699014420"
+                                                "siteEndpoint": "https://%%SF_CC_PLACEHOLDER_DOMAIN%%.develop.my.site.com/ESWAgentWebDeployment1729699014420"
                                             },
                                             "definition": "experience_messaging:embeddedMessaging",
                                             "id": "e78ba173-4372-48d8-86bf-6e4ffbc14926",
