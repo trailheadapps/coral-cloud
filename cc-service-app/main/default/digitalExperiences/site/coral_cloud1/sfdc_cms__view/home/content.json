@@ -8,7 +8,7 @@
                     "children": [
                         {
                             "attributes": {
-                                "backgroundImageConfig": "{\"url\":\"/sfsites/c/cms/delivery/media/MCLTBQGBQD4FGS5BLG4HSSBYI4PE?lastModifiedDate=Wed Sep 25 17:49:42 GMT 2024&height=144&width=192\",\"contentKey\":\"MCLTBQGBQD4FGS5BLG4HSSBYI4PE\",\"altText\":\"\",\"contentType\":\"sfdc_cms__image\",\"bgPosition\":\"center center\",\"bgSizeOrRepeat\":\"/cover\"}",
+                                "backgroundImageConfig": "",
                                 "backgroundImageOverlay": "rgba(0,0,0,0)",
                                 "componentSpacerSize": "",
                                 "layoutDirectionDesktop": "row",
@@ -38,6 +38,7 @@
                                     "type": "region"
                                 }
                             ],
+                            "customCssClasses": "jumbotron",
                             "definition": "community_layout:section",
                             "id": "b4781403-46b1-47e3-bb1b-2b1e53c90333",
                             "scopedBrandingSetId": "Coral_Cloud_Body",
@@ -62,7 +63,7 @@
                                     "children": [
                                         {
                                             "attributes": {
-                                                "richTextValue": "<div class=\"slds-grid slds-wrap\">\n    <div class=\"slds-align_absolute-center slds-p-top_x-large slds-p-bottom_x-large\">\n            <div class=\"slds-size_2-of-3\">\n                        <div class=\"slds-text-heading_medium slds-text-align_center\" style=\"font-weight:bold;font-size:24px\">Book an Experience of a Lifetime</div>\n        <div class=\"slds-text-body_regular slds-text-align_center\">At Coral Clouds, you'll uncover a deep connection to the land, the rich history, and the vibrant culture of our unique coastal sanctuary. Embrace the breathtaking natural beauty and the warm, welcoming community that makes this place truly special. Each day is an opportunity for new discoveries and soul-enriching experiences, inviting you to explore the rare and remarkable depths of this extraordinary coastline.\n</div>\n</div>\n    </div>\n</div>"
+                                                "richTextValue": "<div class=\"slds-grid slds-wrap\">\n    <div class=\"slds-align_absolute-center slds-p-top_x-large slds-p-bottom_x-large\">\n            <div class=\"slds-size_2-of-3\">\n                        <div class=\"slds-text-heading_medium slds-text-align_center\" style=\"font-weight:bold;font-size:24px\">Book an Experience of a Lifetime</div>\n        <div class=\"slds-text-body_regular slds-text-align_center\">At Coral Cloud Resorts, you'll uncover a deep connection to the land, the rich history, and the vibrant culture of our unique coastal sanctuary. Embrace the breathtaking natural beauty and the warm, welcoming community that makes this place truly special. Each day is an opportunity for new discoveries and soul-enriching experiences, inviting you to explore the rare and remarkable depths of this extraordinary coastline.\n</div>\n</div>\n    </div>\n</div>"
                                             },
                                             "definition": "community_builder:htmlEditor",
                                             "id": "ee5d7301-3624-449a-9a7f-8789671e5c6d",
