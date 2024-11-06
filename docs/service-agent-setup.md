@@ -97,6 +97,12 @@ For the deployment of the Agentforce Service Agent it is necessary that certain 
     sf community publish --name 'coral cloud'
     ```
 
+1. Deploy guest profile for Experience Cloud site.
+
+    ```bash
+    sf project deploy start --metadata-dir=guest-profile-metadata -w 10
+    ```
+
 1. Launch the org on the Messaging Settings setup page.
 
     ```bash
