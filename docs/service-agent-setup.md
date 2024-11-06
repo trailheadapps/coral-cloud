@@ -2,20 +2,32 @@
 
 For the deployment of the Agentforce Service Agent it is necessary that certain values in the metadata are replaced with record ids from the used org. To achieve this during source deployment this project makes use of the [string replacement functionality of the Salesforce CLI](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_string_replace.htm). For this certain values will be exported as environment variables.
 
-> [!NOTE]
-> The current instructions assume users of macOS or Linux that have also `jq` for JSON parsing on the command line installed.
-> The final instructions will be inclusive for other operating systems/no usage of `jq` or similar tools.
-
 1. Export the org alias of the current org as environment variable.
 
+    **macOS/Linux (Bash):**
+
     ```bash
-    export SF_CC_PLACEHOLDER_USERNAME=$(sf org display --json |  jq -r '.result | .username')
+    export SF_CC_PLACEHOLDER_USERNAME=$(sf org display --json | grep -o '"username": "[^"]*' | cut -d'"' -f4)
+    ```
+
+    **Windows (PowerShell):**
+
+    ```powershell
+    $SF_CC_PLACEHOLDER_USERNAME = (sf org display --json | ConvertFrom-Json).result.username
     ```
 
 1. Export the first part of the subdomain of the current org as environment variable.
 
+    **macOS/Linux (Bash):**
+
     ```bash
-    export SF_CC_PLACEHOLDER_DOMAIN=$(sf org display --json | jq -r '.result | .instanceUrl | sub("https?://"; "") | split(".")[0]')
+    export SF_CC_PLACEHOLDER_DOMAIN=$(sf org display --json | grep -o '"instanceUrl": "https[^"]*' | cut -d'"' -f4 | sed -E 's|https?://([^\.]+).*|\1|')
+    ```
+
+    **Windows (PowerShell):**
+
+    ```powershell
+    $SF_CC_PLACEHOLDER_DOMAIN = ((sf org display --json | ConvertFrom-Json).result.instanceUrl -replace 'https?://', '') -split '\.' | Select-Object -First 1
     ```
 
 1. Deploy metadata for automating the setup of the Agentforce Service Agent technical user.
@@ -32,10 +44,20 @@ For the deployment of the Agentforce Service Agent it is necessary that certain 
 
 1. Export dummy environment variables.
 
+    **macOS/Linux (Bash):**
+
     ```bash
     export SF_CC_PLACEHOLDER_FLOW_AGENT_ID="DummyForInitialDeploy"
     export SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID="DummyForInitialDeploy"
     export SF_CC_PLACEHOLDER_FLOW_QUEUE_ID="DummyForInitialDeploy"
+    ```
+
+    **Windows (PowerShell):**
+
+    ```powershell
+    $env:SF_CC_PLACEHOLDER_FLOW_AGENT_ID = "DummyForInitialDeploy"
+    $env:SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID = "DummyForInitialDeploy"
+    $env:SF_CC_PLACEHOLDER_FLOW_QUEUE_ID = "DummyForInitialDeploy"
     ```
 
 1. Deploy the app metadata.
@@ -47,10 +69,20 @@ For the deployment of the Agentforce Service Agent it is necessary that certain 
 
 1. Replace previously exported dummy variables with values from the org.
 
+    **macOS/Linux (Bash):**
+
     ```bash
-    export SF_CC_PLACEHOLDER_FLOW_AGENT_ID=$(sf data query --query "SELECT Id from BotDefinition WHERE DeveloperName='Coral_Cloud_Agent'" --json | jq -r '.result | .records[0] | .Id')
-    export SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID=$(sf data query --query "SELECT Id from ServiceChannel WHERE DeveloperName='sfdc_livemessage'" --json | jq -r '.result | .records[0] | .Id')
-    export SF_CC_PLACEHOLDER_FLOW_QUEUE_ID=$(sf data query --query "SELECT Id FROM Group WHERE Type = 'Queue' AND Name = 'Messaging Queue'" --json | jq -r '.result | .records[0] | .Id')
+    export SF_CC_PLACEHOLDER_FLOW_AGENT_ID=$(sf data query --query "SELECT Id from BotDefinition WHERE DeveloperName='Coral_Cloud_Agent'" --json | grep -o '"Id": "[^"]*' | cut -d'"' -f4)
+    export SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID=$(sf data query --query "SELECT Id from ServiceChannel WHERE DeveloperName='sfdc_livemessage'" --json | grep -o '"Id": "[^"]*' | cut -d'"' -f4)
+    export SF_CC_PLACEHOLDER_FLOW_QUEUE_ID=$(sf data query --query "SELECT Id FROM Group WHERE Type = 'Queue' AND Name = 'Messaging Queue'" --json | grep -o '"Id": "[^"]*' | cut -d'"' -f4)
+    ```
+
+    **Windows (PowerShell):**
+
+    ```powershell
+    $SF_CC_PLACEHOLDER_FLOW_AGENT_ID = (sf data query --query "SELECT Id from BotDefinition WHERE DeveloperName='Coral_Cloud_Agent'" --json | ConvertFrom-Json).result.records[0].Id
+    $SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID = (sf data query --query "SELECT Id from ServiceChannel WHERE DeveloperName='sfdc_livemessage'" --json | ConvertFrom-Json).result.records[0].Id
+    $SF_CC_PLACEHOLDER_FLOW_QUEUE_ID = (sf data query --query "SELECT Id FROM Group WHERE Type = 'Queue' AND Name = 'Messaging Queue'" --json | ConvertFrom-Json).result.records[0].Id
     ```
 
 1. Redeploy flow metadata with org specific values.
@@ -79,7 +111,7 @@ For the deployment of the Agentforce Service Agent it is necessary that certain 
 
 1. Select **Agent Web Deployment**, then click on **Publish** (it may take a few seconds for the confirmation to show up on screen).
 
-1. From Salesforce Setup, search for "Agebts" and select **Agents**.
+1. From Salesforce Setup, search for "Agents" and select **Agents**.
 
 1. Select **Coral Cloud Agent**, then click on **Open in Builder**.
 
