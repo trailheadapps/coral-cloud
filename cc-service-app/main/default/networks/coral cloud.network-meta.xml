@@ -5,6 +5,7 @@
     <changePasswordTemplate
     >unfiled$public/CommunityChangePasswordEmailTemplate</changePasswordTemplate>
     <communityRoles />
+    <description>Experience Cloud site for Coral Cloud</description>
     <disableReputationRecordConversations
     >true</disableReputationRecordConversations>
     <emailSenderAddress>%%SF_CC_PLACEHOLDER_USERNAME%%</emailSenderAddress>
