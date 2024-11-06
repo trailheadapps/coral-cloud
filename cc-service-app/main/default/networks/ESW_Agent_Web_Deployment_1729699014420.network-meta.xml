@@ -21,7 +21,7 @@
     <enableGuestChatter>false</enableGuestChatter>
     <enableGuestFileAccess>false</enableGuestFileAccess>
     <enableGuestMemberVisibility>false</enableGuestMemberVisibility>
-    <enableImageOptimizationCDN>false</enableImageOptimizationCDN>
+    <enableImageOptimizationCDN>true</enableImageOptimizationCDN>
     <enableInvitation>false</enableInvitation>
     <enableKnowledgeable>false</enableKnowledgeable>
     <enableLWRExperienceConnectedApp>false</enableLWRExperienceConnectedApp>
