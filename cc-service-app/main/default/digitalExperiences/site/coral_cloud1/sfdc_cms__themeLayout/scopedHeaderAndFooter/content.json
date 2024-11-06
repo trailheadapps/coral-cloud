@@ -12,6 +12,7 @@
                                 "backgroundImageConfig": "",
                                 "backgroundImageOverlay": "rgba(0,0,0,0)",
                                 "componentSpacerSize": "0rem",
+                                "dxpStyle": {},
                                 "layoutDirectionDesktop": "row",
                                 "layoutDirectionMobile": "column",
                                 "layoutDirectionTablet": "column",
@@ -27,7 +28,8 @@
                                         {
                                             "attributes": {
                                                 "alignment": "left",
-                                                "imageInfo": "{\"imageInfoV1\":{\"url\":\"/sfsites/c/cms/delivery/media/MCV3NU4XLWZJA5BKVWPIBV6RIEXU?lastModifiedDate=Wed Sep 25 17:50:40 GMT 2024\",\"altText\":\"\",\"contentKey\":\"MCV3NU4XLWZJA5BKVWPIBV6RIEXU\",\"contentType\":null}}",
+                                                "dxpStyle": {},
+                                                "imageInfo": "{\"imageInfoV1\":{\"url\":\"/sfsites/c/resource/coralcloudsite/coral-cloud-logo.png\",\"altText\":\"Coral Cloud logo\",\"contentKey\":\"\",\"contentType\":null}}",
                                                 "imageInfoMobile": "",
                                                 "logoWidth": 250
                                             },
@@ -45,6 +47,7 @@
                                     "children": [
                                         {
                                             "attributes": {
+                                                "dxpStyle": {},
                                                 "richTextValue": "<div class=\"nav\">\n    <div class=\"nav-container slds-grid slds-grid_align-end\">\n            <ul class=\"slds-grid slds-wrap slds-grid_align-end\" style=\"width:85%\">\n                <li class=\"slds-item slds-p-right_small\"><a href=\"#\">Stay</a></li>\n                <li class=\"slds-item slds-p-right_small\"><a href=\"#\">Experiences</a></li>\n                <li class=\"slds-item slds-p-right_small\"><a href=\"#\">Dine</a></li>\n                <li class=\"slds-item slds-p-right_small\"><a href=\"#\">Spa & Wellness</a></li>\n            </ul>\n            <a href=\"#\" class=\"book-now\">BOOK NOW</a>\n        </div>\n</div>"
                                             },
                                             "definition": "community_builder:htmlEditor",
@@ -75,6 +78,7 @@
                                 "backgroundImageConfig": "",
                                 "backgroundImageOverlay": "rgba(0,0,0,0)",
                                 "componentSpacerSize": "",
+                                "dxpStyle": {},
                                 "layoutDirectionDesktop": "row",
                                 "layoutDirectionMobile": "column",
                                 "layoutDirectionTablet": "column",
@@ -89,7 +93,8 @@
                                     "children": [
                                         {
                                             "attributes": {
-                                                "richTextValue": "<div class=\"social-icons slds-grid slds-grid_align-center\">\n            <ul class=\"slds-list_horizontal slds-grid\">\n                <li class=\"slds-item\"><a href=\"#\"><img src=\"/sfsites/c/resource/coralcloudsite/coral-cloud-site/facebook.png\" alt=\"Facebook\"></a></li>\n                <li class=\"slds-item\"><a href=\"#\"><img src=\"/sfsites/c/resource/coralcloudsite/coral-cloud-site/instagram.png\" alt=\"Instagram\"></a></li>\n                <li class=\"slds-item\"><a href=\"#\"><img src=\"/sfsites/c/resource/coralcloudsite/coral-cloud-site/whatsapp.png\" alt=\"Whatsapp\"></a></li>\n                <li class=\"slds-item\"><a href=\"#\"><img src=\"/sfsites/c/resource/coralcloudsite/coral-cloud-site/reddit.png\" alt=\"Reddit\"></a></li>\n            </ul>\n        </div>\n        <div class=\"footer-links slds-grid slds-wrap\">\n            <ul class=\"slds-align_absolute-center slds-p-left_large slds-p-right_large slds-list_horizontal slds-grid slds-wrap\">\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">About Us</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Customer Support</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Directions & Maps</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Accommodations</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Dining Options</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">News & Events</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Careers</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Sustainability</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Accessibility</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Privacy Policy</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Terms & Conditions</a></li>\n            </ul>\n        </div>\n        <div class=\"footer-copy\">\n            <p>Copyright 2024 Coral Clouds Resorts Ltd. All Rights Reserved.</p>\n            <p>1234 Ocean Breeze Lane, Sunset Beach, HI 96712 | 1.808.555.1234</p>\n        </div>"
+                                                "dxpStyle": {},
+                                                "richTextValue": "<div class=\"social-icons slds-grid slds-grid_align-center\">\n            <ul class=\"slds-list_horizontal slds-grid\">\n                <li class=\"slds-item\"><a href=\"#\"><img src=\"/sfsites/c/resource/coralcloudsite/social-logos/facebook.png\" alt=\"Facebook\"></a></li>\n                <li class=\"slds-item\"><a href=\"#\"><img src=\"/sfsites/c/resource/coralcloudsite/social-logos/instagram.png\" alt=\"Instagram\"></a></li>\n                <li class=\"slds-item\"><a href=\"#\"><img src=\"/sfsites/c/resource/coralcloudsite/social-logos/whatsapp.png\" alt=\"Whatsapp\"></a></li>\n                <li class=\"slds-item\"><a href=\"#\"><img src=\"/sfsites/c/resource/coralcloudsite/social-logos/reddit.png\" alt=\"Reddit\"></a></li>\n            </ul>\n        </div>\n        <div class=\"footer-links slds-grid slds-wrap\">\n            <ul class=\"slds-align_absolute-center slds-p-left_large slds-p-right_large slds-list_horizontal slds-grid slds-wrap\">\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">About Us</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Customer Support</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Directions & Maps</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Accommodations</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Dining Options</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">News & Events</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Careers</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Sustainability</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Accessibility</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Privacy Policy</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Terms & Conditions</a></li>\n            </ul>\n        </div>\n        <div class=\"footer-copy\">\n            <p>Copyright 2024 Coral Cloud Resorts Ltd. All Rights Reserved.</p>\n            <p>1234 Ocean Breeze Lane, Sunset Beach, HI 96712 | 1.808.555.1234</p>\n        </div>"
                                             },
                                             "definition": "community_builder:htmlEditor",
                                             "id": "3913fa20-9471-4715-ac74-155b83763341",

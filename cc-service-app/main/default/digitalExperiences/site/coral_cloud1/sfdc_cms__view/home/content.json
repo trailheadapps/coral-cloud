@@ -8,7 +8,7 @@
                     "children": [
                         {
                             "attributes": {
-                                "backgroundImageConfig": "{\"url\":\"/sfsites/c/cms/delivery/media/MCLTBQGBQD4FGS5BLG4HSSBYI4PE?lastModifiedDate=Wed Sep 25 17:49:42 GMT 2024&height=144&width=192\",\"contentKey\":\"MCLTBQGBQD4FGS5BLG4HSSBYI4PE\",\"altText\":\"\",\"contentType\":\"sfdc_cms__image\",\"bgPosition\":\"center center\",\"bgSizeOrRepeat\":\"/cover\"}",
+                                "backgroundImageConfig": "",
                                 "backgroundImageOverlay": "rgba(0,0,0,0)",
                                 "componentSpacerSize": "",
                                 "layoutDirectionDesktop": "row",
@@ -38,6 +38,7 @@
                                     "type": "region"
                                 }
                             ],
+                            "customCssClasses": "jumbotron",
                             "definition": "community_layout:section",
                             "id": "b4781403-46b1-47e3-bb1b-2b1e53c90333",
                             "scopedBrandingSetId": "Coral_Cloud_Body",
@@ -72,8 +73,8 @@
                                             "attributes": {
                                                 "deploymentName": "Agent_Web_Deployment",
                                                 "hideChatButtonOnLoad": "Default",
-                                                "scrtUrl": "https://%%SF_CC_PLACEHOLDER_DOMAIN%%.develop.my.salesforce-scrt.com",
-                                                "siteEndpoint": "https://%%SF_CC_PLACEHOLDER_DOMAIN%%.develop.my.site.com/ESWAgentWebDeployment1729699014420"
+                                                "scrtUrl": "https://coralcloudresorts-3a-dev-ed.develop.my.salesforce-scrt.com",
+                                                "siteEndpoint": "https://coralcloudresorts-3a-dev-ed.develop.my.site.com/ESWAgentWebDeployment1729699014420"
                                             },
                                             "definition": "experience_messaging:embeddedMessaging",
                                             "id": "e78ba173-4372-48d8-86bf-6e4ffbc14926",

@@ -7,20 +7,20 @@
     <communityRoles />
     <description>Experience Cloud site for Coral Cloud</description>
     <disableReputationRecordConversations
-    >true</disableReputationRecordConversations>
+    >false</disableReputationRecordConversations>
     <emailSenderAddress>%%SF_CC_PLACEHOLDER_USERNAME%%</emailSenderAddress>
     <emailSenderName>Coral Cloud Resorts</emailSenderName>
     <embeddedLoginEnabled>false</embeddedLoginEnabled>
     <enableApexCDNCaching>true</enableApexCDNCaching>
     <enableCustomVFErrorPageOverrides>false</enableCustomVFErrorPageOverrides>
-    <enableDirectMessages>true</enableDirectMessages>
+    <enableDirectMessages>false</enableDirectMessages>
     <enableExpFriendlyUrlsAsDefault>false</enableExpFriendlyUrlsAsDefault>
     <enableExperienceBundleBasedSnaOverrideEnabled
     >true</enableExperienceBundleBasedSnaOverrideEnabled>
-    <enableGuestChatter>false</enableGuestChatter>
+    <enableGuestChatter>true</enableGuestChatter>
     <enableGuestFileAccess>true</enableGuestFileAccess>
     <enableGuestMemberVisibility>false</enableGuestMemberVisibility>
-    <enableImageOptimizationCDN>true</enableImageOptimizationCDN>
+    <enableImageOptimizationCDN>false</enableImageOptimizationCDN>
     <enableInvitation>false</enableInvitation>
     <enableKnowledgeable>false</enableKnowledgeable>
     <enableLWRExperienceConnectedApp>true</enableLWRExperienceConnectedApp>
@@ -30,7 +30,7 @@
     <enableReputation>false</enableReputation>
     <enableShowAllNetworkSettings>false</enableShowAllNetworkSettings>
     <enableSiteAsContainer>true</enableSiteAsContainer>
-    <enableTalkingAboutStats>true</enableTalkingAboutStats>
+    <enableTalkingAboutStats>false</enableTalkingAboutStats>
     <enableTopicAssignmentRules>true</enableTopicAssignmentRules>
     <enableTopicSuggestions>false</enableTopicSuggestions>
     <enableUpDownVote>false</enableUpDownVote>
