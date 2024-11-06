@@ -13,8 +13,8 @@
 }
 
 c-experiences-tile {
-    min-width: 200px;
     flex: 1;
+    display: flex;
 }
 
 c-paginator {
