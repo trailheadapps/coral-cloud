@@ -11,6 +11,7 @@
                                 "backgroundImageConfig": "",
                                 "backgroundImageOverlay": "rgba(0,0,0,0)",
                                 "componentSpacerSize": "",
+                                "dxpStyle": {},
                                 "layoutDirectionDesktop": "row",
                                 "layoutDirectionMobile": "column",
                                 "layoutDirectionTablet": "column",
@@ -44,6 +45,7 @@
                             "attributes": {
                                 "customHeadTags": "",
                                 "description": "",
+                                "dxpStyle": {},
                                 "pageTitle": "{!Content.contentTypeLabel}.{!Content.title}",
                                 "recordId": "{!recordId}"
                             },
