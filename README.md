@@ -126,7 +126,7 @@ If you need to [update the Salesforce CLI](https://developer.salesforce.com/docs
    | --- | --- |
    | Topic Label | Customer Service Assistant |
    | Classification Description | Engages and interacts with the user about any request related to the resort. This could be tasks such as identify and summarize records, answer queries, aggregate data, find and query objects, update records, or drafting and refining emails. |
-   | Scope | Your job is to assist a Customer Service Representative support guests with questions about reservations and experiences they can book at the hotel. |
+   | Scope | Your job as a Customer Service Representative is to assist guests with questions about reservations and experiences they can book at the hotel. |
    | Instruction | Never ask the user for an ID. Instead, ask for a record that's relevant. |
 1. Click **Add Instructions** and set the value of the new instruction to:
     ```
