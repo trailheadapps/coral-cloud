@@ -162,5 +162,5 @@
     1. Click **Save and Start Sync**.
     1. In the dialog box, click **Save and Start Sync**.
 
-    > [!TIP]
-    > This process can take up to 15 minutes to complete. You won't see data before.
+> [!TIP]
+> This process can take up to 15 minutes to complete. You won't see data before.
