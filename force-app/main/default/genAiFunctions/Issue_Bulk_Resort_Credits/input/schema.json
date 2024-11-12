@@ -7,7 +7,7 @@
             "description": "The resort credit amount",
             "lightning:type": "lightning__numberType",
             "lightning:isPII": false,
-            "copilotAction:isUserInput": true
+            "copilotAction:isUserInput": false
         },
         "contactRecords": {
             "title": "contactRecords",
@@ -21,7 +21,7 @@
             },
             "lightning:type": "lightning__listType",
             "lightning:isPII": false,
-            "copilotAction:isUserInput": true
+            "copilotAction:isUserInput": false
         }
     },
     "lightning:type": "lightning__objectType"

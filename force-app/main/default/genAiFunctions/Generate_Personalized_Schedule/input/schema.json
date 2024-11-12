@@ -1,8 +1,8 @@
 {
-    "required": ["Input:myContact"],
+    "required": ["Input:Contact"],
     "unevaluatedProperties": false,
     "properties": {
-        "Input:myContact": {
+        "Input:Contact": {
             "title": "Contact",
             "description": "Contact for which the personalized schedule should be generated. Must be a valid JSON representing the contact info, chained from having executed the QueryRecords action.",
             "lightning:type": "lightning__recordInfoType",
@@ -10,7 +10,7 @@
                 "apiName": "Contact"
             },
             "lightning:isPII": false,
-            "copilotAction:isUserInput": true
+            "copilotAction:isUserInput": false
         }
     },
     "lightning:type": "lightning__objectType"
