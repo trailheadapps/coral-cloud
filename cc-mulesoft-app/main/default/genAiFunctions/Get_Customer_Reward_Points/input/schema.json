@@ -1,0 +1,14 @@
+{
+    "required": ["rewardId"],
+    "unevaluatedProperties": false,
+    "properties": {
+        "rewardId": {
+            "title": "rewardId",
+            "description": "The Reward Id that has rewards points associated.",
+            "lightning:type": "lightning__numberType",
+            "lightning:isPII": false,
+            "copilotAction:isUserInput": false
+        }
+    },
+    "lightning:type": "lightning__objectType"
+}

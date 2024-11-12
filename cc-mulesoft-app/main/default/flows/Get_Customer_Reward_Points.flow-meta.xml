@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description
+        >The Reward Id that has rewards points associated</description>
+        <name>Get_Reward_Points_by_Reward_Id</name>
+        <label>Get Reward Points by Reward Id</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <actionName>Rewards.getRewardsByRewardId</actionName>
+        <actionType>externalService</actionType>
+        <connector>
+            <targetReference>Output_of_the_API_call</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>rewardId</name>
+            <value>
+                <elementReference>rewardId</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Rewards.getRewardsByRewardId</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <apiVersion>62.0</apiVersion>
+    <assignments>
+        <description
+        >Storing the output of the reward points API call.</description>
+        <name>Output_of_the_API_call</name>
+        <label>Output of the API call</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <assignmentItems>
+            <assignToReference>rewardPoints</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference
+                >Get_Reward_Points_by_Reward_Id.200.pointsRequired</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description
+    >This flow fetches customer reward points for a given reward ID.</description>
+    <environments>Default</environments>
+    <interviewLabel
+    >Get Customer Reward Points {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Get Customer Reward Points</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Reward_Points_by_Reward_Id</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description
+        >The Reward Id that has rewards points associated.</description>
+        <name>rewardId</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <scale>2</scale>
+    </variables>
+    <variables>
+        <description
+        >The Reward points of the Coral Cloud customer.</description>
+        <name>rewardPoints</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

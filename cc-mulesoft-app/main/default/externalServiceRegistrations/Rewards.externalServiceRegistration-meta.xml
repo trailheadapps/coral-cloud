@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ExternalServiceRegistration xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>MuleSoft coralcloud-rewards-api 1.0.1</description>
+    <label>Rewards</label>
+    <namedCredentialReference>RewardAPI</namedCredentialReference>
+    <operations>
+        <active>true</active>
+        <name>deletemembersbymemberid</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>deleterewardsbyrewardid</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>getmembers</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>getmembersbymemberid</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>getrewards</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>getrewardsbyrewardid</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>gettransactions</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>gettransactionsbytransactionid</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>postmembers</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>postrewards</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>posttransactions</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>putmembersbymemberid</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>putrewardsbyrewardid</name>
+    </operations>
+    <providerAssetEndpoint
+    >2db6c420-aff7-4f1f-b11a-df148f674a8f:2db6c420-aff7-4f1f-b11a-df148f674a8f:coralcloud-rewards-api:1.0.1</providerAssetEndpoint>
+    <registrationProviderType>MuleSoft</registrationProviderType>
+    <schema>{
+  &quot;openapi&quot;: &quot;3.0.0&quot;,
+  &quot;info&quot;: {
+    &quot;title&quot;: &quot;Holiday Club Resort Loyalty Program API&quot;,
+    &quot;description&quot;: &quot;API for managing the loyalty program of the Holiday Club Resort.&quot;,
+    &quot;version&quot;: &quot;1.0.0&quot;
+  },
+  &quot;servers&quot;: [
+    {
+      &quot;url&quot;: &quot;https://api.holidayclubresort.com&quot;,
+      &quot;description&quot;: &quot;Production server&quot;
+    },
+    {
+      &quot;url&quot;: &quot;https://api-sandbox.holidayclubresort.com&quot;,
+      &quot;description&quot;: &quot;Sandbox server&quot;
+    }
+  ],
+  &quot;paths&quot;: {
+    &quot;/members&quot;: {
+      &quot;get&quot;: {
+        &quot;summary&quot;: &quot;Get a list of loyalty program members&quot;,
+        &quot;tags&quot;: [&quot;Members&quot;],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;A list of members&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/Member&quot;
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      &quot;post&quot;: {
+        &quot;summary&quot;: &quot;Create a new loyalty program member&quot;,
+        &quot;tags&quot;: [&quot;Members&quot;],
+        &quot;requestBody&quot;: {
+          &quot;description&quot;: &quot;Member object to be created&quot;,
+          &quot;required&quot;: true,
+          &quot;content&quot;: {
+            &quot;application/json&quot;: {
+              &quot;schema&quot;: {
+                &quot;$ref&quot;: &quot;#/components/schemas/Member&quot;
+              }
+            }
+          }
+        },
+        &quot;responses&quot;: {
+          &quot;201&quot;: {
+            &quot;description&quot;: &quot;Member created successfully&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/Member&quot;
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    &quot;/members/{memberId}&quot;: {
+      &quot;get&quot;: {
+        &quot;summary&quot;: &quot;Get a specific member by ID&quot;,
+        &quot;tags&quot;: [&quot;Members&quot;],
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;memberId&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            }
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;Member details&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/Member&quot;
+                }
+              }
+            }
+          },
+          &quot;404&quot;: {
+            &quot;description&quot;: &quot;Member not found&quot;
+          }
+        }
+      },
+      &quot;put&quot;: {
+        &quot;summary&quot;: &quot;Update a member&apos;s information&quot;,
+        &quot;tags&quot;: [&quot;Members&quot;],
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;memberId&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            }
+          }
+        ],
+        &quot;requestBody&quot;: {
+          &quot;description&quot;: &quot;Updated member object&quot;,
+          &quot;required&quot;: true,
+          &quot;content&quot;: {
+            &quot;application/json&quot;: {
+              &quot;schema&quot;: {
+                &quot;$ref&quot;: &quot;#/components/schemas/Member&quot;
+              }
+            }
+          }
+        },
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;Member updated successfully&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/Member&quot;
+                }
+              }
+            }
+          },
+          &quot;404&quot;: {
+            &quot;description&quot;: &quot;Member not found&quot;
+          }
+        }
+      },
+      &quot;delete&quot;: {
+        &quot;summary&quot;: &quot;Delete a member&quot;,
+        &quot;tags&quot;: [&quot;Members&quot;],
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;memberId&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            }
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;204&quot;: {
+            &quot;description&quot;: &quot;Member deleted successfully&quot;
+          },
+          &quot;404&quot;: {
+            &quot;description&quot;: &quot;Member not found&quot;
+          }
+        }
+      }
+    },
+    &quot;/rewards&quot;: {
+      &quot;get&quot;: {
+        &quot;summary&quot;: &quot;Get a list of available rewards&quot;,
+        &quot;tags&quot;: [&quot;Rewards&quot;],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;A list of rewards&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/Reward&quot;
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      &quot;post&quot;: {
+        &quot;summary&quot;: &quot;Create a new reward&quot;,
+        &quot;tags&quot;: [&quot;Rewards&quot;],
+        &quot;requestBody&quot;: {
+          &quot;description&quot;: &quot;Reward object to be created&quot;,
+          &quot;required&quot;: true,
+          &quot;content&quot;: {
+            &quot;application/json&quot;: {
+              &quot;schema&quot;: {
+                &quot;$ref&quot;: &quot;#/components/schemas/Reward&quot;
+              }
+            }
+          }
+        },
+        &quot;responses&quot;: {
+          &quot;201&quot;: {
+            &quot;description&quot;: &quot;Reward created successfully&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/Reward&quot;
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    &quot;/rewards/{rewardId}&quot;: {
+      &quot;get&quot;: {
+        &quot;summary&quot;: &quot;Get a specific reward by ID&quot;,
+        &quot;tags&quot;: [&quot;Rewards&quot;],
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;rewardId&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;integer&quot;
+            }
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;Reward details&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/Reward&quot;
+                }
+              }
+            }
+          },
+          &quot;404&quot;: {
+            &quot;description&quot;: &quot;Reward not found&quot;
+          }
+        }
+      },
+      &quot;put&quot;: {
+        &quot;summary&quot;: &quot;Update a reward&apos;s information&quot;,
+        &quot;tags&quot;: [&quot;Rewards&quot;],
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;rewardId&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            }
+          }
+        ],
+        &quot;requestBody&quot;: {
+          &quot;description&quot;: &quot;Updated reward object&quot;,
+          &quot;required&quot;: true,
+          &quot;content&quot;: {
+            &quot;application/json&quot;: {
+              &quot;schema&quot;: {
+                &quot;$ref&quot;: &quot;#/components/schemas/Reward&quot;
+              }
+            }
+          }
+        },
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;Reward updated successfully&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/Reward&quot;
+                }
+              }
+            }
+          },
+          &quot;404&quot;: {
+            &quot;description&quot;: &quot;Reward not found&quot;
+          }
+        }
+      },
+      &quot;delete&quot;: {
+        &quot;summary&quot;: &quot;Delete a reward&quot;,
+        &quot;tags&quot;: [&quot;Rewards&quot;],
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;rewardId&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            }
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;204&quot;: {
+            &quot;description&quot;: &quot;Reward deleted successfully&quot;
+          },
+          &quot;404&quot;: {
+            &quot;description&quot;: &quot;Reward not found&quot;
+          }
+        }
+      }
+    },
+    &quot;/transactions&quot;: {
+      &quot;get&quot;: {
+        &quot;summary&quot;: &quot;Get a list of transactions&quot;,
+        &quot;tags&quot;: [&quot;Transactions&quot;],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;A list of transactions&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/components/schemas/Transaction&quot;
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      &quot;post&quot;: {
+        &quot;summary&quot;: &quot;Create a new transaction&quot;,
+        &quot;tags&quot;: [&quot;Transactions&quot;],
+        &quot;requestBody&quot;: {
+          &quot;description&quot;: &quot;Transaction object to be created&quot;,
+          &quot;required&quot;: true,
+          &quot;content&quot;: {
+            &quot;application/json&quot;: {
+              &quot;schema&quot;: {
+                &quot;$ref&quot;: &quot;#/components/schemas/Transaction&quot;
+              }
+            }
+          }
+        },
+        &quot;responses&quot;: {
+          &quot;201&quot;: {
+            &quot;description&quot;: &quot;Transaction created successfully&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/Transaction&quot;
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    &quot;/transactions/{transactionId}&quot;: {
+      &quot;get&quot;: {
+        &quot;summary&quot;: &quot;Get a specific transaction by ID&quot;,
+        &quot;tags&quot;: [&quot;Transactions&quot;],
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;transactionId&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            }
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;Transaction details&quot;,
+            &quot;content&quot;: {
+              &quot;application/json&quot;: {
+                &quot;schema&quot;: {
+                  &quot;$ref&quot;: &quot;#/components/schemas/Transaction&quot;
+                }
+              }
+            }
+          },
+          &quot;404&quot;: {
+            &quot;description&quot;: &quot;Transaction not found&quot;
+          }
+        }
+      }
+    }
+  },
+  &quot;components&quot;: {
+    &quot;schemas&quot;: {
+      &quot;Member&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+          &quot;id&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;example&quot;: &quot;12345&quot;
+          },
+          &quot;name&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;example&quot;: &quot;John Doe&quot;
+          },
+          &quot;email&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;example&quot;: &quot;john.doe@example.com&quot;
+          },
+          &quot;joinDate&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;format&quot;: &quot;date&quot;,
+            &quot;example&quot;: &quot;2023-01-01&quot;
+          },
+          &quot;points&quot;: {
+            &quot;type&quot;: &quot;integer&quot;,
+            &quot;example&quot;: 1000
+          }
+        }
+      },
+      &quot;Reward&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+          &quot;id&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;example&quot;: &quot;r123&quot;
+          },
+          &quot;name&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;example&quot;: &quot;Free Night Stay&quot;
+          },
+          &quot;description&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;example&quot;: &quot;One free night stay at any of our resorts&quot;
+          },
+          &quot;pointsRequired&quot;: {
+            &quot;type&quot;: &quot;integer&quot;,
+            &quot;example&quot;: 500
+          }
+        }
+      },
+      &quot;Transaction&quot;: {
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+          &quot;id&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;example&quot;: &quot;t123&quot;
+          },
+          &quot;memberId&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;example&quot;: &quot;12345&quot;
+          },
+          &quot;type&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;enum&quot;: [&quot;earn&quot;, &quot;redeem&quot;],
+            &quot;example&quot;: &quot;earn&quot;
+          },
+          &quot;points&quot;: {
+            &quot;type&quot;: &quot;integer&quot;,
+            &quot;example&quot;: 100
+          },
+          &quot;date&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;format&quot;: &quot;date-time&quot;,
+            &quot;example&quot;: &quot;2023-01-01T12:00:00Z&quot;
+          }
+        }
+      }
+    }
+  }
+}
+</schema>
+    <schemaType>OpenApi3</schemaType>
+    <serviceBinding
+    >{&quot;host&quot;:&quot;api.holidayclubresort.com&quot;,&quot;basePath&quot;:&quot;&quot;,&quot;allowedSchemes&quot;:[&quot;HTTPS&quot;],&quot;requestMediaTypes&quot;:[],&quot;responseMediaTypes&quot;:[],&quot;compatibleMediaTypes&quot;:{}}</serviceBinding>
+    <serviceDescriptor
+    >{&quot;subType&quot;:&quot;ANYPOINT_API&quot;}</serviceDescriptor>
+    <status>Complete</status>
+    <systemVersion>5</systemVersion>
+</ExternalServiceRegistration>

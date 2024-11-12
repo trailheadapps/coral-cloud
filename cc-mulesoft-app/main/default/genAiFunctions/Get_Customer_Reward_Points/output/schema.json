@@ -1,0 +1,14 @@
+{
+    "unevaluatedProperties": false,
+    "properties": {
+        "rewardPoints": {
+            "title": "rewardPoints",
+            "description": "The Reward points of the Coral Cloud customer.",
+            "lightning:type": "lightning__textType",
+            "lightning:isPII": false,
+            "copilotAction:isDisplayable": true,
+            "copilotAction:isUsedByPlanner": true
+        }
+    },
+    "lightning:type": "lightning__objectType"
+}

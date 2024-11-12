@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <description
+    >This Flows helps service agents create a follow up task for their guests who are
+        experiencing issues.</description>
+    <environments>Default</environments>
+    <interviewLabel
+    >Create Reservation Follow-up {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Create Reservation Follow-up</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordCreates>
+        <description
+        >Create a follow-up task for the user to address the customer upon check-in.</description>
+        <name>Create_Follow_Up_Task</name>
+        <label>Create Follow Up Task</label>
+        <locationX>176</locationX>
+        <locationY>458</locationY>
+        <inputAssignments>
+            <field>ActivityDate</field>
+            <value>
+                <elementReference
+                >Get_Data_Cloud_Reservations.Check_in_Date__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <elementReference>Description</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>Subject</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>Get_Case_Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhoId</field>
+            <value>
+                <elementReference>Get_Case_Record.ContactId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <description
+        >Get the case details from the case that triggered the flow.</description>
+        <name>Get_Case_Record</name>
+        <label>Get Case Record</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound
+        >false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Data_Cloud_Reservations</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description
+        >Get the reservation data from Data Cloud through the Contacts External Id.</description>
+        <name>Get_Data_Cloud_Reservations</name>
+        <label>Get Data Cloud Reservations</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound
+        >false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Create_Task</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Contact_ID__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Case_Record.Contact.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Check_in_Date__c</field>
+            <operator>GreaterThanOrEqualTo</operator>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Reservation__dlm</object>
+        <sortField>Creation_Date__c</sortField>
+        <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <screens>
+        <description>Display reservation details and create task</description>
+        <name>Create_Task</name>
+        <label>Create Task</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Create_Follow_Up_Task</targetReference>
+        </connector>
+        <fields>
+            <name>Reservation_Details</name>
+            <fieldText
+            >&lt;pre class=&quot;ql-syntax&quot; spellcheck=&quot;false&quot;&gt;Guest
+                Details
+
+                Name: {!Get_Case_Record.Contact.FirstName}
+                Lifetime Value: {!Get_Case_Record.Contact.Lifetime_Value__c}
+                Lifetime Reservations: {!Get_Case_Record.Contact.Lifetime_Reservations__c}
+                Reservation Details
+
+                Check-in Date: {!Get_Data_Cloud_Reservations.Check_in_Date__c}
+                Special Requests: {!Get_Data_Cloud_Reservations.Special_Requests__c}
+                Room Type: {!Get_Data_Cloud_Reservations.Room_Type__c}
+                Reservation Number:{!Get_Data_Cloud_Reservations.Reservation_ID__c}
+
+                Create Follow-up Task
+                &lt;/pre&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Subject</name>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>Subject</elementReference>
+            </defaultValue>
+            <fieldText>Subject</fieldText>
+            <fieldType>InputField</fieldType>
+            <inputsOnNextNavToAssocScrn
+            >UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Description</name>
+            <defaultValue>
+                <stringValue>{!Description}</stringValue>
+            </defaultValue>
+            <fieldText>Description</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <inputsOnNextNavToAssocScrn
+            >UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Case_Record</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description
+        >The Record Id that is used to query the case details and gather relevant
+            information.</description>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,66 @@
+{
+    "inputs": [
+        {
+            "dataKitDataSpaceInput": "default",
+            "dataKitNameInput": "Coral_Cloud_Data_Kit_Sample_App",
+            "dataKitComponentsInput": [
+                {
+                    "componentType": "DataConnection",
+                    "dataConnectionConfig": {
+                        "name": "Coral_Cloud_S3_Connection",
+                        "newCredentials": [
+                            {
+                                "paramName": "authenticationOption",
+                                "value": "accessKeyAndSecret"
+                            },
+                            {
+                                "paramName": "accessKey",
+                                "value": "AKIA47CRZ7L5P7VBV3LD"
+                            },
+                            {
+                                "paramName": "accessSecret",
+                                "value": "PIVzypT/xl7EG9dwbv2tMOqoHpiPBV9AeEvZFvd9"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "componentType": "DataStreamBundle",
+                    "bundleConfig": {
+                        "connectorType": "MoreConnectors",
+                        "bundleName": "Amazon_S3",
+                        "forceNoRefresh": true,
+                        "bundleConnectorFrameworkConfig": {
+                            "connectionName": "Coral_Cloud_S3_Connection"
+                        }
+                    }
+                },
+                {
+                    "componentType": "DataLakeObject",
+                    "dloConfig": {
+                        "dataSourceObjectDevName": "Resort_Information",
+                        "apiName": "Resort_Information",
+                        "label": "Resort Information"
+                    }
+                },
+                {
+                    "componentType": "CalculatedInsight",
+                    "calculatedInsightsConfig": {
+                        "apiName": "DataCalcInsightTemplate",
+                        "apiNameOverride": "DataCalcInsightTemplate",
+                        "label": "Spend Profile By Guest",
+                        "publishInterval": "Six"
+                    }
+                },
+                {
+                    "bundleType": "IdentityResolution",
+                    "identityResolutionConfig": {
+                        "dataSpaceName": "default",
+                        "templateDevName": "Individual_1111",
+                        "dataKitDevName": "DK6"
+                    }
+                }
+            ]
+        }
+    ]
+}
