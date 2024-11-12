@@ -1,7 +1,7 @@
 public with sharing class CheckWeather {
     @InvocableMethod(
         label='Check Weather'
-        description='Check weather at Coral Cloud Resorts at a specific date'
+        description='Check weather at Coral Cloud Resorts at a specific date. The date must be in the future, not today or earlier.'
     )
     public static List<WeatherResponse> getWeather(
         List<WeatherRequest> requests
@@ -12,7 +12,8 @@ public with sharing class CheckWeather {
         WeatherService.Weather weather = WeatherService.getResortWeather(
             dateToCheck
         );
-        // Create the response for your agent
+
+        // Create the response for the agent
         WeatherResponse response = new WeatherResponse();
         response.minTemperature = weather.minTemperatureC;
         response.maxTemperature = weather.maxTemperatureC;

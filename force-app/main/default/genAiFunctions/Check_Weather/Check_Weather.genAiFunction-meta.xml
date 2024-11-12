@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
     <description
-    >Check weather at Coral Cloud Resorts at a specific date</description>
+    >Check weather at Coral Cloud Resorts at a specific date. The date must be in the
+        future, not today or earlier.</description>
     <invocationTarget>CheckWeather</invocationTarget>
     <invocationTargetType>apex</invocationTargetType>
     <isConfirmationRequired>false</isConfirmationRequired>
