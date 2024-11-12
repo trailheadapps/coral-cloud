@@ -2,12 +2,13 @@
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
     <activeVersion>1</activeVersion>
     <description
-    >This template is used to generate social media posts that promote an experience         session for Twitter, LinkedIn and Slack</description>
+    >This template is used to generate social media posts that promote an experience
+        session for Twitter, LinkedIn and Slack</description>
     <developerName>Generate_Social_Media_Posts</developerName>
     <masterLabel>Generate Social Media Posts</masterLabel>
     <templateVersions>
         <content
-        > You&apos;re the community manager for Coral Cloud Resort hotel, which offers
+        > You&apos;re the community manager for Coral Cloud Resorts hotel, which offers
             booking fun and lovely experiences.
              Create social media posts for Twitter, LinkedIn &amp; Slack describing the experience.
              Formatting rules you must follow:

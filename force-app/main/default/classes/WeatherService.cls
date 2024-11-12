@@ -1,6 +1,6 @@
 public class WeatherService {
     /**
-     * Gets the weather at Coral Cloud Resort for the provided date
+     * Gets the weather at Coral Cloud Resorts for the provided date
      */
     public static Weather getResortWeather(Datetime dateToCheck) {
         // Copilot was trained in 2023 so it will use 2023 as the default year if
