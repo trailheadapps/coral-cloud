@@ -4,7 +4,7 @@
     "properties": {
         "dateToCheck": {
             "title": "dateToCheck",
-            "description": "Date for which we want to check the weather. The variable needs to be an Apex Date type with format yyyy-MM-dd. Only accepts dates that are in the future. If date is today or a past date, ask for a future date.",
+            "description": "Date for which we want to check the temperature. The variable needs to be an Apex Date type with format yyyy-MM-dd.",
             "lightning:type": "lightning__dateType",
             "lightning:isPII": false,
             "copilotAction:isUserInput": true

@@ -22,7 +22,7 @@
             "description": "Description of temperatures at Coral Cloud Resorts location for the provided date",
             "lightning:type": "lightning__textType",
             "lightning:isPII": false,
-            "copilotAction:isDisplayable": false,
+            "copilotAction:isDisplayable": true,
             "copilotAction:isUsedByPlanner": true
         }
     },

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description>Engages and interacts with the user about any request related to the resort. This
+        could be tasks such as identify and summarize records, answer queries, aggregate data, find
+        and query objects, update records, or drafting and refining emails.</description>
+    <developerName>Customer_Service_Assistant</developerName>
+    <genAiFunctions>
+        <functionName>Check_Weather</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Generate_Personalized_Schedule</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__GetRecordDetails</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Issue_Bulk_Resort_Credits</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Issue_Resort_Credit</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__QueryRecords</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>EmployeeCopilot__SummarizeRecord</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>Never ask the user for an ID. Instead, ask for a record that&apos;s relevant.</description>
+        <developerName>neveraskth0</developerName>
+        <language xsi:nil="true" />
+        <masterLabel>neveraskth</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Customer Service Assistant</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your role is to assist a Customer Service Representative in supporting guests with
+        inquiries about reservations and experiences available at the hotel.</scope>
+</GenAiPlugin>
