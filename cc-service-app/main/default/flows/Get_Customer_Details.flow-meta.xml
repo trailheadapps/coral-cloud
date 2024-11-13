@@ -2,18 +2,16 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>62.0</apiVersion>
     <assignments>
-        <description
-        >Assign the contact record for output to the user in the agent.</description>
-        <name>Assign_Contact</name>
-        <label>Assign Contact</label>
+        <name>Assign_Contact_ID</name>
+        <label>Assign Contact ID</label>
         <locationX>176</locationX>
         <locationY>242</locationY>
         <assignmentItems>
-            <assignToReference>contact</assignToReference>
+            <assignToReference>contactId</assignToReference>
             <operator>Assign</operator>
             <value>
                 <elementReference
-                >Get_Contact_by_Email_and_Member_Number</elementReference>
+                >Get_Contact_by_Email_and_Member_Number.Id</elementReference>
             </value>
         </assignmentItems>
     </assignments>
@@ -54,7 +52,7 @@
         <assignNullValuesIfNoRecordsFound
         >false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Assign_Contact</targetReference>
+            <targetReference>Assign_Contact_ID</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -77,7 +75,7 @@
         <queriedFields>Name</queriedFields>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
-    <runInMode>SystemModeWithSharing</runInMode>
+    <runInMode>SystemModeWithoutSharing</runInMode>
     <start>
         <locationX>50</locationX>
         <locationY>0</locationY>
@@ -88,14 +86,12 @@
     </start>
     <status>Active</status>
     <variables>
-        <description
-        >The contact that was returned in the search for records.</description>
-        <name>contact</name>
-        <dataType>SObject</dataType>
+        <description>ID of the found contact.</description>
+        <name>contactId</name>
+        <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>true</isOutput>
-        <objectType>Contact</objectType>
     </variables>
     <variables>
         <description
