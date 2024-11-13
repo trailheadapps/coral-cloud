@@ -25,7 +25,7 @@ The Coral Cloud Resorts app showcases **Data Cloud**, **Agents** and **Prompts**
 The Coral Cloud Resorts app requires licenses for the following features:
 
 -   Data Cloud
--   Agents (formerly known as Einstein Copilot)
+-   Agents
 -   Prompt Builder field generation templates
 -   Einstein for Sales (for Prompt Builder sales emails)
 
