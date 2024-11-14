@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersion>1</activeVersion>
+    <description
+    >This template is used to generate a summary of guest reviews for a resort experience</description>
+    <developerName>Generate_Guest_Reviews_Summary</developerName>
+    <masterLabel>Generate Guest Reviews Summary</masterLabel>
+    <relatedEntity>Experience__c</relatedEntity>
+    <relatedField>Experience__c.Reviews_Summary__c</relatedField>
+    <templateVersions>
+        <content
+        >You are summarizing guest reviews for a resort experience at {!$Organization.Name}
+The summary should have between 80 and 100 words.
+
+Experience Name: {!$Input:Experience__c.Name}
+List of guest reviews: {!$RelatedList:Experience__c.Guest_Reviews__r.Records}
+
+</content>
+        <inputs>
+            <apiName>RelatedEntity</apiName>
+            <definition>SOBJECT://Experience__c</definition>
+            <referenceName>Input:Experience__c</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getRelatedList</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>parentRecordId</parameterName>
+                <valueExpression>{!$Input:Experience__c.Id}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>relatedListName</parameterName>
+                <valueExpression>Guest_Reviews__r</valueExpression>
+            </parameters>
+            <referenceName
+            >RelatedList:Experience__c.Guest_Reviews__r.Records</referenceName>
+        </templateDataProviders>
+        <versionNumber>1</versionNumber>
+    </templateVersions>
+    <type>einstein_gpt__fieldCompletion</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

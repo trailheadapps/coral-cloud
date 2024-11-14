@@ -1,0 +1,177 @@
+{
+    "type": "sfdc_cms__view",
+    "title": "Home",
+    "contentBody": {
+        "component": {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "attributes": {
+                                "backgroundImageConfig": "",
+                                "backgroundImageOverlay": "rgba(0,0,0,0)",
+                                "componentSpacerSize": "",
+                                "layoutDirectionDesktop": "row",
+                                "layoutDirectionMobile": "column",
+                                "layoutDirectionTablet": "column",
+                                "maxContentWidth": "",
+                                "sectionColumnGutterWidth": "1rem",
+                                "sectionConfig": "{\"UUID\":\"b4781403-46b1-47e3-bb1b-2b1e53c90333\",\"columns\":[{\"UUID\":\"ade49e3f-45d4-4e81-8b97-f39d54d4f20b\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+                                "sectionMinHeight": "350px",
+                                "sectionVerticalAlign": "center"
+                            },
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "attributes": {
+                                                "richTextValue": "<div class=\"slds-grid slds-wrap\">\n    <div class=\"slds-align_absolute-center slds-p-top_x-large slds-p-bottom_x-large\">\n            <div class=\"slds-size_2-of-3\">\n                <div class=\"slds-text-body_medium slds-text-align_center\" style=\"font-weight:bold; font-size:40px\">Welcome to Coral Cloud Resort, your ultimate tropical escape nestled in the heart of paradise.</div>\n</div>\n</div>\n    </div>"
+                                            },
+                                            "definition": "community_builder:htmlEditor",
+                                            "id": "1aef6e5b-3b03-4961-8006-1b0bff132175",
+                                            "type": "component"
+                                        }
+                                    ],
+                                    "id": "ade49e3f-45d4-4e81-8b97-f39d54d4f20b",
+                                    "name": "col1",
+                                    "title": "Column 1",
+                                    "type": "region"
+                                }
+                            ],
+                            "customCssClasses": "jumbotron",
+                            "definition": "community_layout:section",
+                            "id": "b4781403-46b1-47e3-bb1b-2b1e53c90333",
+                            "scopedBrandingSetId": "Coral_Cloud_Body",
+                            "type": "component"
+                        },
+                        {
+                            "attributes": {
+                                "backgroundImageConfig": "",
+                                "backgroundImageOverlay": "rgba(0,0,0,0)",
+                                "componentSpacerSize": "",
+                                "layoutDirectionDesktop": "row",
+                                "layoutDirectionMobile": "column",
+                                "layoutDirectionTablet": "column",
+                                "maxContentWidth": "",
+                                "sectionColumnGutterWidth": "",
+                                "sectionConfig": "{\"UUID\":\"9b65d7f9-ae34-4263-8fe8-68552294d95d\",\"columns\":[{\"UUID\":\"f2216ce5-c94f-4581-bad3-76c3c50d516b\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":null}]}",
+                                "sectionMinHeight": "",
+                                "sectionVerticalAlign": "flex-start"
+                            },
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "attributes": {
+                                                "richTextValue": "<div class=\"slds-grid slds-wrap\">\n    <div class=\"slds-align_absolute-center slds-p-top_x-large slds-p-bottom_x-large\">\n            <div class=\"slds-size_2-of-3\">\n                        <div class=\"slds-text-heading_medium slds-text-align_center\" style=\"font-weight:bold;font-size:24px\">Book an Experience of a Lifetime</div>\n        <div class=\"slds-text-body_regular slds-text-align_center\">At Coral Cloud Resorts, you'll uncover a deep connection to the land, the rich history, and the vibrant culture of our unique coastal sanctuary. Embrace the breathtaking natural beauty and the warm, welcoming community that makes this place truly special. Each day is an opportunity for new discoveries and soul-enriching experiences, inviting you to explore the rare and remarkable depths of this extraordinary coastline.\n</div>\n</div>\n    </div>\n</div>"
+                                            },
+                                            "definition": "community_builder:htmlEditor",
+                                            "id": "ee5d7301-3624-449a-9a7f-8789671e5c6d",
+                                            "type": "component"
+                                        },
+                                        {
+                                            "attributes": {
+                                                "deploymentName": "Agent_Web_Deployment",
+                                                "hideChatButtonOnLoad": "Default",
+                                                "scrtUrl": "https://%%SF_CC_PLACEHOLDER_DOMAIN%%.develop.my.salesforce-scrt.com",
+                                                "siteEndpoint": "https://%%SF_CC_PLACEHOLDER_DOMAIN%%.develop.my.site.com/ESWAgentWebDeployment1729699014420"
+                                            },
+                                            "definition": "experience_messaging:embeddedMessaging",
+                                            "id": "e78ba173-4372-48d8-86bf-6e4ffbc14926",
+                                            "type": "component"
+                                        }
+                                    ],
+                                    "id": "f2216ce5-c94f-4581-bad3-76c3c50d516b",
+                                    "name": "col1",
+                                    "title": "Column 1",
+                                    "type": "region"
+                                }
+                            ],
+                            "definition": "community_layout:section",
+                            "id": "9b65d7f9-ae34-4263-8fe8-68552294d95d",
+                            "type": "component"
+                        },
+                        {
+                            "attributes": {
+                                "backgroundImageConfig": "",
+                                "backgroundImageOverlay": "rgba(0,0,0,0)",
+                                "componentSpacerSize": "",
+                                "layoutDirectionDesktop": "row",
+                                "layoutDirectionMobile": "column",
+                                "layoutDirectionTablet": "column",
+                                "maxContentWidth": "",
+                                "sectionColumnGutterWidth": "",
+                                "sectionConfig": "{\"UUID\":\"0fe12ac2-85cc-4fbc-ab65-223be6497dc0\",\"columns\":[{\"UUID\":\"3733112f-fbe6-40ee-a48d-6dd276b1f85a\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"8\",\"seedComponents\":[]},{\"UUID\":\"eebf487b-41d7-4498-a170-384776c87cca\",\"columnName\":\"Column 2\",\"columnKey\":\"a888a\",\"columnWidth\":\"4\",\"seedComponents\":[]}]}",
+                                "sectionMinHeight": "",
+                                "sectionVerticalAlign": "flex-start"
+                            },
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "attributes": {},
+                                            "definition": "c:experiencesPanel",
+                                            "id": "cff27289-2614-485a-847a-ab76b6fc991e",
+                                            "type": "component"
+                                        }
+                                    ],
+                                    "id": "3733112f-fbe6-40ee-a48d-6dd276b1f85a",
+                                    "name": "col1",
+                                    "title": "Column 1",
+                                    "type": "region"
+                                },
+                                {
+                                    "children": [
+                                        {
+                                            "attributes": {},
+                                            "definition": "c:experienceSchedule",
+                                            "id": "630a52e5-e976-4dd9-817a-13a817401065",
+                                            "type": "component"
+                                        }
+                                    ],
+                                    "id": "eebf487b-41d7-4498-a170-384776c87cca",
+                                    "name": "a888a",
+                                    "title": "Column 2",
+                                    "type": "region"
+                                }
+                            ],
+                            "definition": "community_layout:section",
+                            "id": "0fe12ac2-85cc-4fbc-ab65-223be6497dc0",
+                            "type": "component"
+                        }
+                    ],
+                    "id": "f9dd7bde-b331-4b26-a387-f409f10a6ca9",
+                    "name": "content",
+                    "title": "Content",
+                    "type": "region"
+                },
+                {
+                    "children": [
+                        {
+                            "attributes": {
+                                "customHeadTags": "",
+                                "description": "",
+                                "pageTitle": "Home",
+                                "recordId": "{!recordId}"
+                            },
+                            "definition": "community_builder:seoAssistant",
+                            "id": "059d1899-e148-4544-be53-e5f00f0ab80c",
+                            "type": "component"
+                        }
+                    ],
+                    "id": "9c7e69cb-7073-4b49-9ac3-922041a0ac8c",
+                    "name": "sfdcHiddenRegion",
+                    "title": "sfdcHiddenRegion",
+                    "type": "region"
+                }
+            ],
+            "definition": "community_layout:sldsFlexibleLayout",
+            "id": "275dc4b3-0ed9-45f2-850e-bfeec286407b",
+            "type": "component"
+        },
+        "dataProviders": [],
+        "themeLayoutType": "Inner",
+        "viewType": "home"
+    },
+    "urlName": "home"
+}

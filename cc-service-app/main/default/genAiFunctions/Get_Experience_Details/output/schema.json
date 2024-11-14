@@ -1,0 +1,17 @@
+{
+    "unevaluatedProperties": false,
+    "properties": {
+        "experienceRecord": {
+            "title": "experienceRecord",
+            "description": "The Experience__c record to be summarized for the user.",
+            "lightning:type": "lightning__recordInfoType",
+            "lightning:sObjectInfo": {
+                "apiName": "Experience__c"
+            },
+            "lightning:isPII": false,
+            "copilotAction:isDisplayable": true,
+            "copilotAction:isUsedByPlanner": true
+        }
+    },
+    "lightning:type": "lightning__objectType"
+}

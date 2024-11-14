@@ -1,0 +1,58 @@
+<template>
+    <lightning-card
+        title="Generate Social Media Posts"
+        icon-name="utility:socialshare"
+    >
+        <div class="slds-var-p-around_small">
+            <template lwc:if={error}>
+                {error}
+                <lightning-button
+                    onclick={generateSocialMediaPosts}
+                    label="Try again!"
+                    class="slds-align_absolute-center"
+                >
+                </lightning-button>
+            </template>
+            <template lwc:else>
+                <lightning-button
+                    onclick={generateSocialMediaPosts}
+                    label="Generate Social Media Posts"
+                >
+                </lightning-button>
+                <div class="slds-var-p-top_small">
+                    <lightning-textarea
+                        name="twitter"
+                        readonly
+                        value={twitterPost}
+                        label="Twitter Post"
+                    >
+                    </lightning-textarea>
+                </div>
+                <div class="slds-var-p-top_small">
+                    <lightning-textarea
+                        name="linkedin"
+                        readonly
+                        value={linkedinPost}
+                        label="Linkedin Post"
+                    >
+                    </lightning-textarea>
+                </div>
+                <div class="slds-var-p-top_small">
+                    <lightning-textarea
+                        name="slack"
+                        readonly
+                        value={slackPost}
+                        label="Slack Post"
+                    >
+                    </lightning-textarea>
+                </div>
+            </template>
+            <template lwc:if={showSpinner}>
+                <lightning-spinner
+                    alternative-text="Loading..."
+                    size="small"
+                ></lightning-spinner>
+            </template>
+        </div>
+    </lightning-card>
+</template>

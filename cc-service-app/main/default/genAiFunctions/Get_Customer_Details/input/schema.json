@@ -1,0 +1,21 @@
+{
+    "required": ["email", "memberNumber"],
+    "unevaluatedProperties": false,
+    "properties": {
+        "email": {
+            "title": "email",
+            "description": "The Email Address of the customer that is validating their identity.",
+            "lightning:type": "lightning__textType",
+            "lightning:isPII": false,
+            "copilotAction:isUserInput": false
+        },
+        "memberNumber": {
+            "title": "memberNumber",
+            "description": "The Member Number of the customer that is validating their identity.",
+            "lightning:type": "lightning__textType",
+            "lightning:isPII": false,
+            "copilotAction:isUserInput": false
+        }
+    },
+    "lightning:type": "lightning__objectType"
+}

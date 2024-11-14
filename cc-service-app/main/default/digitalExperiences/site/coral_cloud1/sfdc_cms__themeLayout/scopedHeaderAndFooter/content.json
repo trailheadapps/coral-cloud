@@ -1,0 +1,128 @@
+{
+    "type": "sfdc_cms__themeLayout",
+    "title": "Scoped Header and Footer",
+    "contentBody": {
+        "component": {
+            "attributes": {},
+            "children": [
+                {
+                    "children": [
+                        {
+                            "attributes": {
+                                "backgroundImageConfig": "",
+                                "backgroundImageOverlay": "rgba(0,0,0,0)",
+                                "componentSpacerSize": "0rem",
+                                "dxpStyle": {},
+                                "layoutDirectionDesktop": "row",
+                                "layoutDirectionMobile": "column",
+                                "layoutDirectionTablet": "column",
+                                "maxContentWidth": "",
+                                "sectionColumnGutterWidth": "",
+                                "sectionConfig": "{\"UUID\":\"9169f198-02f0-4a88-8456-3a30897eba2a\",\"columns\":[{\"UUID\":\"ef2c6177-3caa-4d62-8eab-bcec99213ccc\",\"columnName\":\"Theme Header\",\"columnKey\":\"headerSection\",\"columnWidth\":\"3\",\"seedComponents\":null},{\"UUID\":\"bc0797f7-d8ae-4953-be9f-b56348f0a8f1\",\"columnName\":\"Column 2\",\"columnKey\":\"3db39\",\"columnWidth\":\"9\",\"seedComponents\":[]}]}",
+                                "sectionMinHeight": "",
+                                "sectionVerticalAlign": "center"
+                            },
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "attributes": {
+                                                "alignment": "left",
+                                                "dxpStyle": {},
+                                                "imageInfo": "{\"imageInfoV1\":{\"url\":\"/sfsites/c/resource/coralcloudsite/coral-cloud-logo.png\",\"altText\":\"Coral Cloud logo\",\"contentKey\":\"\",\"contentType\":null}}",
+                                                "imageInfoMobile": "",
+                                                "logoWidth": 250
+                                            },
+                                            "definition": "dxp_content_layout:siteLogo",
+                                            "id": "7780fe58-9b69-4001-817c-d14b87e3bfb9",
+                                            "type": "component"
+                                        }
+                                    ],
+                                    "id": "ef2c6177-3caa-4d62-8eab-bcec99213ccc",
+                                    "name": "headerSection",
+                                    "title": "Column 1",
+                                    "type": "region"
+                                },
+                                {
+                                    "children": [
+                                        {
+                                            "attributes": {
+                                                "dxpStyle": {},
+                                                "richTextValue": "<div class=\"nav\">\n    <div class=\"nav-container slds-grid slds-grid_align-end\">\n            <ul class=\"slds-grid slds-wrap slds-grid_align-end\" style=\"width:85%\">\n                <li class=\"slds-item slds-p-right_small\"><a href=\"#\">Stay</a></li>\n                <li class=\"slds-item slds-p-right_small\"><a href=\"#\">Experiences</a></li>\n                <li class=\"slds-item slds-p-right_small\"><a href=\"#\">Dine</a></li>\n                <li class=\"slds-item slds-p-right_small\"><a href=\"#\">Spa & Wellness</a></li>\n            </ul>\n            <a href=\"#\" class=\"book-now\">BOOK NOW</a>\n        </div>\n</div>"
+                                            },
+                                            "definition": "community_builder:htmlEditor",
+                                            "id": "5f5f3b0b-295e-4cd0-8c0e-6eb47b6997d1",
+                                            "type": "component"
+                                        }
+                                    ],
+                                    "id": "bc0797f7-d8ae-4953-be9f-b56348f0a8f1",
+                                    "name": "3db39",
+                                    "title": "Column 2",
+                                    "type": "region"
+                                }
+                            ],
+                            "definition": "community_layout:section",
+                            "id": "9169f198-02f0-4a88-8456-3a30897eba2a",
+                            "type": "component"
+                        }
+                    ],
+                    "id": "11ab525d-1ab3-4887-b4a1-63210a1455b4",
+                    "name": "header",
+                    "title": "Theme Header",
+                    "type": "region"
+                },
+                {
+                    "children": [
+                        {
+                            "attributes": {
+                                "backgroundImageConfig": "",
+                                "backgroundImageOverlay": "rgba(0,0,0,0)",
+                                "componentSpacerSize": "",
+                                "dxpStyle": {},
+                                "layoutDirectionDesktop": "row",
+                                "layoutDirectionMobile": "column",
+                                "layoutDirectionTablet": "column",
+                                "maxContentWidth": "",
+                                "sectionColumnGutterWidth": "",
+                                "sectionConfig": "{\"UUID\":\"095c50ae-4677-429f-8f71-8537cffe0084\",\"columns\":[{\"UUID\":\"b4bec856-729c-4ebb-9784-00caaec64639\",\"columnName\":\"Column 1\",\"columnKey\":\"footerSection\",\"columnWidth\":\"12\",\"seedComponents\":null}]}",
+                                "sectionMinHeight": "",
+                                "sectionVerticalAlign": "flex-start"
+                            },
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "attributes": {
+                                                "dxpStyle": {},
+                                                "richTextValue": "<div class=\"social-icons slds-grid slds-grid_align-center\">\n            <ul class=\"slds-list_horizontal slds-grid\">\n                <li class=\"slds-item\"><a href=\"#\"><img src=\"/sfsites/c/resource/coralcloudsite/social-logos/facebook.png\" alt=\"Facebook\"></a></li>\n                <li class=\"slds-item\"><a href=\"#\"><img src=\"/sfsites/c/resource/coralcloudsite/social-logos/instagram.png\" alt=\"Instagram\"></a></li>\n                <li class=\"slds-item\"><a href=\"#\"><img src=\"/sfsites/c/resource/coralcloudsite/social-logos/whatsapp.png\" alt=\"Whatsapp\"></a></li>\n                <li class=\"slds-item\"><a href=\"#\"><img src=\"/sfsites/c/resource/coralcloudsite/social-logos/reddit.png\" alt=\"Reddit\"></a></li>\n            </ul>\n        </div>\n        <div class=\"footer-links slds-grid slds-wrap\">\n            <ul class=\"slds-align_absolute-center slds-p-left_large slds-p-right_large slds-list_horizontal slds-grid slds-wrap\">\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">About Us</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Customer Support</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Directions & Maps</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Accommodations</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Dining Options</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">News & Events</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Careers</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Sustainability</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Accessibility</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Privacy Policy</a></li>\n                <li class=\"slds-item\"><a href=\"#\" style=\"color: #fff;\">Terms & Conditions</a></li>\n            </ul>\n        </div>\n        <div class=\"footer-copy\">\n            <p>Copyright 2024 Coral Cloud Resorts Ltd. All Rights Reserved.</p>\n            <p>1234 Ocean Breeze Lane, Sunset Beach, HI 96712 | 1.808.555.1234</p>\n        </div>"
+                                            },
+                                            "definition": "community_builder:htmlEditor",
+                                            "id": "3913fa20-9471-4715-ac74-155b83763341",
+                                            "type": "component"
+                                        }
+                                    ],
+                                    "id": "b4bec856-729c-4ebb-9784-00caaec64639",
+                                    "name": "footerSection",
+                                    "title": "Theme Footer",
+                                    "type": "region"
+                                }
+                            ],
+                            "definition": "community_layout:section",
+                            "id": "095c50ae-4677-429f-8f71-8537cffe0084",
+                            "scopedBrandingSetId": "Coral_Cloud_Footer",
+                            "type": "component"
+                        }
+                    ],
+                    "id": "9cf034f8-5a1a-44c1-98b6-3d8326a1bd3b",
+                    "name": "footer",
+                    "title": "Theme Footer",
+                    "type": "region"
+                }
+            ],
+            "definition": "community_byo:scopedHeaderAndFooter",
+            "id": "a104c03f-8dc8-4eca-95b7-634ebdcf41a1",
+            "type": "component"
+        }
+    },
+    "urlName": "scoped-header-and-footer"
+}

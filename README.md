@@ -25,7 +25,7 @@ The Coral Cloud Resorts app showcases **Data Cloud**, **Agents** and **Prompts**
 The Coral Cloud Resorts app requires licenses for the following features:
 
 -   Data Cloud
--   Agents (formerly known as Einstein Copilot)
+-   Agents
 -   Prompt Builder field generation templates
 -   Einstein for Sales (for Prompt Builder sales emails)
 
@@ -77,7 +77,7 @@ If you need to [update the Salesforce CLI](https://developer.salesforce.com/docs
 1. Deploy the app metadata.
 
     ```bash
-    sf project deploy start
+    sf project deploy start -d cc-base-app
     ```
 
 1. Assign the Coral Cloud permission set to the default user.
@@ -101,7 +101,7 @@ If you need to [update the Salesforce CLI](https://developer.salesforce.com/docs
 1. Install a Data Kit to add Data Cloud components to your org.
 
     ```bash
-    sf package install -p 04tHr000000ku0X -w 10
+    sf package install -p 04tHr000000ku4k -w 10
     ```
 
 1. If your org isn't already open, open it now:

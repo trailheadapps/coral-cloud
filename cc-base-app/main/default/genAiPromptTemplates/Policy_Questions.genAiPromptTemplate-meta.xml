@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersion>1</activeVersion>
+    <description
+    >Answer customer questions about Coral Cloud Resorts&apos; policies.</description>
+    <developerName>Policy_Questions</developerName>
+    <masterLabel>Policy Questions</masterLabel>
+    <templateVersions>
+        <content
+        >Your task is to provide clear and helpful answers to customer inquiries about Coral
+            Cloud Resorts&apos; policies.
+
+            Here&apos;s the customer&apos;s question:
+            {!$Input:myQuestion}
+
+            Please use the following information to help you answer the question:
+            PLACEHOLDER_RETRIEVER
+
+            Remember to tailor your response to the specific question, focusing on the relevant
+            details.
+
+            Your tone should be friendly and informative, as if you were speaking directly to the
+            customer.
+</content>
+        <inputs>
+            <apiName>myQuestion</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Question</masterLabel>
+            <referenceName>Input:myQuestion</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <versionNumber>1</versionNumber>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

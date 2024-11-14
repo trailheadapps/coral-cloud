@@ -1,0 +1,14 @@
+{
+    "required": ["Input:myQuestion"],
+    "unevaluatedProperties": false,
+    "properties": {
+        "Input:myQuestion": {
+            "title": "Question",
+            "description": "The question is open-ended text input from a user in a chat, related to resort policies.",
+            "lightning:type": "lightning__textType",
+            "lightning:isPII": false,
+            "copilotAction:isUserInput": false
+        }
+    },
+    "lightning:type": "lightning__objectType"
+}

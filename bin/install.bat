@@ -2,7 +2,7 @@
 cd %CD%/..
 
 @echo:
-echo Installing Coral Cloud
+echo Installing Coral Cloud - Base
 @echo:
 
 rem Use existing org
@@ -35,7 +35,7 @@ if /i "%errorlevel%" neq "1" (
 )
 
 echo Pushing source...
-cmd.exe /c sf project deploy start
+cmd.exe /c sf project deploy start -d cc-base-app
 call :checkForError
 @echo:
 
@@ -55,7 +55,7 @@ call :checkForError
 @echo:
 
 echo Installing Data Kit...
-cmd.exe /c sf package install -p 04tHr000000ku0X -w 10
+cmd.exe /c sf package install -p 04tHr000000ku4k -w 10
 call :checkForError
 @echo:
 

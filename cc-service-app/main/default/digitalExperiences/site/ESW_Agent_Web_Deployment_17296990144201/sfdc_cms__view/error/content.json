@@ -1,0 +1,84 @@
+{
+    "type": "sfdc_cms__view",
+    "title": "Error",
+    "contentBody": {
+        "component": {
+            "children": [
+                {
+                    "children": [
+                        {
+                            "attributes": {
+                                "backgroundImageConfig": "",
+                                "backgroundImageOverlay": "rgba(0,0,0,0)",
+                                "componentSpacerSize": "",
+                                "dxpStyle": {},
+                                "layoutDirectionDesktop": "row",
+                                "layoutDirectionMobile": "column",
+                                "layoutDirectionTablet": "column",
+                                "maxContentWidth": "",
+                                "sectionColumnGutterWidth": "",
+                                "sectionConfig": "{\"UUID\":\"3eed5678-a31c-4239-bb50-c06cbbb54ce4\",\"columns\":[{\"UUID\":\"4d9fecba-72a3-4926-8497-04f2ca9cf270\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":null}]}",
+                                "sectionMinHeight": "",
+                                "sectionVerticalAlign": "flex-start"
+                            },
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "attributes": {
+                                                "dxpStyle": {},
+                                                "imageInfos": "",
+                                                "richTextValue": "<h1 style=\"text-align: center;\">Invalid Page</h1>"
+                                            },
+                                            "definition": "community_builder:richTextEditor",
+                                            "id": "41696d1a-fd3d-4fa0-b59c-5c9557d5080e",
+                                            "type": "component"
+                                        }
+                                    ],
+                                    "id": "4d9fecba-72a3-4926-8497-04f2ca9cf270",
+                                    "name": "col1",
+                                    "title": "Column 1",
+                                    "type": "region"
+                                }
+                            ],
+                            "definition": "community_layout:section",
+                            "id": "3eed5678-a31c-4239-bb50-c06cbbb54ce4",
+                            "type": "component"
+                        }
+                    ],
+                    "id": "cd233ad9-4b36-422d-b818-75525947bf9c",
+                    "name": "content",
+                    "title": "Content",
+                    "type": "region"
+                },
+                {
+                    "children": [
+                        {
+                            "attributes": {
+                                "customHeadTags": "",
+                                "description": "",
+                                "dxpStyle": {},
+                                "pageTitle": "Error",
+                                "recordId": "{!recordId}"
+                            },
+                            "definition": "community_builder:seoAssistant",
+                            "id": "292ff417-38ed-4252-b5c1-34297948616b",
+                            "type": "component"
+                        }
+                    ],
+                    "id": "0c1b278c-3342-4e12-b146-8178e6af6885",
+                    "name": "sfdcHiddenRegion",
+                    "title": "sfdcHiddenRegion",
+                    "type": "region"
+                }
+            ],
+            "definition": "community_layout:sldsFlexibleLayout",
+            "id": "03ffbabc-e3eb-4104-81bb-e1a669a8544d",
+            "type": "component"
+        },
+        "dataProviders": [],
+        "themeLayoutType": "Inner",
+        "viewType": "error"
+    },
+    "urlName": "error"
+}

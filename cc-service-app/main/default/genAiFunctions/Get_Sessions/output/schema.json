@@ -1,0 +1,21 @@
+{
+    "unevaluatedProperties": false,
+    "properties": {
+        "sessions": {
+            "title": "sessions",
+            "description": "The available Session__c records for the Experience__c",
+            "maxItems": 2000,
+            "items": {
+                "lightning:type": "lightning__recordInfoType",
+                "lightning:sObjectInfo": {
+                    "apiName": "Session__c"
+                }
+            },
+            "lightning:type": "lightning__listType",
+            "lightning:isPII": false,
+            "copilotAction:isDisplayable": true,
+            "copilotAction:isUsedByPlanner": true
+        }
+    },
+    "lightning:type": "lightning__objectType"
+}

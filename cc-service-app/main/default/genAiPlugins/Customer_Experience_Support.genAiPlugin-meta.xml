@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description>This topic addresses customer inquiries and issues related to booking experiences
+        at Coral Cloud Resorts, including making reservations, modifying bookings, and answering
+        queries about experience details.</description>
+    <developerName>Customer_Experience_Support</developerName>
+    <genAiFunctions>
+        <functionName>Get_Experience_Details</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Customer_Details</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Sessions</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Create_Booking</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If a customer would like more information on Activities or Experiences, you
+            should run the action &apos;Get Experience Details&apos; and then summarize the results
+            with improved readability. Always ensure you know the customer before running this
+            action.</description>
+        <developerName>ifacustome0</developerName>
+        <language xsi:nil="true" />
+        <masterLabel>ifacustome</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the customer is not known, you must always ask for their email address and
+            their membership number. Get their Contact record by running the action 'Get Customer
+            Details' before running any other actions.</description>
+        <developerName>forcustome1</developerName>
+        <language xsi:nil="true" />
+        <masterLabel>forcustome</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If asked to get sessions for the experience use the 'Get Sessions' action. Ask
+            for the date of the sessions if not provided. Use the Id of the Experience__c from the
+            'Get Experience Details'.</description>
+        <developerName>sessionque2</developerName>
+        <language xsi:nil="true" />
+        <masterLabel>sessionque</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If asked to book, use the action 'Create Booking' . The Contact__c is the
+            contact ID from the 'Get Customer Details' . The Session__c is the ID of the session
+            from the action 'Get Sessions' . If multiple sessions are present ask to select one of
+            the sessions and use that Session as the ID for the Session__c. Prompt for the Number of
+            Guests and use that for the Number_of_Guests__c.
+        </description>
+        <developerName>createbook4</developerName>
+        <language xsi:nil="true" />
+        <masterLabel>createbook</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Customer Experience Support</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>The agent&apos;s job is to assist users in navigating and managing bookings for different
+        experiences offered by Coral Cloud Resorts, ensuring a seamless customer service experience
+        by providing accurate information and resolving issues promptly.</scope>
+</GenAiPlugin>

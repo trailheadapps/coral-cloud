@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Overview" icon-name="standard:note">
+        <div class="slds-var-m-horizontal_medium">
+            <!-- Experience image -->
+            <div class="slds-p-bottom_small">
+                <img
+                    class="experience-image"
+                    src={pictureURL}
+                    alt="Experience illustration"
+                />
+            </div>
+            <!-- Experience description -->
+            <div class="slds-p-bottom_small">
+                <h2 class="slds-text-heading_medium">
+                    <strong>{name}</strong>
+                </h2>
+                <lightning-formatted-rich-text
+                    value={description}
+                ></lightning-formatted-rich-text>
+            </div>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,21 @@
+{
+    "required": ["experienceId", "startDate"],
+    "unevaluatedProperties": false,
+    "properties": {
+        "experienceId": {
+            "title": "experienceId",
+            "description": "The Id of the Experience__c that you would like to check for.",
+            "lightning:type": "lightning__textType",
+            "lightning:isPII": false,
+            "copilotAction:isUserInput": false
+        },
+        "startDate": {
+            "title": "startDate",
+            "description": "The date that the user would like to view the Session__c for.",
+            "lightning:type": "lightning__dateType",
+            "lightning:isPII": false,
+            "copilotAction:isUserInput": false
+        }
+    },
+    "lightning:type": "lightning__objectType"
+}

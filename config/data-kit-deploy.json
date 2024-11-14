@@ -15,7 +15,7 @@
                     "bundleConfig": {
                         "connectorType": "MoreConnectors",
                         "bundleName": "Amazon_S3",
-                        "forceNoRefresh": true,
+                        "forceNoRefresh": false,
                         "bundleConnectorFrameworkConfig": {
                             "connectionName": "Coral_Cloud_S3_Connection"
                         }

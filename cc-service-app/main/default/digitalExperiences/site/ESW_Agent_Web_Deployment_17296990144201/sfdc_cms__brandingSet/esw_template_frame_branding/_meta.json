@@ -1,0 +1,5 @@
+{
+    "apiName": "esw_template_frame_branding",
+    "type": "sfdc_cms__brandingSet",
+    "path": "brandingSets"
+}

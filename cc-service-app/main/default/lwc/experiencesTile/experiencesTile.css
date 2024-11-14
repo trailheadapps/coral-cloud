@@ -1,0 +1,33 @@
+button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: inherit;
+    padding: 8px;
+    background-color: #ffffff;
+    border-radius: 0.25rem;
+    border-width: 0;
+    text-align: center;
+}
+
+.selected {
+    background-color: #04545f;
+    color: #ffffff;
+}
+
+.experience-picture {
+    border-radius: 0.25rem;
+    height: 120px;
+    width: 100%;
+    pointer-events: none;
+    object-fit: cover;
+}
+
+.title {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.description {
+    text-overflow: ellipsis;
+}

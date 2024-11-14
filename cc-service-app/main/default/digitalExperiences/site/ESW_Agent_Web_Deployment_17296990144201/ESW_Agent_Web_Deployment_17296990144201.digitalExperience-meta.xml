@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DigitalExperienceBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <digitalExperienceFolderShares />
+    <label>ESW_Agent_Web_Deployment_17296990144201</label>
+    <modules>
+        <module>
+            <fullyQualifiedName>sfdc_cms__collection</fullyQualifiedName>
+            <status>ENABLED</status>
+        </module>
+        <module>
+            <fullyQualifiedName>sfdc_cms__channelManagement</fullyQualifiedName>
+            <status>ENABLED</status>
+        </module>
+        <module>
+            <fullyQualifiedName>sfdc_cms__userManagement</fullyQualifiedName>
+            <status>ENABLED</status>
+        </module>
+    </modules>
+</DigitalExperienceBundle>

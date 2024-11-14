@@ -1,0 +1,19 @@
+{
+    "type": "sfdc_cms__theme",
+    "title": "Embedded Service for Web (LWR)",
+    "contentBody": {
+        "activeBrandingSetId": "esw_template_frame_branding",
+        "definitionName": "frame",
+        "layouts": [
+            {
+                "layoutId": "snaThemeLayout",
+                "layoutType": "ServiceNotAvailable"
+            },
+            {
+                "layoutId": "frame",
+                "layoutType": "Inner"
+            }
+        ]
+    },
+    "urlName": "embedded-service-for-web-lwr"
+}

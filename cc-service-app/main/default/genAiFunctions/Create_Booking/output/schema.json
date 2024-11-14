@@ -1,0 +1,17 @@
+{
+    "unevaluatedProperties": false,
+    "properties": {
+        "createdBooking": {
+            "title": "createdBooking",
+            "description": "The booking that was created.",
+            "lightning:type": "lightning__recordInfoType",
+            "lightning:sObjectInfo": {
+                "apiName": "Booking__c"
+            },
+            "lightning:isPII": false,
+            "copilotAction:isDisplayable": true,
+            "copilotAction:isUsedByPlanner": true
+        }
+    },
+    "lightning:type": "lightning__objectType"
+}

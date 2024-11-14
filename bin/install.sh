@@ -3,7 +3,7 @@ SCRIPT_PATH=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cd $SCRIPT_PATH/..
 
 echo ""
-echo "Installing Coral Cloud"
+echo "Installing Coral Cloud - Base"
 echo ""
 
 # Get default org alias
@@ -52,7 +52,7 @@ then
 fi
 
 echo "Pushing source..." && \
-sf project deploy start && \
+sf project deploy start -d cc-base-app && \
 echo "" && \
 
 echo "Assigning permission sets..." && \
@@ -68,7 +68,7 @@ sf apex run -f apex-scripts/setup.apex && \
 echo "" && \
 
 echo "Installing Data Kit..." && \
-sf package install -p 04tHr000000ku0X -w 10 && \
+sf package install -p 04tHr000000ku4k -w 10 && \
 echo "" && \
 
 echo "Opening org..." && \

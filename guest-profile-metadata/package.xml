@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members
+        >Coral_Cloud_Profile_profilePasswordPolicy1730815329382</members>
+        <name>ProfilePasswordPolicy</name>
+    </types>
+    <types>
+        <members
+        >Coral_Cloud_Profile_profileSessionSetting1730815329477</members>
+        <name>ProfileSessionSetting</name>
+    </types>
+    <types>
+        <members>Coral Cloud Profile</members>
+        <name>Profile</name>
+    </types>
+    <types>
+        <members>Experience__c</members>
+        <members>Session__c</members>
+        <name>SharingRules</name>
+    </types>
+    <version>62.0</version>
+</Package>

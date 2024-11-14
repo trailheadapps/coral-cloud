@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersion>2</activeVersion>
+    <description
+    >Generate a personalized schedule that includes the time and location of resort experiences that are available today, and that match the guest&apos;s interests.</description>
+    <developerName>Generate_Personalized_Schedule</developerName>
+    <masterLabel>Generate Personalized Schedule</masterLabel>
+    <templateVersions>
+        <content
+        >Your name is {!$User.FirstName}. You work in the guest success team at {!$Organization.Name}.
+Introduce yourself, then present the list of resort activities happening today that match the guest&apos;s interests.
+For clarity, use a bullet list.
+For each activity, include name, time, location and duration on a single line. Do not include the date.
+Then add a suggested schedule.
+Take into account the start time and duration of each activity.
+Make sure that you don&apos;t include activities that overlap.
+Make sure the guest has at least 60 minutes of free time between activities.
+Present the suggested schedule in chronological order.
+Tell the guest to reach out if they&apos;d like to book any of these activities.
+List of activities happening today that match the guest&apos;s interests:
+{!$Apex:PersonalizedGuestExperiences.Prompt}
+</content>
+        <inputs>
+            <apiName>Contact</apiName>
+            <definition>SOBJECT://Contact</definition>
+            <masterLabel>Contact</masterLabel>
+            <referenceName>Input:Contact</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>apex://PersonalizedGuestExperiences</definition>
+            <parameters>
+                <definition>SOBJECT://Contact</definition>
+                <isRequired>true</isRequired>
+                <parameterName>myContact</parameterName>
+                <valueExpression>{!$Input:Contact}</valueExpression>
+            </parameters>
+            <referenceName>Apex:PersonalizedGuestExperiences</referenceName>
+        </templateDataProviders>
+        <versionNumber>2</versionNumber>
+    </templateVersions>
+    <templateVersions>
+        <content
+        >Your name is {!$User.FirstName}. You work in the guest success team at {!$Organization.Name}.
+Introduce yourself, then present the list of resort activities happening today that match the guest&apos;s interests.
+For clarity, use a bullet list.
+For each activity, include name, time, location and duration on a single line. Do not include the date.
+Tell the guest to reach out if they&apos;d like to book any of these activities.
+List of activities happening today that match the guest&apos;s interests:
+</content>
+        <inputs>
+            <apiName>Contact</apiName>
+            <definition>SOBJECT://Contact</definition>
+            <masterLabel>Contact</masterLabel>
+            <referenceName>Input:Contact</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <status>Published</status>
+        <versionNumber>1</versionNumber>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>
