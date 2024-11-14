@@ -74,7 +74,7 @@ If you need to [update the Salesforce CLI](https://developer.salesforce.com/docs
     sf org login web -s -a coral-cloud
     ```
 
-1. Deploy the app metadata.
+1. Deploy the base app metadata.
 
     ```bash
     sf project deploy start -d cc-base-app
@@ -96,6 +96,12 @@ If you need to [update the Salesforce CLI](https://developer.salesforce.com/docs
 
     ```bash
     sf apex run -f apex-scripts/setup.apex
+    ```
+
+1. Deploy the employee agent metadata.
+
+    ```bash
+    sf project deploy start -d cc-employee-app
     ```
 
 1. Install a Data Kit to add Data Cloud components to your org.

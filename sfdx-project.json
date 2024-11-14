@@ -5,6 +5,9 @@
             "default": true
         },
         {
+            "path": "cc-employee-app"
+        },
+        {
             "path": "cc-service-app"
         }
     ],

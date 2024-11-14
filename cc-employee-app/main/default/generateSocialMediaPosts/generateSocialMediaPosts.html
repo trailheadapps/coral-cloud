@@ -4,10 +4,10 @@
         icon-name="utility:socialshare"
     >
         <div class="slds-var-p-around_small">
-            <template lwc:if={error}>
+            <template lwc:if="{error}">
                 {error}
                 <lightning-button
-                    onclick={generateSocialMediaPosts}
+                    onclick="{generateSocialMediaPosts}"
                     label="Try again!"
                     class="slds-align_absolute-center"
                 >
@@ -15,7 +15,7 @@
             </template>
             <template lwc:else>
                 <lightning-button
-                    onclick={generateSocialMediaPosts}
+                    onclick="{generateSocialMediaPosts}"
                     label="Generate Social Media Posts"
                 >
                 </lightning-button>
@@ -23,7 +23,7 @@
                     <lightning-textarea
                         name="twitter"
                         readonly
-                        value={twitterPost}
+                        value="{twitterPost}"
                         label="Twitter Post"
                     >
                     </lightning-textarea>
@@ -32,7 +32,7 @@
                     <lightning-textarea
                         name="linkedin"
                         readonly
-                        value={linkedinPost}
+                        value="{linkedinPost}"
                         label="Linkedin Post"
                     >
                     </lightning-textarea>
@@ -41,13 +41,13 @@
                     <lightning-textarea
                         name="slack"
                         readonly
-                        value={slackPost}
+                        value="{slackPost}"
                         label="Slack Post"
                     >
                     </lightning-textarea>
                 </div>
             </template>
-            <template lwc:if={showSpinner}>
+            <template lwc:if="{showSpinner}">
                 <lightning-spinner
                     alternative-text="Loading..."
                     size="small"

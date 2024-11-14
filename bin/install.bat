@@ -2,7 +2,7 @@
 cd %CD%/..
 
 @echo:
-echo Installing Coral Cloud - Base
+echo Installing Coral Cloud - Base + Employee
 @echo:
 
 rem Use existing org
@@ -34,8 +34,13 @@ if /i "%errorlevel%" neq "1" (
   exit /b %errorlevel%
 )
 
-echo Pushing source...
+echo Pushing base source...
 cmd.exe /c sf project deploy start -d cc-base-app
+call :checkForError
+@echo:
+
+echo Pushing employee-app source...
+cmd.exe /c sf project deploy start -d cc-employee-app
 call :checkForError
 @echo:
 

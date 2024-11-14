@@ -124,6 +124,12 @@
                 <identifier>c_sessionBookingOverview</identifier>
             </componentInstance>
         </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentName>generateSocialMediaPosts</componentName>
+                <identifier>c_generateSocialMediaPosts</identifier>
+            </componentInstance>
+        </itemInstances>
         <mode>Replace</mode>
         <name>sidebar</name>
         <type>Region</type>
