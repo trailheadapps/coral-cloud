@@ -6,13 +6,6 @@ echo ""
 echo "Installing Coral Cloud - Service"
 echo ""
 
-# Ensure that jq is installed
-if ! command -v jq 2>&1 >/dev/null
-then
-    echo "jq could not be found. Please install it from https://jqlang.github.io/jq/"
-    exit 1
-fi
-
 # Get default org alias
 VALUE_REGEX='"value": "([a-zA-Z0-9_\-]+)"'
 DEFAULT_ORG_INFO=$(sf config get target-org --json)
@@ -21,10 +14,9 @@ then
     ORG_ALIAS="${BASH_REMATCH[1]}"
     echo "Using current default org: $ORG_ALIAS"
     echo "Exporting org alias and subdomain for use in scripts:"
-    ORG_INFO=$(sf org display --json)
-    export SF_CC_PLACEHOLDER_USERNAME=$(echo $ORG_INFO | jq -r '.result | .username')
+    export SF_CC_PLACEHOLDER_USERNAME=$(sf org display --json | grep -o '"username": "[^"]*' | cut -d'"' -f4)
     echo "- Username: $SF_CC_PLACEHOLDER_USERNAME"
-    export SF_CC_PLACEHOLDER_DOMAIN=$(echo $ORG_INFO | jq -r '.result | .instanceUrl | sub("https?://"; "") | split(".")[0]')
+    export SF_CC_PLACEHOLDER_DOMAIN=$(sf org display --json | grep -o '"instanceUrl": "https[^"]*' | cut -d'"' -f4 | sed -E 's|https?://([^\.]+).*|\1|')
     echo "- Domain:   $SF_CC_PLACEHOLDER_DOMAIN"    
     echo ""
 else
@@ -48,11 +40,11 @@ sf project deploy start -d cc-service-app && \
 echo "" && \
 
 echo "Redeploying flow metadata with org specific values..." && \
-export SF_CC_PLACEHOLDER_FLOW_AGENT_ID=$(sf data query --query "SELECT Id from BotDefinition WHERE DeveloperName='Coral_Cloud_Agent'" --json | jq -r '.result | .records[0] | .Id') && \
+export SF_CC_PLACEHOLDER_FLOW_AGENT_ID=$(sf data query --query "SELECT Id from BotDefinition WHERE DeveloperName='Coral_Cloud_Agent'" --json | grep -o '"Id": "[^"]*' | cut -d'"' -f4) && \
 echo "Agent ID: $SF_CC_PLACEHOLDER_FLOW_AGENT_ID" && \
-export SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID=$(sf data query --query "SELECT Id from ServiceChannel WHERE DeveloperName='sfdc_livemessage'" --json | jq -r '.result | .records[0] | .Id') && \
+export SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID=$(sf data query --query "SELECT Id from ServiceChannel WHERE DeveloperName='sfdc_livemessage'" --json | grep -o '"Id": "[^"]*' | cut -d'"' -f4) && \
 echo "Channel ID: $SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID" && \
-export SF_CC_PLACEHOLDER_FLOW_QUEUE_ID=$(sf data query --query "SELECT Id FROM Group WHERE Type = 'Queue' AND Name = 'Messaging Queue'" --json | jq -r '.result | .records[0] | .Id') && \
+export SF_CC_PLACEHOLDER_FLOW_QUEUE_ID=$(sf data query --query "SELECT Id FROM Group WHERE Type = 'Queue' AND Name = 'Messaging Queue'" --json | grep -o '"Id": "[^"]*' | cut -d'"' -f4) && \
 echo "Queue ID: $SF_CC_PLACEHOLDER_FLOW_QUEUE_ID" && \
 sf project deploy start -d cc-service-app/main/default/flows/Route_to_Agent.flow-meta.xml cc-service-app/main/default/flows/Route_to_Queue.flow-meta.xml && \
 echo "" && \
