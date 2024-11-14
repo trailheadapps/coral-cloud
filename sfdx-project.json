@@ -1,11 +1,11 @@
 {
     "packageDirectories": [
         {
-            "path": "force-app"
+            "path": "cc-base-app",
+            "default": true
         },
         {
-            "path": "cc-service-app",
-            "default": true
+            "path": "cc-service-app"
         }
     ],
     "name": "Coral Cloud Resorts",

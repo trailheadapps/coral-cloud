@@ -77,7 +77,7 @@ If you need to [update the Salesforce CLI](https://developer.salesforce.com/docs
 1. Deploy the app metadata.
 
     ```bash
-    sf project deploy start -d force-app
+    sf project deploy start -d cc-base-app
     ```
 
 1. Assign the Coral Cloud permission set to the default user.

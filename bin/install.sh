@@ -52,7 +52,7 @@ then
 fi
 
 echo "Pushing source..." && \
-sf project deploy start -d force-app && \
+sf project deploy start -d cc-base-app && \
 echo "" && \
 
 echo "Assigning permission sets..." && \

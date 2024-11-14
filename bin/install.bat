@@ -35,7 +35,7 @@ if /i "%errorlevel%" neq "1" (
 )
 
 echo Pushing source...
-cmd.exe /c sf project deploy start -d force-app
+cmd.exe /c sf project deploy start -d cc-base-app
 call :checkForError
 @echo:
 
