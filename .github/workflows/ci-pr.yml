@@ -171,11 +171,7 @@ jobs:
 
             # Deploy source to scratch org
             - name: 'Push source to scratch org'
-              run: sf project deploy start
-
-            # Deploy source to scratch org
-            - name: 'Push source to scratch org'
-              run: sf project deploy start
+              run: sf project deploy start -d cc-base-app
 
             # Assign permissionset
             - name: 'Assign permissionset to default user'
