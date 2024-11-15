@@ -175,7 +175,7 @@ jobs:
 
             # Assign permissionset
             - name: 'Assign permissionset to default user'
-              run: sf org assign permset -n recipes
+              run: sf org assign permset -n Coral_Cloud
 
             # Import sample data
             - name: 'Import sample data'
