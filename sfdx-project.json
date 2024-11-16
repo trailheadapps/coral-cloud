@@ -2,7 +2,15 @@
     "packageDirectories": [
         {
             "path": "cc-base-app",
-            "default": true
+            "default": true,
+            "package": "Coral Cloud - Base",
+            "versionName": "v1.0",
+            "versionDescription": "Base package for the Coral Cloud sample app",
+            "versionNumber": "1.0.0.NEXT",
+            "definitionFile": "config/cc-base-project-scratch-def.json"
+        },
+        {
+            "path": "cc-employee-app"
         },
         {
             "path": "cc-service-app"
@@ -12,6 +20,9 @@
     "namespace": "",
     "sfdcLoginUrl": "https://login.salesforce.com",
     "sourceApiVersion": "62.0",
+    "packageAliases": {
+        "Coral Cloud - Base": "0HoWx00000000mPKAQ"
+    },
     "replacements": [
         {
             "filename": "cc-service-app/main/default/digitalExperiences/site/coral_cloud1/sfdc_cms__view/home/content.json",

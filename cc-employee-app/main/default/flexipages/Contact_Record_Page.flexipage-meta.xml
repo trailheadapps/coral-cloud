@@ -622,6 +622,9 @@
                             <value>Edit</value>
                         </valueListItems>
                         <valueListItems>
+                            <value>Contact.Personalized_Schedule</value>
+                        </valueListItems>
+                        <valueListItems>
                             <value>Global.NewCase</value>
                         </valueListItems>
                         <valueListItems>

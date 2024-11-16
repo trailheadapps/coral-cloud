@@ -51,8 +51,12 @@ then
   exit 1
 fi
 
-echo "Pushing source..." && \
+echo "Pushing base source..." && \
 sf project deploy start -d cc-base-app && \
+echo "" && \
+
+echo "Pushing employee source..." && \
+sf project deploy start -d cc-employee-app && \
 echo "" && \
 
 echo "Assigning permission sets..." && \
