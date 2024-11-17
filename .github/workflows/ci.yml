@@ -74,7 +74,7 @@ jobs:
               id: pmd
               with:
                   version: '6.55.0'
-                  sourcePath: 'force-app'
+                  sourcePath: 'cc-base-app'
                   rulesets: 'ruleset.xml'
 
             # Check for PMD violations
@@ -153,7 +153,7 @@ jobs:
                   changedPaths=$( git diff-tree --name-only ${{ github.event.before }} $GITHUB_SHA )
                   set +e
                   hasChanges='false'
-                  if [ $(echo "$changedPaths" | grep -c '^force-app') == 1 ]; then
+                  if [ $(echo "$changedPaths" | grep -c '^cc-base-app') == 1 ]; then
                       hasChanges='true'
                   fi
                   echo "hasChanges=$hasChanges" >> $GITHUB_OUTPUT
