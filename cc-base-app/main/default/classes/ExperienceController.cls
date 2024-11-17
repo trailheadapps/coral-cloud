@@ -32,6 +32,12 @@ public with sharing class ExperienceController {
         return sessions;
     }
 
+    /**
+     * Retrieves experiences of a given type in a paginated format
+     * @param type Experience type
+     * @param pageNumber Page number
+     * @return Paginated set of experiences
+     */
     @AuraEnabled(Cacheable=true scope='global')
     public static PagedResult getExperiences(String type, Integer pageNumber) {
         String whereClause = '';
