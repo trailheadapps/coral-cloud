@@ -31,7 +31,7 @@ public with sharing class SampleDataGenerator {
 
         // Generate new sessions
         List<Session__c> sessions = generateSessions(experiences);
-        insert sessions;
+        insert as user sessions;
 
         // Generate bookings in batch to avoid hitting DML limits
         SampleBookingBatch sampleBooking = new SampleBookingBatch(
