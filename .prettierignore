@@ -8,6 +8,9 @@
 # Dependencies
 **/staticresources/**
 
+# Project file (modified automatically by packafing)
+sfdx-project.json
+
 # Tooling
 .localdevserver
 .sfdx
