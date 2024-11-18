@@ -10,6 +10,7 @@ public with sharing class SampleDataGenerator {
     @TestVisible
     private static final Integer PAST_DAYS_COVERED = 1;
 
+    @AuraEnabled
     public static Id generateData() {
         // Remove current sessions and bookings
         delete [SELECT Id FROM Booking__c];

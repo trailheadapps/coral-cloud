@@ -4,6 +4,10 @@
         <application>Coral_Cloud</application>
         <visible>true</visible>
     </applicationVisibilities>
+    <applicationVisibilities>
+        <application>Sample_Data_Import</application>
+        <visible>true</visible>
+    </applicationVisibilities>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.AccountNumber</field>
@@ -639,6 +643,10 @@
     </tabSettings>
     <tabSettings>
         <tab>Guest_Review__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Import</tab>
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>

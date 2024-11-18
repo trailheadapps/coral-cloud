@@ -1,0 +1,10 @@
+<template>
+    <div class="container">
+        <lightning-button
+            onclick={handleOnClick}
+            label="Import sample data"
+            disabled={isImportActive}
+        ></lightning-button>
+        <lightning-spinner lwc:if={isImportActive}></lightning-spinner>
+    </div>
+</template>
