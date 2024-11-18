@@ -1,74 +1,75 @@
 {
-    "packageDirectories": [
-        {
-            "path": "cc-base-app",
-            "default": true,
-            "package": "Coral Cloud - Base",
-            "versionName": "v1.0",
-            "versionDescription": "Base package for the Coral Cloud sample app",
-            "versionNumber": "1.0.0.NEXT",
-            "definitionFile": "config/cc-base-project-scratch-def.json"
-        },
-        {
-            "path": "cc-employee-app"
-        },
-        {
-            "path": "cc-service-app"
-        }
-    ],
-    "name": "Coral Cloud Resorts",
-    "namespace": "",
-    "sfdcLoginUrl": "https://login.salesforce.com",
-    "sourceApiVersion": "62.0",
-    "packageAliases": {
-        "Coral Cloud - Base": "0HoWx00000000mPKAQ",
-        "Coral Cloud - Base@1.0.0-3": "04tWx0000001REHIA2"
+  "packageDirectories": [
+    {
+      "path": "cc-base-app",
+      "default": true,
+      "package": "Coral Cloud - Base",
+      "versionName": "v1.0",
+      "versionDescription": "Base package for the Coral Cloud sample app",
+      "versionNumber": "1.0.0.NEXT",
+      "definitionFile": "config/cc-base-project-scratch-def.json"
     },
-    "replacements": [
-        {
-            "filename": "cc-service-app/main/default/digitalExperiences/site/coral_cloud1/sfdc_cms__view/home/content.json",
-            "stringToReplace": "%%SF_CC_PLACEHOLDER_DOMAIN%%",
-            "replaceWithEnv": "SF_CC_PLACEHOLDER_DOMAIN"
-        },
-        {
-            "filename": "cc-service-app/main/default/bots/Coral_Cloud_Agent/Coral_Cloud_Agent.bot-meta.xml",
-            "stringToReplace": "%%SF_CC_PLACEHOLDER_USERNAME%%",
-            "replaceWithEnv": "SF_CC_PLACEHOLDER_USERNAME"
-        },
-        {
-            "filename": "cc-service-app/main/setup/classes/SetupServiceAgentUser.cls",
-            "stringToReplace": "%%SF_CC_PLACEHOLDER_USERNAME%%",
-            "replaceWithEnv": "SF_CC_PLACEHOLDER_USERNAME"
-        },
-        {
-            "glob": "cc-service-app/**/networks/*.xml",
-            "stringToReplace": "%%SF_CC_PLACEHOLDER_USERNAME%%",
-            "replaceWithEnv": "SF_CC_PLACEHOLDER_USERNAME"
-        },
-        {
-            "filename": "cc-service-app/main/default/flows/Route_to_Agent.flow-meta.xml",
-            "stringToReplace": "%%SF_CC_PLACEHOLDER_FLOW_AGENT_ID%%",
-            "replaceWithEnv": "SF_CC_PLACEHOLDER_FLOW_AGENT_ID"
-        },
-        {
-            "filename": "cc-service-app/main/default/flows/Route_to_Agent.flow-meta.xml",
-            "stringToReplace": "%%SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID%%",
-            "replaceWithEnv": "SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID"
-        },
-        {
-            "filename": "cc-service-app/main/default/flows/Route_to_Agent.flow-meta.xml",
-            "stringToReplace": "%%SF_CC_PLACEHOLDER_FLOW_QUEUE_ID%%",
-            "replaceWithEnv": "SF_CC_PLACEHOLDER_FLOW_QUEUE_ID"
-        },
-        {
-            "filename": "cc-service-app/main/default/flows/Route_to_Queue.flow-meta.xml",
-            "stringToReplace": "%%SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID%%",
-            "replaceWithEnv": "SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID"
-        },
-        {
-            "filename": "cc-service-app/main/default/flows/Route_to_Queue.flow-meta.xml",
-            "stringToReplace": "%%SF_CC_PLACEHOLDER_FLOW_QUEUE_ID%%",
-            "replaceWithEnv": "SF_CC_PLACEHOLDER_FLOW_QUEUE_ID"
-        }
-    ]
+    {
+      "path": "cc-employee-app"
+    },
+    {
+      "path": "cc-service-app"
+    }
+  ],
+  "name": "Coral Cloud Resorts",
+  "namespace": "",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "62.0",
+  "packageAliases": {
+    "Coral Cloud - Base": "0HoWx00000000mPKAQ",
+    "Coral Cloud - Base@1.0.0-3": "04tWx0000001REHIA2",
+    "Coral Cloud - Base@1.0.0-4": "04tWx0000001RarIAE"
+  },
+  "replacements": [
+    {
+      "filename": "cc-service-app/main/default/digitalExperiences/site/coral_cloud1/sfdc_cms__view/home/content.json",
+      "stringToReplace": "%%SF_CC_PLACEHOLDER_DOMAIN%%",
+      "replaceWithEnv": "SF_CC_PLACEHOLDER_DOMAIN"
+    },
+    {
+      "filename": "cc-service-app/main/default/bots/Coral_Cloud_Agent/Coral_Cloud_Agent.bot-meta.xml",
+      "stringToReplace": "%%SF_CC_PLACEHOLDER_USERNAME%%",
+      "replaceWithEnv": "SF_CC_PLACEHOLDER_USERNAME"
+    },
+    {
+      "filename": "cc-service-app/main/setup/classes/SetupServiceAgentUser.cls",
+      "stringToReplace": "%%SF_CC_PLACEHOLDER_USERNAME%%",
+      "replaceWithEnv": "SF_CC_PLACEHOLDER_USERNAME"
+    },
+    {
+      "glob": "cc-service-app/**/networks/*.xml",
+      "stringToReplace": "%%SF_CC_PLACEHOLDER_USERNAME%%",
+      "replaceWithEnv": "SF_CC_PLACEHOLDER_USERNAME"
+    },
+    {
+      "filename": "cc-service-app/main/default/flows/Route_to_Agent.flow-meta.xml",
+      "stringToReplace": "%%SF_CC_PLACEHOLDER_FLOW_AGENT_ID%%",
+      "replaceWithEnv": "SF_CC_PLACEHOLDER_FLOW_AGENT_ID"
+    },
+    {
+      "filename": "cc-service-app/main/default/flows/Route_to_Agent.flow-meta.xml",
+      "stringToReplace": "%%SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID%%",
+      "replaceWithEnv": "SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID"
+    },
+    {
+      "filename": "cc-service-app/main/default/flows/Route_to_Agent.flow-meta.xml",
+      "stringToReplace": "%%SF_CC_PLACEHOLDER_FLOW_QUEUE_ID%%",
+      "replaceWithEnv": "SF_CC_PLACEHOLDER_FLOW_QUEUE_ID"
+    },
+    {
+      "filename": "cc-service-app/main/default/flows/Route_to_Queue.flow-meta.xml",
+      "stringToReplace": "%%SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID%%",
+      "replaceWithEnv": "SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID"
+    },
+    {
+      "filename": "cc-service-app/main/default/flows/Route_to_Queue.flow-meta.xml",
+      "stringToReplace": "%%SF_CC_PLACEHOLDER_FLOW_QUEUE_ID%%",
+      "replaceWithEnv": "SF_CC_PLACEHOLDER_FLOW_QUEUE_ID"
+    }
+  ]
 }
