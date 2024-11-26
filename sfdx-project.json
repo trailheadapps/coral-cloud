@@ -26,6 +26,11 @@
     "Coral Cloud - Base@1.0.0-4": "04tWx0000001RarIAE",
     "Coral Cloud - Base@1.0.0-5": "04tWx0000001RcTIAU"
   },
+  "apexTestAccess": {
+    "permissionSets": [
+      "Coral_Cloud"
+    ]
+  },
   "replacements": [
     {
       "filename": "cc-service-app/main/default/digitalExperiences/site/coral_cloud1/sfdc_cms__view/home/content.json",
