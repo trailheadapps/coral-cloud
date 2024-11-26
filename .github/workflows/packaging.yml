@@ -45,6 +45,10 @@ jobs:
             - name: 'Remove auth file'
               run: rm -f ./DEVHUB_SFDX_URL.txt
 
+            # Bump package minor version
+            - name: 'Bump package minor version'
+              run: node bin/bump-package-minor-version.js
+
             # Create package version and extract its id
             - name: 'Create package version'
               id: createPackageVersion
@@ -62,7 +66,7 @@ jobs:
                   exit $status
 
             # Wait for package replication
-            - name: 'Wait for package replication'
+            - name: 'Wait for package replication (360s)'
               run: sleep 360s
 
             # Create scratch org
@@ -81,6 +85,10 @@ jobs:
                   newPackageLink="https://login.salesforce.com/packaging/installPackage.apexp?p0=${packageVersionId}"
                   sed -E -i "s,${packageLinkRegex},${newPackageLink}," README.md
 
+            # Promote package version
+            - name: 'Promote package version'
+              run: sf package version promote -p ${{ steps.createPackageVersion.outputs.packageVersionId }} -n
+
             # Create PR for new package version
             - name: 'Create PR for new package version'
               id: create-pr
@@ -92,6 +100,10 @@ jobs:
                   commit-message: 'Released new package version ${{ steps.createPackageVersion.outputs.packageVersionId }}'
                   branch: 'auto/release-package-version'
                   token: ${{ secrets.BOT_ACCESS_TOKEN }}
+
+            # Wait for PR to stabilize (auto skip CI)
+            - name: 'Wait for PR to stabilize (60s)'
+              run: sleep 60s
 
             # Approve and mark PR for auto merge
             - name: 'Approve and mark PR for auto merge'
