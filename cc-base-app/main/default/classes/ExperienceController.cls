@@ -1,5 +1,6 @@
 public with sharing class ExperienceController {
-    static Integer PAGE_SIZE = 9;
+    @TestVisible
+    private static Integer PAGE_SIZE = 9;
 
     /**
      * Endpoint that retrieves the sessions associated with an experience and a date
@@ -35,7 +36,7 @@ public with sharing class ExperienceController {
     /**
      * Retrieves experiences of a given type in a paginated format
      * @param type Experience type
-     * @param pageNumber Page number
+     * @param pageNumber Page number. First page starts at 1.
      * @return Paginated set of experiences
      */
     @AuraEnabled(Cacheable=true scope='global')
@@ -72,6 +73,6 @@ public with sharing class ExperienceController {
         public Integer totalItemCount { get; set; }
 
         @AuraEnabled
-        public Object[] records { get; set; }
+        public SObject[] records { get; set; }
     }
 }

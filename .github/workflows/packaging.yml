@@ -59,13 +59,16 @@ jobs:
                   cp -rpv cc-service-app/main/default/staticresources cc-base-app/main/default/
                   rm -f cc-base-app/main/default/flows/Route_to_Agent.flow-meta.xml
                   jq 'walk(if type == "object" and .id == "e78ba173-4372-48d8-86bf-6e4ffbc14926" then empty else . end)' cc-base-app/main/default/digitalExperiences/site/coral_cloud1/sfdc_cms__view/home/content.json > cc-base-app/main/default/digitalExperiences/site/coral_cloud1/sfdc_cms__view/home/content.json
+            # Bump package minor version
+            - name: 'Bump package minor version'
+              run: node bin/bump-package-minor-version.js
 
             # Create package version and extract its id
             - name: 'Create package version'
               id: createPackageVersion
               run: |
                   set +e
-                  json=$(sf package version create -p "Coral Cloud - Base" -x -w 20 --json)
+                  json=$(sf package version create -p "Coral Cloud - Base" -c -x -w 20 --json)
                   echo $json
                   status=$(echo $json | jq '.status')
                   if [ $status == "0" ]; then
@@ -77,7 +80,7 @@ jobs:
                   exit $status
 
             # Wait for package replication
-            - name: 'Wait for package replication'
+            - name: 'Wait for package replication (360s)'
               run: sleep 360s
 
             # Create scratch org
@@ -96,6 +99,10 @@ jobs:
                   newPackageLink="https://login.salesforce.com/packaging/installPackage.apexp?p0=${packageVersionId}"
                   sed -E -i "s,${packageLinkRegex},${newPackageLink}," README.md
 
+            # Promote package version
+            - name: 'Promote package version'
+              run: sf package version promote -p ${{ steps.createPackageVersion.outputs.packageVersionId }} -n
+
             # Create PR for new package version
             - name: 'Create PR for new package version'
               id: create-pr
@@ -107,6 +114,10 @@ jobs:
                   commit-message: 'Released new package version ${{ steps.createPackageVersion.outputs.packageVersionId }}'
                   branch: 'auto/release-package-version'
                   token: ${{ secrets.BOT_ACCESS_TOKEN }}
+
+            # Wait for PR to stabilize (auto skip CI)
+            - name: 'Wait for PR to stabilize (60s)'
+              run: sleep 60s
 
             # Approve and mark PR for auto merge
             - name: 'Approve and mark PR for auto merge'

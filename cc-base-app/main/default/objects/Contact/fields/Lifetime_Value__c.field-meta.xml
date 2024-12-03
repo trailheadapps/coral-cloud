@@ -8,5 +8,6 @@
     <required>false</required>
     <scale>2</scale>
     <trackFeedHistory>false</trackFeedHistory>
-    <type>Currency</type>
+    <type>Number</type>
+    <unique>false</unique>
 </CustomField>
