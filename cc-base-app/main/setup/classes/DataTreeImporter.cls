@@ -1,4 +1,4 @@
-public class DataTreeImporter {
+public with sharing class DataTreeImporter {
     static String githubContacts = 'https://raw.githubusercontent.com/trailheadapps/coral-cloud/main/data/data-Contact.json';
     static String githubExperience = 'https://raw.githubusercontent.com/trailheadapps/coral-cloud/main/data/data-Experience__c.json';
     static String githubGuestReview = 'https://raw.githubusercontent.com/trailheadapps/coral-cloud/main/data/data-Guest_Review__c.json';
@@ -25,8 +25,8 @@ public class DataTreeImporter {
             );
             List<Case> cases = (List<Case>) fetchJsonFromGitHub(githubCase);
 
-            insert contacts;
-            insert experiences;
+            insert as user contacts;
+            insert as user experiences;
 
             Experience__c experience = [
                 SELECT Id
@@ -40,7 +40,7 @@ public class DataTreeImporter {
                 review.Contact__c = contacts[0].Id;
                 newReviews.add(review);
             }
-            insert newReviews;
+            insert as user newReviews;
 
             Contact cont = [
                 SELECT Id
@@ -50,7 +50,7 @@ public class DataTreeImporter {
             for (Case c : cases) {
                 c.ContactId = cont.Id;
             }
-            insert cases;
+            insert as user cases;
 
             System.debug('Data import completed successfully!');
         } catch (Exception e) {

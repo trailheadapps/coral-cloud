@@ -50,4 +50,27 @@ private class ExperienceControllerTest {
         );
         Assert.areEqual(allSessions[1].Id, todaySessions[1].Id);
     }
+
+    @isTest
+    static void getExperiences_works_with_no_filter() {
+        List<Experience__c> experiences = new List<Experience__c>();
+        for (Integer i = 0; i < ExperienceController.PAGE_SIZE + 1; i++) {
+            experiences.add(new Experience__c(Name = 'Sample experience ' + i));
+        }
+        insert experiences;
+
+        ExperienceController.PagedResult result = ExperienceController.getExperiences(
+            null,
+            1
+        );
+
+        Assert.areEqual(result.pageSize, ExperienceController.PAGE_SIZE);
+        Assert.areEqual(result.pageNumber, 1);
+        Assert.areEqual(
+            result.totalItemCount,
+            ExperienceController.PAGE_SIZE + 1
+        );
+        Assert.areEqual(result.records.size(), ExperienceController.PAGE_SIZE);
+        Assert.areEqual(result.records[0].Id, experiences[0].Id);
+    }
 }
