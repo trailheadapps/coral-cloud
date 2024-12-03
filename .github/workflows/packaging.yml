@@ -57,6 +57,7 @@ jobs:
                   cp -rpv cc-service-app/main/default/networks/coral* cc-base-app/main/default/networks/
                   cp -rpv cc-service-app/main/default/sites/coral* cc-base-app/main/default/sites/
                   cp -rpv cc-service-app/main/default/staticresources cc-base-app/main/default/
+                  rm -f cc-base-app/main/default/flows/Route_to_Agent.flow-meta.xml
                   jq 'walk(if type == "object" and .id == "e78ba173-4372-48d8-86bf-6e4ffbc14926" then empty else . end)' cc-base-app/main/default/digitalExperiences/site/coral_cloud1/sfdc_cms__view/home/content.json > cc-base-app/main/default/digitalExperiences/site/coral_cloud1/sfdc_cms__view/home/content.json
 
             # Create package version and extract its id
