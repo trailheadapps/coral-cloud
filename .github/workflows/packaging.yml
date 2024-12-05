@@ -48,6 +48,7 @@ jobs:
             # Modify local metadata for packaging
             - name: 'Modify local metadata for packaging'
               run: |
+                  cp -rpv cc-service-app/main/default/classes/CommunitiesLandingController* cc-base-app/main/default/classes/
                   cp -rpv cc-service-app/main/default/corsWhitelistOrigins cc-base-app/main/default/
                   cp -rpv cc-service-app/main/default/cspTrustedSites cc-base-app/main/default/
                   mkdir cc-base-app/main/default/digitalExperienceConfigs/
