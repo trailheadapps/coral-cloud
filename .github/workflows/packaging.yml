@@ -60,7 +60,7 @@ jobs:
                   mkdir -p cc-base-app/main/default/networks
                   cp -rpv cc-service-app/main/default/networks/coral* cc-base-app/main/default/networks/
                   mkdir -p cc-base-app/main/default/pages
-                  cp -rpv cc-service-app/main/default/pages/coral* cc-base-app/main/default/pages/
+                  cp -rpv cc-service-app/main/default/pages/CommunitiesLanding* cc-base-app/main/default/pages/
                   mkdir -p cc-base-app/main/default/sites
                   cp -rpv cc-service-app/main/default/sites/coral* cc-base-app/main/default/sites/
                   mkdir -p cc-base-app/main/default/staticresources
