@@ -3545,6 +3545,29 @@
         {
             "attributes": {
                 "type": "Contact",
+                "referenceId": "ContactRef924"
+            },
+            "LastName": "Jaray",
+            "FirstName": "Aarika",
+            "MailingStreet": "3 Porter Parkway",
+            "MailingCity": "Toledo",
+            "MailingState": "Ohio",
+            "MailingPostalCode": "43610",
+            "MailingCountry": "United States",
+            "MobilePhone": "916-889-2724",
+            "Email": "aarikajaray@example.com",
+            "LeadSource": "Travel Agency",
+            "Birthdate": "1991-07-31",
+            "External_Id__c": "10002777",
+            "Guest_Type__c": "Adventure Enthusiasts",
+            "Interest1__c": "Cultural Tours & Workshops",
+            "Interest2__c": "Dining Experiences",
+            "Interest3__c": "Family & Kids' Activities",
+            "Preferred_Name__c": "Aarika"
+        },
+        {
+            "attributes": {
+                "type": "Contact",
                 "referenceId": "ContactRef155"
             },
             "LastName": "Rodriguez",
@@ -3565,7 +3588,7 @@
             "Interest3__c": "Fitness & Exercise",
             "Photo_URL__c": "https://s3-us-west-2.amazonaws.com/dev-or-devrl-s3-bucket/sample-apps/coral-clouds/qswvurmhbo9w261cebby.png",
             "Preferred_Name__c": "Sofi",
-            "Next_Check_in_Date__c": "2024-04-12"
+            "Next_Check_in_Date__c": "2024-12-20"
         }
     ]
 }
