@@ -64,7 +64,6 @@ For the deployment of the Agentforce Service Agent it is necessary that certain 
 
     ```bash
     sf project deploy start -d cc-service-app
-
     ```
 
 1. Replace previously exported dummy variables with values from the org.
