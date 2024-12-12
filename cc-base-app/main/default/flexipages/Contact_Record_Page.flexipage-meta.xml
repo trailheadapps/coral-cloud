@@ -213,17 +213,6 @@
                 <identifier>RecordInterest3_cField</identifier>
             </fieldInstance>
         </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Lifetime_Experience_Bookings__c</fieldItem>
-                <identifier
-                >RecordLifetime_Experience_Bookings_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
         <name>Facet-5f11d6c7-a456-4caf-a887-d6a8012262cd</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -260,6 +249,17 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Lifetime_Value__c</fieldItem>
                 <identifier>RecordLifetime_Value_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Lifetime_Experience_Bookings__c</fieldItem>
+                <identifier
+                >RecordLifetime_Experience_Bookings_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-aa122401-5069-4151-82bf-ff573ac142af</name>
