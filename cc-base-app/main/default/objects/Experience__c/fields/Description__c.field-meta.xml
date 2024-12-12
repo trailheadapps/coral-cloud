@@ -6,6 +6,6 @@
     <label>Description</label>
     <length>32768</length>
     <trackTrending>false</trackTrending>
-    <type>Html</type>
+    <type>LongTextArea</type>
     <visibleLines>25</visibleLines>
 </CustomField>
