@@ -1,8 +1,6 @@
 import { LightningElement, api, wire } from 'lwc';
 import LightningAlert from 'lightning/alert';
 import { NavigationMixin } from 'lightning/navigation';
-import { subscribe, MessageContext } from 'lightning/messageService';
-import EXPERIENCE_SELECTED_MESSAGE from '@salesforce/messageChannel/ExperienceSelected__c';
 import getExperienceSessionsForDate from '@salesforce/apex/ExperienceController.getExperienceSessionsForDate';
 import isCommunity from '@salesforce/apex/ContextService.isCommunity';
 
@@ -23,17 +21,6 @@ export default class ExperienceSchedule extends NavigationMixin(
     loading = true;
     date = new Date();
     isCommunity;
-
-    connectedCallback() {
-        this.experienceSelectionSubscription = subscribe(
-            this.messageContext,
-            EXPERIENCE_SELECTED_MESSAGE,
-            (message) => this.handleExperienceSelected(message.experienceId)
-        );
-    }
-
-    @wire(MessageContext) messageContext;
-    experienceSelectionSubscription;
 
     @wire(isCommunity)
     wiredCommunityInfo({ error, data }) {
