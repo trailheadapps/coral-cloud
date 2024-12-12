@@ -15,6 +15,21 @@
       }
     },
     {
+      "path": "cc-site",
+      "default": false,
+      "package": "Coral Cloud - Site",
+      "versionName": "Winter '25 release",
+      "versionDescription": "Coral Cloud Experience Cloud site",
+      "versionNumber": "1.0.0.NEXT",
+      "definitionFile": "config/cc-base-project-scratch-def.json",
+      "dependencies": [
+        {
+          "package": "Coral Cloud - Base",
+          "versionNumber": "1.2.0.LATEST"
+        }
+      ]
+    },
+    {
       "path": "cc-employee-app"
     },
     {
@@ -31,7 +46,11 @@
     "Coral Cloud - Base@1.0.0-4": "04tWx0000001RarIAE",
     "Coral Cloud - Base@1.0.0-5": "04tWx0000001RcTIAU",
     "Coral Cloud - Base@1.1.0-2": "04tWx0000001THhIAM",
-    "Coral Cloud - Base@1.2.0-1": "04tWx0000001TMXIA2"
+    "Coral Cloud - Base@1.2.0-1": "04tWx0000001TMXIA2",
+    "Coral Cloud - Base@1.2.0-3": "04tWx0000001V3NIAU",
+    "Coral Cloud - Site": "0HoWx00000001ddKAA",
+    "Coral Cloud - Site@1.0.0-2": "04tWx0000001VUnIAM",
+    "Coral Cloud - Site@1.0.0-3": "04tWx0000001VbFIAU"
   },
   "replacements": [
     {

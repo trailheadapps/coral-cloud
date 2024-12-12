@@ -1,0 +1,11 @@
+{
+    "cmsSettings": {},
+    "currentThemeId": "182a28a8-45f4-4228-b295-9cd327730622",
+    "headMarkup": "<style>\n    .jumbotron {\n        background: url(/sfsites/c/resource/coralcloudsite/jumbotron.jpeg) no-repeat;\n        background-position: center;\n        background-size: cover;\n        min-height:350px;\n        color:#FFFFFF;\n    }\n</style>\n\n<script>\n    var contactId;\n    window.addEventListener('userInfo', e => {\n        console.log(\"userInfo received, saving contactId: \"+ e.detail.contactId);\n        contactId = e.detail.contactId;\n    });\n    window.addEventListener(\"onEmbeddedMessagingReady\", e => {\n        embeddedservice_bootstrap?.prechatAPI?.setHiddenPrechatFields({\n            \"Customer_ID\": contactId\n    });\n});\n</script>",
+    "id": "3fd94595-dce8-4901-aab5-45a5da4ee529",
+    "isLockerServiceEnabled": true,
+    "isRelaxedCSPLevel": true,
+    "label": "main",
+    "templateName": "Starter Template",
+    "type": "appPage"
+}

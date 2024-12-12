@@ -1,0 +1,29 @@
+{
+    "appPageId": "3fd94595-dce8-4901-aab5-45a5da4ee529",
+    "componentName": "siteforce:sldsOneColLayout",
+    "dataProviders": [],
+    "id": "39fad96e-e259-4ff6-bba3-1cd915fa08c9",
+    "label": "Service Not Available",
+    "regions": [
+        {
+            "components": [
+                {
+                    "componentAttributes": {
+                        "richTextValue": "<div style='display: flex; align-items: center; flex-direction: column; margin: 60px 25px 40px 25px;'><div style='background: url(/sfsites/assets/Images/serviceNotAvailable/serviceNotAvailable.svg) center no-repeat; background-size: contain; height: 331px; width: 100%; max-width: 538px;'></div></div><div style='margin: 0 25px; text-align: center;'><h1><b style='font-size: 2em'>Looks like the site is temporarily unavailable</b></h1><br/><p><span style='font-size: 1.5em;'>Please try again in a bit.</span></p></div>"
+                    },
+                    "componentName": "forceCommunity:htmlBlock",
+                    "id": "305804e1-ffd8-46b5-a842-06210163b3f5",
+                    "renderPriority": "NEUTRAL",
+                    "renditionMap": {},
+                    "type": "component"
+                }
+            ],
+            "id": "662175e7-a45c-4b97-ac46-9660c650021f",
+            "regionName": "content",
+            "type": "region"
+        }
+    ],
+    "themeLayoutType": "ServiceNotAvailable",
+    "type": "view",
+    "viewType": "service-not-available"
+}

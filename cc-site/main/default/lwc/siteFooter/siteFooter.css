@@ -1,0 +1,38 @@
+:host {
+    position: relative;
+    display: block;
+    background-color: rgb(2, 80, 90);
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.slds-list_horizontal li {
+    margin: 0 10px;
+}
+
+.social-icons {
+    margin-bottom: 20px;
+}
+.social-icons img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-links {
+    margin-bottom: 20px;
+    text-align: center;
+}
+.footer-links li {
+    margin: 5px 10px;
+}
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+}
+.footer-links a:hover {
+    text-decoration: underline;
+}
+.footer-copy {
+    text-align: center;
+    font-size: 12px;
+}

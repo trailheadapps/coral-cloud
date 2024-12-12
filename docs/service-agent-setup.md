@@ -1,6 +1,12 @@
-# Agentforce Service Agent setup and configuration
+# Agentforce for Service setup and configuration
 
-For the deployment of the Agentforce Service Agent it is necessary that certain values in the metadata are replaced with record ids from the used org. To achieve this during source deployment this project makes use of the [string replacement functionality of the Salesforce CLI](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_string_replace.htm). For this certain values will be exported as environment variables.
+For the deployment of Agentforce for Service it is necessary that certain values in the metadata are replaced with record ids from the used org. To achieve this during source deployment this project makes use of the [string replacement functionality of the Salesforce CLI](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_string_replace.htm). For this certain values will be exported as environment variables.
+
+1. Deploy the guest profile for Experience Cloud site.
+
+    ```bash
+    sf project deploy start --metadata-dir=guest-profile-metadata -w 10
+    ```
 
 1. Export the org alias of the current org as environment variable.
 
@@ -90,18 +96,6 @@ For the deployment of the Agentforce Service Agent it is necessary that certain 
     sf project deploy start -d cc-service-app/main/default/flows/Route_to_Agent.flow-meta.xml cc-service-app/main/default/flows/Route_to_Agent.flow-meta.xml
     ```
 
-1. Publish Experience Cloud site.
-
-    ```bash
-    sf community publish --name 'coral cloud'
-    ```
-
-1. Deploy guest profile for Experience Cloud site.
-
-    ```bash
-    sf project deploy start --metadata-dir=guest-profile-metadata -w 10
-    ```
-
 1. Launch the org on the Messaging Settings setup page.
 
     ```bash
@@ -110,20 +104,32 @@ For the deployment of the Agentforce Service Agent it is necessary that certain 
 
 1. Ensure that **Messaging** is toggled on.
 
-1. Click on the same page on **Agent Channel**, then click on **Activate**. Confirm the checkbox, and close the dialog with **Accept**.
+1. On the same page, click on **Agent Channel**, then click on **Activate**. Click the checkbox, and click **Accept**.
 
-1. From Salesforce Setup, search for "Embedded Service Deployments" and select **Embedded Service Deployments**.
+1. From Salesforce Setup, search for `embedded` and select **Embedded Service Deployments**.
 
-1. Select **Agent Web Deployment**, then click on **Publish** (it may take a few seconds for the confirmation to show up on screen).
+1. Select **Agent Web Deployment**, then click **Publish** (it may take a few seconds for the confirmation to show up on screen).
 
-1. From Salesforce Setup, search for "Agents" and select **Agents**.
+1. From Salesforce Setup, search for `agents` and select **Agents**.
 
-1. Select **Coral Cloud Agent**, then click on **Open in Builder**.
+1. Select **Coral Cloud Agent**, then click **Open in Builder**.
 
 1. Click **Activate**.
 
-1. Click back in your browser.
+1. Click "back" in your browser.
 
-1. Click on the App Launcher and enter **coral cloud**. Click on **coral cloud** to launch the Experience Cloud site.
+1. From Salesforce Setup, search for `experience` and select **All Sites**.
 
-    ![](/docs/gfx/app-launcher-ec.png)
+1. Click **Builder** next to Coral Cloud.
+
+1. From the component tab (bolt icon), drag the **Embedded Messaging** component anywhere on the page.
+
+    ![Embedded Messaging in the components tab of Experience Builder](/docs/gfx/embedded-messaging-component.png)
+
+1. Click **Publish**, then click **Publish** in the confirmation dialog.
+
+1. Exit Experience Builder by clicking on the top left app icon and selecting **Salesforce Setup**.
+
+1. Click on the App Launcher and type `coral`. Click on **Coral Cloud** to launch the Experience Cloud site.
+
+    ![App laucher showing the Experience Cloud site](/docs/gfx/app-launcher-ec.png)

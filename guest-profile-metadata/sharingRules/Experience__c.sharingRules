@@ -5,7 +5,7 @@
         <accessLevel>Read</accessLevel>
         <label>Experience guest visibility</label>
         <sharedTo>
-            <guestUser>coral_cloud</guestUser>
+            <guestUser>Coral_Cloud</guestUser>
         </sharedTo>
         <criteriaItems>
             <field>Name</field>

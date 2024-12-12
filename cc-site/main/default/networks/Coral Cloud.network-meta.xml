@@ -5,12 +5,11 @@
     <changePasswordTemplate
     >unfiled$public/CommunityChangePasswordEmailTemplate</changePasswordTemplate>
     <communityRoles />
-    <description
-    >Site for Messaging for Web deployment: Agent_Web_Deployment.</description>
+    <description>Experience Cloud site for Coral Cloud Resorts</description>
     <disableReputationRecordConversations
     >true</disableReputationRecordConversations>
-    <emailSenderAddress>%%SF_CC_PLACEHOLDER_USERNAME%%</emailSenderAddress>
-    <emailSenderName>ESW_Agent_Web_Deployment_1729699014420</emailSenderName>
+    <emailSenderAddress>pozil@salesforce.com</emailSenderAddress>
+    <emailSenderName>Coral Cloud</emailSenderName>
     <embeddedLoginEnabled>false</embeddedLoginEnabled>
     <enableApexCDNCaching>true</enableApexCDNCaching>
     <enableCustomVFErrorPageOverrides>false</enableCustomVFErrorPageOverrides>
@@ -19,7 +18,7 @@
     <enableExperienceBundleBasedSnaOverrideEnabled
     >true</enableExperienceBundleBasedSnaOverrideEnabled>
     <enableGuestChatter>false</enableGuestChatter>
-    <enableGuestFileAccess>false</enableGuestFileAccess>
+    <enableGuestFileAccess>true</enableGuestFileAccess>
     <enableGuestMemberVisibility>false</enableGuestMemberVisibility>
     <enableImageOptimizationCDN>false</enableImageOptimizationCDN>
     <enableInvitation>false</enableInvitation>
@@ -55,17 +54,17 @@
         <selfRegProfilePageOverrideSetting
         >Designer</selfRegProfilePageOverrideSetting>
     </networkPageOverrides>
-    <picassoSite>ESW_Agent_Web_Deployment_17296990144201</picassoSite>
+    <picassoSite>Coral_Cloud1</picassoSite>
     <selfRegistration>false</selfRegistration>
-    <sendWelcomeEmail>false</sendWelcomeEmail>
-    <site>ESW_Agent_Web_Deployment_1729699014420</site>
+    <sendWelcomeEmail>true</sendWelcomeEmail>
+    <site>Coral_Cloud</site>
     <siteArchiveStatus>NotArchived</siteArchiveStatus>
-    <status>Live</status>
+    <status>UnderConstruction</status>
     <tabs>
         <defaultTab>home</defaultTab>
         <standardTab>Chatter</standardTab>
     </tabs>
-    <urlPathPrefix>ESWAgentWebDeployment1729699014420vforce</urlPathPrefix>
+    <urlPathPrefix>coralcloud</urlPathPrefix>
     <welcomeTemplate
     >unfiled$public/CommunityWelcomeEmailTemplate</welcomeTemplate>
 </Network>

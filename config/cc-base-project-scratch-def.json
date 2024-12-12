@@ -2,7 +2,13 @@
     "orgName": "Coral Cloud",
     "edition": "Developer",
     "hasSampleData": false,
-    "features": ["Communities", "EnableSetPasswordInApi"],
+    "features": [
+        "Communities",
+        "Sites",
+        "FlowSites",
+        "PublishExpBuilderBasedSna",
+        "EnableSetPasswordInApi"
+    ],
     "settings": {
         "communitiesSettings": {
             "enableNetworksEnabled": true
