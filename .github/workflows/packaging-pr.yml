@@ -53,31 +53,6 @@ jobs:
             - name: 'Remove auth file'
               run: rm -f ./DEVHUB_SFDX_URL.txt
 
-            # Modify local metadata for packaging
-            - name: 'Modify local metadata for packaging'
-              run: |
-                  cp -rpv cc-service-app/main/default/classes/CommunitiesLandingController* cc-base-app/main/default/classes/
-                  cp -rpv cc-service-app/main/default/corsWhitelistOrigins cc-base-app/main/default/
-                  cp -rpv cc-service-app/main/default/cspTrustedSites cc-base-app/main/default/
-                  mkdir cc-base-app/main/default/digitalExperienceConfigs/
-                  cp -rpv cc-service-app/main/default/digitalExperienceConfigs/coral* cc-base-app/main/default/digitalExperienceConfigs/
-                  mkdir -p cc-base-app/main/default/digitalExperiences/site/
-                  cp -rpv cc-service-app/main/default/digitalExperiences/site/coral* cc-base-app/main/default/digitalExperiences/site/
-                  cp -rpv cc-service-app/main/default/flows/* cc-base-app/main/default/flows/
-                  mkdir -p cc-base-app/main/default/navigationMenus
-                  cp -rpv cc-service-app/main/default/navigationMenus/*coral* cc-base-app/main/default/navigationMenus/
-                  mkdir -p cc-base-app/main/default/networks
-                  cp -rpv cc-service-app/main/default/networks/coral* cc-base-app/main/default/networks/
-                  mkdir -p cc-base-app/main/default/pages
-                  cp -rpv cc-service-app/main/default/pages/CommunitiesLanding* cc-base-app/main/default/pages/
-                  mkdir -p cc-base-app/main/default/sites
-                  cp -rpv cc-service-app/main/default/sites/coral* cc-base-app/main/default/sites/
-                  mkdir -p cc-base-app/main/default/staticresources
-                  cp -rpv cc-service-app/main/default/staticresources/*coral* cc-base-app/main/default/staticresources/
-                  rm -f cc-base-app/main/default/flows/Route_to_Agent.flow-meta.xml
-                  jq 'walk(if type == "object" and .definition == "experience_messaging:embeddedMessaging" then empty else . end)' cc-service-app/main/default/digitalExperiences/site/coral_cloud1/sfdc_cms__view/home/content.json > cc-base-app/main/default/digitalExperiences/site/coral_cloud1/sfdc_cms__view/home/content.json
-                  sed '/<actionCalls>/,/<\/actionCalls>/d' cc-base-app/main/default/flows/PersonalizedSchedule.flow-meta.xml > cc-base-app/main/default/flows/PersonalizedSchedule_Temp.flow-meta.xml && mv cc-base-app/main/default/flows/PersonalizedSchedule_Temp.flow-meta.xml cc-base-app/main/default/flows/PersonalizedSchedule.flow-meta.xml
-
             # Create package version and extract its id
             - name: 'Create package version'
               id: createPackageVersion
