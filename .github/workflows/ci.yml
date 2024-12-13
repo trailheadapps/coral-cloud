@@ -157,17 +157,22 @@ jobs:
                   git fetch origin ${{ github.event.before }} --depth=1
                   changedPaths=$( git diff-tree --name-only ${{ github.event.before }} $GITHUB_SHA )
                   set +e
-                  hasChanges='false'
+                  hasBasePackageChanges='false'
+                  hasSitePackageChanges='false'
                   if [ $(echo "$changedPaths" | grep -c '^cc-base-app') == 1 ]; then
-                      hasChanges='true'
+                      hasBasePackageChanges='true'
                   fi
-                  echo "hasChanges=$hasChanges" >> $GITHUB_OUTPUT
+                  if [ $(echo "$changedPaths" | grep -c '^cc-site') == 1 ]; then
+                      hasSitePackageChanges='true'
+                  fi
+                  echo "hasBasePackageChanges=$hasBasePackageChanges" >> $GITHUB_OUTPUT
+                  echo "hasSitePackageChanges=$hasSitePackageChanges" >> $GITHUB_OUTPUT
 
             # Trigger packaging workflow if needed
             - name: 'Trigger packaging workflow if needed'
               uses: peter-evans/repository-dispatch@v3
-              if: steps.checkForChanges.outputs.hasChanges == 'true'
+              if: steps.checkForChanges.outputs.hasBasePackageChanges == 'true' || steps.checkForChanges.outputs.hasSitePackageChanges == 'true'
               with:
                   token: ${{ secrets.BOT_ACCESS_TOKEN }}
                   event-type: start-packaging
-                  client-payload: '{ "ref": "${{ github.ref }}", "sha": "${{ github.sha }}" }'
+                  client-payload: '{ "ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "isBasePackageRelease": "${{ steps.checkForChanges.outputs.hasBasePackageChanges }}", "isSitePackageRelease": "${{ steps.checkForChanges.outputs.hasSitePackageChanges }}" }'
