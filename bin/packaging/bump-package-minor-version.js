@@ -1,8 +1,8 @@
-import {
+const {
     readProjectConfig,
     writeProjectConfig,
     getPackageIndex
-} from './util/projectConfigHelper.js';
+} = require('./util/projectConfigHelper.js');
 
 // Get package name from parameters
 if (process.argv.length !== 3) {
