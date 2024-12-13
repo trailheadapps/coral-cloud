@@ -1,12 +1,20 @@
 # Unique name for this workflow
 name: Packaging on PR
 
-# Workflow starts when receiving custom event sent by CI workflow
+# Workflow starts when receiving custom event sent by CI workflow or manually
 on:
     workflow_dispatch:
         inputs:
             prerelease:
                 description: 'Run on a prerelease org?'
+                required: false
+                type: boolean
+            isBasePackageRelease:
+                description: 'Package base app?'
+                required: false
+                type: boolean
+            isSitePackageRelease:
+                description: 'Package site?'
                 required: false
                 type: boolean
     repository_dispatch:
@@ -16,6 +24,10 @@ on:
 env:
     # Is the PR base branch a prerelease branch
     IS_PRERELEASE: ${{ github.event.client_payload.isPrelease || inputs.prerelease }}
+    # Should the base package be released
+    IS_BASE_PACKAGE_RELEASE: ${{ github.event.client_payload.isBasePackageRelease == 'true' || inputs.isBasePackageRelease }}
+    # Should the site package be released
+    IS_SITE_PACKAGE_RELEASE: ${{ github.event.client_payload.isSitePackageRelease == 'true' || inputs.isSitePackageRelease }}
 
 # Jobs to be executed
 jobs:
@@ -53,9 +65,9 @@ jobs:
             - name: 'Remove auth file'
               run: rm -f ./DEVHUB_SFDX_URL.txt
 
-            # Create package version and extract its id
-            - name: 'Create package version'
-              id: createPackageVersion
+            # Create base package version
+            - name: 'Create base package version'
+              if: ${{ env.IS_BASE_PACKAGE_RELEASE }}
               run: |
                   set +e
                   json=$(sf package version create -p "Coral Cloud - Base" -x -w 60 --json)
@@ -63,7 +75,23 @@ jobs:
                   status=$(echo $json | jq '.status')
                   if [ $status == "0" ]; then
                       packageVersionId=$(echo $json | jq -r '.result.SubscriberPackageVersionId')
-                      echo "packageVersionId=$packageVersionId" >> $GITHUB_OUTPUT
+                      echo "BASE_PACKAGE_VERSION_ID=$packageVersionId" >> $GITHUB_ENV
+                  else
+                      echo "Failed to create package version"
+                  fi
+                  exit $status
+
+            # Create site package version
+            - name: 'Create site package version'
+              if: ${{ env.IS_SITE_PACKAGE_RELEASE }}
+              run: |
+                  set +e
+                  json=$(sf package version create -p "Coral Cloud - Site" -x -w 60 --json)
+                  echo $json
+                  status=$(echo $json | jq '.status')
+                  if [ $status == "0" ]; then
+                      packageVersionId=$(echo $json | jq -r '.result.SubscriberPackageVersionId')
+                      echo "SITE_PACKAGE_VERSION_ID=$packageVersionId" >> $GITHUB_ENV
                   else
                       echo "Failed to create package version"
                   fi
@@ -72,6 +100,38 @@ jobs:
             # Wait for package replication
             - name: 'Wait for package replication (360s)'
               run: sleep 360s
+
+            # Get latest base package version
+            - name: 'Get latest base package version'
+              if: ${{ !env.IS_BASE_PACKAGE_RELEASE }}
+              run: |
+                  set +e
+                  json=$(sf package version list -r -o MajorVersion,MinorVersion,PatchVersion -p "Coral Cloud - Base" --json)
+                  echo $json
+                  status=$(echo $json | jq '.status')
+                  if [ $status == "0" ]; then
+                      packageVersionId=$(echo $json | jq -r '.result[-1].SubscriberPackageVersionId')
+                      echo "BASE_PACKAGE_VERSION_ID=$packageVersionId" >> $GITHUB_ENV
+                  else
+                      echo "Failed to read package versions"
+                  fi
+                  exit $status
+
+            # Get latest site package version
+            - name: 'Get latest site package version'
+              if: ${{ !env.IS_SITE_PACKAGE_RELEASE }}
+              run: |
+                  set +e
+                  json=$(sf package version list -r -o MajorVersion,MinorVersion,PatchVersion -p "Coral Cloud - Site" --json)
+                  echo $json
+                  status=$(echo $json | jq '.status')
+                  if [ $status == "0" ]; then
+                      packageVersionId=$(echo $json | jq -r '.result[-1].SubscriberPackageVersionId')
+                      echo "SITE_PACKAGE_VERSION_ID=$packageVersionId" >> $GITHUB_ENV
+                  else
+                      echo "Failed to read package versions"
+                  fi
+                  exit $status
 
             # Create prerelease scratch org
             - name: 'Create prerelease scratch org'
@@ -83,9 +143,13 @@ jobs:
               if: ${{ !env.IS_PRERELEASE }}
               run: sf org create scratch -f config/cc-base-project-scratch-def.json -a scratch-org -d -y 1
 
-            # Install new package in scratch org
-            - name: 'Install new package version in scratch org'
-              run: sf package install -p ${{ steps.createPackageVersion.outputs.packageVersionId }} -w 10 -o scratch-org -r
+            # Install base package in scratch org
+            - name: 'Install base package in scratch org'
+              run: sf package install -p ${{ env.BASE_PACKAGE_VERSION_ID }} -w 10 -o scratch-org -r
+
+            # Install site package in scratch org
+            - name: 'Install site package in scratch org'
+              run: sf package install -p ${{ env.SITE_PACKAGE_VERSION_ID }} -w 10 -o scratch-org -r
 
             # Housekeeping
             - name: 'Delete scratch org'

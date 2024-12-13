@@ -1,11 +1,27 @@
 # Unique name for this workflow
 name: Packaging
 
-# Workflow starts when receiving custom event sent by CI workflow
+# Workflow starts when receiving custom event sent by CI workflow or manually
 on:
     workflow_dispatch:
+        inputs:
+            isBasePackageRelease:
+                description: 'Package base app?'
+                required: false
+                type: boolean
+            isSitePackageRelease:
+                description: 'Package site?'
+                required: false
+                type: boolean
     repository_dispatch:
         types: [start-packaging]
+
+# Workflow environment variables
+env:
+    # Should the base package be released
+    IS_BASE_PACKAGE_RELEASE: ${{ github.event.client_payload.isBasePackageRelease == 'true' || inputs.isBasePackageRelease }}
+    # Should the site package be released
+    IS_SITE_PACKAGE_RELEASE: ${{ github.event.client_payload.isSitePackageRelease == 'true' || inputs.isSitePackageRelease }}
 
 # Jobs to be executed
 jobs:
@@ -45,13 +61,24 @@ jobs:
             - name: 'Remove auth file'
               run: rm -f ./DEVHUB_SFDX_URL.txt
 
-            # Bump package minor version
-            - name: 'Bump package minor version'
-              run: node bin/bump-package-minor-version.js
+            # Bump base package minor version
+            - name: 'Bump base package minor version'
+              if: ${{ env.IS_BASE_PACKAGE_RELEASE }}
+              run: node bin/packaging/bump-package-minor-version.js "Coral Cloud - Base"
 
-            # Create package version and extract its id
-            - name: 'Create package version'
-              id: createPackageVersion
+            # Bump site package minor version
+            - name: 'Bump site package minor version'
+              if: ${{ env.IS_SITE_PACKAGE_RELEASE }}
+              run: node bin/packaging/bump-package-minor-version.js "Coral Cloud - Site"
+
+            # Bump site package dependencies
+            - name: 'Bump site package dependencies'
+              if: ${{ env.IS_SITE_PACKAGE_RELEASE }}
+              run: node bin/packaging/bump-package-dependencies.js "Coral Cloud - Site"
+
+            # Create base package version
+            - name: 'Create base package version'
+              if: ${{ env.IS_BASE_PACKAGE_RELEASE }}
               run: |
                   set +e
                   json=$(sf package version create -p "Coral Cloud - Base" -c -x -w 60 --json)
@@ -59,7 +86,23 @@ jobs:
                   status=$(echo $json | jq '.status')
                   if [ $status == "0" ]; then
                       packageVersionId=$(echo $json | jq -r '.result.SubscriberPackageVersionId')
-                      echo "packageVersionId=$packageVersionId" >> $GITHUB_OUTPUT
+                      echo "BASE_PACKAGE_VERSION_ID=$packageVersionId" >> $GITHUB_ENV
+                  else
+                      echo "Failed to create package version"
+                  fi
+                  exit $status
+
+            # Create site package version
+            - name: 'Create site package version'
+              if: ${{ env.IS_SITE_PACKAGE_RELEASE }}
+              run: |
+                  set +e
+                  json=$(sf package version create -p "Coral Cloud - Site" -c -x -w 60 --json)
+                  echo $json
+                  status=$(echo $json | jq '.status')
+                  if [ $status == "0" ]; then
+                      packageVersionId=$(echo $json | jq -r '.result.SubscriberPackageVersionId')
+                      echo "SITE_PACKAGE_VERSION_ID=$packageVersionId" >> $GITHUB_ENV
                   else
                       echo "Failed to create package version"
                   fi
@@ -69,35 +112,90 @@ jobs:
             - name: 'Wait for package replication (360s)'
               run: sleep 360s
 
+            # Get latest base package version
+            - name: 'Get latest base package version'
+              if: ${{ !env.IS_BASE_PACKAGE_RELEASE }}
+              run: |
+                  set +e
+                  json=$(sf package version list -r -o MajorVersion,MinorVersion,PatchVersion -p "Coral Cloud - Base" --json)
+                  echo $json
+                  status=$(echo $json | jq '.status')
+                  if [ $status == "0" ]; then
+                      packageVersionId=$(echo $json | jq -r '.result[-1].SubscriberPackageVersionId')
+                      echo "BASE_PACKAGE_VERSION_ID=$packageVersionId" >> $GITHUB_ENV
+                  else
+                      echo "Failed to read package versions"
+                  fi
+                  exit $status
+
+            # Get latest site package version
+            - name: 'Get latest site package version'
+              if: ${{ !env.IS_SITE_PACKAGE_RELEASE }}
+              run: |
+                  set +e
+                  json=$(sf package version list -r -o MajorVersion,MinorVersion,PatchVersion -p "Coral Cloud - Site" --json)
+                  echo $json
+                  status=$(echo $json | jq '.status')
+                  if [ $status == "0" ]; then
+                      packageVersionId=$(echo $json | jq -r '.result[-1].SubscriberPackageVersionId')
+                      echo "SITE_PACKAGE_VERSION_ID=$packageVersionId" >> $GITHUB_ENV
+                  else
+                      echo "Failed to read package versions"
+                  fi
+                  exit $status
+
             # Create scratch org
             - name: 'Create scratch org'
               run: sf org create scratch -f config/cc-base-project-scratch-def.json -a scratch-org -d -y 1
 
-            # Install new package in scratch org
-            - name: 'Install new package version in scratch org'
-              run: sf package install -p ${{ steps.createPackageVersion.outputs.packageVersionId }} -w 10 -o scratch-org -r
+            # Install base package in scratch org
+            - name: 'Install base package in scratch org'
+              run: sf package install -p ${{ env.BASE_PACKAGE_VERSION_ID }} -w 10 -o scratch-org -r
 
-            # Update package install link in readme
-            - name: 'Update package install link in readme'
+            # Install site package in scratch org
+            - name: 'Install site package in scratch org'
+              run: sf package install -p ${{ env.SITE_PACKAGE_VERSION_ID }} -w 10 -o scratch-org -r
+
+            # Promote base package version
+            - name: 'Promote base package version'
+              if: ${{ env.IS_BASE_PACKAGE_RELEASE }}
+              run: sf package version promote -p ${{ env.BASE_PACKAGE_VERSION_ID }} -n
+
+            # Promote site package version
+            - name: 'Promote site package version'
+              if: ${{ env.IS_SITE_PACKAGE_RELEASE }}
+              run: sf package version promote -p ${{ env.SITE_PACKAGE_VERSION_ID }} -n
+
+            # Prepare PR title and body
+            - name: 'Prepare PR title and body'
+              id: prepare-pr
               run: |
-                  packageVersionId="${{ steps.createPackageVersion.outputs.packageVersionId }}"
-                  packageLinkRegex="https:\/\/login\.salesforce\.com\/packaging\/installPackage\.apexp\?p0=[a-zA-ZA-ZA-Z0-9]{18}"
-                  newPackageLink="https://login.salesforce.com/packaging/installPackage.apexp?p0=${packageVersionId}"
-                  sed -E -i "s,${packageLinkRegex},${newPackageLink}," README.md
+                  title="Released new package version(s):"
+                  body="Released new package version(s):\n"
+                  if [ ${{ env.IS_BASE_PACKAGE_RELEASE }} ]; then
+                    title="$title Base"
+                    body="$body- Base: \`${{ env.BASE_PACKAGE_VERSION_ID }}\`\n"
+                  fi
+                  if [ ${{ env.IS_SITE_PACKAGE_RELEASE }} ]; then
+                    body="$body- Site: \`${{ env.SITE_PACKAGE_VERSION_ID }}\`"
+                    if [ ${{ env.IS_BASE_PACKAGE_RELEASE }} ]; then
+                      title="$title, Site"
+                    else
+                      title="$title Site"
+                    fi
+                  fi
+                  echo "title=$title" >> $GITHUB_OUTPUT
+                  echo "body=$body" >> $GITHUB_OUTPUT
 
-            # Promote package version
-            - name: 'Promote package version'
-              run: sf package version promote -p ${{ steps.createPackageVersion.outputs.packageVersionId }} -n
-
-            # Create PR for new package version
-            - name: 'Create PR for new package version'
+            # Create PR for new package versions
+            - name: 'Create PR for new package versions'
               id: create-pr
               uses: peter-evans/create-pull-request@v6
               with:
-                  title: 'Released new package version ${{ steps.createPackageVersion.outputs.packageVersionId }}'
-                  body: 'Released new package version ${{ steps.createPackageVersion.outputs.packageVersionId }}'
+                  title: ${{ steps.prepare-pr.outputs.title }}
+                  body: ${{ steps.prepare-pr.outputs.body }}
                   author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-                  commit-message: 'Released new package version ${{ steps.createPackageVersion.outputs.packageVersionId }}'
+                  commit-message: ${{ steps.prepare-pr.outputs.body }}
                   branch: 'auto/release-package-version'
                   token: ${{ secrets.BOT_ACCESS_TOKEN }}
 

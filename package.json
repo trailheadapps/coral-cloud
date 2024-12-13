@@ -3,6 +3,7 @@
     "private": true,
     "version": "1.0.0",
     "description": "Coral Cloud sample app",
+    "type": "module",
     "scripts": {
         "lint": "eslint **/lwc/**/*.js",
         "test": "npm run test:unit",

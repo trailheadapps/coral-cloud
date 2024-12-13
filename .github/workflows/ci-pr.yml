@@ -211,17 +211,22 @@ jobs:
               uses: actions/checkout@v4
 
             # Check for package changes using git diff
-            - name: 'Check for changes in cc-base-app'
+            - name: 'Check for package changes'
               id: checkForChanges
               run: |
                   git fetch origin $GITHUB_BASE_REF --depth=1
                   changedPaths=$( git diff-tree --name-only origin/$GITHUB_BASE_REF $GITHUB_SHA )
                   set +e
-                  hasChanges='false'
+                  hasBasePackageChanges='false'
+                  hasSitePackageChanges='false'
                   if [ $(echo "$changedPaths" | grep -c '^cc-base-app') == 1 ]; then
-                      hasChanges='true'
+                      hasBasePackageChanges='true'
                   fi
-                  echo "hasChanges=$hasChanges" >> $GITHUB_OUTPUT
+                  if [ $(echo "$changedPaths" | grep -c '^cc-site') == 1 ]; then
+                      hasSitePackageChanges='true'
+                  fi
+                  echo "hasBasePackageChanges=$hasBasePackageChanges" >> $GITHUB_OUTPUT
+                  echo "hasSitePackageChanges=$hasSitePackageChanges" >> $GITHUB_OUTPUT
 
             # Trigger packaging PR workflow
             - name: 'Trigger packaging PR workflow if needed'
@@ -230,4 +235,4 @@ jobs:
               with:
                   token: ${{ secrets.BOT_ACCESS_TOKEN }}
                   event-type: start-packaging-pr
-                  client-payload: '{ "ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "isPrelease": "${{ env.IS_PRERELEASE }}" }'
+                  client-payload: '{ "ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "isBasePackageRelease": "${{ steps.checkForChanges.outputs.hasBasePackageChanges }}", "isSitePackageRelease": "${{ steps.checkForChanges.outputs.hasSitePackageChanges }}" }'
