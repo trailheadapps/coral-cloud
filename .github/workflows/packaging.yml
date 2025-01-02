@@ -171,10 +171,10 @@ jobs:
               id: prepare-pr
               run: |
                   title="Released new package version(s):"
-                  body="Released new package version(s):\n"
+                  body="Released new package version(s):<br/>"
                   if [ ${{ env.IS_BASE_PACKAGE_RELEASE }} ]; then
                     title="$title Base"
-                    body="$body- Base: \`${{ env.BASE_PACKAGE_VERSION_ID }}\`\n"
+                    body="$body- Base: \`${{ env.BASE_PACKAGE_VERSION_ID }}\`<br/>"
                   fi
                   if [ ${{ env.IS_SITE_PACKAGE_RELEASE }} ]; then
                     body="$body- Site: \`${{ env.SITE_PACKAGE_VERSION_ID }}\`"
