@@ -94,6 +94,14 @@ export default class ExperienceSchedule extends NavigationMixin(
         return this.date.getTime();
     }
 
+    get isExperienceSelected() {
+        return this._recordId;
+    }
+
+    get isNoExperienceSelected() {
+        return !this._recordId;
+    }
+
     get isNoSessionAvailable() {
         return this.sessions?.length === 0;
     }

@@ -37,6 +37,7 @@ describe('c-experience-schedule', () => {
         const element = createElement('c-experience-schedule', {
             is: ExperienceSchedule
         });
+        element.recordId = 'fakeId';
         document.body.appendChild(element);
 
         // Emit mock sessions on @wire
@@ -56,10 +57,32 @@ describe('c-experience-schedule', () => {
         expect(statusEl.textContent).toBe(`${mockSessions[0].Status__c}`);
     });
 
+    it('renders when no experience is selected', async () => {
+        const element = createElement('c-experience-schedule', {
+            is: ExperienceSchedule
+        });
+        document.body.appendChild(element);
+
+        // Wait for any asynchronous DOM updates
+        await flushPromises();
+
+        // Check that date selection is hidden
+        const dateEl = element.shadowRoot.querySelector(
+            'lightning-formatted-date-time'
+        );
+        expect(dateEl).toBeNull();
+        // Validate default message
+        const messageEl = element.shadowRoot.querySelector(
+            '.spinner-container p'
+        );
+        expect(messageEl.textContent).toContain('Select an experience');
+    });
+
     it('renders when there are no sessions on the day', async () => {
         const element = createElement('c-experience-schedule', {
             is: ExperienceSchedule
         });
+        element.recordId = 'fakeId';
         document.body.appendChild(element);
 
         // Emit no sessions on @wire
@@ -98,6 +121,7 @@ describe('c-experience-schedule', () => {
         const element = createElement('c-experience-schedule', {
             is: ExperienceSchedule
         });
+        element.recordId = 'fakeId';
         document.body.appendChild(element);
 
         // Emit mock sessions on @wire

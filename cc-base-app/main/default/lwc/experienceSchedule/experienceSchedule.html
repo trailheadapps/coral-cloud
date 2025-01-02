@@ -3,6 +3,7 @@
     <lightning-card title="Schedule" icon-name="standard:event">
         <!-- Date selector -->
         <div
+            lwc:if={isExperienceSelected}
             class="slds-var-p-horizontal_medium slds-p-bottom_small slds-border_bottom"
         >
             <div class="slds-grid slds-wrap">
@@ -55,7 +56,16 @@
                     lwc:elseif={error}
                     errors={error}
                 ></c-error-panel>
-                <p lwc:elseif={isNoSessionAvailable}>
+                <p
+                    lwc:elseif={isNoExperienceSelected}
+                    class="slds-text-heading_small"
+                >
+                    Select an experience to view the available sessions.
+                </p>
+                <p
+                    lwc:elseif={isNoSessionAvailable}
+                    class="slds-text-heading_small"
+                >
                     No sessions are scheduled on this day.
                 </p>
                 <div lwc:else>
