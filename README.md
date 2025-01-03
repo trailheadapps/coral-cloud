@@ -31,7 +31,7 @@ The Coral Cloud Resorts app requires licenses for the following features:
 
 <div>
     <img src="https://res.cloudinary.com/hy4kyit2a/f_auto,fl_lossy,q_70,w_50/learn/projects/quick-start-explore-the-coral-cloud-sample-app/1a059541a60d078109227d8f3a83404a_badge.png" align="left" alt="Trailhead Badge"/>
-    Obtain an Org with these features and learn more about the app with the <a href="https://trailhead.salesforce.com/content/learn/projects/quick-start-explore-the-coral-cloud-sample-app">Quick Start: Explore the Coral Cloud Sample App</a> Trailhead badge.
+    Obtain an Org with these features and learn more about the app with the <a href="https://trailhead.salesforce.com/content/learn/projects/quick-start-explore-the-coral-cloud-sample-app">Quick Start: Explore the Coral Cloud Sample App</a> Trailhead badge or by watching this <a href="https://www.youtube.com/watch?v=m1ZxPgwOHOs">short presentation video<a>.
     <br/>
     <br/>
 </div>
