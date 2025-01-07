@@ -1,6 +1,7 @@
 import { createElement } from 'lwc';
 import ExperienceSchedule from 'c/experienceSchedule';
 import getExperienceSessionsForDate from '@salesforce/apex/ExperienceController.getExperienceSessionsForDate';
+import isCommunity from '@salesforce/apex/ContextService.isCommunity';
 
 // Realistic list of mock sessions
 const mockSessions = require('./data/getExperienceSessionsForDate.json');
@@ -18,9 +19,38 @@ jest.mock(
     },
     { virtual: true }
 );
+// Mock ContextService.isCommunity Apex wire adapter
+jest.mock(
+    '@salesforce/apex/ContextService.isCommunity',
+    () => {
+        const {
+            createApexTestWireAdapter
+        } = require('@salesforce/sfdx-lwc-jest');
+        return {
+            default: createApexTestWireAdapter(jest.fn())
+        };
+    },
+    { virtual: true }
+);
+
+/**
+ * Creates the c-experience-schedule component and attach it to the page
+ * @param {*} props component properties
+ * @returns DOM element for the component
+ */
+function createTestComponent(props = {}) {
+    const element = createElement('c-experience-schedule', {
+        is: ExperienceSchedule
+    });
+    Object.assign(element, props);
+    document.body.appendChild(element);
+    return element;
+}
 
 describe('c-experience-schedule', () => {
     afterEach(() => {
+        // Reset timers
+        jest.useRealTimers();
         // The jsdom instance is shared across test cases in a single file so reset the DOM
         while (document.body.firstChild) {
             document.body.removeChild(document.body.firstChild);
@@ -34,11 +64,7 @@ describe('c-experience-schedule', () => {
     }
 
     it('renders when there are sessions on the day', async () => {
-        const element = createElement('c-experience-schedule', {
-            is: ExperienceSchedule
-        });
-        element.recordId = 'fakeId';
-        document.body.appendChild(element);
+        const element = createTestComponent({ recordId: 'fakeId' });
 
         // Emit mock sessions on @wire
         getExperienceSessionsForDate.emit(mockSessions);
@@ -58,10 +84,7 @@ describe('c-experience-schedule', () => {
     });
 
     it('renders when no experience is selected', async () => {
-        const element = createElement('c-experience-schedule', {
-            is: ExperienceSchedule
-        });
-        document.body.appendChild(element);
+        const element = createTestComponent();
 
         // Wait for any asynchronous DOM updates
         await flushPromises();
@@ -79,11 +102,7 @@ describe('c-experience-schedule', () => {
     });
 
     it('renders when there are no sessions on the day', async () => {
-        const element = createElement('c-experience-schedule', {
-            is: ExperienceSchedule
-        });
-        element.recordId = 'fakeId';
-        document.body.appendChild(element);
+        const element = createTestComponent({ recordId: 'fakeId' });
 
         // Emit no sessions on @wire
         getExperienceSessionsForDate.emit([]);
@@ -98,12 +117,50 @@ describe('c-experience-schedule', () => {
         expect(messageEl.textContent).toContain('No sessions');
     });
 
-    it('shows error panel element when error returned', async () => {
+    it('renders open record button when not in XP Cloud site', async () => {
+        const element = createTestComponent({ recordId: 'fakeId' });
+
+        // Emit mock sessions and context on @wire
+        getExperienceSessionsForDate.emit(mockSessions);
+        isCommunity.emit(false);
+
+        // Wait for any asynchronous DOM updates
+        await flushPromises();
+
+        // Validate that open record button is displayed
+        const buttonEls = element.shadowRoot.querySelectorAll(
+            '.slds-box lightning-button-icon'
+        );
+        expect(buttonEls.length).toBe(mockSessions.length);
+        expect(buttonEls[0].title).toBe(`Open record`);
+    });
+
+    it('renders book buttons when in XP Cloud site', async () => {
+        // Set fake future time so that only one book button is displayed
+        // the other book button is not displayed due to the session start time
+        jest.useFakeTimers();
+        jest.setSystemTime(new Date('2050-01-01T11:00:00'));
+
         // Create component
-        const element = createElement('c-experience-schedule', {
-            is: ExperienceSchedule
-        });
-        document.body.appendChild(element);
+        const element = createTestComponent({ recordId: 'fakeId' });
+
+        // Emit mock sessions and context on @wire
+        getExperienceSessionsForDate.emit(mockSessions);
+        isCommunity.emit(true);
+
+        // Wait for any asynchronous DOM updates
+        await flushPromises();
+
+        // Validate that only one book button is displayed
+        const buttonEls = element.shadowRoot.querySelectorAll(
+            '.slds-box lightning-button-icon'
+        );
+        expect(buttonEls.length).toBe(1);
+        expect(buttonEls[0].title).toBe(`Book session`);
+    });
+
+    it('shows error panel element when error returned', async () => {
+        const element = createTestComponent({ recordId: 'fakeId' });
 
         // Emit error from @wire
         getExperienceSessionsForDate.error();
@@ -117,12 +174,7 @@ describe('c-experience-schedule', () => {
     });
 
     it('is accessible when data is returned', async () => {
-        // Create component
-        const element = createElement('c-experience-schedule', {
-            is: ExperienceSchedule
-        });
-        element.recordId = 'fakeId';
-        document.body.appendChild(element);
+        const element = createTestComponent({ recordId: 'fakeId' });
 
         // Emit mock sessions on @wire
         getExperienceSessionsForDate.emit(mockSessions);

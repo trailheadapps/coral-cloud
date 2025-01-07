@@ -235,6 +235,7 @@
                                 >
                                     <template lwc:if={isCommunity}>
                                         <lightning-button-icon
+                                            lwc:if={session.isFutureStart}
                                             icon-name="utility:cart"
                                             variant="bare"
                                             data-id={session.Id}
