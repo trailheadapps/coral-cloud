@@ -1,20 +1,30 @@
 [
     {
-        "Id": "0031700000pJRRSAA4",
-        "Booked_Slots__c": "0",
-        "Capacity__c": "10",
-        "End_Time__c": "",
-        "Percentage_Booked__c": "0",
-        "Start_Time__c": "",
-        "Status__c": "Cancelled"
+        "Id": "a04Hr00000qpwJOIAY",
+        "Booked_Slots__c": 21,
+        "Capacity__c": 30,
+        "End_Time__c": 46800000,
+        "Percentage_Booked__c": 70,
+        "Start_Time__c": 32400000,
+        "Status__c": "Confirmed",
+        "Experience__c": "a02Hr00001M5elZIAR",
+        "Experience__r": {
+            "Price__c": 199.0,
+            "Id": "a02Hr00001M5elZIAR"
+        }
     },
     {
-        "Id": "0031700000pJRRTAA4",
-        "Booked_Slots__c": "10",
-        "Capacity__c": "20",
-        "End_Time__c": "",
-        "Percentage_Booked__c": "50",
-        "Start_Time__c": "",
-        "Status__c": "Completed"
+        "Id": "a04Hr00000qpwJPIAY",
+        "Booked_Slots__c": 16,
+        "Capacity__c": 30,
+        "End_Time__c": 72000000,
+        "Percentage_Booked__c": 53,
+        "Start_Time__c": 57600000,
+        "Status__c": "Confirmed",
+        "Experience__c": "a02Hr00001M5elZIAR",
+        "Experience__r": {
+            "Price__c": 199.0,
+            "Id": "a02Hr00001M5elZIAR"
+        }
     }
 ]

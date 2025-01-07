@@ -4,6 +4,9 @@ import { NavigationMixin } from 'lightning/navigation';
 import getExperienceSessionsForDate from '@salesforce/apex/ExperienceController.getExperienceSessionsForDate';
 import isCommunity from '@salesforce/apex/ContextService.isCommunity';
 
+const ONE_HOUR_IN_MS = 3600000;
+const ONE_MINUTE_IN_MS = 60000;
+
 export default class ExperienceSchedule extends NavigationMixin(
     LightningElement
 ) {
@@ -44,9 +47,23 @@ export default class ExperienceSchedule extends NavigationMixin(
             this.sessions = undefined;
         } else if (data) {
             this.error = undefined;
+            const now = new Date().getTime();
             this.sessions = data.map((sessionRecord) => {
                 // Clone record to add extra fields and avoid proxy issues
                 const session = { ...sessionRecord };
+                // Add future start check
+                const start = new Date(this.date);
+                const hours = Math.floor(
+                    session.Start_Time__c / ONE_HOUR_IN_MS
+                );
+                const minutes = Math.floor(
+                    (session.Start_Time__c - hours * ONE_HOUR_IN_MS) /
+                        ONE_MINUTE_IN_MS
+                );
+                start.setHours(hours);
+                start.setMinutes(minutes);
+                start.setSeconds(0);
+                session.isFutureStart = start.getTime() > now;
                 // Generate unique labels for accessibility
                 session.labelStartTime = `start${session.Id}`;
                 session.labelEndTime = `end${session.Id}`;
@@ -61,7 +78,6 @@ export default class ExperienceSchedule extends NavigationMixin(
     }
 
     handleExperienceSelected(experienceId) {
-        // TODO: Fix re-assignment, was this.recordId before
         this._recordId = experienceId;
     }
 
