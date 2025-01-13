@@ -5,6 +5,7 @@
     "features": [
         "Communities",
         "ServiceCloud",
+        "LiveAgent",
         "Sites",
         "FlowSites",
         "PublishExpBuilderBasedSna",
@@ -20,9 +21,12 @@
         "lightningExperienceSettings": {
             "enableS1DesktopEnabled": true
         },
+        "liveAgentSettings": { "enableLiveAgent": true },
         "mobileSettings": {
             "enableS1EncryptedStoragePref2": false
         },
+        "omniChannelSettings": { "enableOmniChannel": true },
+        "serviceCloudSettings": { "enableServiceCloud": true },
         "userEngagementSettings": {
             "enableShowSalesforceUserAssist": false
         }
