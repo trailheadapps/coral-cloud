@@ -26,7 +26,6 @@
             "enableS1EncryptedStoragePref2": false
         },
         "omniChannelSettings": { "enableOmniChannel": true },
-        "serviceCloudSettings": { "enableServiceCloud": true },
         "userEngagementSettings": {
             "enableShowSalesforceUserAssist": false
         }
