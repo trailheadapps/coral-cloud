@@ -4,6 +4,7 @@
     "hasSampleData": false,
     "features": [
         "Communities",
+        "ServiceCloud",
         "Sites",
         "FlowSites",
         "PublishExpBuilderBasedSna",
