@@ -61,6 +61,15 @@ jobs:
             - name: 'Remove auth file'
               run: rm -f ./DEVHUB_SFDX_URL.txt
 
+            # Modify local metadata for packaging
+            - name: 'Modify local metadata for packaging'
+              run: |
+                  cp -rpv cc-service-app/main/default/corsWhitelistOrigins cc-base-app/main/default/
+                  cp -rpv cc-service-app/main/default/cspTrustedSites cc-base-app/main/default/
+                  cp -rpv cc-service-app/main/default/flows/* cc-base-app/main/default/flows/
+                  rm -f cc-base-app/main/default/flows/Route_to_Agent.flow-meta.xml
+                  sed '/<actionCalls>/,/<\/actionCalls>/d' cc-base-app/main/default/flows/PersonalizedSchedule.flow-meta.xml > cc-base-app/main/default/flows/PersonalizedSchedule_Temp.flow-meta.xml && mv cc-base-app/main/default/flows/PersonalizedSchedule_Temp.flow-meta.xml cc-base-app/main/default/flows/PersonalizedSchedule.flow-meta.xml
+
             # Bump base package minor version
             - name: 'Bump base package minor version'
               if: ${{ env.IS_BASE_PACKAGE_RELEASE }}
