@@ -2,22 +2,21 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>62.0</apiVersion>
     <assignments>
-        <name>Assign_Contact_ID</name>
-        <label>Assign Contact ID</label>
+        <name>Save_contact_details</name>
+        <label>Save contact details</label>
         <locationX>176</locationX>
         <locationY>242</locationY>
         <assignmentItems>
-            <assignToReference>contactId</assignToReference>
+            <assignToReference>contactDetails</assignToReference>
             <operator>Assign</operator>
             <value>
                 <elementReference
-                >Get_Contact_by_Email_and_Member_Number.Id</elementReference>
+                >Get_Contact_by_Email_and_Member_Number</elementReference>
             </value>
         </assignmentItems>
     </assignments>
     <description
-    >Validate a Customers details by passing their email and memberNumber to see if
-        their is a related contact.</description>
+    >Validate and retrieve Customers details by passing their email and memberNumber to see if there is a related contact.</description>
     <environments>Default</environments>
     <interviewLabel
     >Get Customer Details {!$Flow.CurrentDateTime}</interviewLabel>
@@ -52,7 +51,7 @@
         <assignNullValuesIfNoRecordsFound
         >false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Assign_Contact_ID</targetReference>
+            <targetReference>Save_contact_details</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -73,6 +72,9 @@
         <object>Contact</object>
         <queriedFields>Id</queriedFields>
         <queriedFields>Name</queriedFields>
+        <queriedFields>Interest1__c</queriedFields>
+        <queriedFields>Interest2__c</queriedFields>
+        <queriedFields>Interest3__c</queriedFields>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <runInMode>SystemModeWithoutSharing</runInMode>
@@ -86,12 +88,14 @@
     </start>
     <status>Active</status>
     <variables>
-        <description>ID of the found contact.</description>
-        <name>contactId</name>
-        <dataType>String</dataType>
+        <description
+        >Record holding customer details such as ID and interests.</description>
+        <name>contactDetails</name>
+        <dataType>SObject</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>true</isOutput>
+        <objectType>Contact</objectType>
     </variables>
     <variables>
         <description

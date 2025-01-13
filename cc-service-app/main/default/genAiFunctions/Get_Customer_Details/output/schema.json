@@ -1,9 +1,9 @@
 {
     "unevaluatedProperties": false,
     "properties": {
-        "contact": {
-            "title": "contact",
-            "description": "The contact that was returned in the search for records.",
+        "contactDetails": {
+            "title": "contactDetails",
+            "description": "Record holding customer details such as ID and interests.",
             "lightning:type": "lightning__recordInfoType",
             "lightning:sObjectInfo": {
                 "apiName": "Contact"
