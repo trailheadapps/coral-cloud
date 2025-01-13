@@ -69,6 +69,9 @@ jobs:
                   cp -rpv cc-service-app/main/default/flows/* cc-base-app/main/default/flows/
                   rm -f cc-base-app/main/default/flows/Route_to_Agent.flow-meta.xml
                   sed '/<actionCalls>/,/<\/actionCalls>/d' cc-base-app/main/default/flows/PersonalizedSchedule.flow-meta.xml > cc-base-app/main/default/flows/PersonalizedSchedule_Temp.flow-meta.xml && mv cc-base-app/main/default/flows/PersonalizedSchedule_Temp.flow-meta.xml cc-base-app/main/default/flows/PersonalizedSchedule.flow-meta.xml
+                  sed '/<actionCalls>/,/<\/actionCalls>/d' cc-base-app/main/default/flows/Route_to_Queue.flow-meta.xml > cc-base-app/main/default/flows/Route_to_Queue_Temp.flow-meta.xml && mv cc-base-app/main/default/flows/Route_to_Queue_Temp.flow-meta.xml cc-base-app/main/default/flows/Route_to_Queue.flow-meta.xml
+                  sed '/<recordUpdates>/,/<\/recordUpdates>/d' cc-base-app/main/default/flows/Route_to_Queue.flow-meta.xml > cc-base-app/main/default/flows/Route_to_Queue_Temp.flow-meta.xml && mv cc-base-app/main/default/flows/Route_to_Queue_Temp.flow-meta.xml cc-base-app/main/default/flows/Route_to_Queue.flow-meta.xml
+                  awk '/<connector>/ {c=1} c && /<targetReference>Update_Messaging_Session<\/targetReference>/ {c=2} c && /<\/connector>/ {if(c==2) {c=0; next}} c {next} 1' cc-base-app/main/default/flows/Route_to_Queue.flow-meta.xml > cc-base-app/main/default/flows/Route_to_Queue_Temp.flow-meta.xml && mv cc-base-app/main/default/flows/Route_to_Queue_Temp.flow-meta.xml cc-base-app/main/default/flows/Route_to_Queue.flow-meta.xml
 
             # Bump base package minor version
             - name: 'Bump base package minor version'
