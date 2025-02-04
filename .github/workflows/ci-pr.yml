@@ -41,11 +41,11 @@ jobs:
             - name: 'Check for hardcoded username in XP cloud config'
               run: |
                   fileToCheck=cc-site/main/default/sites/Coral_Cloud.site-meta.xml
-                  if [ grep siteAdmin $fileToCheck ]; then
+                  if [ grep -q siteAdmin $fileToCheck ]; then
                       echo "Hardcoded siteAdmin detected in $fileToCheck. Remove the tag to fix this.";
                       exit 1;
                   fi
-                  if [ grep siteGuestRecordDefaultOwner $fileToCheck ]; then
+                  if [ grep -q siteGuestRecordDefaultOwner $fileToCheck ]; then
                       echo "Hardcoded siteGuestRecordDefaultOwner detected in $fileToCheck. Remove the tag to fix this.";
                       exit 1;
                   fi
