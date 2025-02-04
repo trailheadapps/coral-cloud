@@ -20,16 +20,16 @@ jobs:
             - name: 'Checkout source code'
               uses: actions/checkout@v4
 
-            # Check for hardcoded users in XP cloud config
-            - name: 'Check for hardcoded users in XP cloud config'
+            # Check for hardcoded username in XP cloud config
+            - name: 'Check for hardcoded username in XP cloud config'
               run: |
-                  fileToCheck=cc-site/main/default/sites/Coral_Cloud.site-meta.xml
-                  if [ grep -q siteAdmin $fileToCheck ]; then
-                      echo "Hardcoded siteAdmin detected in $fileToCheck. Remove the tag to fix this.";
+                  fileToCheck="cc-site/main/default/sites/Coral_Cloud.site-meta.xml"
+                  if grep -q siteAdmin $fileToCheck; then
+                      echo "siteAdmin tag detected in $fileToCheck. Remove the tag to fix this.";
                       exit 1;
                   fi
-                  if [ grep -q siteGuestRecordDefaultOwner $fileToCheck ]; then
-                      echo "Hardcoded siteGuestRecordDefaultOwner detected in $fileToCheck. Remove the tag to fix this.";
+                  if grep -q siteGuestRecordDefaultOwner $fileToCheck; then
+                      echo "siteGuestRecordDefaultOwner tag detected in $fileToCheck. Remove the tag to fix this.";
                       exit 1;
                   fi
 
