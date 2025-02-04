@@ -1,0 +1,75 @@
+import ccxt
+import pandas as pd
+import matplotlib.pyplot as plt
+import time
+
+# Initialize the exchange (e.g., Binance)
+exchange = ccxt.binance({
+    'apiKey': 'YOUR_API_KEY',
+    'secret': 'YOUR_SECRET_KEY',
+    'enableRateLimit': True,
+})
+
+# Function to fetch historical data
+def fetch_ohlcv(symbol, timeframe, limit=100):
+    ohlcv = exchange.fetch_ohlcv(symbol, timeframe, limit=limit)
+    df = pd.DataFrame(ohlcv, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
+    df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')
+    return df
+
+# Function to calculate moving averages
+def calculate_moving_averages(df, short_window, long_window):
+    df['short_ma'] = df['close'].rolling(window=short_window, min_periods=1).mean()
+    df['long_ma'] = df['close'].rolling(window=long_window, min_periods=1).mean()
+    return df
+
+# Function to plot the data
+def plot_data(df, symbol):
+    plt.figure(figsize=(14, 7))
+    plt.plot(df['timestamp'], df['close'], label='Close Price', color='blue')
+    plt.plot(df['timestamp'], df['short_ma'], label='Short MA', color='red')
+    plt.plot(df['timestamp'], df['long_ma'], label='Long MA', color='green')
+    plt.title(f'{symbol} Price and Moving Averages')
+    plt.xlabel('Date')
+    plt.ylabel('Price')
+    plt.legend()
+    plt.show()
+
+# Function to execute a trade
+def execute_trade(symbol, side, amount):
+    try:
+        order = exchange.create_market_order(symbol, side, amount)
+        print(f"Order executed: {order}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+# Automated trading strategy
+def automated_trading_strategy(symbol, timeframe, short_window, long_window, amount):
+    while True:
+        df = fetch_ohlcv(symbol, timeframe)
+        df = calculate_moving_averages(df, short_window, long_window)
+        
+        # Check for crossover
+        if df['short_ma'].iloc[-2] < df['long_ma'].iloc[-2] and df['short_ma'].iloc[-1] > df['long_ma'].iloc[-1]:
+            print("Golden Cross: Buy Signal")
+            execute_trade(symbol, 'buy', amount)
+        
+        elif df['short_ma'].iloc[-2] > df['long_ma'].iloc[-2] and df['short_ma'].iloc[-1] < df['long_ma'].iloc[-1]:
+            print("Death Cross: Sell Signal")
+            execute_trade(symbol, 'sell', amount)
+        
+        # Plot the data
+        plot_data(df, symbol)
+        
+        # Wait before the next iteration
+        time.sleep(60 * int(timeframe[:-1]))  # Convert timeframe to minutes
+
+# Main function
+if __name__ == "__main__":
+    symbol = 'BTC/USDT'
+    timeframe = '1h'
+    short_window = 10
+    long_window = 50
+    amount = 0.001  # Amount of BTC to trade
+
+    automated_trading_strategy(symbol, timeframe, short_window, long_window, amount)
