@@ -25,9 +25,6 @@
     <referrerPolicyOriginWhenCrossOrigin
     >true</referrerPolicyOriginWhenCrossOrigin>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>test-cjmvyzld0cn6@example.com</siteAdmin>
-    <siteGuestRecordDefaultOwner
-    >test-cjmvyzld0cn6@example.com</siteGuestRecordDefaultOwner>
     <siteType>ChatterNetwork</siteType>
     <urlPathPrefix>coralcloud</urlPathPrefix>
 </CustomSite>
