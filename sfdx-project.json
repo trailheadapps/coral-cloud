@@ -20,7 +20,7 @@
       "package": "Coral Cloud - Site",
       "versionName": "Winter '25 release",
       "versionDescription": "Coral Cloud Experience Cloud site",
-      "versionNumber": "1.5.0.NEXT",
+      "versionNumber": "1.6.0.NEXT",
       "definitionFile": "config/cc-base-project-scratch-def.json",
       "dependencies": [
         {
@@ -55,7 +55,8 @@
     "Coral Cloud - Base@1.9.0-1": "04tWx0000001ZQLIA2",
     "Coral Cloud - Base@1.10.0-1": "04tWx0000001a4fIAA",
     "Coral Cloud - Base@1.11.0-1": "04tWx0000001aXhIAI",
-    "Coral Cloud - Site@1.5.0-1": "04tWx0000001aZJIAY"
+    "Coral Cloud - Site@1.5.0-1": "04tWx0000001aZJIAY",
+    "Coral Cloud - Site@1.6.0-1": "04tWx0000001eOPIAY"
   },
   "replacements": [
     {
