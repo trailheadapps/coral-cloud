@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
-    <activeVersion>2</activeVersion>
+    <activeVersion
+    >g8e6IWywKki8fcmzblc3o3liVRxBT/o0dl5GpICFNJE=_1</activeVersion>
+    <createdInVersion>63.0</createdInVersion>
     <description
     >Generate a personalized schedule that includes the time and location of resort experiences that are available today, and that match the guest&apos;s interests.</description>
     <developerName>Generate_Personalized_Schedule</developerName>
@@ -39,27 +41,8 @@ List of activities happening today that match the guest&apos;s interests:
             </parameters>
             <referenceName>Apex:PersonalizedGuestExperiences</referenceName>
         </templateDataProviders>
-        <versionNumber>2</versionNumber>
-    </templateVersions>
-    <templateVersions>
-        <content
-        >Your name is {!$User.FirstName}. You work in the guest success team at {!$Organization.Name}.
-Introduce yourself, then present the list of resort activities happening today that match the guest&apos;s interests.
-For clarity, use a bullet list.
-For each activity, include name, time, location and duration on a single line. Do not include the date.
-Tell the guest to reach out if they&apos;d like to book any of these activities.
-List of activities happening today that match the guest&apos;s interests:
-</content>
-        <inputs>
-            <apiName>Contact</apiName>
-            <definition>SOBJECT://Contact</definition>
-            <masterLabel>Contact</masterLabel>
-            <referenceName>Input:Contact</referenceName>
-            <required>true</required>
-        </inputs>
-        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
-        <status>Published</status>
-        <versionNumber>1</versionNumber>
+        <versionIdentifier
+        >g8e6IWywKki8fcmzblc3o3liVRxBT/o0dl5GpICFNJE=_1</versionIdentifier>
     </templateVersions>
     <type>einstein_gpt__flex</type>
     <visibility>Global</visibility>
