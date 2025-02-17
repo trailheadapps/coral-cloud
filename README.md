@@ -55,7 +55,7 @@ If you need to [update the Salesforce CLI](https://developer.salesforce.com/docs
 
 1. From **Setup**, go to **Einstein Setup** and click **Turn on Einstein**.
 
-1. From **Setup**, go to **Agents** and toggle on **Einstein Copilot for Salesforce**. You may need to refresh the page to see the Agents menu after turning on Einstein.
+1. From **Setup**, go to **Agents** and toggle on **Agentforce**. You may need to refresh the page to see the Agents menu after turning on Einstein.
 
 1. From **Setup**, go to **Einstein for Sales** and ensure that **Turn on Sales Emails** is toggled on.
 
