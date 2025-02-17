@@ -2,11 +2,11 @@
 <Bot xmlns="http://soap.sforce.com/2006/04/metadata">
     <agentType>Employee</agentType>
     <botMlDomain>
-        <label>Einstein Copilot</label>
+        <label>Agentforce (Default)</label>
         <name>Copilot_for_Salesforce</name>
     </botMlDomain>
     <description>An AI assistant for in-org business tasks.</description>
-    <label>Einstein Copilot</label>
+    <label>Agentforce (Default)</label>
     <logPrivateConversationData>false</logPrivateConversationData>
     <pageContextVariables>
         <dataType>Text</dataType>
