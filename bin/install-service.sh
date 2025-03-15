@@ -25,7 +25,7 @@ else
 fi
 
 echo "Pushing Service Agent Setup source..." && \
-sf project deploy start -d cc-service-app/main/setup/classes/SetupServiceAgentUser.cls -d cc-service-app/main/default/permissionSets/Coral_Cloud_Service_Agent.permissionset-meta.xml && \
+sf project deploy start -d cc-service-app/main/setup/classes/SetupServiceAgentUser.cls -d cc-service-app/main/default/permissionsets/Coral_Cloud_Service_Agent.permissionset-meta.xml && \
 echo "" && \
 
 echo "Setting up Service Agent user..." && \
