@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
     <description>This topic addresses customer inquiries and issues related to booking experiences at Coral Cloud Resorts, including making reservations, modifying bookings, and answering queries about experience details.</description>
     <developerName>Customer_Experience_Support</developerName>
     <genAiFunctions>
@@ -9,40 +10,24 @@
         <functionName>Get_Experience_Details</functionName>
     </genAiFunctions>
     <genAiFunctions>
-        <functionName>Get_Customer_Details</functionName>
-    </genAiFunctions>
-    <genAiFunctions>
         <functionName>Get_Sessions</functionName>
     </genAiFunctions>
     <genAiFunctions>
         <functionName>Create_Booking</functionName>
     </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Customer_Details</functionName>
+    </genAiFunctions>
     <genAiPluginInstructions>
-        <description>If a customer would like more information on Activities or Experiences, you should run the action &apos;Get Experience Details&apos; and then summarize the results with improved readability. Always ensure you know the customer before running this action.</description>
-        <developerName>instruction_ifacustome0</developerName>
-        <language xsi:nil="true"/>
-        <masterLabel>instruction_ifacustome0</masterLabel>
-    </genAiPluginInstructions>
-    <genAiPluginInstructions>
-        <description>If the customer is not known, you must always ask for their email address and their membership number. Get their Contact record by running the action &apos;Get Customer Details&apos; before running any other actions.</description>
-        <developerName>instruction_ifthecusto1</developerName>
-        <language xsi:nil="true"/>
-        <masterLabel>instruction_ifthecusto1</masterLabel>
-    </genAiPluginInstructions>
-    <genAiPluginInstructions>
-        <description>If asked to get sessions for the experience use the &apos;Get Sessions&apos; action. Ask for the date of the sessions if not provided. Use the Id of the Experience__c from the &apos;Get Experience Details&apos;.</description>
-        <developerName>instruction_ifaskedtog2</developerName>
-        <language xsi:nil="true"/>
-        <masterLabel>instruction_ifaskedtog2</masterLabel>
-    </genAiPluginInstructions>
-    <genAiPluginInstructions>
-        <description>If asked to book, use the action &apos;Create Booking&apos; . The Contact__c is the contact ID from the &apos;Get Customer Details&apos; . The Session__c is the ID of the session from the action &apos;Get Sessions&apos; . If multiple sessions are present ask to select one of the sessions and use that Session as the ID for the Session__c. Prompt for the Number of Guests and use that for the Number_of_Guests__c.</description>
-        <developerName>instruction_ifaskedtob3</developerName>
-        <language xsi:nil="true"/>
-        <masterLabel>instruction_ifaskedtob3</masterLabel>
+        <description>1. Always check if the customer is verified before doing anything else. A customer is verified only if {!IsCustomerVerified} is true; if it’s false, the customer is not verified.
+
+2. If the customer is not verified, politely ask for both their email address and membership number. Then use that information to run the &quot;Get Customer Details&quot; action to complete the verification process.</description>
+        <developerName>instruction_alwayschec0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_alwayschec0</masterLabel>
     </genAiPluginInstructions>
     <language>en_US</language>
     <masterLabel>Customer Experience Support</masterLabel>
     <pluginType>Topic</pluginType>
-    <scope>The agent&apos;s job is to assist users in navigating and managing bookings for different experiences offered by Coral Cloud Resorts, ensuring a seamless customer service experience by providing accurate information and resolving issues promptly.</scope>
+    <scope>The agent&apos;s job is to assist customers in navigating and managing bookings for different experiences offered by Coral Cloud Resorts, ensuring a seamless customer service experience by providing accurate information and resolving issues promptly.</scope>
 </GenAiPlugin>

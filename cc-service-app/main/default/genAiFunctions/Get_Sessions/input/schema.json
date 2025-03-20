@@ -4,7 +4,7 @@
     "properties": {
         "experienceId": {
             "title": "experienceId",
-            "description": "The Id of the Experience__c that you would like to check for.",
+            "description": "The Id of the Experience__c. If you do not know this, use the 'Get_Experience_Details' action to get this Id from the name of the experience.",
             "lightning:type": "lightning__textType",
             "lightning:isPII": false,
             "copilotAction:isUserInput": false

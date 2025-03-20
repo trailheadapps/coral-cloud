@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <GenAiPlanner xmlns="http://soap.sforce.com/2006/04/metadata">
+    <attributeMappings>
+        <attributeName
+        >Customer_Experience_Support.Create_Booking.input_contactId</attributeName>
+        <attributeType>CustomPluginFunctionAttribute</attributeType>
+        <mappingTargetName>VerifiedCustomerId</mappingTargetName>
+        <mappingType>Variable</mappingType>
+    </attributeMappings>
+    <attributeMappings>
+        <attributeName
+        >Customer_Experience_Support.Get_Customer_Details.output_VerifiedCustomerId</attributeName>
+        <attributeType>CustomPluginFunctionAttribute</attributeType>
+        <mappingTargetName>VerifiedCustomerId</mappingTargetName>
+        <mappingType>Variable</mappingType>
+    </attributeMappings>
+    <attributeMappings>
+        <attributeName
+        >Customer_Experience_Support.Get_Customer_Details.output_IsCustomerVerified</attributeName>
+        <attributeType>CustomPluginFunctionAttribute</attributeType>
+        <mappingTargetName>IsCustomerVerified</mappingTargetName>
+        <mappingType>Variable</mappingType>
+    </attributeMappings>
     <description
     >This is the Coral Cloud Agent that helps customers learn more about Experiences as well as book sessions.</description>
     <genAiPlugins>
@@ -7,4 +28,37 @@
     </genAiPlugins>
     <masterLabel>Coral Cloud Agent</masterLabel>
     <plannerType>AiCopilot__ReAct</plannerType>
+    <ruleExpressionAssignments>
+        <ruleExpressionName>Is_Customer_Verified</ruleExpressionName>
+        <targetName>Customer_Experience_Support.Create_Booking</targetName>
+        <targetType>PluginFunction</targetType>
+    </ruleExpressionAssignments>
+    <ruleExpressionAssignments>
+        <ruleExpressionName>Is_Customer_Verified</ruleExpressionName>
+        <targetName
+        >Customer_Experience_Support.Generate_Personalized_Schedule</targetName>
+        <targetType>PluginFunction</targetType>
+    </ruleExpressionAssignments>
+    <ruleExpressionAssignments>
+        <ruleExpressionName>Is_Customer_Verified</ruleExpressionName>
+        <targetName
+        >Customer_Experience_Support.Get_Experience_Details</targetName>
+        <targetType>PluginFunction</targetType>
+    </ruleExpressionAssignments>
+    <ruleExpressionAssignments>
+        <ruleExpressionName>Is_Customer_Verified</ruleExpressionName>
+        <targetName>Customer_Experience_Support.Get_Sessions</targetName>
+        <targetType>PluginFunction</targetType>
+    </ruleExpressionAssignments>
+    <ruleExpressions>
+        <conditions>
+            <leftOperand>IsCustomerVerified</leftOperand>
+            <leftOperandType>Variable</leftOperandType>
+            <operator>equal</operator>
+            <rightOperandValue>true</rightOperandValue>
+        </conditions>
+        <expressionLabel>Is Customer Verified</expressionLabel>
+        <expressionName>Is_Customer_Verified</expressionName>
+        <expressionType>sel</expressionType>
+    </ruleExpressions>
 </GenAiPlanner>
