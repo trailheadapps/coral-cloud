@@ -1,6 +1,24 @@
 {
     "unevaluatedProperties": false,
     "properties": {
+        "IsCustomerVerified": {
+            "title": "IsCustomerVerified",
+            "description": "Indicates whether the customer is verified. It is set to true if the customer is verified.",
+            "lightning:type": "lightning__booleanType",
+            "lightning:isPII": false,
+            "copilotAction:isDisplayable": false,
+            "copilotAction:isUsedByPlanner": true,
+            "copilotAction:useHydratedPrompt": false
+        },
+        "VerifiedCustomerId": {
+            "title": "VerifiedCustomerId",
+            "description": "Id of the verified customer",
+            "lightning:type": "lightning__textType",
+            "lightning:isPII": false,
+            "copilotAction:isDisplayable": false,
+            "copilotAction:isUsedByPlanner": true,
+            "copilotAction:useHydratedPrompt": false
+        },
         "contactDetails": {
             "title": "contactDetails",
             "description": "Record holding customer details such as ID and interests.",
@@ -10,7 +28,8 @@
             },
             "lightning:isPII": false,
             "copilotAction:isDisplayable": true,
-            "copilotAction:isUsedByPlanner": true
+            "copilotAction:isUsedByPlanner": true,
+            "copilotAction:useHydratedPrompt": false
         }
     },
     "lightning:type": "lightning__objectType"

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>Save_contact_details</name>
         <label>Save contact details</label>
-        <locationX>176</locationX>
-        <locationY>242</locationY>
+        <locationX>308</locationX>
+        <locationY>350</locationY>
         <assignmentItems>
             <assignToReference>contactDetails</assignToReference>
             <operator>Assign</operator>
@@ -14,7 +15,45 @@
                 >Get_Contact_by_Email_and_Member_Number</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>VerifiedCustomerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference
+                >Get_Contact_by_Email_and_Member_Number.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>IsCustomerVerified</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
     </assignments>
+    <decisions>
+        <name>Does_Contact_exist</name>
+        <label>Does Contact exist?</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <defaultConnector>
+            <targetReference>Save_contact_details</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Yes</defaultConnectorLabel>
+        <rules>
+            <name>No</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference
+                >Get_Contact_by_Email_and_Member_Number.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>No</label>
+        </rules>
+    </decisions>
     <description
     >Validate and retrieve Customers details by passing their email and memberNumber to see if there is a related contact.</description>
     <environments>Default</environments>
@@ -51,7 +90,7 @@
         <assignNullValuesIfNoRecordsFound
         >false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Save_contact_details</targetReference>
+            <targetReference>Does_Contact_exist</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -108,11 +147,31 @@
     </variables>
     <variables>
         <description
+        >Indicates whether the customer is verified. It is set to true if the customer is verified.</description>
+        <name>IsCustomerVerified</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <description
         >The Member Number of the customer that is validating their identity.</description>
         <name>memberNumber</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Id of the verified customer</description>
+        <name>VerifiedCustomerId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
     </variables>
 </Flow>

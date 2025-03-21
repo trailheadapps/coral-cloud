@@ -5,5 +5,19 @@
     <invocationTarget>Get_Customer_Details</invocationTarget>
     <invocationTargetType>flow</invocationTargetType>
     <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <mappingAttributes>
+        <label>VerifiedCustomerId</label>
+        <name>output_VerifiedCustomerId</name>
+        <parameterName>VerifiedCustomerId</parameterName>
+        <parameterType>output</parameterType>
+    </mappingAttributes>
+    <mappingAttributes>
+        <label>IsCustomerVerified</label>
+        <name>output_IsCustomerVerified</name>
+        <parameterName>IsCustomerVerified</parameterName>
+        <parameterType>output</parameterType>
+    </mappingAttributes>
     <masterLabel>Get Customer Details</masterLabel>
+    <progressIndicatorMessage>Verifying</progressIndicatorMessage>
 </GenAiFunction>

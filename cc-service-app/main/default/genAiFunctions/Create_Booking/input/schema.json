@@ -18,7 +18,7 @@
         },
         "sessionId": {
             "title": "sessionId",
-            "description": "The Id of the session that the contact will be booked for.",
+            "description": "The Id of the session to book the contact for. Use the session Id from the 'Get Sessions' action. If multiple sessions are returned, ask the user to choose one and use its Id.",
             "lightning:type": "lightning__textType",
             "lightning:isPII": false,
             "copilotAction:isUserInput": false
