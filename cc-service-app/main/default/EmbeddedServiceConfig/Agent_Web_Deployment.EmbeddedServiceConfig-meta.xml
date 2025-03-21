@@ -9,7 +9,7 @@
         <shouldShowDeliveryReceipts>false</shouldShowDeliveryReceipts>
         <shouldShowEmojiSelection>false</shouldShowEmojiSelection>
         <shouldShowReadReceipts>false</shouldShowReadReceipts>
-        <shouldShowTypingIndicators>false</shouldShowTypingIndicators>
+        <shouldShowTypingIndicators>true</shouldShowTypingIndicators>
         <shouldStartNewLineOnEnter>false</shouldStartNewLineOnEnter>
     </embeddedServiceMessagingChannel>
     <isEnabled>true</isEnabled>

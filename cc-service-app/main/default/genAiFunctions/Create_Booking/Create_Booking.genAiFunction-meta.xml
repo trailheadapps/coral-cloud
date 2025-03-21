@@ -5,5 +5,12 @@
     <invocationTarget>Create_Booking</invocationTarget>
     <invocationTargetType>flow</invocationTargetType>
     <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <mappingAttributes>
+        <label>contactId</label>
+        <name>input_contactId</name>
+        <parameterName>contactId</parameterName>
+        <parameterType>input</parameterType>
+    </mappingAttributes>
     <masterLabel>Create Booking</masterLabel>
 </GenAiFunction>
