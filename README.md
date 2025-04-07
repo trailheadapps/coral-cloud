@@ -55,7 +55,11 @@ If you need to [update the Salesforce CLI](https://developer.salesforce.com/docs
 
 1. From **Setup**, go to **Einstein Setup** and click **Turn on Einstein**.
 
-1. From **Setup**, go to **Agents** and toggle on **Agentforce**. You may need to refresh the page to see the Agents menu after turning on Einstein.
+1. From **Setup**, go to **Agentforce Agents**. You may need to refresh the page to see the Agentforce Agents menu after turning on Einstein.
+
+1. Toggle on **Agentforce**.
+
+1. Toggle on **Enable the Agentforce (Default) Agent**.
 
 1. From **Setup**, go to **Einstein for Sales** and ensure that **Turn on Sales Emails** is toggled on.
 
