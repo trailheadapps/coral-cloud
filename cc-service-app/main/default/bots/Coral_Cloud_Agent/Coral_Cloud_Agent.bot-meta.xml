@@ -146,24 +146,6 @@
         <developerName>RoutableId</developerName>
         <label>Routable Id</label>
     </contextVariables>
-    <conversationVariables>
-        <dataType>Text</dataType>
-        <description
-        >This variable may also be referred to as VerifiedCustomerId</description>
-        <developerName>VerifiedCustomerId</developerName>
-        <includeInPrompt>false</includeInPrompt>
-        <label>Verified Customer ID</label>
-        <visibility>Internal</visibility>
-    </conversationVariables>
-    <conversationVariables>
-        <dataType>Boolean</dataType>
-        <description
-        >Indicates whether the customer is verified. Set to true if the customer is verified</description>
-        <developerName>IsCustomerVerified</developerName>
-        <includeInPrompt>false</includeInPrompt>
-        <label>IsCustomerVerified</label>
-        <visibility>Internal</visibility>
-    </conversationVariables>
     <defaultOutboundFlow>Route_to_Queue</defaultOutboundFlow>
     <description
     >This is the Coral Cloud Agent that helps customers learn more about Experiences as
