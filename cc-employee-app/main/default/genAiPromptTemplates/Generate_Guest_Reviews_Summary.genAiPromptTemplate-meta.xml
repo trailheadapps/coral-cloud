@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
-    <activeVersion
-    >g8e6IWywKki8fcmzblc3o3liVRxBT/o0dl5GpICFNJE=_1</activeVersion>
-    <createdInVersion>63.0</createdInVersion>
+    <activeVersionIdentifier
+    >g8e6IWywKki8fcmzblc3o3liVRxBT/o0dl5GpICFNJE=_1</activeVersionIdentifier>
     <description
     >This template is used to generate a summary of guest reviews for a resort experience</description>
     <developerName>Generate_Guest_Reviews_Summary</developerName>
