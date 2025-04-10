@@ -61,8 +61,7 @@ jobs:
             - name: 'Install Salesforce CLI with Volta'
               run: |
                   volta install @salesforce/cli
-                  nodeInstallPath=$(npm config get prefix)
-                  echo "$nodeInstallPath/bin" >> $GITHUB_PATH
+                  echo "~/.volta/bin" >> $GITHUB_PATH
                   sf --version
 
             # Install Salesforce CLI Code Analyzer plugin
