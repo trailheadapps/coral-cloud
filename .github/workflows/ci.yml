@@ -84,7 +84,9 @@ jobs:
                   steps.run-code-analyzer.outputs.exit-code > 0 ||
                   steps.run-code-analyzer.outputs.num-sev1-violations > 0 ||
                   steps.run-code-analyzer.outputs.num-sev2-violations > 0
-              run: exit 1
+              run: |
+                  echo One of more Code Analyzer critical or high severity violations found
+                  exit 1
 
             # LWC unit tests
             - name: 'Unit test Lightning Web Components'
