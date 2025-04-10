@@ -6,7 +6,7 @@
       "package": "Coral Cloud - Base",
       "versionName": "Winter '25 release",
       "versionDescription": "Base package for the Coral Cloud sample app",
-      "versionNumber": "1.13.0.NEXT",
+      "versionNumber": "1.14.0.NEXT",
       "definitionFile": "config/cc-base-project-scratch-def.json",
       "apexTestAccess": {
         "permissionSets": [
@@ -48,7 +48,8 @@
     "Coral Cloud - Site@1.6.0-1": "04tWx0000001eOPIAY",
     "Coral Cloud - Base@1.12.0-1": "04tWx0000001fnVIAQ",
     "Coral Cloud - Site@1.7.0-1": "04tWx0000001fqjIAA",
-    "Coral Cloud - Base@1.13.0-1": "04tWx0000001mDtIAI"
+    "Coral Cloud - Base@1.13.0-1": "04tWx0000001mDtIAI",
+    "Coral Cloud - Base@1.14.0-2": "04tWx0000001taLIAQ"
   },
   "replacements": [
     {
