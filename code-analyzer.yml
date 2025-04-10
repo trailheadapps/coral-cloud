@@ -1,0 +1,11 @@
+engines:
+    flowtest:
+        disable_engine: true
+    eslint:
+        auto_discover_eslint_config: true
+        disable_lwc_base_config: true
+    pmd:
+        file_extensions:
+            # Disable Visualforce analysis
+            visualforce:
+                - '.vfnoop'

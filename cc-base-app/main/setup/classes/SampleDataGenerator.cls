@@ -12,15 +12,36 @@ public with sharing class SampleDataGenerator {
 
     @AuraEnabled
     public static Id generateData() {
+        // Check CRUD permissions before DML operations
+        if (
+            !Schema.sObjectType.Booking__c.isDeletable() ||
+            !Schema.sObjectType.Session__c.isDeletable()
+        ) {
+            throw new SecurityException(
+                'Insufficient permissions to delete Booking__c or Session__c records'
+            );
+        }
+
         // Remove current sessions and bookings
-        delete [SELECT Id FROM Booking__c];
-        delete [SELECT Id FROM Session__c];
+        delete [SELECT Id FROM Booking__c WITH USER_MODE];
+        delete [SELECT Id FROM Session__c WITH USER_MODE];
+
+        // Check CRUD permissions before queries
+        if (
+            !Schema.sObjectType.Contact.isAccessible() ||
+            !Schema.sObjectType.Experience__c.isAccessible()
+        ) {
+            throw new SecurityException(
+                'Insufficient permissions to access Contact or Experience__c records'
+            );
+        }
 
         // Get existing contacts and experiences
-        List<Contact> contacts = [SELECT Id FROM Contact];
+        List<Contact> contacts = [SELECT Id FROM Contact WITH USER_MODE];
         List<Experience__c> experiences = [
             SELECT Id, Capacity__c
             FROM Experience__c
+            WITH USER_MODE
         ];
         // Check for exisisting data
         if (contacts.size() == 0 || experiences.size() == 0) {
