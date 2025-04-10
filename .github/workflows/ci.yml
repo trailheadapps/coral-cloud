@@ -62,11 +62,9 @@ jobs:
               run: |
                   npm install @salesforce/cli --location=global
                   nodeInstallPath=$(npm config get prefix)
-                  echo "$nodeInstallPath/bin"
-                  ls "$nodeInstallPath/bin"
-                  echo "~/.volta/bin"
-                  ls "~/.volta/bin"
+                  ls /opt/hostedtoolcache/volta/2.0.2/x64
                   echo "$nodeInstallPath/bin" >> $GITHUB_PATH
+                  cd "$nodeInstallPath/bin"
                   sf --version
 
             # Install Salesforce CLI Code Analyzer plugin
