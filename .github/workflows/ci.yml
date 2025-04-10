@@ -62,7 +62,6 @@ jobs:
               run: |
                   npm install @salesforce/cli --location=global
                   nodeInstallPath=$(npm config get prefix)
-                  ls /opt/hostedtoolcache/volta/2.0.2/x64/bin
                   echo "$nodeInstallPath/bin" >> $GITHUB_PATH
                   cd "$nodeInstallPath/bin"
                   ./sf --version

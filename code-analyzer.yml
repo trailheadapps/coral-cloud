@@ -8,4 +8,4 @@ engines:
         file_extensions:
             # Disable Visualforce analysis
             visualforce:
-                - '.vf-noop'
+                - '.vfnoop'
