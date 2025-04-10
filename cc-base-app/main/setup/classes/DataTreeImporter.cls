@@ -1,8 +1,18 @@
 public with sharing class DataTreeImporter {
-    static String githubContacts = 'https://raw.githubusercontent.com/trailheadapps/coral-cloud/main/data/data-Contact.json';
-    static String githubExperience = 'https://raw.githubusercontent.com/trailheadapps/coral-cloud/main/data/data-Experience__c.json';
-    static String githubGuestReview = 'https://raw.githubusercontent.com/trailheadapps/coral-cloud/main/data/data-Guest_Review__c.json';
-    static String githubCase = 'https://raw.githubusercontent.com/trailheadapps/coral-cloud/main/data/data-Case.json';
+    private static final String GITHUB_BASE_URL = 'https://raw.githubusercontent.com/trailheadapps/coral-cloud/main/data';
+
+    @TestVisible
+    private static final String GITHUB_CONTACTS_URL =
+        GITHUB_BASE_URL + '/data-Contact.json';
+    @TestVisible
+    private static final String GITHUB_EXPERIENCE_URL =
+        GITHUB_BASE_URL + '/data-Experience__c.json';
+    @TestVisible
+    private static final String GITHUB_GUEST_REVIEW_URL =
+        GITHUB_BASE_URL + '/data-Guest_Review__c.json';
+    @TestVisible
+    private static final String GITHUB_CASE_URL =
+        GITHUB_BASE_URL + '/data-Case.json';
 
     public class SObjectTree {
         public List<SObject> records;
@@ -11,29 +21,44 @@ public with sharing class DataTreeImporter {
     @AuraEnabled
     public static void importData() {
         try {
-            // Parse JSON data into a list of ObjectData
-            List<Contact> contacts = (List<Contact>) fetchJsonFromGitHub(
-                githubContacts
-            );
-
-            List<Experience__c> experiences = (List<Experience__c>) fetchJsonFromGitHub(
-                githubExperience
-            );
-
-            List<Guest_Review__c> reviews = (List<Guest_Review__c>) fetchJsonFromGitHub(
-                githubGuestReview
-            );
-            List<Case> cases = (List<Case>) fetchJsonFromGitHub(githubCase);
-
-            insert as user contacts;
-            insert as user experiences;
-
-            // Check CRUD permissions before query
+            // Check Experience__c CRUD permissions
             if (!Schema.sObjectType.Experience__c.isAccessible()) {
                 throw new SecurityException(
                     'Insufficient permissions to access Experience__c'
                 );
             }
+            // Check Contact CRUD permissions
+            if (!Schema.sObjectType.Contact.isAccessible()) {
+                throw new SecurityException(
+                    'Insufficient permissions to access Contact'
+                );
+            }
+
+            // Parse JSON data into a list of ObjectData
+            List<Contact> contacts = (List<Contact>) fetchJsonFromGitHub(
+                GITHUB_CONTACTS_URL
+            );
+            System.debug('Loaded ' + contacts.size() + ' contacts from GitHub');
+
+            List<Experience__c> experiences = (List<Experience__c>) fetchJsonFromGitHub(
+                GITHUB_EXPERIENCE_URL
+            );
+            System.debug(
+                'Loaded ' + experiences.size() + ' experiences from GitHub'
+            );
+
+            List<Guest_Review__c> reviews = (List<Guest_Review__c>) fetchJsonFromGitHub(
+                GITHUB_GUEST_REVIEW_URL
+            );
+            System.debug('Loaded ' + reviews.size() + ' reviews from GitHub');
+
+            List<Case> cases = (List<Case>) fetchJsonFromGitHub(
+                GITHUB_CASE_URL
+            );
+            System.debug('Loaded ' + cases.size() + ' cases from GitHub');
+
+            insert as user contacts;
+            insert as user experiences;
 
             Experience__c experience = [
                 SELECT Id
@@ -49,13 +74,6 @@ public with sharing class DataTreeImporter {
                 newReviews.add(review);
             }
             insert as user newReviews;
-
-            // Check CRUD permissions before query
-            if (!Schema.sObjectType.Contact.isAccessible()) {
-                throw new SecurityException(
-                    'Insufficient permissions to access Contact'
-                );
-            }
 
             Contact cont = [
                 SELECT Id

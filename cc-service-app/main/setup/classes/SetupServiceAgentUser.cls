@@ -1,4 +1,12 @@
 public with sharing class SetupServiceAgentUser {
+    private final static String USERNAME = Test.isRunningTest()
+        ? 'agent-user@mock.com'
+        : 'agent-%%SF_CC_PLACEHOLDER_USERNAME%%';
+    private final static String NICKNAME = Test.isRunningTest()
+        ? 'ccagent-mock'
+        : 'ccagent';
+
+    @TestVisible
     private final static Set<String> PERM_SET_LICENSES = new Set<String>{
         'AgentforceServiceAgentUserPsl',
         'GenieDataPlatformStarterPsl'
@@ -28,17 +36,17 @@ public with sharing class SetupServiceAgentUser {
         List<User> users = [
             SELECT Id
             FROM User
-            WHERE Username = 'agent-%%SF_CC_PLACEHOLDER_USERNAME%%'
+            WHERE Username = :USERNAME
             WITH SECURITY_ENFORCED
             LIMIT 1
         ];
         if (users.size() == 0) {
             u = new user();
             u.LastName = 'Coral Cloud Agent User';
-            u.Email = '%%SF_CC_PLACEHOLDER_USERNAME%%';
+            u.Email = USERNAME;
             u.Alias = 'ccagent';
-            u.Username = 'agent-%%SF_CC_PLACEHOLDER_USERNAME%%';
-            u.CommunityNickname = 'ccagent';
+            u.Username = USERNAME;
+            u.CommunityNickname = NICKNAME;
             u.LocaleSidKey = 'en_US';
             u.TimeZoneSidKey = 'GMT';
             u.ProfileID = p.id;
@@ -131,6 +139,7 @@ public with sharing class SetupServiceAgentUser {
         }
     }
 
+    @TestVisible
     private static void checkSecurityAccess() {
         // Check CRUD permissions for Profile
         if (!Schema.sObjectType.Profile.isAccessible()) {

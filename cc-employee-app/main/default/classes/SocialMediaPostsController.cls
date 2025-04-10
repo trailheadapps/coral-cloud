@@ -15,18 +15,26 @@ public with sharing class SocialMediaPostsController {
         executeTemplateInput.additionalConfig.applicationName = 'PromptBuilderPreview';
         executeTemplateInput.isPreview = false;
         executeTemplateInput.inputParams = inputParams;
+        return runPrompTemplate(executeTemplateInput);
+    }
 
-        try {
-            // Call the service
-            ConnectApi.EinsteinPromptTemplateGenerationsRepresentation generationsOutput = ConnectApi.EinsteinLLM.generateMessagesForPromptTemplate(
-                'Generate_Social_Media_Posts',
-                executeTemplateInput
+    private static String runPrompTemplate(
+        ConnectApi.EinsteinPromptTemplateGenerationsInput executeTemplateInput
+    ) {
+        // Connect API is not available in test context so we'll fake the response
+        if (Test.isRunningTest()) {
+            ConnectApi.WrappedValue wrappedVal = executeTemplateInput.inputParams.get(
+                'Input:experienceSession'
             );
-            ConnectApi.EinsteinLLMGenerationItemOutput response = generationsOutput.generations[0];
-            return response.text;
-        } catch (Exception e) {
-            System.debug(e.getMessage());
-            throw e;
+            Map<String, String> params = (Map<String, String>) wrappedVal.value;
+            return 'Fake call with ' + params.get('id');
         }
+        // Generate the response based on the prompt template
+        ConnectApi.EinsteinPromptTemplateGenerationsRepresentation generationsOutput = ConnectApi.EinsteinLLM.generateMessagesForPromptTemplate(
+            'Generate_Social_Media_Posts',
+            executeTemplateInput
+        );
+        ConnectApi.EinsteinLLMGenerationItemOutput response = generationsOutput.generations[0];
+        return response.text;
     }
 }
