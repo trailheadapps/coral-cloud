@@ -13,7 +13,8 @@
         "prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
         "prettier:verify": "prettier --check \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
         "prepare": "husky || true",
-        "precommit": "lint-staged"
+        "precommit": "lint-staged",
+        "code-analyzer": "sf code-analyzer run --workspace \"cc-*/**\" --view detail --output-file \"sca-results.csv\" --config-file \"code-analyzer.yml\""
     },
     "lint-staged": {
         "**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}": [
