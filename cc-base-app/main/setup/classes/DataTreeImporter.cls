@@ -28,10 +28,18 @@ public with sharing class DataTreeImporter {
             insert as user contacts;
             insert as user experiences;
 
+            // Check CRUD permissions before query
+            if (!Schema.sObjectType.Experience__c.isAccessible()) {
+                throw new SecurityException(
+                    'Insufficient permissions to access Experience__c'
+                );
+            }
+
             Experience__c experience = [
                 SELECT Id
                 FROM Experience__c
                 WHERE Name = 'Tropical Snorkel Adventure'
+                WITH USER_MODE
             ];
 
             List<Guest_Review__c> newReviews = new List<Guest_Review__c>();
@@ -42,10 +50,18 @@ public with sharing class DataTreeImporter {
             }
             insert as user newReviews;
 
+            // Check CRUD permissions before query
+            if (!Schema.sObjectType.Contact.isAccessible()) {
+                throw new SecurityException(
+                    'Insufficient permissions to access Contact'
+                );
+            }
+
             Contact cont = [
                 SELECT Id
                 FROM Contact
                 WHERE LastName = 'Rodriguez'
+                WITH USER_MODE
             ];
             for (Case c : cases) {
                 c.ContactId = cont.Id;

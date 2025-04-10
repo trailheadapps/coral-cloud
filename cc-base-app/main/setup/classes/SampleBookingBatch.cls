@@ -74,6 +74,8 @@ public with sharing class SampleBookingBatch implements Database.Batchable<Sessi
         insert bookings;
     }
 
+    // Suppress PMD warning as this is a required method in the Batchable interface
+    @SuppressWarnings('PMD.EmptyStatementBlock')
     public void finish(Database.BatchableContext bc) {
     }
 }
