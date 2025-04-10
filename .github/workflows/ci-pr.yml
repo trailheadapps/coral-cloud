@@ -79,7 +79,10 @@ jobs:
               run: |
                   npm install @salesforce/cli --location=global
                   nodeInstallPath=$(npm config get prefix)
-                  echo $nodeInstallPath
+                  echo "$nodeInstallPath/bin"
+                  ls "$nodeInstallPath/bin"
+                  echo "~/.volta/bin"
+                  ls "~/.volta/bin"
                   echo "$nodeInstallPath/bin" >> $GITHUB_PATH
                   sf --version
 
