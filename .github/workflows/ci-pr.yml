@@ -74,10 +74,10 @@ jobs:
             - name: 'Code formatting verification with Prettier'
               run: npm run prettier:verify
 
-            # Install Salesforce CLI
-            - name: 'Install Salesforce CLI'
+            # Install Salesforce CLI with Volta
+            - name: 'Install Salesforce CLI with Volta'
               run: |
-                  npm install @salesforce/cli --location=global
+                  volta install @salesforce/cli
                   nodeInstallPath=$(npm config get prefix)
                   echo "$nodeInstallPath/bin" >> $GITHUB_PATH
                   sf --version
