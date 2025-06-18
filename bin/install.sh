@@ -40,7 +40,6 @@ fi
 echo "STOP: ensure that you've toggled on the following features:"
 echo " * Einstein"
 echo " * Agents"
-echo " * Einstein for Sales - Sales Emails"
 read -p "Are the above features enabled? [yY]: " -n 1 -r
 echo ""
 echo ""
