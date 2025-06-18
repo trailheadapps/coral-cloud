@@ -38,12 +38,17 @@ cmd.exe /c sf project deploy start -d cc-base-app
 call :checkForError
 @echo:
 
+echo Assigning Prompt Template Manage permission set...
+cmd.exe /c sf org assign permset -n EinsteinGPTPromptTemplateManager
+call :checkForError
+@echo:
+
 echo Pushing employee-app source...
 cmd.exe /c sf project deploy start -d cc-employee-app
 call :checkForError
 @echo:
 
-echo Assigning permission sets...
+echo Assigning Coral Cloud permission set...
 cmd.exe /c sf org assign permset -n Coral_Cloud
 call :checkForError
 @echo:

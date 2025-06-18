@@ -22,19 +22,21 @@ private class CheckWeatherTest {
 
         // Verify response
         Assert.areEqual(1, responses.size(), 'Should return one response');
+        WeatherService.Weather weather = responses[0].weather;
         Assert.areEqual(
             10,
-            responses[0].minTemperature,
+            weather.minTemperatureC,
             'Minimum temperature should be 10°C'
         );
         Assert.areEqual(
             30,
-            responses[0].maxTemperature,
+            weather.maxTemperatureC,
             'Maximum temperature should be 30°C'
         );
-        Assert.areEqual(
-            'Temperatures will be between 10.0°C (50.0°F) and 30.0°C (86.0°F) at Coral Cloud Resorts.',
-            responses[0].temperatureDescription,
+        Assert.isTrue(
+            weather.description.containsIgnoreCase(
+                'between 10.0°C (50.0°F) and 30.0°C (86.0°F) at Coral Cloud Resorts.'
+            ),
             'Temperature description should match expected format'
         );
     }

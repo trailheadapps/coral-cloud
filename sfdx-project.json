@@ -39,7 +39,7 @@
   "name": "Coral Cloud Resorts",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "63.0",
+  "sourceApiVersion": "64.0",
   "packageAliases": {
     "Coral Cloud - Base": "0HoWx00000000mPKAQ",
     "Coral Cloud - Site": "0HoWx00000001ddKAA",

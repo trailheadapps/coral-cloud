@@ -35,23 +35,25 @@ public class WeatherService {
             body,
             WeatherAPIResponse.class
         );
-        List<Decimal> temperatures = new List<Decimal>();
-        for (TemperatureWrapper item : weatherResponse.weather) {
+
+        // Get the hourly temperatures
+        List<Double> temperatures = new List<Double>();
+        for (WeatherApiItemWrapper item : weatherResponse.weather) {
             if (item.temperature != null) {
                 temperatures.add(item.temperature);
             }
         }
         temperatures.sort();
 
-        // Prepare temperatures and description
-        Decimal minTempC = temperatures[0];
-        Decimal maxTempC = temperatures[temperatures.size() - 1];
-        Decimal minTempF = toFahrenheit(minTempC);
-        Decimal maxTempF = toFahrenheit(maxTempC);
+        // Prepare min and max temperatures and description
+        Double minTempC = temperatures[0];
+        Double maxTempC = temperatures[temperatures.size() - 1];
+        Double minTempF = toFahrenheit(minTempC);
+        Double maxTempF = toFahrenheit(maxTempC);
         String description =
             'On ' +
             dateString +
-            ', temperature should be between ' +
+            ', temperature will be between ' +
             minTempC +
             '°C (' +
             minTempF +
@@ -61,6 +63,9 @@ public class WeatherService {
             maxTempF +
             '°F) at Coral Cloud Resorts.';
 
+        // Get the icon name
+        String iconName = weatherResponse.weather[0].icon ?? 'clear-day';
+
         // Return weather info
         Weather weather = new Weather();
         weather.minTemperatureC = minTempC;
@@ -68,26 +73,36 @@ public class WeatherService {
         weather.maxTemperatureC = maxTempC;
         weather.maxTemperatureF = maxTempF;
         weather.description = description;
+        weather.iconName = iconName;
         return weather;
     }
 
-    private static Decimal toFahrenheit(Decimal celsius) {
-        return (celsius * 9 / 5 + 32).setScale(1);
+    private static Double toFahrenheit(Double celsius) {
+        Decimal value = Decimal.valueOf(celsius * 9 / 5 + 32).setScale(1);
+        return value.doubleValue();
     }
 
     private class WeatherApiResponse {
-        public List<TemperatureWrapper> weather;
+        public List<WeatherApiItemWrapper> weather;
     }
 
-    private class TemperatureWrapper {
-        public Decimal temperature;
+    private class WeatherApiItemWrapper {
+        public Double temperature;
+        public String icon;
     }
 
     public class Weather {
-        public Decimal minTemperatureC;
-        public Decimal minTemperatureF;
-        public Decimal maxTemperatureC;
-        public Decimal maxTemperatureF;
+        @InvocableVariable
+        public Double minTemperatureC;
+        @InvocableVariable
+        public Double minTemperatureF;
+        @InvocableVariable
+        public Double maxTemperatureC;
+        @InvocableVariable
+        public Double maxTemperatureF;
+        @InvocableVariable
         public String description;
+        @InvocableVariable
+        public String iconName;
     }
 }
