@@ -8,6 +8,9 @@
         "LiveAgent",
         "Sites",
         "FlowSites",
+        "CustomerDataPlatform",
+        "Copilot",
+        "EINSTEINGPTPROMPTBUILDER",
         "PublishExpBuilderBasedSna",
         "EnableSetPasswordInApi"
     ],
@@ -28,6 +31,12 @@
         "omniChannelSettings": { "enableOmniChannel": true },
         "userEngagementSettings": {
             "enableShowSalesforceUserAssist": false
+        },
+        "customerDataPlatformSettings": {
+            "enableCustomerDataPlatform": true
+        },
+        "EinsteinGptSettings": {
+            "enableEinsteinGptPlatform": true
         }
     }
 }
