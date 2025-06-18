@@ -34,9 +34,9 @@
         "url": "git+https://github.com/trailheadapps/coral-cloud"
     },
     "devDependencies": {
-        "@lwc/eslint-plugin-lwc": "^2.1.0",
+        "@lwc/eslint-plugin-lwc": "^2.2.0",
         "@prettier/plugin-xml": "^3.4.1",
-        "@sa11y/jest": "^7.0.0",
+        "@sa11y/jest": "^7.2.9",
         "@salesforce/eslint-config-lwc": "^3.7.1",
         "@salesforce/eslint-plugin-lightning": "^1.0.1",
         "@salesforce/sfdx-lwc-jest": "^7.0.2",
@@ -44,11 +44,11 @@
         "eslint-plugin-import": "^2.31.0",
         "eslint-plugin-jest": "^28.11.0",
         "husky": "^9.1.7",
-        "lint-staged": "^15.5.0",
+        "lint-staged": "^16.1.2",
         "prettier": "^3.5.3",
         "prettier-plugin-apex": "^2.2.6"
     },
     "volta": {
-        "node": "20.13.1"
+        "node": "22.16.0"
     }
 }
