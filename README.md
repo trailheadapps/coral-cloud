@@ -27,7 +27,6 @@ The Coral Cloud Resorts app requires licenses for the following features:
 - Data Cloud
 - Agents
 - Prompt Builder field generation templates
-- Einstein for Sales (for Prompt Builder sales emails)
 
 <div>
     <img src="https://res.cloudinary.com/hy4kyit2a/f_auto,fl_lossy,q_70,w_50/learn/projects/quick-start-explore-the-coral-cloud-sample-app/1a059541a60d078109227d8f3a83404a_badge.png" align="left" alt="Trailhead Badge"/>
