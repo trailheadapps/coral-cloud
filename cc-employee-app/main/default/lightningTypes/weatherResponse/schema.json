@@ -1,5 +1,5 @@
 {
     "title": "Weather Response",
     "description": "Weather Response",
-    "lightning:type": "@apexClassType/c__CheckWeather$Weather"
+    "lightning:type": "@apexClassType/c__WeatherService$Weather"
 }

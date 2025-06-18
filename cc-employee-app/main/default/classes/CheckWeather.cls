@@ -10,16 +10,7 @@ public with sharing class CheckWeather {
         Datetime dateToCheck = (Datetime) requests[0].dateToCheck;
 
         WeatherResponse response = new WeatherResponse();
-        //response.weather = WeatherService.getResortWeather(dateToCheck);
-
-        response.weather = new Weather();
-        response.weather.minTemperatureC = 20;
-        response.weather.minTemperatureF = 68;
-        response.weather.maxTemperatureC = 30;
-        response.weather.maxTemperatureF = 86;
-        response.weather.description = 'Sunny with a high of 70°F and a low of 50°F';
-        response.weather.iconName = 'clear-day';
-
+        response.weather = WeatherService.getResortWeather(dateToCheck);
         return new List<WeatherResponse>{ response };
     }
 
@@ -33,21 +24,6 @@ public with sharing class CheckWeather {
 
     public class WeatherResponse {
         @InvocableVariable(description='Weather details for the provided date')
-        public Weather weather;
-    }
-
-    public class Weather {
-        @InvocableVariable
-        public Double minTemperatureC;
-        @InvocableVariable
-        public Double minTemperatureF;
-        @InvocableVariable
-        public Double maxTemperatureC;
-        @InvocableVariable
-        public Double maxTemperatureF;
-        @InvocableVariable
-        public String description;
-        @InvocableVariable
-        public String iconName;
+        public WeatherService.Weather weather;
     }
 }
