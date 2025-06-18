@@ -25,7 +25,7 @@ private class WeatherServiceTest {
         Assert.areEqual(30.0, weather.maxTemperatureC);
         Assert.areEqual(86.0, weather.maxTemperatureF);
         Assert.areEqual(
-            'On July 14, temperature should be between 10.0°C (50.0°F) and 30.0°C (86.0°F) at Coral Cloud Resorts.',
+            'On July 14, temperature will be between 10.0°C (50.0°F) and 30.0°C (86.0°F) at Coral Cloud Resorts.',
             weather.description
         );
     }
