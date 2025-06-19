@@ -663,10 +663,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>EinsteinGPTSalesEmailsUser</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>EmailMass</name>
     </userPermissions>
     <userPermissions>

@@ -39,6 +39,7 @@ $RECYCLE.BIN/
 
 # Salesforce Analyzer results
 sca-results.csv
+sfca_results.json
 
 # Local environment variables
 .env

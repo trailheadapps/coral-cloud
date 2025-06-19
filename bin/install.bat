@@ -26,7 +26,6 @@ if /i "%errorlevel%" neq "1" (
 echo STOP: ensure that you've toggled on the following features:
 echo  * Einstein
 echo  * Agents
-echo  * Einstein for Sales - Sales Emails
 choice /c yn /n /m "Are the above features enabled? [y]"
 @echo:
 if /i "%errorlevel%" neq "1" (
