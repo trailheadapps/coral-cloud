@@ -9,13 +9,16 @@ export default class WeatherCard extends LightningElement {
     value;
 
     unit = 'celsius';
-    unitOptions = [
-        { label: '°C', value: 'celsius' },
-        { label: '°F', value: 'fahrenheit' }
-    ];
 
     handleUnitChange(event) {
         this.unit = event.detail.value;
+    }
+
+    get unitOptions() {
+        return [
+            { label: '°C', value: 'celsius' },
+            { label: '°F', value: 'fahrenheit' }
+        ];
     }
 
     get imageSrc() {
