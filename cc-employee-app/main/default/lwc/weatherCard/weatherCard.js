@@ -28,15 +28,15 @@ export default class WeatherCard extends LightningElement {
 
     get minTemp() {
         if (this.unit === 'celsius') {
-            return `${this.value?.minTemperatureC} °C` || '-';
+            return `${this.value?.minTemperatureC || '-'} °C`;
         }
-        return `${this.value?.minTemperatureF} °F` || '-';
+        return `${this.value?.minTemperatureF || '-'} °F`;
     }
 
     get maxTemp() {
         if (this.unit === 'celsius') {
-            return `${this.value?.maxTemperatureC} °C` || '-';
+            return `${this.value?.maxTemperature || '-'} °C`;
         }
-        return `${this.value?.maxTemperatureF} °F` || '-';
+        return `${this.value?.maxTemperatureF || '-'} °F`;
     }
 }

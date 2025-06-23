@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "description": "Coral Cloud sample app",
     "scripts": {
-        "lint": "eslint **/lwc/**/*.js",
+        "lint": "eslint .",
         "test": "npm run test:unit",
         "test:unit": "sfdx-lwc-jest",
         "test:unit:watch": "sfdx-lwc-jest --watch",
@@ -20,7 +20,7 @@
         "**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}": [
             "prettier --write"
         ],
-        "**/lwc/**/*.js": [
+        "**/*.js": [
             "eslint"
         ],
         "**/lwc/**": [
