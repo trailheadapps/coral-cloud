@@ -1,0 +1,8 @@
+:host {
+    --slds-c-card-sizing-border: 1px; /* Force visible card border in agent conversation */
+}
+
+.weather-card-body {
+    margin-top: -0.75rem;
+    margin-bottom: -0.75rem;
+}

@@ -1,0 +1,36 @@
+<template>
+    <lightning-card title="Weather">
+        <div slot="actions">
+            <lightning-radio-group
+                name="unitGroup"
+                label="Unit"
+                options={unitOptions}
+                value={unit}
+                onchange={handleUnitChange}
+                type="button"
+                variant="label-hidden"
+            ></lightning-radio-group>
+        </div>
+        <div class="slds-grid slds-wrap weather-card-body">
+            <div class="slds-col slds-text-align_center">
+                <img
+                    src={imageSrc}
+                    width="100"
+                    height="100"
+                    alt="Weather icon"
+                />
+            </div>
+            <div class="slds-col slds-align-middle slds-var-p-left_small">
+                <div class="slds-text-heading_small slds-var-m-bottom_x-small">
+                    Temperature
+                </div>
+                <dl class="slds-dl_horizontal">
+                    <dt class="slds-dl_horizontal__label">Min:</dt>
+                    <dd class="slds-dl_horizontal__detail">{minTemp}</dd>
+                    <dt class="slds-dl_horizontal__label">Max:</dt>
+                    <dd class="slds-dl_horizontal__detail">{maxTemp}</dd>
+                </dl>
+            </div>
+        </div>
+    </lightning-card>
+</template>

@@ -54,11 +54,15 @@ echo "Pushing base source..." && \
 sf project deploy start -d cc-base-app && \
 echo "" && \
 
+echo "Assigning Prompt Template Manager permission set..." && \
+sf org assign permset -n EinsteinGPTPromptTemplateManager && \
+echo "" && \
+
 echo "Pushing employee source..." && \
 sf project deploy start -d cc-employee-app && \
 echo "" && \
 
-echo "Assigning permission sets..." && \
+echo "Assigning Coral Cloud permission set..." && \
 sf org assign permset -n Coral_Cloud && \
 echo "" && \
 
