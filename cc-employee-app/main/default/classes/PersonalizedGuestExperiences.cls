@@ -1,7 +1,10 @@
 public with sharing class PersonalizedGuestExperiences {
     // Make this method available for grounding
     // the Generate_Personalized_Schedule prompt template
-    @InvocableMethod
+    @InvocableMethod(
+        label='Get sessions of interest for today'
+        description='Get today\'s sessions that match the user\'s interests.'
+    )
     public static List<Response> getSessions(List<Request> requests) {
         Request input = requests[0];
         Contact contact = input.myContact;
