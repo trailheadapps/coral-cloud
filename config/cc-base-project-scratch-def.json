@@ -6,11 +6,13 @@
         "Communities",
         "ServiceCloud",
         "LiveAgent",
+        "LiveMessage",
         "Sites",
         "FlowSites",
         "CustomerDataPlatform",
         "Einstein1AIPlatform",
         "PublishExpBuilderBasedSna",
+        "EmbeddedServiceMessaging",
         "EnableSetPasswordInApi"
     ],
     "settings": {
@@ -24,6 +26,7 @@
             "enableS1DesktopEnabled": true
         },
         "liveAgentSettings": { "enableLiveAgent": true },
+        "liveMessageSettings": { "enableLiveMessage": true },
         "mobileSettings": {
             "enableS1EncryptedStoragePref2": false
         },
@@ -36,6 +39,9 @@
         },
         "EinsteinGptSettings": {
             "enableEinsteinGptPlatform": true
+        },
+        "agentPlatformSettings": {
+            "enableAgentPlatform": true
         }
     }
 }

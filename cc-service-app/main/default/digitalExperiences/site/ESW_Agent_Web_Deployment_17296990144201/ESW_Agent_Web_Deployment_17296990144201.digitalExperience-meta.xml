@@ -7,13 +7,5 @@
             <fullyQualifiedName>sfdc_cms__collection</fullyQualifiedName>
             <status>ENABLED</status>
         </module>
-        <module>
-            <fullyQualifiedName>sfdc_cms__channelManagement</fullyQualifiedName>
-            <status>ENABLED</status>
-        </module>
-        <module>
-            <fullyQualifiedName>sfdc_cms__userManagement</fullyQualifiedName>
-            <status>ENABLED</status>
-        </module>
     </modules>
 </DigitalExperienceBundle>

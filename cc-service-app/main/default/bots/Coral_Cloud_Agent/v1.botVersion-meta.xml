@@ -75,27 +75,27 @@
     <citationsEnabled>false</citationsEnabled>
     <company
     >Coral Cloud Resorts is a fictitious seaside resort that manages guests and their reservations. It offers a rich set of experiences.</company>
-    <conversationVariables>
-        <dataType>Text</dataType>
-        <description
-        >This variable may also be referred to as VerifiedCustomerId</description>
-        <developerName>VerifiedCustomerId</developerName>
-        <includeInPrompt>false</includeInPrompt>
-        <label>Verified Customer ID</label>
-        <visibility>Internal</visibility>
-    </conversationVariables>
+    <conversationDefinitionPlanners>
+        <genAiPlannerName>Coral_Cloud_Agent</genAiPlannerName>
+    </conversationDefinitionPlanners>
     <conversationVariables>
         <dataType>Boolean</dataType>
         <description
         >Indicates whether the customer is verified. Set to true if the customer is verified</description>
         <developerName>IsCustomerVerified</developerName>
-        <includeInPrompt>false</includeInPrompt>
+        <includeInPrompt>true</includeInPrompt>
         <label>IsCustomerVerified</label>
-        <visibility>Internal</visibility>
+        <visibility>External</visibility>
     </conversationVariables>
-    <conversationDefinitionPlanners>
-        <genAiPlannerName>Coral_Cloud_Agent</genAiPlannerName>
-    </conversationDefinitionPlanners>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description
+        >This variable may also be referred to as VerifiedCustomerId</description>
+        <developerName>VerifiedCustomerId</developerName>
+        <includeInPrompt>true</includeInPrompt>
+        <label>Verified Customer ID</label>
+        <visibility>External</visibility>
+    </conversationVariables>
     <entryDialog>Welcome</entryDialog>
     <intentDisambiguationEnabled>false</intentDisambiguationEnabled>
     <intentV3Enabled>false</intentV3Enabled>

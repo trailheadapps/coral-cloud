@@ -19,12 +19,16 @@
         <functionName>Get_Customer_Details</functionName>
     </genAiFunctions>
     <genAiPluginInstructions>
-        <description>1. Always check if the customer is verified before doing anything else. A customer is verified only if {!IsCustomerVerified} is true; if it’s false, the customer is not verified.
-
-2. If the customer is not verified, politely ask for both their email address and membership number. Then use that information to run the &quot;Get Customer Details&quot; action to complete the verification process.</description>
-        <developerName>instruction_alwayschec0</developerName>
+        <description>If asked to get sessions for the experience, use the &apos;Get Sessions&apos; action. Ask for the date of the sessions if not provided. Use the Id of the Experience__c from the &apos;Get Experience Details&apos;.</description>
+        <developerName>instruction_ifaskedtog0</developerName>
         <language>en_US</language>
-        <masterLabel>instruction_alwayschec0</masterLabel>
+        <masterLabel>instruction_ifaskedtog0</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If asked to book, use the action &apos;Create Booking&apos;. The Session__c is the ID of the session from the action &apos;Get Sessions&apos;. If multiple sessions are present, ask to select one of the sessions—do not display the Id, display the Start_Time__c—and use that Session as the ID for the Session__c. Prompt for the Number of Guests and use that for the Number_of_Guests__c.</description>
+        <developerName>instruction_ifaskedtob1</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifaskedtob1</masterLabel>
     </genAiPluginInstructions>
     <language>en_US</language>
     <masterLabel>Customer Experience Support</masterLabel>

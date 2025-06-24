@@ -50,31 +50,31 @@ then
   exit 1
 fi
 
-echo "Pushing base source..." && \
+echo "[1/7] Pushing base source..." && \
 sf project deploy start -d cc-base-app && \
 echo "" && \
 
-echo "Assigning Prompt Template Manager permission set..." && \
+echo "[2/7] Assigning Prompt Template Manager permission set..." && \
 sf org assign permset -n EinsteinGPTPromptTemplateManager && \
 echo "" && \
 
-echo "Pushing employee source..." && \
+echo "[3/7] Pushing employee source..." && \
 sf project deploy start -d cc-employee-app && \
 echo "" && \
 
-echo "Assigning Coral Cloud permission set..." && \
+echo "[4/7] Assigning Coral Cloud permission set..." && \
 sf org assign permset -n Coral_Cloud && \
 echo "" && \
 
-echo "Importing sample data..." && \
+echo "[5/7] Importing sample data..." && \
 sf data tree import -p data/data-plan.json && \
 echo "" && \
 
-echo "Generate additional sample data..." && \
+echo "[6/7] Generate additional sample data..." && \
 sf apex run -f apex-scripts/setup.apex && \
 echo "" && \
 
-echo "Installing Data Kit..." && \
+echo "[7/7] Installing Data Kit..." && \
 sf package install -p 04tHr000000ku4k -w 10 && \
 echo "" && \
 
