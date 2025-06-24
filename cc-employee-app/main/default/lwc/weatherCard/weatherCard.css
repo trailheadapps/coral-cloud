@@ -1,5 +1,5 @@
 :host {
-    --slds-c-card-sizing-border: 1px; /* Force visible card border in agent conversation */
+    --slds-c-card-sizing-border: 1px;
 }
 
 .weather-card-body {

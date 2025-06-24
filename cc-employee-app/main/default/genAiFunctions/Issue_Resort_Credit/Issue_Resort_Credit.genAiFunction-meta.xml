@@ -4,5 +4,6 @@
     <invocationTarget>Issue_Resort_Credit</invocationTarget>
     <invocationTargetType>flow</invocationTargetType>
     <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
     <masterLabel>Issue Resort Credit</masterLabel>
 </GenAiFunction>
