@@ -17,5 +17,5 @@
     <isTermsAndConditionsRequired>false</isTermsAndConditionsRequired>
     <masterLabel>Agent Web Deployment</masterLabel>
     <shouldHideAuthDialog>false</shouldHideAuthDialog>
-    <site>ESW_Agent_Web_Deployment_17296990144201</site>
+    <site>ESA_Deployment1</site>
 </EmbeddedServiceConfig>

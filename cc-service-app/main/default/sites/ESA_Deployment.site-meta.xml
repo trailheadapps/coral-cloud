@@ -20,13 +20,12 @@
     <genericErrorPage>Exception</genericErrorPage>
     <inMaintenancePage>InMaintenance</inMaintenancePage>
     <indexPage>CommunitiesLanding</indexPage>
-    <masterLabel>ESW_Agent_Web_Deployment_1729699014420</masterLabel>
+    <masterLabel>ESA_Deployment</masterLabel>
     <redirectToCustomDomain>false</redirectToCustomDomain>
     <referrerPolicyOriginWhenCrossOrigin
     >true</referrerPolicyOriginWhenCrossOrigin>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <serverIsDown
-    >SNA_HUpnp_sf_default_cdn_ESW_Agent_Web_Deployment_17296990144201</serverIsDown>
+    <serverIsDown>SNA_HUpnp_sf_default_cdn_ESA_Deployment1</serverIsDown>
     <siteIframeWhiteListUrls>
         <url>my.site.com</url>
     </siteIframeWhiteListUrls>
@@ -37,5 +36,5 @@
         <url>*.vf.force.com</url>
     </siteIframeWhiteListUrls>
     <siteType>ChatterNetwork</siteType>
-    <urlPathPrefix>ESWAgentWebDeployment1729699014420vforce</urlPathPrefix>
+    <urlPathPrefix>ESADeploymentvforce</urlPathPrefix>
 </CustomSite>
