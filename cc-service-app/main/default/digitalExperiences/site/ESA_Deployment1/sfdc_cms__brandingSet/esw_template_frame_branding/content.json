@@ -1,6 +1,6 @@
 {
     "type": "sfdc_cms__brandingSet",
-    "title": "esw-template-frame:branding",
+    "title": "Embedded Service for Web (LWR)",
     "contentBody": {
         "brandingSetType": "APP",
         "definitionName": "esw-template-frame:branding",

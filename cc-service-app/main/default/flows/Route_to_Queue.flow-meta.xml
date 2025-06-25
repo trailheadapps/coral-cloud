@@ -5,8 +5,8 @@
         >Route the messaging session to the default queue</description>
         <name>Route_to_Queue</name>
         <label>Route to Queue</label>
-        <locationX>176</locationX>
-        <locationY>458</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <actionName>routeWork</actionName>
         <actionType>routeWork</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -84,9 +84,9 @@
         </inputParameters>
         <nameSegment>routeWork</nameSegment>
         <offset>0</offset>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <description
     >Create a case and route it to a queue so that it can be picked up by an Agent.</description>
     <environments>Default</environments>
@@ -114,8 +114,8 @@
     <recordCreates>
         <name>Create_Case</name>
         <label>Create Case</label>
-        <locationX>176</locationX>
-        <locationY>242</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <connector>
             <targetReference>Update_Messaging_Session</targetReference>
         </connector>
@@ -151,8 +151,8 @@
         >The a default contact to assign to a new case and messaging session.</description>
         <name>Get_Contact</name>
         <label>Get Contact</label>
-        <locationX>176</locationX>
-        <locationY>134</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound
         >false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -175,8 +175,8 @@
         >Update the messaging session with the created Case Id.</description>
         <name>Update_Messaging_Session</name>
         <label>Update Messaging Session</label>
-        <locationX>176</locationX>
-        <locationY>350</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <connector>
             <targetReference>Route_to_Queue</targetReference>
         </connector>
@@ -194,7 +194,7 @@
         <object>MessagingSession</object>
     </recordUpdates>
     <start>
-        <locationX>50</locationX>
+        <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_Contact</targetReference>

@@ -33,37 +33,37 @@ if /i "%errorlevel%" neq "1" (
   exit /b %errorlevel%
 )
 
-echo Pushing base source...
+echo "[1/7] Pushing base source..."
 cmd.exe /c sf project deploy start -d cc-base-app
 call :checkForError
 @echo:
 
-echo Assigning Prompt Template Manage permission set...
+echo "[2/7] Assigning Prompt Template Manage permission set..."
 cmd.exe /c sf org assign permset -n EinsteinGPTPromptTemplateManager
 call :checkForError
 @echo:
 
-echo Pushing employee-app source...
+echo "[3/7] Pushing employee-app source..."
 cmd.exe /c sf project deploy start -d cc-employee-app
 call :checkForError
 @echo:
 
-echo Assigning Coral Cloud permission set...
+echo "[4/7] Assigning Coral Cloud permission set..."
 cmd.exe /c sf org assign permset -n Coral_Cloud
 call :checkForError
 @echo:
 
-echo Importing sample data...
+echo "[5/7] Importing sample data..."
 cmd.exe /c sf data tree import -p data/data-plan.json
 call :checkForError
 @echo:
 
-echo Generate additional sample data...
+echo "[6/7] Generate additional sample data..."
 cmd.exe /c sf apex run -f apex-scripts/setup.apex
 call :checkForError
 @echo:
 
-echo Installing Data Kit...
+echo "[7/7] Installing Data Kit..."
 cmd.exe /c sf package install -p 04tHr000000ku4k -w 10
 call :checkForError
 @echo:

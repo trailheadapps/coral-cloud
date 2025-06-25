@@ -5,8 +5,8 @@
         >Route the messaging session to the Coral Cloud Agent</description>
         <name>Route_to_Agent</name>
         <label>Route to Agent</label>
-        <locationX>176</locationX>
-        <locationY>134</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <actionName>routeWork</actionName>
         <actionType>routeWork</actionType>
         <connector>
@@ -93,9 +93,9 @@
         </inputParameters>
         <nameSegment>routeWork</nameSegment>
         <offset>0</offset>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <environments>Default</environments>
     <interviewLabel>Route to Agent {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Route to Agent</label>
@@ -123,8 +123,8 @@
         >Get the related messaging session that you would like to route to an agent.</description>
         <name>Get_Messaging_Session</name>
         <label>Get Messaging Session</label>
-        <locationX>176</locationX>
-        <locationY>242</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound
         >false</assignNullValuesIfNoRecordsFound>
         <filterLogic>and</filterLogic>
@@ -140,7 +140,7 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <start>
-        <locationX>50</locationX>
+        <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Route_to_Agent</targetReference>

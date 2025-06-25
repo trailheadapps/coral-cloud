@@ -10,7 +10,7 @@
     <disableReputationRecordConversations
     >true</disableReputationRecordConversations>
     <emailSenderAddress>%%SF_CC_PLACEHOLDER_USERNAME%%</emailSenderAddress>
-    <emailSenderName>ESW_Agent_Web_Deployment_1729699014420</emailSenderName>
+    <emailSenderName>ESA_Deployment</emailSenderName>
     <embeddedLoginEnabled>false</embeddedLoginEnabled>
     <enableApexCDNCaching>true</enableApexCDNCaching>
     <enableCustomVFErrorPageOverrides>false</enableCustomVFErrorPageOverrides>
@@ -55,17 +55,17 @@
         <selfRegProfilePageOverrideSetting
         >Designer</selfRegProfilePageOverrideSetting>
     </networkPageOverrides>
-    <picassoSite>ESW_Agent_Web_Deployment_17296990144201</picassoSite>
+    <picassoSite>ESA_Deployment1</picassoSite>
     <selfRegistration>false</selfRegistration>
     <sendWelcomeEmail>false</sendWelcomeEmail>
-    <site>ESW_Agent_Web_Deployment_1729699014420</site>
+    <site>ESA_Deployment</site>
     <siteArchiveStatus>NotArchived</siteArchiveStatus>
     <status>Live</status>
     <tabs>
         <defaultTab>home</defaultTab>
         <standardTab>Chatter</standardTab>
     </tabs>
-    <urlPathPrefix>ESWAgentWebDeployment1729699014420vforce</urlPathPrefix>
+    <urlPathPrefix>ESADeploymentvforce</urlPathPrefix>
     <welcomeTemplate
     >unfiled$public/CommunityWelcomeEmailTemplate</welcomeTemplate>
 </Network>
