@@ -13,7 +13,7 @@ if [[ $DEFAULT_ORG_INFO =~ $VALUE_REGEX ]]
 then
     ORG_ALIAS="${BASH_REMATCH[1]}"
     echo "Using current default org: $ORG_ALIAS"
-    echo "Exporting org alias and subdomain for use in scripts:"
+    echo "Exporting username and org domain for use in scripts:"
     export SF_CC_PLACEHOLDER_USERNAME=$(sf org display --json | grep -o '"username": "[^"]*' | cut -d'"' -f4)
     echo "- Username: $SF_CC_PLACEHOLDER_USERNAME"
     export SF_CC_PLACEHOLDER_DOMAIN=$(sf org display --json | grep -o '"instanceUrl": "https[^"]*' | cut -d'"' -f4 | sed -E 's|https?://([^\.]+).*|\1|')
