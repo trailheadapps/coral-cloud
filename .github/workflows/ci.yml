@@ -133,19 +133,27 @@ jobs:
 
             # Create scratch org
             - name: 'Create scratch org'
-              run: sf org create scratch -f config/cc-base-project-scratch-def.json -a scratch-org -d -y 1
+              run: sf org create scratch -f config/cc-base-project-scratch-def.json -a scratch-org -d -y 1 -w 10
 
             # Modify local metadata for packaging
             - name: 'Modify local metadata for packaging'
               run: |
                   sed '/<actionCalls>/,/<\/actionCalls>/d' cc-base-app/main/default/flows/PersonalizedSchedule.flow-meta.xml > cc-base-app/main/default/flows/PersonalizedSchedule_Temp.flow-meta.xml && mv cc-base-app/main/default/flows/PersonalizedSchedule_Temp.flow-meta.xml cc-base-app/main/default/flows/PersonalizedSchedule.flow-meta.xml
 
-            # Deploy source to scratch org
-            - name: 'Push source to scratch org'
+            # Push base source to scratch org
+            - name: 'Push base source to scratch org'
               run: sf project deploy start -d cc-base-app
 
-            # Assign permissionset
-            - name: 'Assign permissionset to default user'
+            # Assign Prompt Template Manager permission set
+            - name: 'Assign Prompt Template Manager permission set'
+              run: sf org assign permset -n EinsteinGPTPromptTemplateManager
+
+            # Push employee source to scratch org
+            - name: 'Push employee source to scratch org'
+              run: sf project deploy start -d cc-employee-app
+
+            # Assign Coral Cloud permission set
+            - name: 'Assign Coral Cloud permission set to default user'
               run: sf org assign permset -n Coral_Cloud
 
             # Import sample data
@@ -162,6 +170,99 @@ jobs:
               with:
                   token: ${{ secrets.CODECOV_TOKEN }}
                   flags: Apex
+
+            # Prepare environment variables for service deployment
+            - name: 'Prepare environment variables for service deployment'
+              run: |
+                  echo "Exporting username and org domain for use in scripts:"
+
+                  # Username
+                  SF_CC_PLACEHOLDER_USERNAME=$(sf org display --json | grep -o '"username": "[^"]*' | cut -d'"' -f4)
+                  if [ -z "${SF_CC_PLACEHOLDER_USERNAME}" ]; then
+                      echo "Installation failed: could not retrieve username."
+                      exit 1
+                  fi
+                  echo "- Username: $SF_CC_PLACEHOLDER_USERNAME"
+                  echo "SF_CC_PLACEHOLDER_USERNAME=$SF_CC_PLACEHOLDER_USERNAME" >> $GITHUB_ENV
+
+                  # Domain
+                  SF_CC_PLACEHOLDER_DOMAIN=$(sf org display --json | grep -o '"instanceUrl": "https[^"]*' | cut -d'"' -f4 | sed -E 's|https?://([^\.]+).*|\1|')
+                  if [ -z "${SF_CC_PLACEHOLDER_DOMAIN}" ]; then
+                      echo "Installation failed: could not retrieve domain."
+                      exit 1
+                  fi
+                  echo "- Domain: $SF_CC_PLACEHOLDER_DOMAIN"
+                  echo "SF_CC_PLACEHOLDER_DOMAIN=$SF_CC_PLACEHOLDER_DOMAIN" >> $GITHUB_ENV
+
+                  # Set dummy values for flow deployment
+                  echo "Setting dummy values for flow deployment"
+                  echo "SF_CC_PLACEHOLDER_FLOW_AGENT_ID=DummyForInitialDeploy" >> $GITHUB_ENV
+                  echo "SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID=DummyForInitialDeploy" >> $GITHUB_ENV
+                  echo "SF_CC_PLACEHOLDER_FLOW_QUEUE_ID=DummyForInitialDeploy" >> $GITHUB_ENV
+
+            # Push Experience Cloud site source
+            - name: 'Push Experience Cloud site source'
+              run: sf project deploy start -d cc-site
+
+            # Push Service Agent Setup source
+            - name: 'Push Service Agent Setup source'
+              run: sf project deploy start -d cc-service-app/main/setup/classes/SetupServiceAgentUser.cls -d cc-service-app/main/default/permissionSets/Coral_Cloud_Service_Agent.permissionset-meta.xml
+
+            # Setup Service Agent user
+            - name: 'Setup Service Agent user'
+              run: sf apex run -f apex-scripts/setup-agent-user.apex
+
+            # Push service app source
+            - name: 'Push service app source'
+              run: sf project deploy start -d cc-service-app
+
+            # Read flow values (Agent ID, Channel ID, Queue ID) from org
+            - name: 'Read flow values (Agent ID, Channel ID, Queue ID) from org'
+              run: |
+                  echo "Reading flow values from org..."
+
+                  # Agent ID
+                  SF_CC_PLACEHOLDER_FLOW_AGENT_ID=$(sf data query --query "SELECT Id from BotDefinition WHERE DeveloperName='Coral_Cloud_Agent'" --json | grep -o '"Id": "[^"]*' | cut -d'"' -f4)
+                  if [ -z "${SF_CC_PLACEHOLDER_FLOW_AGENT_ID}" ] || [ "${SF_CC_PLACEHOLDER_FLOW_AGENT_ID}" = "DummyForInitialDeploy" ]; then
+                      echo "Installation failed: could not retrieve agent ID."
+                      exit 1
+                  fi
+                  echo "- Agent ID: $SF_CC_PLACEHOLDER_FLOW_AGENT_ID"
+                  echo "SF_CC_PLACEHOLDER_FLOW_AGENT_ID=$SF_CC_PLACEHOLDER_FLOW_AGENT_ID" >> $GITHUB_ENV
+
+                  # Channel ID
+                  SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID=$(sf data query --query "SELECT Id from ServiceChannel WHERE DeveloperName='sfdc_livemessage'" --json | grep -o '"Id": "[^"]*' | cut -d'"' -f4)
+                  if [ -z "${SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID}" ] || [ "${SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID}" = "DummyForInitialDeploy" ]; then
+                      echo "Installation failed: could not retrieve channel ID."
+                      exit 1
+                  fi
+                  echo "- Channel ID: $SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID"
+                  echo "SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID=$SF_CC_PLACEHOLDER_FLOW_CHANNEL_ID" >> $GITHUB_ENV
+
+                  # Queue ID
+                  SF_CC_PLACEHOLDER_FLOW_QUEUE_ID=$(sf data query --query "SELECT Id FROM Group WHERE Type = 'Queue' AND Name = 'Messaging Queue'" --json | grep -o '"Id": "[^"]*' | cut -d'"' -f4)
+                  if [ -z "${SF_CC_PLACEHOLDER_FLOW_QUEUE_ID}" ] || [ "${SF_CC_PLACEHOLDER_FLOW_QUEUE_ID}" = "DummyForInitialDeploy" ]; then
+                      echo "Installation failed: could not retrieve queue ID."
+                      exit 1
+                  fi
+                  echo "- Queue ID: $SF_CC_PLACEHOLDER_FLOW_QUEUE_ID"
+                  echo "SF_CC_PLACEHOLDER_FLOW_QUEUE_ID=$SF_CC_PLACEHOLDER_FLOW_QUEUE_ID" >> $GITHUB_ENV
+
+            # Redeploy flow metadata with org-specific values
+            - name: 'Redeploy flow metadata with org-specific values'
+              run: sf project deploy start -d cc-service-app/main/default/flows/Route_to_Agent.flow-meta.xml cc-service-app/main/default/flows/Route_to_Queue.flow-meta.xml
+
+            # Publish Experience Cloud site
+            - name: 'Publish Experience Cloud site'
+              run: sf community publish --name 'coral cloud'
+
+            # Deploy guest profile for Experience Cloud site
+            - name: 'Deploy guest profile for Experience Cloud site'
+              run: sf project deploy start --metadata-dir=guest-profile-metadata -w 10
+
+            # Activate messaging channel
+            - name: 'Activate messaging channel'
+              run: sf apex run -f apex-scripts/activate-messaging-channel.apex
 
             # Housekeeping
             - name: 'Delete scratch org'
