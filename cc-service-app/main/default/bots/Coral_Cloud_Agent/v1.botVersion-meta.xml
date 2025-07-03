@@ -112,7 +112,7 @@
         <description>User or Contact ID of the verified customer</description>
         <developerName>verifiedCustomerId</developerName>
         <includeInPrompt>false</includeInPrompt>
-        <label>Verified Customer Id</label>
+        <label>Verified Customer ID</label>
         <visibility>Internal</visibility>
     </conversationVariables>
     <entryDialog>Welcome</entryDialog>
