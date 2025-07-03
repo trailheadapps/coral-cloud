@@ -12,7 +12,7 @@
         },
         "experienceRecord": {
             "title": "experienceRecord",
-            "description": "The Experience__c record to be summarized for the user.",
+            "description": "The Experience__C record to be summarized for the user.",
             "lightning:type": "lightning__recordInfoType",
             "lightning:sObjectInfo": {
                 "apiName": "Experience__c"
