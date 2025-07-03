@@ -79,22 +79,41 @@
         <genAiPlannerName>Coral_Cloud_Agent</genAiPlannerName>
     </conversationDefinitionPlanners>
     <conversationVariables>
-        <dataType>Boolean</dataType>
-        <description
-        >Indicates whether the customer is verified. Set to true if the customer is verified</description>
-        <developerName>IsCustomerVerified</developerName>
-        <includeInPrompt>true</includeInPrompt>
-        <label>IsCustomerVerified</label>
-        <visibility>External</visibility>
+        <dataType>Text</dataType>
+        <developerName>authenticationKey</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Authentication Key</label>
+        <visibility>Internal</visibility>
     </conversationVariables>
     <conversationVariables>
         <dataType>Text</dataType>
-        <description
-        >This variable may also be referred to as VerifiedCustomerId</description>
-        <developerName>VerifiedCustomerId</developerName>
-        <includeInPrompt>true</includeInPrompt>
-        <label>Verified Customer ID</label>
-        <visibility>External</visibility>
+        <developerName>customerId</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Customer ID</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <developerName>customerType</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Customer Type</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Boolean</dataType>
+        <description>Indicates whether the customer is verified</description>
+        <developerName>isCustomerVerified</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Is Customer Verified</label>
+        <visibility>Internal</visibility>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <description>User or Contact ID of the verified customer</description>
+        <developerName>verifiedCustomerId</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>Verified Customer Id</label>
+        <visibility>Internal</visibility>
     </conversationVariables>
     <entryDialog>Welcome</entryDialog>
     <intentDisambiguationEnabled>false</intentDisambiguationEnabled>
