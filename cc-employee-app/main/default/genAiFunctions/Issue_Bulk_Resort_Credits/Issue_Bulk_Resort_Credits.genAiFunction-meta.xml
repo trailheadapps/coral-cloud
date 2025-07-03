@@ -8,5 +8,5 @@
     <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
     <masterLabel>Issue Bulk Resort Credits</masterLabel>
     <progressIndicatorMessage
-    >Issuing batch of resort credits...</progressIndicatorMessage>
+    >Issuing a batch of resort credits...</progressIndicatorMessage>
 </GenAiFunction>

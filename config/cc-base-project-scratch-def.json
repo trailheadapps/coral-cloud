@@ -1,6 +1,7 @@
 {
     "orgName": "Coral Cloud",
     "edition": "Developer",
+    "language": "en_US",
     "hasSampleData": false,
     "features": [
         "Communities",
