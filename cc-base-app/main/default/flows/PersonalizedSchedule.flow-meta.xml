@@ -2,7 +2,7 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
         <description
-        >Generates a personalized schedule that matches the contact&apos;s interests</description>
+        >Generate a personalized schedule for the guest</description>
         <name>Generate_Personalized_Schedule</name>
         <label>Generate Personalized Schedule</label>
         <locationX>0</locationX>
@@ -14,9 +14,9 @@
         </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
-            <name>Input:Contact</name>
+            <name>Input:contactId</name>
             <value>
-                <elementReference>Get_Contact</elementReference>
+                <elementReference>recordId</elementReference>
             </value>
         </inputParameters>
         <nameSegment>Generate_Personalized_Schedule</nameSegment>
@@ -26,7 +26,7 @@
     <apiVersion>64.0</apiVersion>
     <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <description
-    >This flow is used to take a contacts interests and generate a report of the available Experiences that they can enroll in today.</description>
+    >This flow generates a report of the available Experiences that a guest can enroll in today based on their interest.</description>
     <environments>Default</environments>
     <interviewLabel
     >Personalize Schedule {!$Flow.CurrentDateTime}</interviewLabel>
@@ -50,28 +50,6 @@
         </value>
     </processMetadataValues>
     <processType>Flow</processType>
-    <recordLookups>
-        <name>Get_Contact</name>
-        <label>Get Contact</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignNullValuesIfNoRecordsFound
-        >false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Generate_Personalized_Schedule</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>recordId</elementReference>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>Contact</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
     <screens>
         <description>Display the personalized schedule</description>
         <name>Display_Result</name>
@@ -102,7 +80,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Get_Contact</targetReference>
+            <targetReference>Generate_Personalized_Schedule</targetReference>
         </connector>
     </start>
     <status>Active</status>

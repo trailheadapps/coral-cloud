@@ -1,14 +1,18 @@
 {
-    "required": ["Input:Contact"],
+    "required": ["Input:contactId"],
     "unevaluatedProperties": false,
     "properties": {
-        "Input:Contact": {
-            "title": "Contact",
-            "description": "Contact for which the personalized schedule should be generated. Must be a valid JSON representing the contact info, chained from having executed the QueryRecords action.",
-            "lightning:type": "lightning__recordInfoType",
-            "lightning:sObjectInfo": {
-                "apiName": "Contact"
-            },
+        "Input:contactId": {
+            "title": "contactId",
+            "description": "The contact record ID associated with the guest",
+            "lightning:type": "lightning__textType",
+            "lightning:isPII": false,
+            "copilotAction:isUserInput": false
+        },
+        "outputLanguage": {
+            "title": "Prompt Operation output language",
+            "description": "Select Prompt Operation output language",
+            "lightning:type": "lightning__textType",
             "lightning:isPII": false,
             "copilotAction:isUserInput": false
         }

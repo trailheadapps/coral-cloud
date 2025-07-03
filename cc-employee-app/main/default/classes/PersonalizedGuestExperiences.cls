@@ -6,9 +6,13 @@ public with sharing class PersonalizedGuestExperiences {
         description='Get today\'s sessions that match the user\'s interests.'
     )
     public static List<Response> getSessions(List<Request> requests) {
-        Request input = requests[0];
-        Contact contact = input.myContact;
+        Id contactId = requests[0].contactId;
 
+        Contact contact = [
+            SELECT Id, Name, Interest1__c, Interest2__c, Interest3__c
+            FROM Contact
+            WHERE Id = :contactId
+        ];
         List<Session__c> sessions = ExperienceSessionController.getSessions(
             contact
         );
@@ -24,8 +28,8 @@ public with sharing class PersonalizedGuestExperiences {
     // The variables in this class need to match the prompt template inputs,
     // that may be different on each prompt template
     public class Request {
-        @InvocableVariable(required=true)
-        public Contact myContact;
+        @InvocableVariable(required=true description='The guest (Contact) ID')
+        public String contactId;
     }
 
     public class Response {
