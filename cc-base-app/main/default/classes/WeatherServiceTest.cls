@@ -44,9 +44,7 @@ private class WeatherServiceTest {
         // Call the method to be tested and verify it throws an exception
         Test.startTest();
         try {
-            WeatherService.Weather weather = WeatherService.getResortWeather(
-                dateToCheck
-            );
+            WeatherService.getResortWeather(dateToCheck);
             Assert.fail('Expected CalloutException was not thrown');
         } catch (CalloutException e) {
             Assert.isTrue(
