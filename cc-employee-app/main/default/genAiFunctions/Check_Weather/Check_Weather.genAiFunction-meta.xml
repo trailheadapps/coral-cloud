@@ -7,5 +7,5 @@
     <isConfirmationRequired>false</isConfirmationRequired>
     <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
     <masterLabel>Check Weather</masterLabel>
-    <progressIndicatorMessage>Retrieving weather</progressIndicatorMessage>
+    <progressIndicatorMessage>Retrieving weather...</progressIndicatorMessage>
 </GenAiFunction>

@@ -19,5 +19,6 @@
         <parameterType>output</parameterType>
     </mappingAttributes>
     <masterLabel>Get Customer Details</masterLabel>
-    <progressIndicatorMessage>Verifying</progressIndicatorMessage>
+    <progressIndicatorMessage
+    >Retrieving customer details...</progressIndicatorMessage>
 </GenAiFunction>

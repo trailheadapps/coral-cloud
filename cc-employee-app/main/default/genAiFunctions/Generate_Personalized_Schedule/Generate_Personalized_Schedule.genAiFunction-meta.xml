@@ -5,6 +5,8 @@
     <invocationTarget>Generate_Personalized_Schedule</invocationTarget>
     <invocationTargetType>generatePromptResponse</invocationTargetType>
     <isConfirmationRequired>false</isConfirmationRequired>
-    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
     <masterLabel>Generate Personalized Schedule</masterLabel>
+    <progressIndicatorMessage
+    >Generating personalized schedule...</progressIndicatorMessage>
 </GenAiFunction>

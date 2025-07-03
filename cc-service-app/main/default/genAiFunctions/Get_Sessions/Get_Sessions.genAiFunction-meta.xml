@@ -5,6 +5,7 @@
     <invocationTarget>Get_Sessions</invocationTarget>
     <invocationTargetType>flow</invocationTargetType>
     <isConfirmationRequired>false</isConfirmationRequired>
-    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
     <masterLabel>Get Sessions</masterLabel>
+    <progressIndicatorMessage>Retrieving sessions...</progressIndicatorMessage>
 </GenAiFunction>

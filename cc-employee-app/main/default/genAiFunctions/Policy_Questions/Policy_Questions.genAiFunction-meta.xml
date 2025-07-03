@@ -5,6 +5,8 @@
     <invocationTarget>Policy_Questions</invocationTarget>
     <invocationTargetType>generatePromptResponse</invocationTargetType>
     <isConfirmationRequired>false</isConfirmationRequired>
-    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
     <masterLabel>Policy Questions</masterLabel>
+    <progressIndicatorMessage
+    >Answering policy question...</progressIndicatorMessage>
 </GenAiFunction>
