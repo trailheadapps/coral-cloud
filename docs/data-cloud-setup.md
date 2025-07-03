@@ -8,21 +8,18 @@
     ```
 
 1. Refresh the Guest data stream:
-
     1. In App Launcher, select the **Data Cloud** app and open the **Data Streams** tab.
     1. Locate the **Guest** data stream (notice that a timestamp is appended to the name of the stream, this is expected) and select **Refresh Now** from the row actions.
     1. Select **Refresh Only New Files** from the row actions.
     1. Click **Refresh Now**.
 
 1. Refresh Reservation data stream:
-
     1. From the **Data Streams** tab, click the **Reservation** data stream with the timestamp suffix.
     1. Select **Refresh Now** from the row actions.
     1. Select **Refresh Only New Files** from the row actions.
     1. Click **Refresh Now**.
 
 1. Map the Reservation data stream:
-
     1. From the **Reservation** data stream view, click **Review** in the **Data Mapping** panel.
     1. Click the pencil icon next to the "Data Model entities" panel header.
     1. Click the **Custom Data Model** tab.
@@ -32,7 +29,6 @@
     1. Click **Save & Close**.
 
 1. Create the Reservations-to-Individual relationship
-
     1. From the **Data Model** tab, click the **Reservation** Data Model Object (DMO).
     1. Click the **Relationships** tab.
     1. Click **New**.
@@ -49,7 +45,6 @@
     1. Click **Save & Close**.
 
 1. Deploy a CRM data stream from the Data Kit:
-
     1. From the **Data Streams** tab, click **New**.
     1. Under **Connected Sources**, select the **Salesforce CRM** connector, and click **Next**.
     1. Under **Custom Data Bundles**, select **Salesforce_Contacts**, and click **Next**.
@@ -58,7 +53,6 @@
     1. After the deployment, click the down caret icon to the right of the **Contact_Home** Data Stream row, and select **Refresh Now**.
 
 1. Deploy and run an identity resolution ruleset from the Data Kit:
-
     1. From the **Identity Resolution** tab, click **New**.
     1. Select the **Install from Data Kit** and click **Next**.
     1. Select the **Guest Name and Email** and click **Next**.
@@ -66,7 +60,6 @@
     1. Click **Run Ruleset**.
 
 1. Deploy a calculated insight from the Data Kit:
-
     1. From the **Calculated Insights** tab, click **New**.
     1. Select **Create from a Data Kit** and click **Next**.
     1. Select **Spend Profile by Guest** and click **Next**.
@@ -78,7 +71,6 @@
 ## Optional: Access Unified Data from Salesforce
 
 1. Add a Data Cloud related list to the Contact object
-
     1. From Salesforce **Setup**, open the **Object Manager**.
     1. Select the **Contact** object.
     1. Go to the **Data Cloud Related List** tab.
@@ -91,7 +83,6 @@
     1. Click **Next**.
 
 1. Add the Related List to the Contact page layout
-
     1. From the **Object Manager**, click **Page Layouts** in the left sidebar.
     1. Click **Contact Layout**.
     1. Scroll to the bottom of the page layout until you see the **Reservations** related list.
@@ -111,7 +102,6 @@
 ## Optional: Access Calculated Insights in Salesforce
 
 1. Modify the "Data Cloud Admin" permission set
-
     1. Open Salesforce Setup.
     1. Search for and open **Permission Sets**.
     1. Click the **Data Cloud Admin** permission set.
@@ -121,7 +111,6 @@
     1. Click **OK** in the confirmation dialog.
 
 1. Modify the "Customer 360 Data Platform Integration" permission set
-
     1. From **Permission Sets**, select the **Customer 360 Data Platform Integration** permission set.
     1. In the Apps section, click **Object Settings**.
     1. Click **Contacts**.
@@ -131,7 +120,6 @@
     1. Scroll back up to the top and click **Save**.
 
 1. Create a Data Cloud Copy Field Enrichment in Salesforce
-
     1. From the **Object Manager**, select the **Contact** object.
     1. Go to the **Data Cloud Copy Field** tab.
     1. Click **New**.

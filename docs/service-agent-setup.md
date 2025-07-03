@@ -3,7 +3,6 @@
 For the deployment of Agentforce for Service it is necessary that certain values in the metadata are replaced with record ids from the used org. To achieve this during source deployment this project makes use of the [string replacement functionality of the Salesforce CLI](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_string_replace.htm). For this certain values will be exported as environment variables.
 
 1. Enable ExperienceBundle Metadata API:
-
     1. From **Setup**, search for `digital` and select **Settings**
     1. Check **Enable ExperienceBundle Metadata API**.
     1. Click **Save**.
