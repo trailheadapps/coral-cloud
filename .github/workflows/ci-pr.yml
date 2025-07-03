@@ -94,6 +94,7 @@ jobs:
               with:
                   run-arguments: --workspace "cc-*/**" --view detail --output-file "sca-results.csv" --config-file "code-analyzer.yml"
                   results-artifact-name: code-analyzer-results
+                  github-token: ${{ github.token }}
 
             # Check for Code Analyzer critical or high severity violations
             - name: 'Check for Code Analyzer critical or high severity violations'
