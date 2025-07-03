@@ -139,7 +139,7 @@ jobs:
             # Modify local metadata for packaging
             - name: 'Modify local metadata for packaging'
               run: |
-                  sed '/<actionCalls>/,/<\/actionCalls>/d' cc-base-app/main/default/flows/PersonalizedSchedule.flow-meta.xml > cc-base-app/main/default/flows/PersonalizedSchedule_Temp.flow-meta.xml && mv cc-base-app/main/default/flows/PersonalizedSchedule_Temp.flow-meta.xml cc-base-app/main/default/flows/PersonalizedSchedule.flow-meta.xml
+                  sed '/<actionCalls>/,/<\/actionCalls>/d' cc-employee-app/main/default/flows/PersonalizedSchedule.flow-meta.xml > cc-employee-app/main/default/flows/PersonalizedSchedule_Temp.flow-meta.xml && mv cc-employee-app/main/default/flows/PersonalizedSchedule_Temp.flow-meta.xml cc-employee-app/main/default/flows/PersonalizedSchedule.flow-meta.xml
 
             # Push base source to scratch org
             - name: 'Push base source to scratch org'
