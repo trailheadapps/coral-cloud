@@ -12,6 +12,7 @@ public with sharing class PersonalizedGuestExperiences {
             SELECT Id, Name, Interest1__c, Interest2__c, Interest3__c
             FROM Contact
             WHERE Id = :contactId
+            WITH USER_MODE
         ];
         List<Session__c> sessions = ExperienceSessionController.getSessions(
             contact
