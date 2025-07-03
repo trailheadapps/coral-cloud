@@ -136,11 +136,6 @@ jobs:
             - name: 'Create scratch org'
               run: sf org create scratch -f config/cc-base-project-scratch-def.json -a scratch-org -d -y 1 -w 10
 
-            # Modify local metadata for packaging
-            - name: 'Modify local metadata for packaging'
-              run: |
-                  sed '/<actionCalls>/,/<\/actionCalls>/d' cc-base-app/main/default/flows/PersonalizedSchedule.flow-meta.xml > cc-base-app/main/default/flows/PersonalizedSchedule_Temp.flow-meta.xml && mv cc-base-app/main/default/flows/PersonalizedSchedule_Temp.flow-meta.xml cc-base-app/main/default/flows/PersonalizedSchedule.flow-meta.xml
-
             # Push base source to scratch org
             - name: 'Push base source to scratch org'
               run: sf project deploy start -d cc-base-app
