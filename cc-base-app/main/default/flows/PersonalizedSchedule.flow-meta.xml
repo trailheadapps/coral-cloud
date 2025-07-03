@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-
+    <actionCalls>
+        <description
+        >Generates a personalized schedule that matches the contact&apos;s interests</description>
+        <name>Generate_Personalized_Schedule</name>
+        <label>Generate Personalized Schedule</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>Generate_Personalized_Schedule</actionName>
+        <actionType>generatePromptResponse</actionType>
+        <connector>
+            <targetReference>Display_Result</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>Input:Contact</name>
+            <value>
+                <elementReference>Get_Contact</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Generate_Personalized_Schedule</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
     <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <description
-    >This flow is used to take a contacts interests and generate a report of the
-        available Experiences that they can enroll in today.</description>
+    >This flow is used to take a contacts interests and generate a report of the available Experiences that they can enroll in today.</description>
     <environments>Default</environments>
     <interviewLabel
     >Personalize Schedule {!$Flow.CurrentDateTime}</interviewLabel>
@@ -31,10 +53,13 @@
     <recordLookups>
         <name>Get_Contact</name>
         <label>Get Contact</label>
-        <locationX>176</locationX>
-        <locationY>134</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound
         >false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Generate_Personalized_Schedule</targetReference>
+        </connector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -48,24 +73,33 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <screens>
-        <description>Display the field generation result</description>
+        <description>Display the personalized schedule</description>
         <name>Display_Result</name>
         <label>Display Result</label>
-        <locationX>176</locationX>
-        <locationY>350</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <fields>
             <name>PromptGenerationResult</name>
-            <fieldText>&lt;p&gt;Insert Variable Here&lt;/p&gt;</fieldText>
+            <fieldText
+            >&lt;p&gt;{!Generate_Personalized_Schedule.promptResponse}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>50</locationX>
+        <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_Contact</targetReference>

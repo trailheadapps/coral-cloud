@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>Assign_Created_Booking</name>
         <label>Assign Created Booking</label>
-        <locationX>176</locationX>
-        <locationY>350</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignmentItems>
             <assignToReference>createdBooking</assignToReference>
             <operator>Assign</operator>
@@ -19,8 +20,8 @@
         >Assign the error message to the error variable if the booking fails.</description>
         <name>Assign_Error_Message</name>
         <label>Assign Error Message</label>
-        <locationX>440</locationX>
-        <locationY>242</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignmentItems>
             <assignToReference>errorMessage</assignToReference>
             <operator>Assign</operator>
@@ -59,8 +60,8 @@
         >Create a booking record for the related contact and experience session.</description>
         <name>Create_Booking_Record</name>
         <label>Create Booking Record</label>
-        <locationX>176</locationX>
-        <locationY>134</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <connector>
             <targetReference>Get_Booking_Record</targetReference>
         </connector>
@@ -91,8 +92,8 @@
     <recordLookups>
         <name>Get_Booking_Record</name>
         <label>Get Booking Record</label>
-        <locationX>176</locationX>
-        <locationY>242</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound
         >false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -115,7 +116,7 @@
     </recordLookups>
     <runInMode>SystemModeWithoutSharing</runInMode>
     <start>
-        <locationX>50</locationX>
+        <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Create_Booking_Record</targetReference>

@@ -5,8 +5,8 @@
     <assignments>
         <name>Save_contact_details</name>
         <label>Save contact details</label>
-        <locationX>308</locationX>
-        <locationY>350</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignmentItems>
             <assignToReference>contactDetails</assignToReference>
             <operator>Assign</operator>
@@ -34,8 +34,8 @@
     <decisions>
         <name>Does_Contact_exist</name>
         <label>Does Contact exist?</label>
-        <locationX>176</locationX>
-        <locationY>242</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <defaultConnector>
             <targetReference>Save_contact_details</targetReference>
         </defaultConnector>
@@ -85,8 +85,8 @@
             their email and member number.</description>
         <name>Get_Contact_by_Email_and_Member_Number</name>
         <label>Get Contact by Email and Member Number</label>
-        <locationX>176</locationX>
-        <locationY>134</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound
         >false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -118,7 +118,7 @@
     </recordLookups>
     <runInMode>SystemModeWithoutSharing</runInMode>
     <start>
-        <locationX>50</locationX>
+        <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference
