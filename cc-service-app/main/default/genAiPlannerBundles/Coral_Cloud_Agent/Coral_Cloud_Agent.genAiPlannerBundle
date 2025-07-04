@@ -37,15 +37,27 @@
         <mappingType>Variable</mappingType>
     </attributeMappings>
     <attributeMappings>
-        <attributeName>SvcCopilotTmpl__ServiceCustomerVerification.SvcCopilotTmpl__VerifyCustomer.isCustomerVerified</attributeName>
+        <attributeName>SvcCopilotTmpl__ServiceCustomerVerification.SvcCopilotTmpl__VerifyCustomer.isVerified</attributeName>
         <attributeType>StandardPluginFunctionOutput</attributeType>
-        <mappingTargetName>isCustomerVerified</mappingTargetName>
+        <mappingTargetName>isVerified</mappingTargetName>
         <mappingType>Variable</mappingType>
     </attributeMappings>
     <attributeMappings>
         <attributeName>SvcCopilotTmpl__ServiceCustomerVerification.SvcCopilotTmpl__VerifyCustomer.customerId</attributeName>
         <attributeType>StandardPluginFunctionOutput</attributeType>
-        <mappingTargetName>verifiedCustomerId</mappingTargetName>
+        <mappingTargetName>Verified_Customer_Id</mappingTargetName>
+        <mappingType>Variable</mappingType>
+    </attributeMappings>
+    <attributeMappings>
+        <attributeName>Verified_Customer_Support.Create_Booking.input_contactId</attributeName>
+        <attributeType>CustomPluginFunctionAttribute</attributeType>
+        <mappingTargetName>Verified_Customer_Id</mappingTargetName>
+        <mappingType>Variable</mappingType>
+    </attributeMappings>
+    <attributeMappings>
+        <attributeName>Verified_Customer_Support.Generate_Personalized_Schedule.input_contactId</attributeName>
+        <attributeType>CustomPluginFunctionAttribute</attributeType>
+        <mappingTargetName>Verified_Customer_Id</mappingTargetName>
         <mappingType>Variable</mappingType>
     </attributeMappings>
     <description>This is the Coral Cloud Agent that helps customers learn more about Experiences as well as book sessions.</description>
@@ -53,32 +65,45 @@
         <genAiFunctionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</genAiFunctionName>
     </genAiFunctions>
     <genAiPlugins>
-        <genAiPluginName>Customer_Experience_Support</genAiPluginName>
+        <genAiPluginName>SvcCopilotTmpl__ServiceCustomerVerification</genAiPluginName>
     </genAiPlugins>
     <genAiPlugins>
-        <genAiPluginName>SvcCopilotTmpl__ServiceCustomerVerification</genAiPluginName>
+        <genAiPluginName>Unverified_Customer_Support</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiPluginName>Verified_Customer_Support</genAiPluginName>
     </genAiPlugins>
     <masterLabel>Coral Cloud Agent</masterLabel>
     <plannerType>AiCopilot__ReAct</plannerType>
     <ruleExpressionAssignments>
-        <ruleExpressionName>Is_Verified_Customer</ruleExpressionName>
-        <targetName>Customer_Experience_Support.Create_Booking</targetName>
-        <targetType>PluginFunction</targetType>
+        <ruleExpressionName>Is_Not_Verified_Customer</ruleExpressionName>
+        <targetName>SvcCopilotTmpl__ServiceCustomerVerification</targetName>
+        <targetType>Plugin</targetType>
     </ruleExpressionAssignments>
     <ruleExpressionAssignments>
         <ruleExpressionName>Is_Verified_Customer</ruleExpressionName>
-        <targetName>Customer_Experience_Support.Generate_Personalized_Schedule</targetName>
-        <targetType>PluginFunction</targetType>
+        <targetName>Verified_Customer_Support</targetName>
+        <targetType>Plugin</targetType>
     </ruleExpressionAssignments>
     <ruleExpressions>
         <conditions>
-            <leftOperand>isCustomerVerified</leftOperand>
+            <leftOperand>Verified_Customer_Id</leftOperand>
+            <leftOperandType>Variable</leftOperandType>
+            <operator>isEmpty</operator>
+        </conditions>
+        <expressionLabel>Is Not Verified Customer</expressionLabel>
+        <expressionName>Is_Not_Verified_Customer</expressionName>
+        <expressionType>sel</expressionType>
+    </ruleExpressions>
+    <ruleExpressions>
+        <conditions>
+            <leftOperand>isVerified</leftOperand>
             <leftOperandType>Variable</leftOperandType>
             <operator>equal</operator>
             <rightOperandValue>true</rightOperandValue>
         </conditions>
         <conditions>
-            <leftOperand>verifiedCustomerId</leftOperand>
+            <leftOperand>Verified_Customer_Id</leftOperand>
             <leftOperandType>Variable</leftOperandType>
             <operator>isNotEmpty</operator>
         </conditions>

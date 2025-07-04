@@ -102,18 +102,18 @@
     <conversationVariables>
         <dataType>Boolean</dataType>
         <description>Indicates whether the customer is verified</description>
-        <developerName>isCustomerVerified</developerName>
+        <developerName>isVerified</developerName>
         <includeInPrompt>false</includeInPrompt>
-        <label>Is Customer Verified</label>
-        <visibility>Internal</visibility>
+        <label>Verified</label>
+        <visibility>External</visibility>
     </conversationVariables>
     <conversationVariables>
         <dataType>Text</dataType>
-        <description>User or Contact ID of the verified customer</description>
-        <developerName>verifiedCustomerId</developerName>
+        <description>Contact ID of the verified customer</description>
+        <developerName>Verified_Customer_Id</developerName>
         <includeInPrompt>false</includeInPrompt>
-        <label>Verified Customer ID</label>
-        <visibility>Internal</visibility>
+        <label>Verified Customer Id</label>
+        <visibility>External</visibility>
     </conversationVariables>
     <entryDialog>Welcome</entryDialog>
     <intentDisambiguationEnabled>false</intentDisambiguationEnabled>

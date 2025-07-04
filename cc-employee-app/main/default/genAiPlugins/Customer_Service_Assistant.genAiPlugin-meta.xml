@@ -7,9 +7,6 @@
         <functionName>Check_Weather</functionName>
     </genAiFunctions>
     <genAiFunctions>
-        <functionName>Generate_Personalized_Schedule</functionName>
-    </genAiFunctions>
-    <genAiFunctions>
         <functionName>EmployeeCopilot__GetRecordDetails</functionName>
     </genAiFunctions>
     <genAiFunctions>
@@ -24,11 +21,29 @@
     <genAiFunctions>
         <functionName>EmployeeCopilot__SummarizeRecord</functionName>
     </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Generate_Personalized_Schedule</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Customer_From_Email_or_Membership_Number</functionName>
+    </genAiFunctions>
     <genAiPluginInstructions>
-        <description>Never ask the user for an ID. Instead, ask for a record that&apos;s relevant.</description>
-        <developerName>instruction_neveraskth0</developerName>
+        <description>Do not display or request record IDs apart from membership numbers.</description>
+        <developerName>instruction_donotdispl0</developerName>
         <language>en_US</language>
-        <masterLabel>instruction_neveraskth0</masterLabel>
+        <masterLabel>instruction_donotdispl0</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Use the &apos;Get Customer from Email or Membership Number&apos; action to identify the customer when booking, scheduling or issuing credit to a single customer.</description>
+        <developerName>instruction_usethegetc1</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_usethegetc1</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>When generating a personalized schedule, never ask for the user preferences.</description>
+        <developerName>instruction_whengenera2</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_whengenera2</masterLabel>
     </genAiPluginInstructions>
     <language>en_US</language>
     <masterLabel>Customer Service Assistant</masterLabel>

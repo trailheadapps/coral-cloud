@@ -1,17 +1,16 @@
 {
-    "required": ["contactId"],
     "unevaluatedProperties": false,
     "properties": {
-        "contactId": {
-            "title": "contactId",
-            "description": "The contact record ID associated with the guest",
+        "customerEmail": {
+            "title": "customerEmail",
+            "description": "The email of the customer",
             "lightning:type": "lightning__textType",
             "lightning:isPII": false,
             "copilotAction:isUserInput": false
         },
-        "outputLanguage": {
-            "title": "Prompt Operation output language",
-            "description": "Select Prompt Operation output language",
+        "customerMembershipNumber": {
+            "title": "customerMembershipNumber",
+            "description": "The membership number of the customer",
             "lightning:type": "lightning__textType",
             "lightning:isPII": false,
             "copilotAction:isUserInput": false
