@@ -4,7 +4,7 @@
     >Create a Booking__c record when provided the numberOfGuests, ID of the contact and ID of the Session__c</description>
     <invocationTarget>Create_Booking</invocationTarget>
     <invocationTargetType>flow</invocationTargetType>
-    <isConfirmationRequired>false</isConfirmationRequired>
+    <isConfirmationRequired>true</isConfirmationRequired>
     <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
     <mappingAttributes>
         <label>contactId</label>

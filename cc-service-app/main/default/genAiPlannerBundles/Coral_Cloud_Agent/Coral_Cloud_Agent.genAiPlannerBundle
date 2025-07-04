@@ -1,37 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>This is the Coral Cloud Agent that helps customers learn more about Experiences as well as book sessions.</description>
+    <attributeMappings>
+        <attributeName>SvcCopilotTmpl__ServiceCustomerVerification.SvcCopilotTmpl__SendEmailVerificationCode.authenticationKey</attributeName>
+        <attributeType>StandardPluginFunctionOutput</attributeType>
+        <mappingTargetName>authenticationKey</mappingTargetName>
+        <mappingType>Variable</mappingType>
+    </attributeMappings>
+    <attributeMappings>
+        <attributeName>SvcCopilotTmpl__ServiceCustomerVerification.SvcCopilotTmpl__SendEmailVerificationCode.customerId</attributeName>
+        <attributeType>StandardPluginFunctionOutput</attributeType>
+        <mappingTargetName>customerId</mappingTargetName>
+        <mappingType>Variable</mappingType>
+    </attributeMappings>
+    <attributeMappings>
+        <attributeName>SvcCopilotTmpl__ServiceCustomerVerification.SvcCopilotTmpl__SendEmailVerificationCode.customerType</attributeName>
+        <attributeType>StandardPluginFunctionOutput</attributeType>
+        <mappingTargetName>customerType</mappingTargetName>
+        <mappingType>Variable</mappingType>
+    </attributeMappings>
+    <attributeMappings>
+        <attributeName>SvcCopilotTmpl__ServiceCustomerVerification.SvcCopilotTmpl__VerifyCustomer.authenticationKey</attributeName>
+        <attributeType>StandardPluginFunctionInput</attributeType>
+        <mappingTargetName>authenticationKey</mappingTargetName>
+        <mappingType>Variable</mappingType>
+    </attributeMappings>
+    <attributeMappings>
+        <attributeName>SvcCopilotTmpl__ServiceCustomerVerification.SvcCopilotTmpl__VerifyCustomer.customerId</attributeName>
+        <attributeType>StandardPluginFunctionInput</attributeType>
+        <mappingTargetName>customerId</mappingTargetName>
+        <mappingType>Variable</mappingType>
+    </attributeMappings>
+    <attributeMappings>
+        <attributeName>SvcCopilotTmpl__ServiceCustomerVerification.SvcCopilotTmpl__VerifyCustomer.customerType</attributeName>
+        <attributeType>StandardPluginFunctionInput</attributeType>
+        <mappingTargetName>customerType</mappingTargetName>
+        <mappingType>Variable</mappingType>
+    </attributeMappings>
+    <attributeMappings>
+        <attributeName>SvcCopilotTmpl__ServiceCustomerVerification.SvcCopilotTmpl__VerifyCustomer.isVerified</attributeName>
+        <attributeType>StandardPluginFunctionOutput</attributeType>
+        <mappingTargetName>isVerified</mappingTargetName>
+        <mappingType>Variable</mappingType>
+    </attributeMappings>
+    <attributeMappings>
+        <attributeName>SvcCopilotTmpl__ServiceCustomerVerification.SvcCopilotTmpl__VerifyCustomer.customerId</attributeName>
+        <attributeType>StandardPluginFunctionOutput</attributeType>
+        <mappingTargetName>Verified_Customer_Id</mappingTargetName>
+        <mappingType>Variable</mappingType>
+    </attributeMappings>
+    <attributeMappings>
+        <attributeName>Verified_Customer_Support.Create_Booking.input_contactId</attributeName>
+        <attributeType>CustomPluginFunctionAttribute</attributeType>
+        <mappingTargetName>Verified_Customer_Id</mappingTargetName>
+        <mappingType>Variable</mappingType>
+    </attributeMappings>
+    <attributeMappings>
+        <attributeName>Verified_Customer_Support.Generate_Personalized_Schedule.input_contactId</attributeName>
+        <attributeType>CustomPluginFunctionAttribute</attributeType>
+        <mappingTargetName>Verified_Customer_Id</mappingTargetName>
+        <mappingType>Variable</mappingType>
+    </attributeMappings>
+    <description>Helps customers learn more about Experiences as well as book sessions.</description>
     <genAiFunctions>
         <genAiFunctionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</genAiFunctionName>
     </genAiFunctions>
     <genAiPlugins>
-        <genAiPluginName>Customer_Experience_Support</genAiPluginName>
+        <genAiPluginName>SvcCopilotTmpl__ServiceCustomerVerification</genAiPluginName>
     </genAiPlugins>
     <genAiPlugins>
-        <genAiPluginName>SvcCopilotTmpl__GeneralFAQ</genAiPluginName>
+        <genAiPluginName>Unverified_Customer_Support</genAiPluginName>
+    </genAiPlugins>
+    <genAiPlugins>
+        <genAiPluginName>Verified_Customer_Support</genAiPluginName>
     </genAiPlugins>
     <masterLabel>Coral Cloud Agent</masterLabel>
     <plannerType>AiCopilot__ReAct</plannerType>
     <ruleExpressionAssignments>
-        <ruleExpressionName>Verified_User</ruleExpressionName>
-        <targetName>Customer_Experience_Support.Create_Booking</targetName>
-        <targetType>PluginFunction</targetType>
+        <ruleExpressionName>Is_Not_Verified_Customer</ruleExpressionName>
+        <targetName>SvcCopilotTmpl__ServiceCustomerVerification</targetName>
+        <targetType>Plugin</targetType>
     </ruleExpressionAssignments>
     <ruleExpressionAssignments>
-        <ruleExpressionName>Verified_User</ruleExpressionName>
-        <targetName>Customer_Experience_Support.Generate_Personalized_Schedule</targetName>
-        <targetType>PluginFunction</targetType>
+        <ruleExpressionName>Is_Verified_Customer</ruleExpressionName>
+        <targetName>Verified_Customer_Support</targetName>
+        <targetType>Plugin</targetType>
     </ruleExpressionAssignments>
     <ruleExpressions>
         <conditions>
-            <leftOperand>IsCustomerVerified</leftOperand>
+            <leftOperand>Verified_Customer_Id</leftOperand>
+            <leftOperandType>Variable</leftOperandType>
+            <operator>isEmpty</operator>
+        </conditions>
+        <expressionLabel>Is Not Verified Customer</expressionLabel>
+        <expressionName>Is_Not_Verified_Customer</expressionName>
+        <expressionType>sel</expressionType>
+    </ruleExpressions>
+    <ruleExpressions>
+        <conditions>
+            <leftOperand>isVerified</leftOperand>
             <leftOperandType>Variable</leftOperandType>
             <operator>equal</operator>
             <rightOperandValue>true</rightOperandValue>
         </conditions>
-        <expression>Verified_User</expression>
-        <expressionLabel>Verified User</expressionLabel>
-        <expressionName>Verified_User</expressionName>
+        <conditions>
+            <leftOperand>Verified_Customer_Id</leftOperand>
+            <leftOperandType>Variable</leftOperandType>
+            <operator>isNotEmpty</operator>
+        </conditions>
+        <expressionLabel>Is Verified Customer</expressionLabel>
+        <expressionName>Is_Verified_Customer</expressionName>
         <expressionType>sel</expressionType>
     </ruleExpressions>
 </GenAiPlannerBundle>

@@ -1,0 +1,27 @@
+{
+    "unevaluatedProperties": false,
+    "properties": {
+        "contactId": {
+            "title": "contactId",
+            "description": "The Contact ID associated with the customer",
+            "lightning:type": "lightning__textType",
+            "lightning:isPII": false,
+            "copilotAction:isDisplayable": false,
+            "copilotAction:isUsedByPlanner": true,
+            "copilotAction:useHydratedPrompt": false
+        },
+        "contactRecord": {
+            "title": "contactRecord",
+            "description": "Contact record associated to the customer",
+            "lightning:type": "lightning__recordInfoType",
+            "lightning:sObjectInfo": {
+                "apiName": "Contact"
+            },
+            "lightning:isPII": false,
+            "copilotAction:isDisplayable": true,
+            "copilotAction:isUsedByPlanner": true,
+            "copilotAction:useHydratedPrompt": false
+        }
+    },
+    "lightning:type": "lightning__objectType"
+}

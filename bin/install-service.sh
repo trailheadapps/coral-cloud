@@ -88,7 +88,7 @@ sf apex run -f apex-scripts/activate-messaging-channel.apex && \
 echo "" && \
 
 echo "Opening org..." && \
-sf org open -p /lightning/setup/LiveMessageSetup/home && \
+sf org open -p /lightning/setup/EmbeddedServiceDeployments/home && \
 echo ""
 EXIT_CODE="$?"
 

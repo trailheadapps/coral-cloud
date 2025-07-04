@@ -60,15 +60,7 @@ public with sharing class SetupServiceAgentUser {
         }
 
         // Get permission set licenses (PSL)
-        Set<Id> targetPslIds = new Map<Id, PermissionSetLicense>(
-                [
-                    SELECT Id
-                    FROM PermissionSetLicense
-                    WHERE DeveloperName IN :PERM_SET_LICENSES
-                    WITH SECURITY_ENFORCED
-                ]
-            )
-            .keySet();
+        Set<Id> targetPslIds = getPermissionSetLicenseIds();
 
         // Exclude already assigned PSLs
         List<PermissionSetLicenseAssign> userPslas = [
@@ -191,5 +183,18 @@ public with sharing class SetupServiceAgentUser {
                 'Insufficient permissions to access or create PermissionSetAssignment'
             );
         }
+    }
+
+    @TestVisible
+    private static Set<Id> getPermissionSetLicenseIds() {
+        return new Map<Id, PermissionSetLicense>(
+                [
+                    SELECT Id
+                    FROM PermissionSetLicense
+                    WHERE DeveloperName IN :PERM_SET_LICENSES
+                    WITH SECURITY_ENFORCED
+                ]
+            )
+            .keySet();
     }
 }

@@ -7,7 +7,7 @@
     <isConfirmationRequired>false</isConfirmationRequired>
     <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
     <mappingAttributes>
-        <label>Input:contactId</label>
+        <label>contactId</label>
         <name>input_contactId</name>
         <parameterName>Input:contactId</parameterName>
         <parameterType>input</parameterType>

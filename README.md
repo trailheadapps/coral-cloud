@@ -86,7 +86,7 @@ If you need to [update the Salesforce CLI](https://developer.salesforce.com/docs
 1. Assign the Coral Cloud permission set to the default user.
 
     ```bash
-    sf org assign permset -n Coral_Cloud
+    sf org assign permset -n Coral_Cloud_Admin
     ```
 
 1. Import some sample data.
@@ -105,6 +105,12 @@ If you need to [update the Salesforce CLI](https://developer.salesforce.com/docs
 
     ```bash
     sf project deploy start -d cc-employee-app
+    ```
+
+1. Assign the Coral Cloud Employee Agent Access permission set to the default user.
+
+    ```bash
+    sf org assign permset -n Coral_Cloud_Admin_Employee_Agent_Access
     ```
 
 1. Install a Data Kit to add Data Cloud components to your org.

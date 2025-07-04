@@ -144,3 +144,13 @@ For the deployment of Agentforce for Service it is necessary that certain values
 1. Click on the App Launcher and type `coral`. Click on **Coral Cloud** to launch the Experience Cloud site.
 
     ![App laucher showing the Experience Cloud site](/docs/gfx/app-launcher-ec.png)
+
+# Configure the Service Agent Email
+
+In order for the verification emails to be sent, you need to change and verify the email of the Service Agent.
+
+1. From Setup, go to **Users**.
+1. Edit the **Coral Cloud Agent User** user.
+1. Change the email to your email.
+1. Click **Save**.
+1. Click **Verify** next to the email.

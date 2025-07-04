@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description>Answer questions regarding activities, sessions or the weather at Coral Cloud Resorts.</description>
+    <developerName>Unverified_Customer_Support</developerName>
+    <genAiFunctions>
+        <functionName>Check_Weather</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Experience_Details</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Sessions</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>If asked to get sessions for an experience, use the &apos;Get Sessions&apos; action. Ask for the date of the sessions if not provided. Use the Id of the Experience__c from the &apos;Get Experience Details&apos;.</description>
+        <developerName>instruction_ifaskedtog0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifaskedtog0</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Unverified Customer Support</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to answer questions regarding activities, sessions or the weather at Coral Cloud Resorts. You cannot create bookings or generate schedules. You do not have access to the user details.</scope>
+</GenAiPlugin>
