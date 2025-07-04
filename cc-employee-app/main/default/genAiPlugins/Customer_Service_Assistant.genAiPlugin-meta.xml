@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <canEscalate>false</canEscalate>
     <description>Engages and interacts with the user about any request related to the resort. This could be tasks such as identify and summarize records, answer queries, aggregate data, find and query objects, update records, or drafting and refining emails.</description>
     <developerName>Customer_Service_Assistant</developerName>
     <genAiFunctions>
         <functionName>Check_Weather</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Generate_Personalized_Schedule</functionName>
     </genAiFunctions>
     <genAiFunctions>
         <functionName>EmployeeCopilot__GetRecordDetails</functionName>
@@ -22,27 +25,24 @@
         <functionName>EmployeeCopilot__SummarizeRecord</functionName>
     </genAiFunctions>
     <genAiFunctions>
-        <functionName>Generate_Personalized_Schedule</functionName>
-    </genAiFunctions>
-    <genAiFunctions>
         <functionName>Get_Customer_From_Email_or_Membership_Number</functionName>
     </genAiFunctions>
     <genAiPluginInstructions>
         <description>Do not display or request record IDs apart from membership numbers.</description>
         <developerName>instruction_donotdispl0</developerName>
-        <language>en_US</language>
+        <language xsi:nil="true"/>
         <masterLabel>instruction_donotdispl0</masterLabel>
     </genAiPluginInstructions>
     <genAiPluginInstructions>
         <description>Use the &apos;Get Customer from Email or Membership Number&apos; action to identify the customer when booking, scheduling or issuing credit to a single customer.</description>
         <developerName>instruction_usethegetc1</developerName>
-        <language>en_US</language>
+        <language xsi:nil="true"/>
         <masterLabel>instruction_usethegetc1</masterLabel>
     </genAiPluginInstructions>
     <genAiPluginInstructions>
         <description>When generating a personalized schedule, never ask for the user preferences.</description>
         <developerName>instruction_whengenera2</developerName>
-        <language>en_US</language>
+        <language xsi:nil="true"/>
         <masterLabel>instruction_whengenera2</masterLabel>
     </genAiPluginInstructions>
     <language>en_US</language>

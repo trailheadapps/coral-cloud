@@ -148,9 +148,11 @@ jobs:
             - name: 'Push employee source to scratch org'
               run: sf project deploy start -d cc-employee-app
 
-            # Assign Coral Cloud permission set
-            - name: 'Assign Coral Cloud permission set to default user'
-              run: sf org assign permset -n Coral_Cloud
+            # Assign Coral Cloud permission sets
+            - name: 'Assign Coral Cloud permission sets to default user'
+              run: |
+                  sf org assign permset -n Coral_Cloud_Admin
+                  sf org assign permset -n Coral_Cloud_Employee_Agent_Access
 
             # Import sample data
             - name: 'Import sample data'

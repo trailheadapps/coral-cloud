@@ -76,8 +76,9 @@ echo "[3/7] Pushing employee source..." && \
 sf project deploy start -d cc-employee-app && \
 echo "" && \
 
-echo "[4/7] Assigning Coral Cloud permission set..." && \
-sf org assign permset -n Coral_Cloud && \
+echo "[4/7] Assigning Coral Cloud permission sets..." && \
+sf org assign permset -n Coral_Cloud_Admin && \
+sf org assign permset -n Coral_Cloud_Employee_Agent_Access && \
 echo "" && \
 
 echo "[5/7] Importing sample data..." && \

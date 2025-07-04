@@ -74,7 +74,7 @@
     </botDialogs>
     <citationsEnabled>false</citationsEnabled>
     <company
-    >Coral Cloud Resorts is a fictitious seaside resort that manages guests and their reservations. It offers a rich set of experiences.</company>
+    >Coral Cloud Resorts is a seaside resort that manages guests and their reservations. It offers a rich set of experiences.</company>
     <conversationDefinitionPlanners>
         <genAiPlannerName>Coral_Cloud_Agent</genAiPlannerName>
     </conversationDefinitionPlanners>

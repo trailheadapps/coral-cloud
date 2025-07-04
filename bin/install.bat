@@ -48,8 +48,9 @@ cmd.exe /c sf project deploy start -d cc-employee-app
 call :checkForError
 @echo:
 
-echo "[4/7] Assigning Coral Cloud permission set..."
-cmd.exe /c sf org assign permset -n Coral_Cloud
+echo "[4/7] Assigning Coral Cloud permission sets..."
+cmd.exe /c sf org assign permset -n Coral_Cloud_Admin
+cmd.exe /c sf org assign permset -n Coral_Cloud_Employee_Agent_Access
 call :checkForError
 @echo:
 

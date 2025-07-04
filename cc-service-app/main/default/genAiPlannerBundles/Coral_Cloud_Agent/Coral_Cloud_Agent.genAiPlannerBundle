@@ -60,7 +60,7 @@
         <mappingTargetName>Verified_Customer_Id</mappingTargetName>
         <mappingType>Variable</mappingType>
     </attributeMappings>
-    <description>This is the Coral Cloud Agent that helps customers learn more about Experiences as well as book sessions.</description>
+    <description>Helps customers learn more about Experiences as well as book sessions.</description>
     <genAiFunctions>
         <genAiFunctionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</genAiFunctionName>
     </genAiFunctions>
