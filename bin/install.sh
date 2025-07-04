@@ -15,8 +15,22 @@ then
     echo "Using current default org: $ORG_ALIAS"
     echo ""
 else
-    echo "Installation failed: could not retrieve default org alias."
-    exit 1
+    echo "Could not retrieve default org alias."
+    read -p "Create a scratch org? [yY]: " -n 1 -r
+    echo ""
+    if [[ $REPLY =~ ^[^Yy]$ ]]
+    then
+        echo "Installation aborted."
+        exit 1
+    fi
+    ORG_ALIAS="cc-scratch-org"
+    sf org create scratch --definition-file config/project-scratch-def.json --alias "$ORG_ALIAS" -d -y 30
+    EXIT_CODE="$?"
+    echo ""
+    if [ "$EXIT_CODE" -ne 0 ]; then
+        echo "Installation failed."
+        exit $EXIT_CODE
+    fi
 fi
 
 # Open DC Setup home
