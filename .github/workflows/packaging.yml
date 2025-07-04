@@ -157,7 +157,7 @@ jobs:
 
             # Create scratch org
             - name: 'Create scratch org'
-              run: sf org create scratch -f config/cc-base-project-scratch-def.json -a scratch-org -d -y 1
+              run: sf org create scratch -f config/project-scratch-def.json -a scratch-org -d -y 1
 
             # Install base package in scratch org
             - name: 'Install base package in scratch org'
