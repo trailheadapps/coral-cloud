@@ -1,8 +1,8 @@
 {
-    "required": ["contactId"],
+    "required": ["Input:contactId"],
     "unevaluatedProperties": false,
     "properties": {
-        "contactId": {
+        "Input:contactId": {
             "title": "contactId",
             "description": "The contact record ID associated with the guest",
             "lightning:type": "lightning__textType",
