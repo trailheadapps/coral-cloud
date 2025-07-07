@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <agentAccesses>
+        <agentName>Coral_Cloud_Employee_Agent</agentName>
+        <enabled>true</enabled>
+    </agentAccesses>
+    <description>Grants access to the Coral Cloud Employee Agent</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Coral Cloud Employee Agent Access</label>
+</PermissionSet>

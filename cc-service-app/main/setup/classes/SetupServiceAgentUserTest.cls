@@ -20,23 +20,23 @@ private class SetupServiceAgentUserTest {
             WHERE CommunityNickname = :NICKNAME
         ];
         Assert.areEqual(1, createdUsers.size(), 'Should create one user');
+        User createdUser = createdUsers[0];
         Assert.areEqual(
             'Coral Cloud Agent User',
-            createdUsers[0].LastName,
+            createdUser.LastName,
             'Last name should match'
         );
-        Assert.areEqual(USERNAME, createdUsers[0].Email, 'Email should match');
+        Assert.areEqual(USERNAME, createdUser.Email, 'Email should match');
 
         // Verify permission set license assignments
         List<PermissionSetLicenseAssign> pslAssignments = [
             SELECT Id
             FROM PermissionSetLicenseAssign
-            WHERE AssigneeId = :createdUsers[0].Id
+            WHERE AssigneeId = :createdUser.Id
         ];
-        Assert.isTrue(
-            pslAssignments.size() >= 2,
-            'Should have at least 2 PSL assignments'
-        );
+        Integer expectedPslCount = SetupServiceAgentUser.getPermissionSetLicenseIds()
+            .size();
+        Assert.areEqual(expectedPslCount, pslAssignments.size());
 
         // Verify permission set assignments
         List<PermissionSetAssignment> psAssignments = [

@@ -1,0 +1,20 @@
+{
+    "unevaluatedProperties": false,
+    "properties": {
+        "customerEmail": {
+            "title": "customerEmail",
+            "description": "The email of the customer",
+            "lightning:type": "lightning__textType",
+            "lightning:isPII": false,
+            "copilotAction:isUserInput": false
+        },
+        "customerMembershipNumber": {
+            "title": "customerMembershipNumber",
+            "description": "The membership number of the customer",
+            "lightning:type": "lightning__textType",
+            "lightning:isPII": false,
+            "copilotAction:isUserInput": false
+        }
+    },
+    "lightning:type": "lightning__objectType"
+}

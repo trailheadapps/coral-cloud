@@ -15,8 +15,22 @@ then
     echo "Using current default org: $ORG_ALIAS"
     echo ""
 else
-    echo "Installation failed: could not retrieve default org alias."
-    exit 1
+    echo "Could not retrieve default org alias."
+    read -p "Create a scratch org? [yY]: " -n 1 -r
+    echo ""
+    if [[ $REPLY =~ ^[^Yy]$ ]]
+    then
+        echo "Installation aborted."
+        exit 1
+    fi
+    ORG_ALIAS="cc-scratch-org"
+    sf org create scratch --definition-file config/project-scratch-def.json --alias "$ORG_ALIAS" -d -y 30
+    EXIT_CODE="$?"
+    echo ""
+    if [ "$EXIT_CODE" -ne 0 ]; then
+        echo "Installation failed."
+        exit $EXIT_CODE
+    fi
 fi
 
 # Open DC Setup home
@@ -62,8 +76,9 @@ echo "[3/7] Pushing employee source..." && \
 sf project deploy start -d cc-employee-app && \
 echo "" && \
 
-echo "[4/7] Assigning Coral Cloud permission set..." && \
-sf org assign permset -n Coral_Cloud && \
+echo "[4/7] Assigning Coral Cloud permission sets..." && \
+sf org assign permset -n Coral_Cloud_Admin && \
+sf org assign permset -n Coral_Cloud_Employee_Agent_Access && \
 echo "" && \
 
 echo "[5/7] Importing sample data..." && \

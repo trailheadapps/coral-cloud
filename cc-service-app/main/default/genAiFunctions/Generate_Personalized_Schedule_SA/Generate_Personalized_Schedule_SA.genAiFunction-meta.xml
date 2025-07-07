@@ -7,12 +7,12 @@
     <isConfirmationRequired>false</isConfirmationRequired>
     <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
     <mappingAttributes>
-        <label>contactId</label>
+        <label>Input:contactId</label>
         <name>input_contactId</name>
         <parameterName>Input:contactId</parameterName>
         <parameterType>input</parameterType>
     </mappingAttributes>
-    <masterLabel>Generate Personalized Schedule</masterLabel>
+    <masterLabel>Generate Personalized Schedule (SA)</masterLabel>
     <progressIndicatorMessage
     >Generating personalized schedule...</progressIndicatorMessage>
 </GenAiFunction>

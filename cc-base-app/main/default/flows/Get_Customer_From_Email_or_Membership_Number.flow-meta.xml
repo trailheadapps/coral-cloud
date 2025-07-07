@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Saves the retrieved Contact ID</description>
+        <name>Save_Contact_Details</name>
+        <label>Save Contact Details</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>contactId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference
+                >Find_Contact_Record_for_Customer.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>contactRecord</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference
+                >Find_Contact_Record_for_Customer</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description
+    >Get the contact record associated to a customer from their email or membership number</description>
+    <environments>Default</environments>
+    <interviewLabel
+    >Get Customer From Email or Membership Number {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Get Customer From Email or Membership Number</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description
+        >Get Contact record associated with the customer</description>
+        <name>Find_Contact_Record_for_Customer</name>
+        <label>Find Contact Record for Customer</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound
+        >false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Save_Contact_Details</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Email</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>customerEmail</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Membership_Number__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>customerMembershipNumber</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Find_Contact_Record_for_Customer</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>The Contact ID associated with the customer</description>
+        <name>contactId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>Contact record associated to the customer</description>
+        <name>contactRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Contact</objectType>
+    </variables>
+    <variables>
+        <description>The email of the customer</description>
+        <name>customerEmail</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>The membership number of the customer</description>
+        <name>customerMembershipNumber</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>
