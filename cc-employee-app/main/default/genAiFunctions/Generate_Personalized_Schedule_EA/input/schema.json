@@ -1,17 +1,17 @@
 {
-    "required": ["email", "memberNumber"],
+    "required": ["Input:contactId"],
     "unevaluatedProperties": false,
     "properties": {
-        "email": {
-            "title": "email",
-            "description": "The Email Address of the customer that is validating their identity.",
+        "Input:contactId": {
+            "title": "contactId",
+            "description": "The Contact record ID associated with the guest",
             "lightning:type": "lightning__textType",
             "lightning:isPII": false,
             "copilotAction:isUserInput": false
         },
-        "memberNumber": {
-            "title": "memberNumber",
-            "description": "The Member Number of the customer that is validating their identity.",
+        "outputLanguage": {
+            "title": "Prompt Operation output language",
+            "description": "Select Prompt Operation output language",
             "lightning:type": "lightning__textType",
             "lightning:isPII": false,
             "copilotAction:isUserInput": false

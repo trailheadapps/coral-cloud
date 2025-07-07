@@ -4,7 +4,7 @@
     "properties": {
         "Input:contactId": {
             "title": "contactId",
-            "description": "The contact record ID associated with the guest",
+            "description": "The contact record ID associated with the customer.",
             "lightning:type": "lightning__textType",
             "lightning:isPII": false,
             "copilotAction:isUserInput": false

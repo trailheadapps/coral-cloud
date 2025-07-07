@@ -6,13 +6,7 @@
     <invocationTargetType>generatePromptResponse</invocationTargetType>
     <isConfirmationRequired>false</isConfirmationRequired>
     <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
-    <mappingAttributes>
-        <label>contactId</label>
-        <name>input_contactId</name>
-        <parameterName>Input:contactId</parameterName>
-        <parameterType>input</parameterType>
-    </mappingAttributes>
-    <masterLabel>Generate Personalized Schedule</masterLabel>
+    <masterLabel>Generate Personalized Schedule (EA)</masterLabel>
     <progressIndicatorMessage
     >Generating personalized schedule...</progressIndicatorMessage>
 </GenAiFunction>

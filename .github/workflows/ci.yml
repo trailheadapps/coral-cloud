@@ -77,6 +77,7 @@ jobs:
               with:
                   run-arguments: --workspace "cc-*/**" --view detail --output-file "sca-results.csv" --config-file "code-analyzer.yml"
                   results-artifact-name: code-analyzer-results
+                  github-token: ${{ github.token }}
 
             # Check for Code Analyzer critical or high severity violations
             - name: 'Check for Code Analyzer critical or high severity violations'
@@ -133,12 +134,7 @@ jobs:
 
             # Create scratch org
             - name: 'Create scratch org'
-              run: sf org create scratch -f config/cc-base-project-scratch-def.json -a scratch-org -d -y 1 -w 10
-
-            # Modify local metadata for packaging
-            - name: 'Modify local metadata for packaging'
-              run: |
-                  sed '/<actionCalls>/,/<\/actionCalls>/d' cc-base-app/main/default/flows/PersonalizedSchedule.flow-meta.xml > cc-base-app/main/default/flows/PersonalizedSchedule_Temp.flow-meta.xml && mv cc-base-app/main/default/flows/PersonalizedSchedule_Temp.flow-meta.xml cc-base-app/main/default/flows/PersonalizedSchedule.flow-meta.xml
+              run: sf org create scratch -f config/project-scratch-def.json -a scratch-org -d -y 1 -w 10
 
             # Push base source to scratch org
             - name: 'Push base source to scratch org'
@@ -152,9 +148,11 @@ jobs:
             - name: 'Push employee source to scratch org'
               run: sf project deploy start -d cc-employee-app
 
-            # Assign Coral Cloud permission set
-            - name: 'Assign Coral Cloud permission set to default user'
-              run: sf org assign permset -n Coral_Cloud
+            # Assign Coral Cloud permission sets
+            - name: 'Assign Coral Cloud permission sets to default user'
+              run: |
+                  sf org assign permset -n Coral_Cloud_Admin
+                  sf org assign permset -n Coral_Cloud_Employee_Agent_Access
 
             # Import sample data
             - name: 'Import sample data'

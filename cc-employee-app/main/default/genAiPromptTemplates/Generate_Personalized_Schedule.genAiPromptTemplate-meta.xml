@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
     <activeVersionIdentifier
-    >g8e6IWywKki8fcmzblc3o3liVRxBT/o0dl5GpICFNJE=_1</activeVersionIdentifier>
+    >AYKqxYnYWteUzxaPmRH2kX8HS7T3uPgVoKpLmcitkXM=_1</activeVersionIdentifier>
     <description
     >Generate a personalized schedule that includes the time and location of resort experiences that are available today, and that match the guest&apos;s interests.</description>
     <developerName>Generate_Personalized_Schedule</developerName>
@@ -22,26 +22,26 @@ List of activities happening today that match the guest&apos;s interests:
 {!$Apex:PersonalizedGuestExperiences.Prompt}
 </content>
         <inputs>
-            <apiName>Contact</apiName>
-            <definition>SOBJECT://Contact</definition>
-            <masterLabel>Contact</masterLabel>
-            <referenceName>Input:Contact</referenceName>
+            <apiName>contactId</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>contactId</masterLabel>
+            <referenceName>Input:contactId</referenceName>
             <required>true</required>
         </inputs>
-        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
         <status>Published</status>
         <templateDataProviders>
             <definition>apex://PersonalizedGuestExperiences</definition>
             <parameters>
-                <definition>SOBJECT://Contact</definition>
+                <definition>primitive://String</definition>
                 <isRequired>true</isRequired>
-                <parameterName>myContact</parameterName>
-                <valueExpression>{!$Input:Contact}</valueExpression>
+                <parameterName>contactId</parameterName>
+                <valueExpression>{!$Input:contactId}</valueExpression>
             </parameters>
             <referenceName>Apex:PersonalizedGuestExperiences</referenceName>
         </templateDataProviders>
         <versionIdentifier
-        >g8e6IWywKki8fcmzblc3o3liVRxBT/o0dl5GpICFNJE=_1</versionIdentifier>
+        >AYKqxYnYWteUzxaPmRH2kX8HS7T3uPgVoKpLmcitkXM=_1</versionIdentifier>
     </templateVersions>
     <type>einstein_gpt__flex</type>
     <visibility>Global</visibility>

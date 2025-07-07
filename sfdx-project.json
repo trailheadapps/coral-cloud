@@ -7,7 +7,7 @@
       "versionName": "Winter '25 release",
       "versionDescription": "Base package for the Coral Cloud sample app",
       "versionNumber": "1.14.0.NEXT",
-      "definitionFile": "config/cc-base-project-scratch-def.json",
+      "definitionFile": "config/project-scratch-def.json",
       "apexTestAccess": {
         "permissionSets": [
           "Coral_Cloud"
@@ -21,7 +21,7 @@
       "versionName": "Winter '25 release",
       "versionDescription": "Coral Cloud Experience Cloud site",
       "versionNumber": "1.7.0.NEXT",
-      "definitionFile": "config/cc-base-project-scratch-def.json",
+      "definitionFile": "config/project-scratch-def.json",
       "dependencies": [
         {
           "package": "Coral Cloud - Base",

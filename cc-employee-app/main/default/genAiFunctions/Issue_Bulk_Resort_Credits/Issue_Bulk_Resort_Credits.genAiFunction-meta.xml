@@ -5,6 +5,8 @@
     <invocationTarget>Issue_Bulk_Resort_Credits</invocationTarget>
     <invocationTargetType>flow</invocationTargetType>
     <isConfirmationRequired>false</isConfirmationRequired>
-    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
     <masterLabel>Issue Bulk Resort Credits</masterLabel>
+    <progressIndicatorMessage
+    >Issuing a batch of resort credits...</progressIndicatorMessage>
 </GenAiFunction>

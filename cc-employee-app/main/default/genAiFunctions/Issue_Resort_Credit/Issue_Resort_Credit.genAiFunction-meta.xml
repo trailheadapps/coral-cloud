@@ -4,6 +4,14 @@
     <invocationTarget>Issue_Resort_Credit</invocationTarget>
     <invocationTargetType>flow</invocationTargetType>
     <isConfirmationRequired>false</isConfirmationRequired>
-    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <mappingAttributes>
+        <label>contactid</label>
+        <name>input_contactid</name>
+        <parameterName>contactid</parameterName>
+        <parameterType>input</parameterType>
+    </mappingAttributes>
     <masterLabel>Issue Resort Credit</masterLabel>
+    <progressIndicatorMessage
+    >Issuing resort credit...</progressIndicatorMessage>
 </GenAiFunction>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <description
     >Get the Sessions__c based on the provided specific Date and the Id of the
         Experience__c</description>
@@ -31,8 +32,8 @@
         >Get Experience Session records based on the Experience Id and the Date.</description>
         <name>Get_Sessions_by_Date</name>
         <label>Get Sessions by Date</label>
-        <locationX>176</locationX>
-        <locationY>134</locationY>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
         <assignNullValuesIfNoRecordsFound
         >false</assignNullValuesIfNoRecordsFound>
         <filterLogic>and</filterLogic>
@@ -66,7 +67,7 @@
     </recordLookups>
     <runInMode>SystemModeWithSharing</runInMode>
     <start>
-        <locationX>50</locationX>
+        <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Get_Sessions_by_Date</targetReference>

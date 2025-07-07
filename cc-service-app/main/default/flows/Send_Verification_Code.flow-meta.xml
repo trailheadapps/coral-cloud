@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description
+        >Calls an action that emails a verification code to the email address passed into the flow.</description>
+        <name>EmailVerificationCode</name>
+        <label>Email Verification Code</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>SetVerificationCode</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>SetVerificationMessage</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>emailAddress</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Your Chatbot Verification Code</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <stringValue
+                >Enter the following code in your current chat session to verify your email address: {!GenerateVerificationCode.verificationCode}</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <description>Generated verification code</description>
+        <name>GenerateVerificationCode</name>
+        <label>Generate Verification Code</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>generateVerificationCode</actionName>
+        <actionType>generateVerificationCode</actionType>
+        <connector>
+            <targetReference>EmailVerificationCode</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>generateVerificationCode</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description
+        >Sets the VerificationCode variable to the value returned by GenerateVerificationCode Action.</description>
+        <name>SetVerificationCode</name>
+        <label>Set Verification Code</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>verificationCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference
+                >GenerateVerificationCode.verificationCode</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>verificationMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>codeSentMessage</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>customerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AssigningRecordId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>customerType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AssigningIdType</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>authenticationKey</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference
+                >GenerateVerificationCode.authenticationKey</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description
+        >Sets Verification Message to be displayed to the user.</description>
+        <name>SetVerificationMessage</name>
+        <label>Set Code Status</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>verificationMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>codeSentMessage</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <constants>
+        <description
+        >Stores generic message that will be displayed to user</description>
+        <name>codeSentMessage</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue
+            >If you have provided a valid email or username, you should receive a verification code to verify your identity. Please enter the code</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <description
+        >Determines whether the user is found by username</description>
+        <name>DoesUserExist</name>
+        <label>Does user exist ?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>GetContactByEmail</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>User not found (Default)</defaultConnectorLabel>
+        <rules>
+            <name>UserExist</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>emailAddress</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>HasEmailAddress</targetReference>
+            </connector>
+            <label>User exist</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description
+        >Determines whether an email address was returned from the WhatTypeOfVerification or GetUser element.</description>
+        <name>HasEmailAddress</name>
+        <label>Have Email Address?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>GenerateVerificationCode</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Yes</defaultConnectorLabel>
+        <rules>
+            <name>No</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>emailAddress</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>SetVerificationMessage</targetReference>
+            </connector>
+            <label>No (Default)</label>
+        </rules>
+    </decisions>
+    <description
+    >Sends a verification code to the user to authenticate them.</description>
+    <environments>Default</environments>
+    <formulas>
+        <description
+        >Stores the ID type, whether it is a User or a Contact.</description>
+        <name>AssigningIdType</name>
+        <dataType>String</dataType>
+        <expression
+        >IF(ISBLANK({!userId}), IF(ISBLANK({!contactId}), &quot;&quot;, &quot;Contact&quot;), &quot;User&quot;)</expression>
+    </formulas>
+    <formulas>
+        <description>Assigning record Id as user id or contact</description>
+        <name>AssigningRecordId</name>
+        <dataType>String</dataType>
+        <expression>BLANKVALUE({!contactId}, {!userId})</expression>
+    </formulas>
+    <interviewLabel
+    >Send Verification Code {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Send Verification Code</label>
+    <overriddenFlow>SvcCopilotTmpl__SendVerificationCode</overriddenFlow>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Gets the user Contact with the email address</description>
+        <name>GetContactByEmail</name>
+        <label>Get Contact by email</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound
+        >true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>HasEmailAddress</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Email</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>customerToVerify</elementReference>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <outputAssignments>
+            <assignToReference>emailAddress</assignToReference>
+            <field>Email</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>contactId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <description
+        >Gets the user record with the username passed into the flow.</description>
+        <name>GetUser</name>
+        <label>Get User</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound
+        >true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>DoesUserExist</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Username</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>customerToVerify</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>IsActive</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>User</object>
+        <outputAssignments>
+            <assignToReference>emailAddress</assignToReference>
+            <field>Email</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>userId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>GetUser</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>authenticationKey</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>Stores the contact id of the user</description>
+        <name>contactId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Stores the user id or contact id</description>
+        <name>customerId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description
+        >Stores the username or email address was passed to the flow.</description>
+        <name>customerToVerify</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description
+        >Stores the ID type, whether it is a User or a Contact</description>
+        <name>customerType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description
+        >Stores the email address passed into the flow.</description>
+        <name>emailAddress</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Stores the userId of the user</description>
+        <name>userId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description
+        >Stores the verification code generated for the specified email address and is available as output from the flow.</description>
+        <name>verificationCode</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description
+        >Stores generic message that will be displayed to user</description>
+        <name>verificationMessage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue
+            >If you have provided a valid email or username, you should receive a verification code to verify your identity. Please enter the code</stringValue>
+        </value>
+    </variables>
+</Flow>
