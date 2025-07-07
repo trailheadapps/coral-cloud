@@ -58,10 +58,6 @@ If you need to [update the Salesforce CLI](https://developer.salesforce.com/docs
 
 1. Toggle on **Agentforce**.
 
-1. Toggle on **Enable the Agentforce (Default) Agent**.
-
-1. From **Setup**, go to **Einstein for Sales** and ensure that **Turn on Sales Emails** is toggled on.
-
 ### Step 2. Base metadata deployment
 
 1. Clone this repository:
@@ -83,10 +79,23 @@ If you need to [update the Salesforce CLI](https://developer.salesforce.com/docs
     sf project deploy start -d cc-base-app
     ```
 
-1. Assign the Coral Cloud permission set to the default user.
+1. Assign the Prompt Template Manager permission set to the default user.
+
+    ```bash
+    sf org assign permset -n EinsteinGPTPromptTemplateManager
+    ```
+
+1. Deploy the employee agent metadata.
+
+    ```bash
+    sf project deploy start -d cc-employee-app
+    ```
+
+1. Assign the Coral Cloud permission sets to the default user.
 
     ```bash
     sf org assign permset -n Coral_Cloud_Admin
+    sf org assign permset -n Coral_Cloud_Employee_Agent_Access
     ```
 
 1. Import some sample data.
@@ -99,18 +108,6 @@ If you need to [update the Salesforce CLI](https://developer.salesforce.com/docs
 
     ```bash
     sf apex run -f apex-scripts/setup.apex
-    ```
-
-1. Deploy the employee agent metadata.
-
-    ```bash
-    sf project deploy start -d cc-employee-app
-    ```
-
-1. Assign the Coral Cloud Employee Agent Access permission set to the default user.
-
-    ```bash
-    sf org assign permset -n Coral_Cloud_Admin_Employee_Agent_Access
     ```
 
 1. Install a Data Kit to add Data Cloud components to your org.
