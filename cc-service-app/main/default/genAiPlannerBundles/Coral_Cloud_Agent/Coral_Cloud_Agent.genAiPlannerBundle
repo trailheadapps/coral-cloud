@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <attributeMappings>
         <attributeName>SvcCopilotTmpl__ServiceCustomerVerification.SvcCopilotTmpl__SendEmailVerificationCode.authenticationKey</attributeName>
         <attributeType>StandardPluginFunctionOutput</attributeType>
@@ -49,13 +49,7 @@
         <mappingType>Variable</mappingType>
     </attributeMappings>
     <attributeMappings>
-        <attributeName>Verified_Customer_Support.Create_Booking.input_contactId</attributeName>
-        <attributeType>CustomPluginFunctionAttribute</attributeType>
-        <mappingTargetName>Verified_Customer_Id</mappingTargetName>
-        <mappingType>Variable</mappingType>
-    </attributeMappings>
-    <attributeMappings>
-        <attributeName>Verified_Customer_Support.Generate_Personalized_Schedule.input_contactId</attributeName>
+        <attributeName>Verified_Customer_Support.Generate_Personalized_Schedule_SA.input_contactId</attributeName>
         <attributeType>CustomPluginFunctionAttribute</attributeType>
         <mappingTargetName>Verified_Customer_Id</mappingTargetName>
         <mappingType>Variable</mappingType>
@@ -65,6 +59,69 @@
         <genAiFunctionName>EmployeeCopilot__AnswerQuestionsWithKnowledge</genAiFunctionName>
     </genAiFunctions>
     <genAiPlugins>
+        <genAiCustomizedPlugin>
+            <canEscalate>false</canEscalate>
+            <description>Verifies the customer&apos;s identity before granting access to sensitive data. Actions like managing cases, generating a schedule or making a reservation require identity verification. Sensitive data includes confidential, private, or security-protected information, such as business-critical data or personally identifiable information (PII). After verification is successful, don&apos;t repeat the process within the same session.</description>
+            <genAiFunctions>
+                <functionName>SvcCopilotTmpl__SendEmailVerificationCode</functionName>
+            </genAiFunctions>
+            <genAiFunctions>
+                <functionName>SvcCopilotTmpl__VerifyCustomer</functionName>
+            </genAiFunctions>
+            <genAiPluginInstructions>
+                <description>Ask the customer to enter their username or email address if it hasn&apos;t been provided.</description>
+                <developerName>instruction_askthecust0</developerName>
+                <language xsi:nil="true"/>
+                <masterLabel>instruction_askthecust0</masterLabel>
+            </genAiPluginInstructions>
+            <genAiPluginInstructions>
+                <description>Use the &quot;SendEmailVerificationCode&quot; action to initiate the verification process. Use the username or email address provided by the customer as input &quot;customerToVerify&quot; for this action.</description>
+                <developerName>instruction_usethesend1</developerName>
+                <language xsi:nil="true"/>
+                <masterLabel>instruction_usethesend1</masterLabel>
+            </genAiPluginInstructions>
+            <genAiPluginInstructions>
+                <description>When the user provides their username or email address, you must never return any message that discloses whether the user or email exists or not. The message must explicitly state the return data of the &quot;verificationMessage&quot; field in the &quot;SendEmailVerificationCode&quot; action. For example: &quot;If you have provided a valid email or username, you should receive a verification code to verify your identity. Please enter the code.&quot;</description>
+                <developerName>instruction_whentheuse2</developerName>
+                <language xsi:nil="true"/>
+                <masterLabel>instruction_whentheuse2</masterLabel>
+            </genAiPluginInstructions>
+            <genAiPluginInstructions>
+                <description>If the customer enters the wrong verification code three times, ask them to re-enter their username or email address to receive a new verification code. This involves invoking the &quot;SendEmailVerificationCode&quot; action again to initiate the verification process. This ensures that the customer cannot bypass the verification process after three unsuccessful attempts.</description>
+                <developerName>instruction_ifthecusto3</developerName>
+                <language xsi:nil="true"/>
+                <masterLabel>instruction_ifthecusto3</masterLabel>
+            </genAiPluginInstructions>
+            <genAiPluginInstructions>
+                <description>Never process any request for accessing or updating any sensitive data without invoking this function if the customer is not verified yet. Maintain security in all interactions.</description>
+                <developerName>instruction_neverproce4</developerName>
+                <language xsi:nil="true"/>
+                <masterLabel>instruction_neverproce4</masterLabel>
+            </genAiPluginInstructions>
+            <genAiPluginInstructions>
+                <description>Never reveal the verification code, email address, or username to the customer during the authentication process. Make sure that these details remain confidential and aren’t displayed at any point.</description>
+                <developerName>instruction_neverrevea5</developerName>
+                <language xsi:nil="true"/>
+                <masterLabel>instruction_neverrevea5</masterLabel>
+            </genAiPluginInstructions>
+            <genAiPluginInstructions>
+                <description>After the user is verified in a conversation session, switching to a different user isn&apos;t allowed under any circumstances.</description>
+                <developerName>instruction_aftertheus6</developerName>
+                <language xsi:nil="true"/>
+                <masterLabel>instruction_aftertheus6</masterLabel>
+            </genAiPluginInstructions>
+            <genAiPluginInstructions>
+                <description>If verification is successful, proceed with the requested action and complete the task the user intends to perform.</description>
+                <developerName>instruction_ifverifica7</developerName>
+                <language xsi:nil="true"/>
+                <masterLabel>instruction_ifverifica7</masterLabel>
+            </genAiPluginInstructions>
+            <language>en_US</language>
+            <masterLabel>Service Customer Verification</masterLabel>
+            <name>ServiceCustomerVerification</name>
+            <pluginType>Topic</pluginType>
+            <scope>Your job is to authenticate the customer who has not yet been authenticated before granting access to any sensitive data. You will verify the customer using their email address or username. After verification is successful, don&apos;t repeat the process within the same session.</scope>
+        </genAiCustomizedPlugin>
         <genAiPluginName>SvcCopilotTmpl__ServiceCustomerVerification</genAiPluginName>
     </genAiPlugins>
     <genAiPlugins>
@@ -76,7 +133,7 @@
     <masterLabel>Coral Cloud Agent</masterLabel>
     <plannerType>AiCopilot__ReAct</plannerType>
     <ruleExpressionAssignments>
-        <ruleExpressionName>Is_Not_Verified_Customer</ruleExpressionName>
+        <ruleExpressionName>Is_Unverified_Customer</ruleExpressionName>
         <targetName>SvcCopilotTmpl__ServiceCustomerVerification</targetName>
         <targetType>Plugin</targetType>
     </ruleExpressionAssignments>
@@ -91,8 +148,8 @@
             <leftOperandType>Variable</leftOperandType>
             <operator>isEmpty</operator>
         </conditions>
-        <expressionLabel>Is Not Verified Customer</expressionLabel>
-        <expressionName>Is_Not_Verified_Customer</expressionName>
+        <expressionLabel>Is Unverified Customer</expressionLabel>
+        <expressionName>Is_Unverified_Customer</expressionName>
         <expressionType>sel</expressionType>
     </ruleExpressions>
     <ruleExpressions>

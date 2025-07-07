@@ -1,0 +1,21 @@
+{
+    "required": ["Input:contactId"],
+    "unevaluatedProperties": false,
+    "properties": {
+        "Input:contactId": {
+            "title": "contactId",
+            "description": "The Contact record ID associated with the guest",
+            "lightning:type": "lightning__textType",
+            "lightning:isPII": false,
+            "copilotAction:isUserInput": false
+        },
+        "outputLanguage": {
+            "title": "Prompt Operation output language",
+            "description": "Select Prompt Operation output language",
+            "lightning:type": "lightning__textType",
+            "lightning:isPII": false,
+            "copilotAction:isUserInput": false
+        }
+    },
+    "lightning:type": "lightning__objectType"
+}

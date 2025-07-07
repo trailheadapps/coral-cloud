@@ -111,7 +111,7 @@
         <dataType>Text</dataType>
         <description>Contact ID of the verified customer</description>
         <developerName>Verified_Customer_Id</developerName>
-        <includeInPrompt>false</includeInPrompt>
+        <includeInPrompt>true</includeInPrompt>
         <label>Verified Customer Id</label>
         <visibility>External</visibility>
     </conversationVariables>

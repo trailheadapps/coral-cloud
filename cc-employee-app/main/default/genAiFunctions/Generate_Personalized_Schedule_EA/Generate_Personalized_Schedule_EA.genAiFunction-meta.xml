@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description
+    >Generate a personalized schedule that includes the time and location of resort experiences that are available today, and that match the guest&apos;s interests.</description>
+    <invocationTarget>Generate_Personalized_Schedule</invocationTarget>
+    <invocationTargetType>generatePromptResponse</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <masterLabel>Generate Personalized Schedule (EA)</masterLabel>
+    <progressIndicatorMessage
+    >Generating personalized schedule...</progressIndicatorMessage>
+</GenAiFunction>
