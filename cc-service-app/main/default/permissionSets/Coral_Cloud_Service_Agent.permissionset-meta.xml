@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>CheckWeather</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <description
     >This permission set is used to control what the Coral Cloud Agent has access to.</description>
     <fieldPermissions>
