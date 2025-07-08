@@ -4,7 +4,7 @@
     "properties": {
         "contactId": {
             "title": "contactId",
-            "description": "The Id of the contact that will be used to create the related booking.",
+            "description": "Contact record ID that will be used to create the related booking.",
             "lightning:type": "lightning__textType",
             "lightning:isPII": false,
             "copilotAction:isUserInput": false
