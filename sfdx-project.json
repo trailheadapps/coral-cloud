@@ -10,7 +10,7 @@
       "definitionFile": "config/project-scratch-def.json",
       "apexTestAccess": {
         "permissionSets": [
-          "Coral_Cloud"
+          "Coral_Cloud_Admin"
         ]
       }
     },
