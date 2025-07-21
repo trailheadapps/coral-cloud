@@ -1,5 +1,5 @@
 {
-    "name": "coral-cloud",
+    "name": "@salesforce/coral-cloud",
     "private": true,
     "version": "1.0.0",
     "description": "Coral Cloud sample app",
