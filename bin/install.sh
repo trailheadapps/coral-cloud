@@ -3,7 +3,7 @@ SCRIPT_PATH=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cd $SCRIPT_PATH/..
 
 echo ""
-echo "Installing Coral Cloud - Base"
+echo "Installing Coral Cloud - Base + Employee"
 echo ""
 
 # Get default org alias
@@ -13,6 +13,10 @@ if [[ $ORG_INFO =~ $VALUE_REGEX ]]
 then
     ORG_ALIAS="${BASH_REMATCH[1]}"
     echo "Using current default org: $ORG_ALIAS"
+    echo ""
+
+    # Open DC Setup home
+    sf org open -p lightning/setup/SetupOneHome/home?setupApp=audience360
     echo ""
 else
     echo "Could not retrieve default org alias."
@@ -31,37 +35,6 @@ else
         echo "Installation failed."
         exit $EXIT_CODE
     fi
-fi
-
-# Open DC Setup home
-sf org open -p lightning/setup/SetupOneHome/home?setupApp=audience360
-echo ""
-
-# Wait for DC activation
-echo "STOP: wait for Data Cloud deployment completion before moving forward."
-echo "You can check progress in Data Cloud Setup."
-read -p "Is Data Cloud is fully enabled? [yY]: " -n 1 -r
-echo ""
-echo ""
-# Abort if not ready
-if [[ $REPLY =~ ^[^Yy]$ ]]
-then
-  echo "Installation aborted."
-  exit 1
-fi
-
-# Confirm feature activation
-echo "STOP: ensure that you've toggled on the following features:"
-echo " * Einstein"
-echo " * Agents"
-read -p "Are the above features enabled? [yY]: " -n 1 -r
-echo ""
-echo ""
-# Abort if not ready
-if [[ $REPLY =~ ^[^Yy]$ ]]
-then
-  echo "Installation aborted."
-  exit 1
 fi
 
 echo "[1/7] Pushing base source..." && \
