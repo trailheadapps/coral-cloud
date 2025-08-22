@@ -1,7 +1,7 @@
 @IsTest
 public class ListExperiencesFromTypeTest {
     @IsTest
-    static void testListExperiencesFromType_works() {
+    static void testListExperiencesFromType_Success() {
         // Create 2 adventure and 1 relaxation sample experience records
         List<Experience__c> sampleExperiences = new List<Experience__c>{
             new Experience__c(
@@ -29,7 +29,7 @@ public class ListExperiencesFromTypeTest {
         inputs.add(input);
 
         Test.startTest();
-        List<ListExperiencesFromType.ExperienceListWrapper> results = ListExperiencesFromType.listExperiencesFromType(
+        List<ListExperiencesFromType.ExperienceListWrapper> results = ListExperiencesFromType.getExperiencesFromType(
             inputs
         );
         Test.stopTest();
@@ -76,7 +76,7 @@ public class ListExperiencesFromTypeTest {
         inputs.add(input);
 
         Test.startTest();
-        List<ListExperiencesFromType.ExperienceListWrapper> results = ListExperiencesFromType.listExperiencesFromType(
+        List<ListExperiencesFromType.ExperienceListWrapper> results = ListExperiencesFromType.getExperiencesFromType(
             inputs
         );
         Test.stopTest();

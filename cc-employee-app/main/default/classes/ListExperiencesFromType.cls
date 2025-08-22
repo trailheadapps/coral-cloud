@@ -3,7 +3,7 @@ public with sharing class ListExperiencesFromType {
         label='List Experiences from Type'
         description='Returns a list of experiences based on their type'
     )
-    public static List<ExperienceListWrapper> listExperiencesFromType(
+    public static List<ExperienceListWrapper> getExperiencesFromType(
         List<ExperienceTypeInput> experienceTypeInputs
     ) {
         List<ExperienceListWrapper> experienceWrappers = new List<ExperienceListWrapper>();
