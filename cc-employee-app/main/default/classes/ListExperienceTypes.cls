@@ -3,7 +3,7 @@ public with sharing class ListExperienceTypes {
         label='List Experience Types'
         description='Returns a list of all available experience types'
     )
-    public static List<ExperienceTypeOutput> listExperienceTypes(
+    public static List<ExperienceTypeOutput> getExperienceTypes(
         List<ExperienceTypeInput> inputs
     ) {
         // Get picklist values

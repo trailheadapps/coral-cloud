@@ -1,7 +1,7 @@
 @IsTest
 private class ListExperienceTypesTest {
     @IsTest
-    static void testListExperienceTypes() {
+    static void testGetListExperienceTypes_Success() {
         // Prepare test input
         List<ListExperienceTypes.ExperienceTypeInput> inputs = new List<ListExperienceTypes.ExperienceTypeInput>{
             new ListExperienceTypes.ExperienceTypeInput()
@@ -9,7 +9,7 @@ private class ListExperienceTypesTest {
 
         // Execute the method
         Test.startTest();
-        List<ListExperienceTypes.ExperienceTypeOutput> results = ListExperienceTypes.listExperienceTypes(
+        List<ListExperienceTypes.ExperienceTypeOutput> results = ListExperienceTypes.getExperienceTypes(
             inputs
         );
         Test.stopTest();
