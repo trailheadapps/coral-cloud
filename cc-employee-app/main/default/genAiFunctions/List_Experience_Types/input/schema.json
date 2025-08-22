@@ -1,0 +1,13 @@
+{
+    "unevaluatedProperties": false,
+    "properties": {
+        "dummyInput": {
+            "title": "Unused dummy input",
+            "description": "This input is not used, but it is required to make the method invocable.",
+            "lightning:type": "lightning__textType",
+            "lightning:isPII": false,
+            "copilotAction:isUserInput": false
+        }
+    },
+    "lightning:type": "lightning__objectType"
+}

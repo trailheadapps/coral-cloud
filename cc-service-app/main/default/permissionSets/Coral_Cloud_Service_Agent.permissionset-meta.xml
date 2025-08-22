@@ -4,6 +4,14 @@
         <apexClass>CheckWeather</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>ListExperienceTypes</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ListExperiencesFromType</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <description
     >This permission set is used to control what the Coral Cloud Agent has access to.</description>
     <fieldPermissions>

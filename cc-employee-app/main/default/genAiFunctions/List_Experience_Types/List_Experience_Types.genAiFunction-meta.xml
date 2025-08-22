@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Returns a list of all available experience types</description>
+    <invocationTarget>ListExperienceTypes</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <masterLabel>List Experience Types</masterLabel>
+    <progressIndicatorMessage
+    >Getting experience types...</progressIndicatorMessage>
+</GenAiFunction>

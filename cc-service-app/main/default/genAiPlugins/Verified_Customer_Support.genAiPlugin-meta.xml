@@ -18,6 +18,12 @@
     <genAiFunctions>
         <functionName>Check_Weather</functionName>
     </genAiFunctions>
+    <genAiFunctions>
+        <functionName>List_Experience_Types</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>List_Experiences_from_Type</functionName>
+    </genAiFunctions>
     <genAiPluginInstructions>
         <description>If asked to book, use the action &apos;Create Booking&apos;. The Session__c is the ID of the session from the action &apos;Get Sessions&apos;. If multiple sessions are present, ask to select one of the sessions. Do not display the Id, display the Start_Time__c. Use that Session as the ID for the Session__c. Prompt for the Number of Guests and use that for the Number_of_Guests__c.</description>
         <developerName>instruction_ifaskedtob0</developerName>
