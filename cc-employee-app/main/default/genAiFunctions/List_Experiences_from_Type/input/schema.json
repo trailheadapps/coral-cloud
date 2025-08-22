@@ -1,0 +1,14 @@
+{
+    "required": ["type"],
+    "unevaluatedProperties": false,
+    "properties": {
+        "type": {
+            "title": "Experience Type",
+            "description": "The type of experience to list",
+            "lightning:type": "lightning__textType",
+            "lightning:isPII": false,
+            "copilotAction:isUserInput": false
+        }
+    },
+    "lightning:type": "lightning__objectType"
+}

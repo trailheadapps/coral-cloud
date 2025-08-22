@@ -3,10 +3,8 @@
     <apiVersion>64.0</apiVersion>
     <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
-        <description
-        >Assign an Experience__c record for presentation back to the user.</description>
-        <name>Assign_Experience_Record</name>
-        <label>Assign Experience Record</label>
+        <name>Save_flow_output</name>
+        <label>Save flow output</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
         <assignmentItems>
@@ -17,18 +15,33 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>experienceRecordId</assignToReference>
+            <assignToReference>linkTitle</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Experience_by_Name.Id</elementReference>
+                <elementReference>Get_Experience_by_Name.Name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>experiencePictureUrl</assignToReference>
+            <assignToReference>linkUrl</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue
+                >https://help.salesforce.com/s/articleView?id=ai.agent_response_ref.htm&amp;type=5</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>linkImageUrl</assignToReference>
             <operator>Assign</operator>
             <value>
                 <elementReference
                 >Get_Experience_by_Name.Picture_URL__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>linkImageMimeType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>image/jpeg</stringValue>
             </value>
         </assignmentItems>
     </assignments>
@@ -66,7 +79,7 @@
         <assignNullValuesIfNoRecordsFound
         >false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Assign_Experience_Record</targetReference>
+            <targetReference>Save_flow_output</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -105,14 +118,6 @@
         <isOutput>false</isOutput>
     </variables>
     <variables>
-        <description>Experience picture URL</description>
-        <name>experiencePictureUrl</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>true</isOutput>
-    </variables>
-    <variables>
         <description
         >The Experience__c record to be summarized for the user.</description>
         <name>experienceRecord</name>
@@ -123,8 +128,34 @@
         <objectType>Experience__c</objectType>
     </variables>
     <variables>
-        <description>Experience record ID</description>
-        <name>experienceRecordId</name>
+        <description
+        >The MIME type of the image associated with the experience page link.</description>
+        <name>linkImageMimeType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description
+        >A URL for an image associated with the experience page link.</description>
+        <name>linkImageUrl</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>A title for the link to the experience page.</description>
+        <name>linkTitle</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>A link to the activity page.</description>
+        <name>linkUrl</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>

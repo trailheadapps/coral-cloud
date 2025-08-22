@@ -1,0 +1,54 @@
+{
+    "unevaluatedProperties": false,
+    "properties": {
+        "experienceRecord": {
+            "title": "experienceRecord",
+            "description": "The Experience__c record to be summarized for the user.",
+            "lightning:type": "lightning__recordInfoType",
+            "lightning:sObjectInfo": {
+                "apiName": "Experience__c"
+            },
+            "lightning:isPII": false,
+            "copilotAction:isDisplayable": true,
+            "copilotAction:isUsedByPlanner": true,
+            "copilotAction:useHydratedPrompt": false
+        },
+        "linkImageMimeType": {
+            "title": "linkImageMimeType",
+            "description": "The MIME type of the image associated with the experience page link.",
+            "lightning:type": "lightning__textType",
+            "lightning:isPII": false,
+            "copilotAction:isDisplayable": true,
+            "copilotAction:isUsedByPlanner": true,
+            "copilotAction:useHydratedPrompt": false
+        },
+        "linkImageUrl": {
+            "title": "linkImageUrl",
+            "description": "A URL for an image associated with the experience page link.",
+            "lightning:type": "lightning__textType",
+            "lightning:isPII": false,
+            "copilotAction:isDisplayable": true,
+            "copilotAction:isUsedByPlanner": true,
+            "copilotAction:useHydratedPrompt": false
+        },
+        "linkTitle": {
+            "title": "linkTitle",
+            "description": "A title for the link to the experience page.",
+            "lightning:type": "lightning__textType",
+            "lightning:isPII": false,
+            "copilotAction:isDisplayable": true,
+            "copilotAction:isUsedByPlanner": true,
+            "copilotAction:useHydratedPrompt": false
+        },
+        "linkUrl": {
+            "title": "linkUrl",
+            "description": "A link to the activity page.",
+            "lightning:type": "lightning__textType",
+            "lightning:isPII": false,
+            "copilotAction:isDisplayable": true,
+            "copilotAction:isUsedByPlanner": true,
+            "copilotAction:useHydratedPrompt": false
+        }
+    },
+    "lightning:type": "lightning__objectType"
+}
