@@ -35,7 +35,7 @@ export default class WeatherCard extends LightningElement {
 
     get maxTemp() {
         if (this.unit === 'celsius') {
-            return `${this.value?.maxTemperature || '-'} °C`;
+            return `${this.value?.maxTemperatureC || '-'} °C`;
         }
         return `${this.value?.maxTemperatureF || '-'} °F`;
     }
