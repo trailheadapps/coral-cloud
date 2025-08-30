@@ -15,7 +15,7 @@ public with sharing class ListExperiencesFromType {
                 '%';
             // Fetch experiences records
             List<Experience__c> experiences = [
-                SELECT Id, Name, Picture_URL__c
+                SELECT Id, Name, Picture_URL__c, Description__c
                 FROM Experience__c
                 WHERE Type__c LIKE :type
                 WITH SYSTEM_MODE
@@ -27,7 +27,8 @@ public with sharing class ListExperiencesFromType {
                     new ExperienceItem(
                         experience.Name,
                         experience.Picture_URL__c,
-                        'image/jpeg'
+                        'image/jpeg',
+                        experience.Description__c
                     )
                 );
             }
@@ -61,11 +62,18 @@ public with sharing class ListExperiencesFromType {
         public String name;
         public String imageUrl;
         public String mimeType;
+        public String description;
 
-        public ExperienceItem(String name, String imageUrl, String mimeType) {
+        public ExperienceItem(
+            String name,
+            String imageUrl,
+            String mimeType,
+            String description
+        ) {
             this.name = name;
             this.imageUrl = imageUrl;
             this.mimeType = mimeType;
+            this.description = description;
         }
     }
 }
