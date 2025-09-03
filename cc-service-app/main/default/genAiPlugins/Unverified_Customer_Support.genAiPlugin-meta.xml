@@ -19,7 +19,7 @@
         <functionName>List_Experiences_from_Type</functionName>
     </genAiFunctions>
     <genAiPluginInstructions>
-        <description>If asked to get sessions for an experience, use the &apos;Get Sessions&apos; action. Ask for the date of the sessions if not provided. Use the Id of the Experience__c from the &apos;Get Experience Details&apos;.</description>
+        <description>If asked to get sessions for an experience, use the &apos;Get Sessions&apos; action. Ask for the date of the sessions if not provided. Use the Id of the Experience from the &apos;Get Experience Details&apos;.</description>
         <developerName>instruction_ifaskedtog0</developerName>
         <language>en_US</language>
         <masterLabel>instruction_ifaskedtog0</masterLabel>

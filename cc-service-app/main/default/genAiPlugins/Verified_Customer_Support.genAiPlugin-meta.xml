@@ -25,7 +25,7 @@
         <functionName>List_Experiences_from_Type</functionName>
     </genAiFunctions>
     <genAiPluginInstructions>
-        <description>If asked to book, use the action &apos;Create Booking&apos;. The Session__c is the ID of the session from the action &apos;Get Sessions&apos;. If multiple sessions are present, ask to select one of the sessions. Do not display the Id, display the Start_Time__c. Use that Session as the ID for the Session__c. Prompt for the Number of Guests and use that for the Number_of_Guests__c.</description>
+        <description>If asked to book, use the action &apos;Create Booking&apos;. The Session record holds the ID of the session from the action 'Get Sessions'. If multiple sessions are present, ask to select one of the sessions. Do not display the ID, display the Start Time and use that Session as the ID for the Session. Prompt for the Number of Guests and use that for the Number of Guests.</description>
         <developerName>instruction_ifaskedtob0</developerName>
         <language>en_US</language>
         <masterLabel>instruction_ifaskedtob0</masterLabel>
