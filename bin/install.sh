@@ -37,33 +37,29 @@ else
     fi
 fi
 
-echo "[1/7] Pushing base source..." && \
+echo "[1/6] Pushing base source..." && \
 sf project deploy start -d cc-base-app && \
 echo "" && \
 
-echo "[2/7] Assigning Prompt Template Manager permission set..." && \
+echo "[2/6] Assigning Prompt Template Manager permission set..." && \
 sf org assign permset -n EinsteinGPTPromptTemplateManager && \
 echo "" && \
 
-echo "[3/7] Pushing employee source..." && \
+echo "[3/6] Pushing employee source..." && \
 sf project deploy start -d cc-employee-app && \
 echo "" && \
 
-echo "[4/7] Assigning Coral Cloud permission sets..." && \
+echo "[4/6] Assigning Coral Cloud permission sets..." && \
 sf org assign permset -n Coral_Cloud_Admin && \
 sf org assign permset -n Coral_Cloud_Employee_Agent_Access && \
 echo "" && \
 
-echo "[5/7] Importing sample data..." && \
+echo "[5/6] Importing sample data..." && \
 sf data tree import -p data/data-plan.json && \
 echo "" && \
 
-echo "[6/7] Generate additional sample data..." && \
+echo "[6/6] Generate additional sample data..." && \
 sf apex run -f apex-scripts/setup.apex && \
-echo "" && \
-
-echo "[7/7] Installing Data Kit..." && \
-sf package install -p 04tHr000000ku4k -w 10 && \
 echo "" && \
 
 echo "Opening org..." && \
