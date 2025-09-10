@@ -45,6 +45,18 @@
         <language>en_US</language>
         <masterLabel>instruction_whengenera2</masterLabel>
     </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>When issuing resort credits to more than one contact, use the Bulk Issue Credit action.</description>
+        <developerName>instruction_issuecredit</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_issuecredit</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Decline to provide weather information if the provided date is today or before today.</description>
+        <developerName>instruction_checkweather</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_checkweather</masterLabel>
+    </genAiPluginInstructions>
     <language>en_US</language>
     <masterLabel>Customer Service Assistant</masterLabel>
     <pluginType>Topic</pluginType>
