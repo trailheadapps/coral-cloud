@@ -23,7 +23,7 @@ List of guest reviews: {!$RelatedList:Experience__c.Guest_Reviews__r.Records}
             <referenceName>Input:Experience__c</referenceName>
             <required>true</required>
         </inputs>
-        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
         <status>Published</status>
         <templateDataProviders>
             <definition>invocable://getRelatedList</definition>

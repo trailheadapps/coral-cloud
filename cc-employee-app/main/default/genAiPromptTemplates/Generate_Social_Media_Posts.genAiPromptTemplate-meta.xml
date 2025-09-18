@@ -144,7 +144,7 @@
             <referenceName>Input:experienceSession</referenceName>
             <required>true</required>
         </inputs>
-        <primaryModel>sfdc_ai__DefaultOpenAIGPT35Turbo</primaryModel>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
         <status>Published</status>
         <versionIdentifier
         >g8e6IWywKki8fcmzblc3o3liVRxBT/o0dl5GpICFNJE=_1</versionIdentifier>
