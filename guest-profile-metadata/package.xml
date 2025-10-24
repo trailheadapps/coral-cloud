@@ -19,5 +19,5 @@
         <members>Session__c</members>
         <name>SharingRules</name>
     </types>
-    <version>64.0</version>
+    <version>65.0</version>
 </Package>

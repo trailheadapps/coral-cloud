@@ -85,7 +85,7 @@
         <nameSegment>routeWork</nameSegment>
         <offset>0</offset>
     </actionCalls>
-    <apiVersion>64.0</apiVersion>
+    <apiVersion>65.0</apiVersion>
     <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <description
     >Create a case and route it to a queue so that it can be picked up by an Agent.</description>

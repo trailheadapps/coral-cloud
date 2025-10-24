@@ -94,7 +94,7 @@
         <nameSegment>routeWork</nameSegment>
         <offset>0</offset>
     </actionCalls>
-    <apiVersion>64.0</apiVersion>
+    <apiVersion>65.0</apiVersion>
     <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <environments>Default</environments>
     <interviewLabel>Route to Agent {!$Flow.CurrentDateTime}</interviewLabel>

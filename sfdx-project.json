@@ -4,21 +4,22 @@
       "path": "cc-base-app",
       "default": true,
       "package": "Coral Cloud - Base",
-      "versionName": "Winter '25 release",
+      "versionName": "Winter '26 release",
       "versionDescription": "Base package for the Coral Cloud sample app",
       "versionNumber": "1.14.0.NEXT",
       "definitionFile": "config/project-scratch-def.json",
       "apexTestAccess": {
         "permissionSets": [
           "Coral_Cloud_Admin"
-        ]
+        ],
+        "permissionSetLicenses": []
       }
     },
     {
       "path": "cc-site",
       "default": false,
       "package": "Coral Cloud - Site",
-      "versionName": "Winter '25 release",
+      "versionName": "Winter '26 release",
       "versionDescription": "Coral Cloud Experience Cloud site",
       "versionNumber": "1.7.0.NEXT",
       "definitionFile": "config/project-scratch-def.json",
@@ -39,7 +40,7 @@
   "name": "Coral Cloud Resorts",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "64.0",
+  "sourceApiVersion": "65.0",
   "packageAliases": {
     "Coral Cloud - Base": "0HoWx00000000mPKAQ",
     "Coral Cloud - Site": "0HoWx00000001ddKAA",
