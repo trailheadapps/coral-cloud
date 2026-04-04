@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description
+    >The Review Object stores feedback on experiences, tracking ratings, comments, and trends to enhance service quality and customer satisfaction.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <label>Guest Review</label>
+    <nameField>
+        <displayFormat>R-{00000000}</displayFormat>
+        <label>Review Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Guest Reviews</pluralLabel>
+    <searchLayouts>
+        <searchResultsAdditionalFields
+        >Experience__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields
+        >Contact__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Rating__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields
+        >Comments__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,264 @@
+system:
+    instructions: "You are an AI Agent assistant for a hotel that offers experiences to its customers."
+
+    messages:
+        welcome: |
+            Hi, I'm an AI service assistant. How can I help you?
+        error: "Sorry, it looks like something has gone wrong."
+
+config:
+    agent_label: "Customer Service Agent"
+    developer_name: "Customer_Service_Agent"
+    description: "Deliver personalized customer interactions and assist with customer inquiries and requests."
+    default_agent_user: "customer_service_agent@00dws00000n2qjd1131185311.ext"
+
+language:
+    default_locale: "en_US"
+    additional_locales: "en_GB"
+    all_additional_locales: False
+
+variables:
+    authenticationKey: mutable string
+        description: "Stores the authentication key that's used to generate the verification code."
+        visibility: "Internal"
+    customerId: mutable string
+        description: "Stores the Salesforce user ID or contact ID."
+        visibility: "Internal"
+    customerType: mutable string
+        description: "Stores the customer ID type, whether it's a Salesforce user or a contact."
+        visibility: "Internal"
+    isVerified: mutable boolean = False
+        label: "isVerified"
+        description: "Stores a boolean value that indicates whether the customer code is verified."
+        visibility: "Internal"
+    EndUserId: linked string
+        source: @MessagingSession.MessagingEndUserId
+        description: "This variable may also be referred to as MessagingEndUser Id"
+    RoutableId: linked string
+        source: @MessagingSession.Id
+        description: "This variable may also be referred to as MessagingSession Id"
+    ContactId: linked string
+        source: @MessagingEndUser.ContactId
+        description: "This variable may also be referred to as MessagingEndUser ContactId"
+    EndUserLanguage: linked string
+        source: @MessagingSession.EndUserLanguage
+        description: "This variable may also be referred to as MessagingSession EndUserLanguage"
+    VerifiedCustomerId: mutable string
+        description: "This variable may also be referred to as VerifiedCustomerId"
+        visibility: "Internal"
+
+start_agent topic_selector:
+    label: "Topic Selector"
+
+    description: "Welcome the user and determine the appropriate topic based on user input"
+
+    reasoning:
+        instructions: ->
+            | Select the best tool to call based on conversation history and user's intent.
+
+        actions:
+            go_to_ServiceCustomerVerification: @utils.transition to @topic.ServiceCustomerVerification
+                available when @variables.isVerified==False
+
+            go_to_experience_management: @utils.transition to @topic.experience_management
+
+topic ServiceCustomerVerification:
+    label: "Service Customer Verification"
+
+    description: "Verifies the customer's identity before granting access to sensitive data. Verification is required for inquiries related to orders and order status, deliveries, reservations, password resets, account management (e.g. contact information updates), or cases. Sensitive data includes confidential, private, or security-protected information, such as business-critical data or personally identifiable information (PII)."
+
+    reasoning:
+        instructions: ->
+            | Your job is to authenticate the customer who has not yet been authenticated before granting access to any sensitive data. You will verify the customer using their email address or username. After verification is successful, don't repeat the process within the same session.
+            | Ask the customer to enter their username or email address if it hasn't been provided.
+            | Use the {!@actions.SendEmailVerificationCode}  action to initiate the verification process. Use the username or email address provided by the customer as input "customerToVerify" for this action.
+            | When the user provides their username or email address, you must never return any message that discloses whether the user or email exists or not. The message must explicitly state the return data of the "verificationMessage" field in the {!@actions.SendEmailVerificationCode}  action. For example: "If you have provided a valid email or username, you should receive a verification code to verify your identity. Please enter the code."
+            | If the customer enters the wrong verification code three times, ask them to re-enter their username or email address to receive a new verification code. This involves invoking the {!@actions.SendEmailVerificationCode}  action again to initiate the verification process. This ensures that the customer cannot bypass the verification process after three unsuccessful attempts.
+            | Never process any request for accessing or updating any sensitive data without invoking this function if the customer is not verified yet. Maintain security in all interactions.
+            | Never reveal the verification code, email address, or username to the customer during the authentication process. Make sure that these details remain confidential and aren’t displayed at any point.
+            | After the user is verified in a conversation session, switching to a different user isn't allowed under any circumstances.
+            | If verification is successful, proceed with the requested action and complete the task the user intends to perform.
+
+        actions:
+            SendEmailVerificationCode: @actions.SendEmailVerificationCode
+                with customerToVerify = ...
+                set @variables.authenticationKey = @outputs.authenticationKey
+                set @variables.customerId = @outputs.customerId
+                set @variables.customerType = @outputs.customerType
+
+            VerifyCustomer: @actions.VerifyCustomer
+                with authenticationKey = @variables.authenticationKey
+                with customerCode = ...
+                with customerId = @variables.customerId
+                with customerType = @variables.customerType
+                set @variables.isVerified = @outputs.isVerified
+                set @variables.VerifiedCustomerId = @outputs.customerId
+                if @variables.isVerified:
+                    transition to @topic.topic_selector
+
+    actions:
+        SendEmailVerificationCode:
+            description: "Sends a generated verification code to the user’s email address."
+            inputs:
+                customerToVerify: string
+                    description: "Stores the email address or username provided by the customer. This input initiates the verification process."
+                    label: "Customer To Verify"
+                    is_required: True
+                    is_user_input: True
+            outputs:
+                verificationMessage: string
+                    description: "Stores a generic message that will be displayed to the user."
+                    label: "Verification Message"
+                    filter_from_agent: False
+                    is_displayable: True
+                verificationCode: string
+                    description: "Stores the generated verification code."
+                    label: "Verification Code"
+                    filter_from_agent: True
+                    is_displayable: False
+                authenticationKey: string
+                    description: "Stores the authentication key that’s used to generate the verification code."
+                    label: "Authentication Key"
+                    filter_from_agent: True
+                    is_displayable: False
+                customerId: string
+                    description: "Stores the Salesforce user ID or contact ID."
+                    label: "Customer ID"
+                    filter_from_agent: True
+                    is_displayable: False
+                customerType: string
+                    description: "Stores the customer ID type, whether it’s a Salesforce user or a contact."
+                    label: "Customer Type"
+                    filter_from_agent: True
+                    is_displayable: False
+            target: "flow://SvcCopilotTmpl__SendVerificationCode"
+            label: "Send Email with Verification Code"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            source: "SvcCopilotTmpl__SendEmailVerificationCode"
+
+        VerifyCustomer:
+            description: "Verifies whether the verification code entered by the user matches the code sent to the user's email address."
+            inputs:
+                authenticationKey: string
+                    description: "Stores the authentication key that’s used to generate the verification code."
+                    label: "Authentication Key"
+                    is_required: True
+                    is_user_input: False
+                customerCode: string
+                    description: "Stores the verification code entered by the user in the conversation, which they received by email."
+                    label: "Customer Code"
+                    is_required: True
+                    is_user_input: True
+                customerId: string
+                    description: "Stores the Salesforce user ID or contact ID."
+                    label: "Customer ID"
+                    is_required: True
+                    is_user_input: False
+                customerType: string
+                    description: "Stores the customer ID type, whether it’s a Salesforce user or a contact."
+                    label: "Customer Type"
+                    is_required: True
+                    is_user_input: False
+            outputs:
+                isVerified: boolean
+                    description: "Stores a boolean value that indicates whether the customer code is verified."
+                    label: "Verified"
+                    filter_from_agent: True
+                    is_displayable: False
+                customerId: string
+                    description: "Stores the Salesforce user ID or contact ID."
+                    label: "Customer Id"
+                    filter_from_agent: True
+                    is_displayable: False
+                customerType: string
+                    description: "Stores Type of ID"
+                    label: "Customer Type"
+                    filter_from_agent: True
+                    is_displayable: False
+                messageAfterVerification: string
+                    description: "Stores a generic message to be displayed after successful verification."
+                    label: "Message After Verification"
+                    filter_from_agent: True
+                    is_displayable: True
+            target: "flow://SvcCopilotTmpl__VerifyCode"
+            label: "Verify Customer"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            source: "SvcCopilotTmpl__VerifyCustomer"
+
+
+
+
+topic experience_management:
+    label: "Experience Management"
+
+    description: "Handles customer requests to view experiences and manage their bookings."
+
+    reasoning:
+        instructions: ->
+            | Your job is to help users discover available experiences.
+            | Use {!@actions.ListExperienceTypes} to retrieve and share the available experience types.
+            | If a user asks to see experiences for a specific type, call {!@actions.ListExperiencesFromType} with that type and return the results.
+            | If the user has not provided a type yet, ask them to choose one from the available types before calling {!@actions.ListExperiencesFromType}.
+            | If a user asks for sessions for a specific experience, call {!@actions.ListSessionsFromExperience} with the experience name and return the results.
+
+        actions:
+            ListExperienceTypes: @actions.ListExperienceTypes
+                with dummyInput = ""
+
+            ListExperiencesFromType: @actions.ListExperiencesFromType
+                with experienceType = ...
+
+            ListSessionsFromExperience: @actions.ListSessionsFromExperience
+                with experienceName = ...
+
+    actions:
+        ListExperienceTypes:
+            description: "Returns the list of available experience types."
+            inputs:
+                dummyInput: string
+                    description: "Unused input required by the invocable Apex action."
+                    label: "Dummy Input"
+                    is_required: False
+            outputs:
+                experienceTypes: string
+                    description: "The list of available experience types, serialized as a JSON string."
+                    label: "Experience Types"
+            target: "apex://ListExperienceTypes"
+            label: "List Experience Types"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+
+        ListExperiencesFromType:
+            description: "Returns the list of experiences for the specified type."
+            inputs:
+                experienceType: string
+                    description: "The experience type selected by the user."
+                    label: "Experience Type"
+                    is_required: True
+            outputs:
+                experiences: string
+                    description: "The list of experiences that match the selected type, serialized as a JSON string."
+                    label: "Experiences"
+            target: "apex://ListExperiencesFromType"
+            label: "List Experiences from Type"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+
+        ListSessionsFromExperience:
+            description: "Returns the list of sessions for the specified experience."
+            inputs:
+                experienceName: string
+                    description: "The experience name selected by the user."
+                    label: "Experience Name"
+                    is_required: True
+            outputs:
+                sessions: string
+                    description: "The list of sessions for the selected experience, serialized as a JSON string."
+                    label: "Sessions"
+            target: "apex://ListSessionsFromExperience"
+            label: "List Sessions from Experience"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+

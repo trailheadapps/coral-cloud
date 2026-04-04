@@ -1,0 +1,34 @@
+<template>
+    <lightning-card title="Experience Details" icon-name="standard:tour">
+        <lightning-button-icon
+            slot="actions"
+            icon-name="utility:preview"
+            alternative-text="View experience record"
+            title="Open experience record"
+            onclick={handleViewExperienceClick}
+            disabled={isNoExperienceSelected}
+        >
+        </lightning-button-icon>
+        <div class="slds-var-m-horizontal_medium">
+            <lightning-empty-state
+                lwc:if={isNoExperienceSelected}
+                illustration-name="noresults:filter"
+                title="No Experience Selected"
+            >
+                <p slot="description">
+                    Select an experience to view its details.
+                </p>
+            </lightning-empty-state>
+
+            <lightning-record-form
+                lwc:else
+                record-id={_recordId}
+                object-api-name="Experience__c"
+                fields={fields}
+                columns="2"
+                mode="readonly"
+            >
+            </lightning-record-form>
+        </div>
+    </lightning-card>
+</template>

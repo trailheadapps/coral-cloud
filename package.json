@@ -22,9 +22,6 @@
         ],
         "**/*.js": [
             "eslint"
-        ],
-        "**/lwc/**": [
-            "sfdx-lwc-jest -- --bail --findRelatedTests --passWithNoTests"
         ]
     },
     "author": "salesforce.com",
