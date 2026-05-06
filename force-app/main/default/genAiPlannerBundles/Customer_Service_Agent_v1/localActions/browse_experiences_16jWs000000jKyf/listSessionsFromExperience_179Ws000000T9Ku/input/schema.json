@@ -1,0 +1,14 @@
+{
+  "required" : [ "experienceName" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "experienceName" : {
+      "title" : "Experience Name",
+      "description" : "The experience name selected by the user.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

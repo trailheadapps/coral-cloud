@@ -5,6 +5,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CreateBooking</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ListExperienceTypes</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -21,9 +25,24 @@
         <enabled>true</enabled>
     </classAccesses>
     <description
-    >Allows custom permissions for Agentforce Agent : Customer_Service_Agent&apos;s agent user : customer_service_agent@00dws00000n2qjd1131185311.ext.</description>
+    >Permissions for Coral Cloud Customer Service Agent.</description>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Interest1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Interest2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Interest3__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>Customer_Service_Agent14004830 Permissions</label>
+    <label>Coral Cloud Customer Service Agent</label>
     <license>Einstein Agent</license>
     <objectPermissions>
         <allowCreate>false</allowCreate>

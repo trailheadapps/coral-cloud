@@ -10,10 +10,7 @@
         "LiveMessage",
         "Sites",
         "FlowSites",
-        "CustomerDataPlatform",
         "Einstein1AIPlatform",
-        "PublishExpBuilderBasedSna",
-        "EmbeddedServiceMessaging",
         "EnableSetPasswordInApi"
     ],
     "settings": {
@@ -34,9 +31,6 @@
         "omniChannelSettings": { "enableOmniChannel": true },
         "userEngagementSettings": {
             "enableShowSalesforceUserAssist": false
-        },
-        "customerDataPlatformSettings": {
-            "enableCustomerDataPlatform": true
         },
         "EinsteinGptSettings": {
             "enableEinsteinGptPlatform": true

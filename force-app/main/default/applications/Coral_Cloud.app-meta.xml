@@ -16,7 +16,6 @@
     <label>Coral Cloud Resorts</label>
     <navType>Standard</navType>
     <tabs>standard-home</tabs>
-    <tabs>standard-Account</tabs>
     <tabs>standard-Contact</tabs>
     <tabs>Experience__c</tabs>
     <tabs>Session__c</tabs>

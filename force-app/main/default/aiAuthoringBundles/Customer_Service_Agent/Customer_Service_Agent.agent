@@ -10,7 +10,7 @@ config:
     agent_label: "Customer Service Agent"
     developer_name: "Customer_Service_Agent"
     description: "Deliver personalized customer interactions and assist with customer inquiries and requests."
-    default_agent_user: "customer_service_agent@00dws00000n2qjd1131185311.ext"
+    default_agent_user: "agent.user.7ccbfed448f7@example.com"
 
 language:
     default_locale: "en_US"
@@ -230,7 +230,7 @@ subagent manage_bookings:
                     description: "The session ID to book."
                     label: "Session ID"
                     is_required: True
-                numberOfGuests: integer
+                numberOfGuests: number
                     description: "The number of guests to book the session for."
                     label: "Number of Guests"
                     is_required: True

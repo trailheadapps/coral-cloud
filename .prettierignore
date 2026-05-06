@@ -2,8 +2,9 @@
 # More information: https://prettier.io/docs/en/ignore.html
 #
 
-# Topic instructions
+# Generated Agentforce files
 **/genAiPlugins/**
+**/genAiPlannerBundles/**
 
 # Dependencies
 **/staticresources/**

@@ -14,14 +14,21 @@ public with sharing class PersonalizedGuestExperiences {
             WHERE Id = :contactId
             WITH USER_MODE
         ];
-        List<Session__c> sessions = ExperienceSessionController.getSessions(
+
+        Recommendations recommendations = new Recommendations();
+        recommendations.preferences = new List<String>{
+            contact.Interest1__c,
+            contact.Interest2__c,
+            contact.Interest3__c
+        };
+        recommendations.sessions = ExperienceSessionController.getSessions(
             contact
         );
 
         // Create expected response
         List<Response> responses = new List<Response>();
         Response res = new Response();
-        res.prompt = JSON.serialize(sessions);
+        res.sessions = JSON.serialize(recommendations);
         responses.add(res);
         return responses;
     }
@@ -35,6 +42,11 @@ public with sharing class PersonalizedGuestExperiences {
 
     public class Response {
         @InvocableVariable
-        public String Prompt;
+        public String sessions;
+    }
+
+    private class Recommendations {
+        public List<String> preferences;
+        public List<Session__c> sessions;
     }
 }

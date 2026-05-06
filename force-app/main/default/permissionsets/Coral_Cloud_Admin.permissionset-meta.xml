@@ -4,10 +4,6 @@
         <application>Coral_Cloud</application>
         <visible>true</visible>
     </applicationVisibilities>
-    <applicationVisibilities>
-        <application>Sample_Data_Import</application>
-        <visible>true</visible>
-    </applicationVisibilities>
     <description>Coral Cloud Admin</description>
     <fieldPermissions>
         <editable>true</editable>
@@ -651,10 +647,6 @@
     </tabSettings>
     <tabSettings>
         <tab>Guest_Review__c</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>Import</tab>
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>

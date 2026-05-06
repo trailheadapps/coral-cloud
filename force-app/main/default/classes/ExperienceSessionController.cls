@@ -30,7 +30,7 @@ public with sharing class ExperienceSessionController {
                 AND Is_Canceled__c = FALSE
             WITH USER_MODE
             ORDER BY Start_Time__c ASC
-            LIMIT 10
+            LIMIT 3
         ];
         return experienceSessions;
     }

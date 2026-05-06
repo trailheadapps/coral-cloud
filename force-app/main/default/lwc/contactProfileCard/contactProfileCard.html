@@ -16,7 +16,7 @@
                             alt="Profile picture"
                         />
                     </div>
-                    <div class="slds-align-middle slds-p-left_medium">
+                    <div class="slds-align-middle slds-var-p-left_medium">
                         <h1 class="slds-text-heading_medium">
                             <strong>{name}</strong>
                         </h1>
@@ -29,9 +29,7 @@
                     object-api-name="Contact"
                 >
                     <!-- 2 column layout -->
-                    <div
-                        class="slds-grid slds-border_bottom slds-p-vertical_medium"
-                    >
+                    <div class="slds-grid slds-var-p-top_medium">
                         <div class="slds-col slds-size_1-of-2">
                             <lightning-output-field
                                 field-name="Membership_Number__c"
@@ -50,37 +48,21 @@
                         </div>
                     </div>
 
-                    <!-- Single column layout with icons -->
-                    <div class="slds-grid slds-wrap slds-p-top_medium">
-                        <div
-                            class="slds-size_1-of-12 slds-align_absolute-center"
+                    <!-- Interests -->
+                    <div class="slds-form-element slds-form-element_stacked">
+                        <label
+                            class="slds-form-element__label"
+                            for="interests-summary"
                         >
-                            <lightning-icon
-                                icon-name="utility:einstein"
-                                size="x-small"
-                                variant="inverse"
-                                alternative-text="Einstein icon"
-                            ></lightning-icon>
-                        </div>
-                        <div class="slds-size_11-of-12">
-                            <lightning-output-field field-name="Guest_Type__c">
-                            </lightning-output-field>
-                        </div>
-                        <div
-                            class="slds-size_1-of-12 slds-align_absolute-center"
-                        >
-                            <lightning-icon
-                                icon-name="utility:cart"
-                                size="x-small"
-                                variant="inverse"
-                                alternative-text="Cart icon"
-                            ></lightning-icon>
-                        </div>
-                        <div class="slds-size_11-of-12">
-                            <lightning-output-field
-                                field-name="Lifetime_Value__c"
+                            Experience Interests
+                        </label>
+                        <div class="slds-form-element__control">
+                            <div
+                                id="interests-summary"
+                                class="slds-form-element__static"
                             >
-                            </lightning-output-field>
+                                {interestsSummary}
+                            </div>
                         </div>
                     </div>
                 </lightning-record-view-form>

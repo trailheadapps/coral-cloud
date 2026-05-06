@@ -2,63 +2,52 @@
 SCRIPT_PATH=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cd $SCRIPT_PATH/..
 
+# Set parameters
+ORG_ALIAS="cc-demo"
+
 echo ""
-echo "Installing Coral Cloud - Base + Employee"
+echo "Installing Coral Cloud demo ($ORG_ALIAS)"
 echo ""
 
-# Get default org alias
-VALUE_REGEX='"value": "([a-zA-Z0-9_\-]+)"'
-ORG_INFO=$(sf config get target-org --json)
-if [[ $ORG_INFO =~ $VALUE_REGEX ]]
-then
-    ORG_ALIAS="${BASH_REMATCH[1]}"
-    echo "Using current default org: $ORG_ALIAS"
-    echo ""
+echo "Cleaning previous scratch org..."
+sf org delete scratch -p -o $ORG_ALIAS &> /dev/null
+echo ""
 
-    # Open DC Setup home
-    sf org open -p lightning/setup/SetupOneHome/home?setupApp=audience360
-    echo ""
-else
-    echo "Could not retrieve default org alias."
-    read -p "Create a scratch org? [yY]: " -n 1 -r
-    echo ""
-    if [[ $REPLY =~ ^[^Yy]$ ]]
-    then
-        echo "Installation aborted."
-        exit 1
-    fi
-    ORG_ALIAS="cc-scratch-org"
-    sf org create scratch --definition-file config/project-scratch-def.json --alias "$ORG_ALIAS" -d -y 30
-    EXIT_CODE="$?"
-    echo ""
-    if [ "$EXIT_CODE" -ne 0 ]; then
-        echo "Installation failed."
-        exit $EXIT_CODE
-    fi
-fi
-
-echo "[1/6] Pushing base source..." && \
-sf project deploy start -d cc-base-app && \
+echo "[1/9] Creating scratch org..." && \
+sf org create scratch -f config/project-scratch-def.json -a $ORG_ALIAS -d -y 30 && \
 echo "" && \
 
-echo "[2/6] Assigning Prompt Template Manager permission set..." && \
-sf org assign permset -n EinsteinGPTPromptTemplateManager && \
+echo "[2/9] Creating Service Agent user..." && \
+AGENT_USERNAME=$(sf org create agent-user --first-name Service --last-name Agent --json | jq -r '.result.username') && \
+echo "Service Agent username: $AGENT_USERNAME" && \
 echo "" && \
 
-echo "[3/6] Pushing employee source..." && \
-sf project deploy start -d cc-employee-app && \
+echo "[3/9] Overwrite agent username in *.agent files..." && \
+find . -name "*.agent" -exec sed -i '' "s/default_agent_user: \".*\"/default_agent_user: \"$AGENT_USERNAME\"/" {} + && \
 echo "" && \
 
-echo "[4/6] Assigning Coral Cloud permission sets..." && \
-sf org assign permset -n Coral_Cloud_Admin && \
-sf org assign permset -n Coral_Cloud_Employee_Agent_Access && \
+echo "[4/9] Overwrite agent username in *.bot-meta.xml files..." && \
+find . -name "*.bot-meta.xml" -exec sed -i '' "s/<botUser>.*<\/botUser>/<botUser>$AGENT_USERNAME<\/botUser>/" {} + && \
 echo "" && \
 
-echo "[5/6] Importing sample data..." && \
+echo "[5/9] Assigning prompt template manager permission sets to user..."
+sf org assign permset -n EinsteinGPTPromptTemplateManager
+echo "" && \
+
+echo "[6/9] Pushing base source..." && \
+sf project deploy start && \
+echo "" && \
+
+echo "[7/9] Assigning Coral Cloud permission sets..." && \
+sf org assign permset -n Coral_Cloud_Admin
+sf org assign permset -n Coral_Cloud_Customer_Service_Agent -b "$AGENT_USERNAME"
+echo "" && \
+
+echo "[8/9] Importing sample data..." && \
 sf data tree import -p data/data-plan.json && \
 echo "" && \
 
-echo "[6/6] Generate additional sample data..." && \
+echo "[9/9] Generate additional sample data..." && \
 sf apex run -f apex-scripts/setup.apex && \
 echo "" && \
 
