@@ -40,11 +40,13 @@ public with sharing class DemoSetup {
             for (Session__c session : sessions) {
                 session.Date__c = session.Date__c.addDays(offsetDays);
             }
+            System.debug('Updating ' + sessions.size() + ' sessions');
             update sessions;
         }
     }
 
     private static void cleanSofiasSessionBookings() {
+        System.debug('Adjusting Sofia\'s bookings');
         // Find Sofia
         Contact sofia = [
             SELECT Id
@@ -68,7 +70,7 @@ public with sharing class DemoSetup {
                 LIMIT 100
             ];
             Session__c session = sessions[
-                Math.mod(Crypto.getRandomInteger(), sessions.size())
+                Integer.valueof((Math.random() * sessions.size()))
             ];
             insert new Booking__c(
                 Contact__c = sofia.Id,
