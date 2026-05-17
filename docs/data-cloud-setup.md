@@ -1,6 +1,6 @@
 # Data Cloud deployment and configuration
 
-1. Install automatically some of the components (Amazon S3 connection and data streams) from the Data Kit thanks to the [Data Kit component deployment flow](https://developer.salesforce.com/docs/platform/data-cloud-dev/guide/dc-deploy_data_kit_components.html):
+1. Install automatically some of the components (Amazon S3 connection and data streams) from the Data Kit thanks to the [Data Kit component deployment flow](https://developer.salesforce.com/docs/data/data-cloud-dev/guide/dc-deploy_data_kit_components.html):
 
     ```bash
     sf api request rest '/services/data/v64.0/actions/custom/flow/sfdatakit__DeployDataKitComponents' --method POST --body @config/data-kit-deploy.json
