@@ -6,14 +6,23 @@ public with sharing class PersonalizedGuestExperiences {
         description='Get today\'s sessions that match the user\'s interests.'
     )
     public static List<Response> getSessions(List<Request> requests) {
-        Id contactId = requests[0].contactId;
-
-        Contact contact = [
-            SELECT Id, Name, Interest1__c, Interest2__c, Interest3__c
-            FROM Contact
-            WHERE Id = :contactId
-            WITH USER_MODE
-        ];
+        String contactIdOrName = requests[0].contactId;
+        Contact contact;
+        if (contactIdOrName.startsWith('003')) {
+            contact = [
+                SELECT Id, Name, Interest1__c, Interest2__c, Interest3__c
+                FROM Contact
+                WHERE Id = :contactIdOrName
+                WITH USER_MODE
+            ];
+        } else {
+            contact = [
+                SELECT Id, Name, Interest1__c, Interest2__c, Interest3__c
+                FROM Contact
+                WHERE Name = :contactIdOrName
+                WITH USER_MODE
+            ];
+        }
 
         Recommendations recommendations = new Recommendations();
         recommendations.preferences = new List<String>{
@@ -36,7 +45,10 @@ public with sharing class PersonalizedGuestExperiences {
     // The variables in this class need to match the prompt template inputs,
     // that may be different on each prompt template
     public class Request {
-        @InvocableVariable(required=true description='The guest (Contact) ID')
+        @InvocableVariable(
+            required=true
+            description='The guest (Contact) ID or Name'
+        )
         public String contactId;
     }
 

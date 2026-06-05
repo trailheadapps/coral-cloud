@@ -13,42 +13,54 @@ echo "Cleaning previous scratch org..."
 sf org delete scratch -p -o $ORG_ALIAS &> /dev/null
 echo ""
 
-echo "[1/9] Creating scratch org..." && \
+echo "[1/12] Creating scratch org..." && \
 sf org create scratch -f config/project-scratch-def.json -a $ORG_ALIAS -d -y 30 && \
 echo "" && \
 
-echo "[2/9] Creating Service Agent user..." && \
+echo "[2/12] Creating Service Agent user..." && \
 AGENT_USERNAME=$(sf org create agent-user --first-name Service --last-name Agent --json | jq -r '.result.username') && \
 echo "Service Agent username: $AGENT_USERNAME" && \
 echo "" && \
 
-echo "[3/9] Overwrite agent username in *.agent files..." && \
+echo "[3/12] Overwrite agent username in *.agent files..." && \
 find . -name "*.agent" -exec sed -i '' "s/default_agent_user: \".*\"/default_agent_user: \"$AGENT_USERNAME\"/" {} + && \
 echo "" && \
 
-echo "[4/9] Overwrite agent username in *.bot-meta.xml files..." && \
+echo "[4/12] Overwrite agent username in *.bot-meta.xml files..." && \
 find . -name "*.bot-meta.xml" -exec sed -i '' "s/<botUser>.*<\/botUser>/<botUser>$AGENT_USERNAME<\/botUser>/" {} + && \
 echo "" && \
 
-echo "[5/9] Assigning prompt template manager permission sets to user..."
-sf org assign permset -n EinsteinGPTPromptTemplateManager
+echo "[5/12] Assigning prompt template manager permission sets to user..." && \
+sf org assign permset -n EinsteinGPTPromptTemplateManager  && \
 echo "" && \
 
-echo "[6/9] Pushing base source..." && \
+echo "[6/12] Pushing base source..." && \
 sf project deploy start && \
 echo "" && \
 
-echo "[7/9] Assigning Coral Cloud permission sets..." && \
-sf org assign permset -n Coral_Cloud_Admin
-sf org assign permset -n Coral_Cloud_Customer_Service_Agent -b "$AGENT_USERNAME"
+echo "[7/12] Activating agent..." && \
+sf agent activate --api-name Customer_Service_Agent && \
 echo "" && \
 
-echo "[8/9] Importing sample data..." && \
+echo "[8/12] Assigning Coral Cloud permission sets..." && \
+sf org assign permset -n Coral_Cloud_Admin  && \
+sf org assign permset -n Coral_Cloud_Customer_Service_Agent -b "$AGENT_USERNAME"  && \
+echo "" && \
+
+echo "[9/12] Importing sample data..." && \
 sf data tree import -p data/data-plan.json && \
 echo "" && \
 
-echo "[9/9] Generate additional sample data..." && \
+echo "[10/12] Generate additional sample data..." && \
 sf apex run -f apex-scripts/setup.apex && \
+echo "" && \
+
+echo "[11/12] Waiting two minutes for sample data to be generated..." && \
+sleep 2m && \
+echo "" && \
+
+echo "[12/12] Adjusting demo data..." && \
+sf apex run -f apex-scripts/setup-demo.apex && \
 echo "" && \
 
 echo "Opening org..." && \

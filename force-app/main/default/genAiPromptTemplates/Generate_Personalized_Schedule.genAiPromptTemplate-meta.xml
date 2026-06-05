@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
     <activeVersionIdentifier
-    >AYKqxYnYWteUzxaPmRH2kX8HS7T3uPgVoKpLmcitkXM=_1</activeVersionIdentifier>
+    >QflUqsbFkvw3VT/FPb590lSiIsW+D8FSgZ8zdN4uJ+c=_3</activeVersionIdentifier>
     <description
     >Generate a personalized schedule that includes the time and location of resort experiences that are available today, and that match the guest&apos;s interests.</description>
     <developerName>Generate_Personalized_Schedule</developerName>
     <masterLabel>Generate Personalized Schedule</masterLabel>
+    <overridable>false</overridable>
     <templateVersions>
         <content
-        >Your name is {!$User.FirstName}. You work in the guest success team at {!$Organization.Name}.
-Introduce yourself, then present the list of resort activities happening today that match the guest&apos;s interests.
+        >Present the list of resort activities happening today that match the guest&apos;s interests.
 For clarity, use a bullet list.
 For each activity, include name, time, location and duration on a single line. Do not include the date.
 Then add a suggested schedule.
@@ -19,8 +19,10 @@ Make sure the guest has at least 60 minutes of free time between activities.
 Present the suggested schedule in chronological order.
 Tell the guest to reach out if they&apos;d like to book any of these activities.
 List of activities happening today that match the guest&apos;s interests:
-{!$Apex:PersonalizedGuestExperiences.Prompt}
+{!$Apex:PersonalizedGuestExperiences.sessions}{!$Input:contactId}
 </content>
+        <fileDroppingStrategy
+        >{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
         <inputs>
             <apiName>contactId</apiName>
             <definition>primitive://String</definition>
@@ -28,10 +30,14 @@ List of activities happening today that match the guest&apos;s interests:
             <referenceName>Input:contactId</referenceName>
             <required>true</required>
         </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
         <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
         <status>Published</status>
         <templateDataProviders>
             <definition>apex://PersonalizedGuestExperiences</definition>
+            <description
+            >Get today&apos;s sessions that match the user&apos;s interests.</description>
+            <label>Get sessions of interest for today</label>
             <parameters>
                 <definition>primitive://String</definition>
                 <isRequired>true</isRequired>
@@ -41,7 +47,7 @@ List of activities happening today that match the guest&apos;s interests:
             <referenceName>Apex:PersonalizedGuestExperiences</referenceName>
         </templateDataProviders>
         <versionIdentifier
-        >AYKqxYnYWteUzxaPmRH2kX8HS7T3uPgVoKpLmcitkXM=_1</versionIdentifier>
+        >QflUqsbFkvw3VT/FPb590lSiIsW+D8FSgZ8zdN4uJ+c=_3</versionIdentifier>
     </templateVersions>
     <type>einstein_gpt__flex</type>
     <visibility>Global</visibility>

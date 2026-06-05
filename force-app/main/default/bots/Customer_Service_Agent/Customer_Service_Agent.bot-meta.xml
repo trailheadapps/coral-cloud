@@ -7,7 +7,7 @@
         <name>Customer_Service_Agent</name>
     </botMlDomain>
     <botSource>None</botSource>
-    <botUser>agent.user.7ccbfed448f7@example.com</botUser>
+    <botUser>agent.user.bcf3c804d282@example.com</botUser>
     <contextVariables>
         <contextVariableMappings>
             <SObjectType>MessagingSession</SObjectType>
