@@ -3,7 +3,13 @@ SCRIPT_PATH=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cd $SCRIPT_PATH/..
 
 # Set parameters
-ORG_ALIAS="cc-demo"
+ORG_ALIAS="coral-cloud-demo"
+
+# Ensure that jq is installed
+if ! command -v jq &> /dev/null; then
+  echo "Error: jq is not installed. Install it with: brew install jq"
+  exit 1
+fi
 
 echo ""
 echo "Installing Coral Cloud demo ($ORG_ALIAS)"
