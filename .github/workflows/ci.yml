@@ -144,6 +144,11 @@ jobs:
             - name: 'Assign Prompt Template Manager permission set'
               run: sf org assign permset -n EinsteinGPTPromptTemplateManager
 
+            # Deploy prompt templates first so components that reference them
+            # (FlexiPage, Flow) can resolve the templates during their own deploy
+            - name: 'Push prompt templates to scratch org'
+              run: sf project deploy start -d cc-employee-app/main/default/genAiPromptTemplates
+
             # Push employee source to scratch org
             - name: 'Push employee source to scratch org'
               run: sf project deploy start -d cc-employee-app
