@@ -144,6 +144,18 @@ jobs:
             - name: 'Assign Prompt Template Manager permission set'
               run: sf org assign permset -n EinsteinGPTPromptTemplateManager
 
+            # Staged deploy to satisfy prompt-template dependencies:
+            # 1. Apex classes — prompt templates resolve their Apex data
+            #    providers (e.g. apex://PersonalizedGuestExperiences)
+            # 2. Prompt templates — must be committed before the FlexiPage
+            #    and Flow that reference them can be validated
+            # 3. Full employee app — remaining components now resolve
+            - name: 'Push employee Apex classes to scratch org'
+              run: sf project deploy start -d cc-employee-app/main/default/classes
+
+            - name: 'Push prompt templates to scratch org'
+              run: sf project deploy start -d cc-employee-app/main/default/genAiPromptTemplates
+
             # Push employee source to scratch org
             - name: 'Push employee source to scratch org'
               run: sf project deploy start -d cc-employee-app
