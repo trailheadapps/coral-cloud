@@ -38,7 +38,7 @@ jobs:
 
             # Checkout the source code
             - name: 'Checkout source code'
-              uses: actions/checkout@v4
+              uses: actions/checkout@v7.0.0
               with:
                   ref: ${{ github.event.client_payload.ref }}
 
@@ -201,7 +201,7 @@ jobs:
             # Create PR for new package versions
             - name: 'Create PR for new package versions'
               id: create-pr
-              uses: peter-evans/create-pull-request@v6
+              uses: peter-evans/create-pull-request@v8.1.1
               with:
                   title: ${{ steps.prepare-pr.outputs.title }}
                   body: ${{ steps.prepare-pr.outputs.body }}
