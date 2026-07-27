@@ -50,7 +50,7 @@ If you need to [update the Salesforce CLI](https://developer.salesforce.com/docs
 
     To check this, go to **Data Cloud Setup**. The page should look like this if provisioning is complete. If you see a **Get Started** button, click it and wait for the process to complete. This can take up to ten minutes.
 
-![Data Cloud Setup screenshot showing that povisioning is complete](docs/gfx/dc-setup-provisioning.png)
+    ![Data Cloud Setup screenshot showing that povisioning is complete](docs/gfx/dc-setup-provisioning.png)
 
 1. From **Setup**, go to **Einstein Setup** and click **Turn on Einstein**.
 
