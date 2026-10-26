@@ -8,6 +8,8 @@ Welcome to Coral Cloud Resorts, a sample hospitality application. Coral Cloud Re
 
 The Coral Cloud Resorts app showcases **Data Cloud**, **Agents** and **Prompts**.
 
+Learn more by watching this <a href="https://www.youtube.com/watch?v=m1ZxPgwOHOs">short presentation video<a>.
+
 ## Table of contents
 
 - [Installation](#installation)
@@ -27,8 +29,6 @@ The Coral Cloud Resorts app requires licenses for the following features:
 - Data Cloud
 - Agents
 - Prompt Builder field generation templates
-
-Learn more by watching this <a href="https://www.youtube.com/watch?v=m1ZxPgwOHOs">short presentation video<a>.
 
 > [!IMPORTANT]
 > Start from a brand-new environment to avoid conflicts with previous work you may have done.
