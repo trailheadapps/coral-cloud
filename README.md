@@ -1,3 +1,7 @@
+> [!IMPORTANT]
+> The Coral Cloud sample app was retired on November 3, 2026.<br>
+> Consider [Pronto](https://github.com/trailheadapps/pronto) for Agentforce sample business use cases.
+
 # Coral Cloud Resorts
 
 [![CI](https://github.com/trailheadapps/coral-cloud/actions/workflows/ci.yml/badge.svg)](https://github.com/trailheadapps/coral-cloud/actions/workflows/ci.yml)
